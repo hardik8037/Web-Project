@@ -1,0 +1,21 @@
+<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Botzo Robot Face Icon - Favicon -->
+  <!-- Main circular ring - broken at top-left (antenna) and bottom-right (connector) -->
+  <path d="M 28 30 A 34 34 0 1 1 76 78" 
+        stroke="#9C27FF" stroke-width="13" fill="none" stroke-linecap="butt"/>
+  
+  <!-- Bottom-right connector piece -->
+  <rect x="73" y="74" width="13" height="16" rx="1" fill="#9C27FF"/>
+  
+  <!-- Antenna stem - diagonal from top-left of circle -->
+  <line x1="28" y1="30" x2="13" y2="10" stroke="#9C27FF" stroke-width="10" stroke-linecap="butt"/>
+  
+  <!-- Antenna tip square -->
+  <rect x="5" y="2" width="12" height="12" fill="#9C27FF"/>
+  
+  <!-- Left eye -->
+  <rect x="36" y="48" width="12" height="12" fill="#9C27FF"/>
+  
+  <!-- Right eye -->
+  <rect x="54" y="48" width="12" height="12" fill="#9C27FF"/>
+</svg>
