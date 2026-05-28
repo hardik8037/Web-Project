@@ -16,6 +16,7 @@ import { createServices } from '../pages/Services.js';
 import { createSolutions } from '../pages/Solutions.js';
 import { createPricing } from '../pages/Pricing.js';
 import { createResources } from '../pages/Resources.js';
+import { createBlog } from '../pages/Blog.js';
 import { createAbout } from '../pages/About.js';
 import { createContact } from '../pages/Contact.js';
 import { createBookDemo } from '../pages/BookDemo.js';
@@ -32,7 +33,8 @@ const ROUTES = {
   '/services': { title: 'Digital Agency & Development Services | Botzo.io', builder: createServices, mood: 'services' },
   '/solutions': { title: 'Industry-Specific Solutions | Botzo.io', builder: createSolutions, mood: 'solutions' },
   '/pricing': { title: 'Plans & Pricing | Botzo.io', builder: createPricing, mood: 'pricing' },
-  '/resources': { title: 'Resources, Docs & Blog | Botzo.io', builder: createResources, mood: 'resources' },
+  '/resources': { title: 'Resources Hub | Botzo.io', builder: createResources, mood: 'resources' },
+  '/blog': { title: 'Insights & Tutorials Blog | Botzo.io', builder: createBlog, mood: 'resources' },
   '/about': { title: 'About Our Vision | Botzo.io', builder: createAbout, mood: 'about' },
   '/contact': { title: 'Contact Sales & Support | Botzo.io', builder: createContact, mood: 'contact' },
   '/demo': { title: 'Schedule a Consultation | Botzo.io', builder: createBookDemo, mood: 'demo' },
@@ -241,6 +243,7 @@ export class Router {
               ease: 'power2.out',
               onComplete: () => {
                 this.isTransitioning = false;
+                gsap.set(this.container, { clearProps: 'transform' });
               }
             }
           );

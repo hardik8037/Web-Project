@@ -71,7 +71,7 @@ export function createFooter() {
               <li><a href="/contact">Contact</a></li>
               <li><a href="/demo">Book a Demo</a></li>
               <li><a href="/pricing">Pricing</a></li>
-              <li><a href="/resources">Blog</a></li>
+              <li><a href="/blog">Blog</a></li>
               <li><a href="#">Careers</a></li>
               <li><a href="#">Privacy Policy</a></li>
               <li><a href="#">Terms of Service</a></li>

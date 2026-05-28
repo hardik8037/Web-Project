@@ -247,7 +247,33 @@ export function createNavbar() {
         </div>
 
         <a href="/pricing" class="botzo-pill-link">Pricing</a>
-        <a href="/resources" class="botzo-pill-link">Resources</a>
+        
+        <!-- Resources Dropdown -->
+        <div class="nav-dropdown">
+          <button class="botzo-pill-link nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+            Resources <svg width="8" height="5" viewBox="0 0 8 5" fill="none"><path d="M1 1l3 3 3-3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="mega-menu mega-menu-resources" role="menu">
+            <div class="mega-menu-inner" style="grid-template-columns: 1fr; width: 320px; min-width: 320px;">
+              <div class="mega-menu-section" style="border: none; padding: 0;">
+                <a href="/blog" class="mega-menu-item" role="menuitem">
+                  <span class="mega-icon">📝</span>
+                  <div>
+                    <div class="mega-item-title">Blog</div>
+                    <div class="mega-item-desc">Insights, tutorials & growth strategies</div>
+                  </div>
+                </a>
+                <a href="/about" class="mega-menu-item" role="menuitem">
+                  <span class="mega-icon">🏢</span>
+                  <div>
+                    <div class="mega-item-title">About Us</div>
+                    <div class="mega-item-desc">Our mission, vision & platform story</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </nav>
 
       <!-- Right Actions -->
@@ -306,7 +332,16 @@ export function createNavbar() {
         </div>
 
         <a href="/pricing" class="mobile-nav-link">Pricing</a>
-        <a href="/resources" class="mobile-nav-link">Resources</a>
+        
+        <!-- Mobile Resources -->
+        <div class="mobile-nav-group">
+          <button class="mobile-nav-link mobile-nav-group-trigger">Resources <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+          <div class="mobile-nav-submenu">
+            <a href="/blog" class="mobile-submenu-link">Blog</a>
+            <a href="/about" class="mobile-submenu-link">About Us</a>
+          </div>
+        </div>
+
         <a href="/contact" class="mobile-nav-link">Log In</a>
         <div class="mobile-drawer-cta">
           <a href="/demo" class="btn btn-primary btn-lg" style="width:100%;">Book a Demo</a>

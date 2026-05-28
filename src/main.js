@@ -39,8 +39,14 @@ function initApp() {
 
   // Initialize systems after DOM is mounted
   requestAnimationFrame(() => {
-    // Hide loading screen
-    hideLoader();
+    // Complete the progress bar fill to 100%, then fade and remove loader
+    const loaderBarFill = document.getElementById('loader-bar-fill');
+    if (loaderBarFill) {
+      loaderBarFill.style.width = '100%';
+      setTimeout(hideLoader, 550);
+    } else {
+      hideLoader();
+    }
 
     // Init scroll state handler for navigation styling
     initNavbarScroll();
