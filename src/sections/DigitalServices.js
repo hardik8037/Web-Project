@@ -36,7 +36,7 @@ export function createDigitalServices() {
             <span class="service-feature-tag">Lead Generation</span>
             <span class="service-feature-tag">Analytics & ROI</span>
           </div>
-          <a href="#pricing" class="btn btn-glass btn-sm" style="margin-top:1.5rem;">Explore Marketing →</a>
+          <a href="/services/digital-marketing" class="btn btn-glass btn-sm" style="margin-top:1.5rem;">Explore Marketing →</a>
         </div>
         <div class="service-block-visual">
           <div class="dashboard-frame">
@@ -104,7 +104,7 @@ export function createDigitalServices() {
             <span class="service-feature-tag">Ecommerce</span>
             <span class="service-feature-tag">UI/UX Design</span>
           </div>
-          <a href="#pricing" class="btn btn-glass btn-sm" style="margin-top:1.5rem;">Explore Web Dev →</a>
+          <a href="/services/website-development" class="btn btn-glass btn-sm" style="margin-top:1.5rem;">Explore Web Dev →</a>
         </div>
         <div class="service-block-visual">
           <div class="dashboard-frame">
@@ -159,7 +159,7 @@ export function createDigitalServices() {
             <span class="service-feature-tag">API Integration</span>
             <span class="service-feature-tag">App Store Deploy</span>
           </div>
-          <a href="#pricing" class="btn btn-glass btn-sm" style="margin-top:1.5rem;">Explore App Dev →</a>
+          <a href="/services/app-development" class="btn btn-glass btn-sm" style="margin-top:1.5rem;">Explore App Dev →</a>
         </div>
         <div class="service-block-visual">
           <div class="app-preview-wrapper">

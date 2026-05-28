@@ -34,7 +34,7 @@ export function createServices() {
         <div class="services-grid">
           
           <!-- Marketing card -->
-          <div class="glass-card-strong service-vertical-card" style="border-color: rgba(0, 230, 118, 0.15);">
+          <a href="/services/digital-marketing" class="glass-card-strong service-vertical-card" style="border-color: rgba(0, 230, 118, 0.15); text-decoration: none; display: block; color: inherit;">
             <div class="service-card-icon" style="background: rgba(0, 230, 118, 0.1); color: #00E676;">📈</div>
             <h3 class="heading-subsection" style="margin-bottom: 1rem;">Digital Marketing</h3>
             <p class="text-body" style="font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.6;">
@@ -46,10 +46,10 @@ export function createServices() {
               <li>📱 Social Media Management</li>
               <li>📊 Advanced Data Analytics</li>
             </ul>
-          </div>
+          </a>
 
           <!-- Web Development card -->
-          <div class="glass-card-strong service-vertical-card" style="border-color: rgba(184, 77, 255, 0.15);">
+          <a href="/services/website-development" class="glass-card-strong service-vertical-card" style="border-color: rgba(184, 77, 255, 0.15); text-decoration: none; display: block; color: inherit;">
             <div class="service-card-icon" style="background: rgba(184, 77, 255, 0.1); color: #B84DFF;">💻</div>
             <h3 class="heading-subsection" style="margin-bottom: 1rem;">Web Development</h3>
             <p class="text-body" style="font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.6;">
@@ -61,10 +61,10 @@ export function createServices() {
               <li>🛍️ E-commerce Architectures</li>
               <li>💻 React / NextJS Integrations</li>
             </ul>
-          </div>
+          </a>
 
           <!-- Mobile App Development card -->
-          <div class="glass-card-strong service-vertical-card" style="border-color: rgba(54, 197, 240, 0.15);">
+          <a href="/services/app-development" class="glass-card-strong service-vertical-card" style="border-color: rgba(54, 197, 240, 0.15); text-decoration: none; display: block; color: inherit;">
             <div class="service-card-icon" style="background: rgba(54, 197, 240, 0.1); color: #36C5F0;">📱</div>
             <h3 class="heading-subsection" style="margin-bottom: 1rem;">Mobile App Dev</h3>
             <p class="text-body" style="font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.6;">
@@ -76,7 +76,7 @@ export function createServices() {
               <li>🔄 Cross-Platform Flutter/React Native</li>
               <li>✨ Fluid UI/UX Prototyping</li>
             </ul>
-          </div>
+          </a>
 
         </div>
       </div>

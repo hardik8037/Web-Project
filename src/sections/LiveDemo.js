@@ -79,7 +79,7 @@ export function createLiveDemo() {
               <span class="dashboard-dot dashboard-dot-red"></span>
               <span class="dashboard-dot dashboard-dot-yellow"></span>
               <span class="dashboard-dot dashboard-dot-green"></span>
-              <span style="margin-left:auto;font-size:0.65rem;color:var(--color-dim-text);">CRM Dashboard</span>
+              <span style="margin-left:auto;font-size:0.65rem;color:var(--color-dim-text);">Botzo.io CRM</span>
             </div>
             <div class="dashboard-content">
               <!-- KPIs -->

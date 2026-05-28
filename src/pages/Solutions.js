@@ -61,6 +61,34 @@ const INDUSTRIES = [
     desc: 'Generate dynamic QR entrance tickets, send schedule updates, register attendees, and request post-event feedback automatically.',
     metric: '99.8% Scanner Efficiency',
   },
+  {
+    id: 'automotive',
+    name: 'Automotive',
+    icon: '🚗',
+    desc: 'Automate test drive bookings, service reminders, vehicle availability alerts, and instant quote generation for dealerships.',
+    metric: '+145% Test Drives',
+  },
+  {
+    id: 'travel',
+    name: 'Travel & Tourism',
+    icon: '✈️',
+    desc: 'Send automated booking confirmations, flight/bus status alerts, travel itinerary updates, and localized recommendation guides.',
+    metric: '92% Customer Satisfaction',
+  },
+  {
+    id: 'fitness',
+    name: 'Fitness & Wellness',
+    icon: '💪',
+    desc: 'Manage class bookings, send workout tips, automate membership renewal alerts, and coordinate personal training sessions.',
+    metric: '-40% Member Churn',
+  },
+  {
+    id: 'finance',
+    name: 'Banking & Finance',
+    icon: '🏦',
+    desc: 'Send secure transaction alerts, automate loan eligibility checks, dispatch EMI reminders, and handle account queries with AI compliance.',
+    metric: '99.9% Secure Delivery',
+  },
 ];
 
 export function createSolutions() {
@@ -68,14 +96,14 @@ export function createSolutions() {
   container.className = 'page solutions-page';
 
   const cardsHTML = INDUSTRIES.map(ind => `
-    <div class="glass-card-strong industry-solution-card" data-industry="${ind.id}">
+    <a href="/solutions/${ind.id}" class="glass-card-strong industry-solution-card" data-industry="${ind.id}" style="text-decoration: none; display: block; color: inherit;">
       <div class="industry-card-icon">${ind.icon}</div>
       <h3 class="heading-subsection" style="margin-bottom: 0.8rem; font-size: 1.2rem;">${ind.name}</h3>
       <p class="text-body" style="font-size: 0.88rem; line-height: 1.6; margin-bottom: 1.5rem; opacity: 0.85;">
         ${ind.desc}
       </p>
       <div class="industry-card-metric">${ind.metric}</div>
-    </div>
+    </a>
   `).join('');
 
   container.innerHTML = `

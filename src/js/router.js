@@ -20,6 +20,12 @@ import { createAbout } from '../pages/About.js';
 import { createContact } from '../pages/Contact.js';
 import { createBookDemo } from '../pages/BookDemo.js';
 
+// Import detail page system
+import { createDetailPage } from '../pages/DetailPage.js';
+import { PLATFORM_PAGES } from '../data/platformPages.js';
+import { SERVICE_PAGES } from '../data/servicePages.js';
+import { SOLUTION_PAGES } from '../data/solutionPages.js';
+
 const ROUTES = {
   '/': { title: 'Botzo.io — Business Automation Ecosystem', builder: createHome, mood: 'default' },
   '/platform': { title: 'AI Automation Platform | Botzo.io', builder: createPlatform, mood: 'platform' },
@@ -32,12 +38,54 @@ const ROUTES = {
   '/demo': { title: 'Schedule a Consultation | Botzo.io', builder: createBookDemo, mood: 'demo' },
 };
 
+/**
+ * Resolve dynamic detail page routes: /platform/:slug, /services/:slug, /solutions/:slug
+ */
+function resolveDynamicRoute(path) {
+  const segments = path.split('/').filter(Boolean);
+  if (segments.length !== 2) return null;
+
+  const [category, slug] = segments;
+  let pageData = null;
+  let mood = 'default';
+
+  switch (category) {
+    case 'platform':
+      pageData = PLATFORM_PAGES[slug];
+      mood = 'platform';
+      break;
+    case 'services':
+      pageData = SERVICE_PAGES[slug];
+      mood = 'services';
+      break;
+    case 'solutions':
+      pageData = SOLUTION_PAGES[slug];
+      mood = 'solutions';
+      break;
+    default:
+      return null;
+  }
+
+  if (!pageData) return null;
+
+  return {
+    title: `${pageData.title} | Botzo.io`,
+    builder: () => createDetailPage(pageData),
+    mood,
+  };
+}
+
 export class Router {
   constructor(containerSelector) {
     this.container = document.querySelector(containerSelector);
     if (!this.container) {
       console.error(`Router container '${containerSelector}' not found!`);
       return;
+    }
+
+    // Set scroll restoration to manual so the browser does not scroll back to the previous middle position
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
     }
 
     this.currentPath = null;
@@ -107,7 +155,7 @@ export class Router {
       hash = '#' + parts[1];
     }
 
-    const routeConfig = ROUTES[cleanPath] || ROUTES['/']; // Fallback to Home
+    const routeConfig = ROUTES[cleanPath] || resolveDynamicRoute(cleanPath) || ROUTES['/']; // Static → Dynamic → Home fallback
 
     if (shouldPushState) {
       window.history.pushState({}, '', cleanPath + hash);
@@ -125,77 +173,89 @@ export class Router {
     // Shift navbar active state links if any
     this.updateNavbarActiveLink();
 
-    // 1. Cinematic Fade Out of dynamic content container
-    gsap.to(this.container, {
-      opacity: 0,
-      y: -15,
-      duration: 0.45,
-      ease: 'power2.inOut',
-      onComplete: () => {
-        // 2. Clear old contents and compile the new page component
-        this.container.innerHTML = '';
-        const pageElement = routeConfig.builder();
-        this.container.appendChild(pageElement);
-
-        // 3. Reset scroll position to top (unless scrolling to hash)
-        if (!hash) {
-          window.scrollTo(0, 0);
-        }
-
-        // 4. Update the Three.js Atmosphere engine mood dynamically
-        this.evolveAtmosphereMood(routeConfig.mood);
-
-        // 5. Scan new elements for Mouse Parallax and refresh ScrollTrigger
-        setTimeout(() => {
-          if (window.mouseParallax && typeof window.mouseParallax.scan === 'function') {
-            window.mouseParallax.scan();
-          }
-
-          // Clear all existing ScrollTriggers to avoid memory leaks
+    const runTransition = () => {
+      // 1. Cinematic Fade Out of dynamic content container
+      gsap.to(this.container, {
+        opacity: 0,
+        y: -15,
+        duration: 0.45,
+        ease: 'power2.inOut',
+        onComplete: () => {
+          // Clear all existing ScrollTriggers first (to prevent scroll adjustments when elements are removed)
           ScrollTrigger.getAll().forEach(trigger => {
-            // Keep navbar trigger active
             if (trigger.vars.trigger !== '#navbar') {
               trigger.kill();
             }
           });
 
-          // Re-initialize dynamic scroll-trigger animations
-          if (typeof initScrollAnimations === 'function') {
-            initScrollAnimations();
+          // 2. Clear old contents and compile the new page component
+          this.container.innerHTML = '';
+          const pageElement = routeConfig.builder();
+          this.container.appendChild(pageElement);
+
+          // 3. Reset scroll position to top immediately
+          if (!hash) {
+            window.scrollTo(0, 0);
           }
 
-          ScrollTrigger.refresh();
+          // 4. Update the Three.js Atmosphere engine mood dynamically
+          this.evolveAtmosphereMood(routeConfig.mood);
 
-          // Scroll to hash element if specified
-          if (hash && hash !== '#') {
-            try {
-              const targetEl = document.querySelector(hash);
-              if (targetEl) {
-                const navbarHeight = document.getElementById('navbar')?.offsetHeight || 0;
-                const top = targetEl.getBoundingClientRect().top + window.scrollY - navbarHeight - 20;
-                window.scrollTo({ top, behavior: 'smooth' });
+          // 5. Scan new elements for Mouse Parallax and refresh ScrollTrigger
+          setTimeout(() => {
+            if (window.mouseParallax && typeof window.mouseParallax.scan === 'function') {
+              window.mouseParallax.scan();
+            }
+
+            // Re-initialize dynamic scroll-trigger animations
+            if (typeof initScrollAnimations === 'function') {
+              initScrollAnimations();
+            }
+
+            ScrollTrigger.refresh();
+
+            // Scroll to top again or to hash to make sure ScrollTrigger's refresh/recreation didn't cause a scroll jump
+            if (!hash) {
+              window.scrollTo(0, 0);
+            } else if (hash && hash !== '#') {
+              try {
+                const targetEl = document.querySelector(hash);
+                if (targetEl) {
+                  const navbarHeight = document.getElementById('navbar')?.offsetHeight || 0;
+                  const top = targetEl.getBoundingClientRect().top + window.scrollY - navbarHeight - 20;
+                  window.scrollTo({ top, behavior: 'smooth' });
+                }
+              } catch (err) {
+                console.warn(`Failed to scroll to selector: ${hash}`, err);
               }
-            } catch (err) {
-              console.warn(`Failed to scroll to selector: ${hash}`, err);
             }
-          }
-        }, 100);
+          }, 100);
 
-        // 6. Cinematic Fade In of the page contents
-        gsap.fromTo(this.container,
-          { opacity: 0, y: 15 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.5,
-            ease: 'power2.out',
-            onComplete: () => {
-              this.isTransitioning = false;
+          // 6. Cinematic Fade In of the page contents
+          gsap.fromTo(this.container,
+            { opacity: 0, y: 15 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.5,
+              ease: 'power2.out',
+              onComplete: () => {
+                this.isTransitioning = false;
+              }
             }
-          }
-        );
-      }
-    });
+          );
+        }
+      });
+    };
+
+    // If the user is scrolled down, smoothly scroll to top first, then execute transition
+    if (window.scrollY > 60 && !hash) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Schedule page swap once smooth scroll is near completion (approx 450ms)
+      setTimeout(runTransition, 450);
+    } else {
+      runTransition();
+    }
   }
 
   evolveAtmosphereMood(mood) {

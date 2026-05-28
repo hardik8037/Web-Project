@@ -1,5 +1,6 @@
 /* ═══════════════════════════════════════════════════
    CINEMATIC HERO SECTION
+   CSS-recreated platform UI panels (no screenshots)
    ═══════════════════════════════════════════════════ */
 
 export function createHero() {
@@ -53,9 +54,9 @@ export function createHero() {
         </div>
       </div>
 
-      <!-- Floating Dashboard Visuals -->
+      <!-- ═══ CINEMATIC CSS-RECREATED DASHBOARDS ═══ -->
       <div class="hero-dashboards">
-        <!-- Main Dashboard -->
+        <!-- Main Dashboard — Analytics Overview -->
         <div class="hero-dashboard hero-dashboard-main float">
           <div class="dashboard-frame">
             <div class="dashboard-titlebar">
@@ -65,72 +66,150 @@ export function createHero() {
               <span style="margin-left:auto;font-size:0.7rem;color:var(--color-dim-text);">Botzo.io Dashboard</span>
             </div>
             <div class="dashboard-content">
-              <div class="mini-stats-row">
-                <div class="mini-stat">
-                  <div class="mini-stat-value" style="color:var(--color-green);">1,247</div>
-                  <div class="mini-stat-label">Active Chats</div>
+              <!-- Sidebar Quick Links -->
+              <div class="hero-dash-layout">
+                <div class="hero-dash-sidebar">
+                  <div class="hero-dash-sidebar-item active">
+                    <span class="hero-dash-sidebar-icon">📊</span>
+                    <span>Dashboard</span>
+                  </div>
+                  <div class="hero-dash-sidebar-item">
+                    <span class="hero-dash-sidebar-icon">💬</span>
+                    <span>Chats</span>
+                  </div>
+                  <div class="hero-dash-sidebar-item">
+                    <span class="hero-dash-sidebar-icon">📋</span>
+                    <span>Contacts</span>
+                  </div>
+                  <div class="hero-dash-sidebar-item">
+                    <span class="hero-dash-sidebar-icon">📢</span>
+                    <span>Campaigns</span>
+                  </div>
+                  <div class="hero-dash-sidebar-item">
+                    <span class="hero-dash-sidebar-icon">🤖</span>
+                    <span>Bots</span>
+                  </div>
                 </div>
-                <div class="mini-stat">
-                  <div class="mini-stat-value" style="color:var(--color-primary-light);">₹4.2L</div>
-                  <div class="mini-stat-label">Revenue Today</div>
+                <div class="hero-dash-main">
+                  <!-- Top Stats Row -->
+                  <div class="mini-stats-row">
+                    <div class="mini-stat">
+                      <div class="mini-stat-value" style="color:var(--color-green);">1,247</div>
+                      <div class="mini-stat-label">Active Chats</div>
+                    </div>
+                    <div class="mini-stat">
+                      <div class="mini-stat-value" style="color:var(--color-primary-light);">₹4.2L</div>
+                      <div class="mini-stat-label">Revenue Today</div>
+                    </div>
+                    <div class="mini-stat">
+                      <div class="mini-stat-value" style="color:#0088FF;">98.7%</div>
+                      <div class="mini-stat-label">CSAT Score</div>
+                    </div>
+                  </div>
+                  <!-- Contacts Chart -->
+                  <div class="mini-chart">
+                    <div class="mini-chart-header">
+                      <span style="font-size:0.72rem;font-weight:600;color:var(--color-white-text);">Contacts Overview</span>
+                      <span style="font-size:0.65rem;color:var(--color-green);">+24.5%</span>
+                    </div>
+                    <svg viewBox="0 0 200 50" class="mini-chart-svg">
+                      <defs>
+                        <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="#25D366" stop-opacity="0.3"/>
+                          <stop offset="100%" stop-color="#25D366" stop-opacity="0"/>
+                        </linearGradient>
+                      </defs>
+                      <path d="M0 45 L20 38 L40 42 L60 30 L80 35 L100 22 L120 28 L140 15 L160 20 L180 10 L200 5" fill="none" stroke="#25D366" stroke-width="2"/>
+                      <path d="M0 45 L20 38 L40 42 L60 30 L80 35 L100 22 L120 28 L140 15 L160 20 L180 10 L200 5 L200 50 L0 50 Z" fill="url(#chartGrad)"/>
+                    </svg>
+                  </div>
+                  <!-- Subscription Badge -->
+                  <div class="hero-dash-subscription">
+                    <span class="hero-dash-plan-badge">Growth Plan</span>
+                    <span style="font-size:0.6rem;color:var(--color-dim-text);">Active · 28 days left</span>
+                  </div>
                 </div>
-                <div class="mini-stat">
-                  <div class="mini-stat-value" style="color:#0088FF;">98.7%</div>
-                  <div class="mini-stat-label">CSAT Score</div>
-                </div>
-              </div>
-              <div class="mini-chart">
-                <div class="mini-chart-header">
-                  <span style="font-size:0.72rem;font-weight:600;color:var(--color-white-text);">Message Volume</span>
-                  <span style="font-size:0.65rem;color:var(--color-green);">+24.5%</span>
-                </div>
-                <svg viewBox="0 0 200 50" class="mini-chart-svg">
-                  <defs>
-                    <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stop-color="#9C27FF" stop-opacity="0.3"/>
-                      <stop offset="100%" stop-color="#9C27FF" stop-opacity="0"/>
-                    </linearGradient>
-                  </defs>
-                  <path d="M0 45 L20 38 L40 42 L60 30 L80 35 L100 22 L120 28 L140 15 L160 20 L180 10 L200 5" fill="none" stroke="#9C27FF" stroke-width="2"/>
-                  <path d="M0 45 L20 38 L40 42 L60 30 L80 35 L100 22 L120 28 L140 15 L160 20 L180 10 L200 5 L200 50 L0 50 Z" fill="url(#chartGrad)"/>
-                </svg>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- WhatsApp Chat Float -->
+        <!-- WhatsApp Inbox Float — Conversation List -->
         <div class="hero-dashboard hero-dashboard-chat float-delayed">
-          <div class="dashboard-frame" style="max-width:220px;">
+          <div class="dashboard-frame" style="max-width:230px;">
             <div class="dashboard-titlebar" style="padding:0.5rem 0.75rem;">
               <div style="display:flex;align-items:center;gap:0.4rem;">
-                <div style="width:24px;height:24px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.609.609l4.458-1.495A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.29 0-4.403-.762-6.102-2.048l-.427-.324-2.636.884.884-2.636-.324-.427A9.963 9.963 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+                <div style="width:22px;height:22px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
                 </div>
-                <span style="font-size:0.72rem;font-weight:600;">WhatsApp</span>
+                <span style="font-size:0.72rem;font-weight:600;">Chats</span>
+                <span class="status-badge status-badge-active" style="margin-left:auto;font-size:0.55rem;">247</span>
               </div>
             </div>
-            <div class="dashboard-content" style="padding:0.75rem;">
-              <div style="display:flex;flex-direction:column;gap:0.4rem;">
-                <div class="chat-bubble chat-bubble-bot" style="font-size:0.75rem;">Hi! 👋 Welcome to Botzo. How can I help?</div>
-                <div class="chat-bubble chat-bubble-outgoing" style="font-size:0.75rem;">I need pricing info</div>
-                <div class="chat-bubble chat-bubble-bot" style="font-size:0.75rem;">Great! Plans start at ₹999/mo 🚀</div>
+            <div class="dashboard-content" style="padding:0.5rem 0.6rem;">
+              <!-- Chat list items -->
+              <div class="hero-chat-item active">
+                <div class="dash-avatar" style="background:#25D366;width:26px;height:26px;font-size:0.55rem;">R</div>
+                <div style="flex:1;min-width:0;">
+                  <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <span style="font-size:0.7rem;font-weight:600;color:var(--color-white-text);">Rahul Sharma</span>
+                    <span style="font-size:0.55rem;color:var(--color-green);">2m</span>
+                  </div>
+                  <div style="font-size:0.6rem;color:var(--color-dim-text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Thanks for the quick response! 🙏</div>
+                </div>
+              </div>
+              <div class="hero-chat-item">
+                <div class="dash-avatar" style="background:#9C27FF;width:26px;height:26px;font-size:0.55rem;">P</div>
+                <div style="flex:1;min-width:0;">
+                  <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <span style="font-size:0.7rem;font-weight:600;color:var(--color-white-text);">Priya Patel</span>
+                    <span style="font-size:0.55rem;color:var(--color-dim-text);">5m</span>
+                  </div>
+                  <div style="font-size:0.6rem;color:var(--color-dim-text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">I'd like to book an appointment</div>
+                </div>
+              </div>
+              <div class="hero-chat-item">
+                <div class="dash-avatar" style="background:#0088FF;width:26px;height:26px;font-size:0.55rem;">A</div>
+                <div style="flex:1;min-width:0;">
+                  <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <span style="font-size:0.7rem;font-weight:600;color:var(--color-white-text);">Amit Singh</span>
+                    <span style="font-size:0.55rem;color:var(--color-dim-text);">12m</span>
+                  </div>
+                  <div style="font-size:0.6rem;color:var(--color-dim-text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">What are your pricing plans?</div>
+                </div>
+              </div>
+              <div class="hero-chat-item">
+                <div class="dash-avatar" style="background:#FF6B35;width:26px;height:26px;font-size:0.55rem;">N</div>
+                <div style="flex:1;min-width:0;">
+                  <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <span style="font-size:0.7rem;font-weight:600;color:var(--color-white-text);">Neha Gupta</span>
+                    <span style="font-size:0.55rem;color:var(--color-dim-text);">18m</span>
+                  </div>
+                  <div style="font-size:0.6rem;color:var(--color-dim-text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Can I get a demo of the platform?</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- CRM Mini Card -->
+        <!-- Pipeline Mini Card -->
         <div class="hero-dashboard hero-dashboard-crm float-slow">
-          <div class="glass-card-strong" style="padding:1rem;max-width:180px;">
-            <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-primary-light);font-weight:600;margin-bottom:0.5rem;">CRM Pipeline</div>
-            <div class="pipeline-card" style="margin-bottom:0.35rem;">
-              <div class="pipeline-card-name">Acme Corp</div>
-              <div class="pipeline-card-value">₹2.5L · <span style="color:var(--color-green)">Qualified</span></div>
+          <div class="glass-card-strong" style="padding:0.8rem;max-width:195px;">
+            <div style="font-size:0.6rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-primary-light);font-weight:600;margin-bottom:0.4rem;display:flex;align-items:center;justify-content:space-between;">
+              <span>Lead Pipeline</span>
+              <span style="color:var(--color-green);text-transform:none;letter-spacing:0;">87 new</span>
+            </div>
+            <div class="pipeline-card" style="margin-bottom:0.3rem;">
+              <div class="pipeline-card-name">Vikram Enterprises</div>
+              <div class="pipeline-card-value">New · <span style="color:var(--color-green)">Growth Plan</span></div>
+            </div>
+            <div class="pipeline-card" style="margin-bottom:0.3rem;">
+              <div class="pipeline-card-name">Rohit Malhotra</div>
+              <div class="pipeline-card-value">Follow Up · <span style="color:var(--color-orange)">Tomorrow</span></div>
             </div>
             <div class="pipeline-card">
-              <div class="pipeline-card-name">TechStart Inc</div>
-              <div class="pipeline-card-value">₹1.8L · <span style="color:var(--color-orange)">Proposal</span></div>
+              <div class="pipeline-card-name">Deepak Auto Group</div>
+              <div class="pipeline-card-value">Qualified · <span style="color:var(--color-primary-light)">Proposal</span></div>
             </div>
           </div>
         </div>

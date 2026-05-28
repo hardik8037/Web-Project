@@ -26,28 +26,28 @@ export function createNavbar() {
             <div class="mega-menu-inner">
               <div class="mega-menu-section">
                 <div class="mega-menu-label">Communication</div>
-                <a href="/platform" class="mega-menu-item" role="menuitem">
+                <a href="/platform/whatsapp-api" class="mega-menu-item" role="menuitem">
                   <span class="mega-icon">💬</span>
                   <div>
                     <div class="mega-item-title">WhatsApp API</div>
                     <div class="mega-item-desc">Official Business API integration</div>
                   </div>
                 </a>
-                <a href="/platform" class="mega-menu-item" role="menuitem">
+                <a href="/platform/instagram-automation" class="mega-menu-item" role="menuitem">
                   <span class="mega-icon">📸</span>
                   <div>
                     <div class="mega-item-title">Instagram Automation</div>
                     <div class="mega-item-desc">DM & comment automation</div>
                   </div>
                 </a>
-                <a href="/platform" class="mega-menu-item" role="menuitem">
+                <a href="/platform/facebook-automation" class="mega-menu-item" role="menuitem">
                   <span class="mega-icon">📘</span>
                   <div>
                     <div class="mega-item-title">Facebook Automation</div>
                     <div class="mega-item-desc">Messenger & lead gen flows</div>
                   </div>
                 </a>
-                <a href="/platform" class="mega-menu-item" role="menuitem">
+                <a href="/platform/rcs-messaging" class="mega-menu-item" role="menuitem">
                   <span class="mega-icon">📱</span>
                   <div>
                     <div class="mega-item-title">RCS Messaging</div>
@@ -57,28 +57,28 @@ export function createNavbar() {
               </div>
               <div class="mega-menu-section">
                 <div class="mega-menu-label">Productivity</div>
-                <a href="/platform" class="mega-menu-item" role="menuitem">
+                <a href="/platform/team-inbox" class="mega-menu-item" role="menuitem">
                   <span class="mega-icon">📥</span>
                   <div>
                     <div class="mega-item-title">Unified Team Inbox</div>
                     <div class="mega-item-desc">All channels in one place</div>
                   </div>
                 </a>
-                <a href="/platform" class="mega-menu-item" role="menuitem">
+                <a href="/platform/workflow-automation" class="mega-menu-item" role="menuitem">
                   <span class="mega-icon">⚡</span>
                   <div>
                     <div class="mega-item-title">Workflow Automation</div>
                     <div class="mega-item-desc">Visual flow builder</div>
                   </div>
                 </a>
-                <a href="/platform" class="mega-menu-item" role="menuitem">
+                <a href="/platform/crm" class="mega-menu-item" role="menuitem">
                   <span class="mega-icon">📊</span>
                   <div>
                     <div class="mega-item-title">Centralized CRM</div>
                     <div class="mega-item-desc">Unified customer data</div>
                   </div>
                 </a>
-                <a href="/platform" class="mega-menu-item" role="menuitem">
+                <a href="/platform/bulk-campaigns" class="mega-menu-item" role="menuitem">
                   <span class="mega-icon">📢</span>
                   <div>
                     <div class="mega-item-title">Bulk Campaigns</div>
@@ -88,21 +88,21 @@ export function createNavbar() {
               </div>
               <div class="mega-menu-section">
                 <div class="mega-menu-label">Commerce</div>
-                <a href="/platform" class="mega-menu-item" role="menuitem">
+                <a href="/platform/appointment-booking" class="mega-menu-item" role="menuitem">
                   <span class="mega-icon">📅</span>
                   <div>
                     <div class="mega-item-title">Appointment Booking</div>
                     <div class="mega-item-desc">Automated scheduling</div>
                   </div>
                 </a>
-                <a href="/platform" class="mega-menu-item" role="menuitem">
+                <a href="/platform/payment-integration" class="mega-menu-item" role="menuitem">
                   <span class="mega-icon">💳</span>
                   <div>
                     <div class="mega-item-title">Payment Integration</div>
                     <div class="mega-item-desc">In-chat payments</div>
                   </div>
                 </a>
-                <a href="/platform" class="mega-menu-item" role="menuitem">
+                <a href="/platform/qr-ticketing" class="mega-menu-item" role="menuitem">
                   <span class="mega-icon">🎫</span>
                   <div>
                     <div class="mega-item-title">Dynamic QR Ticketing</div>
@@ -123,28 +123,28 @@ export function createNavbar() {
             <div class="mega-menu-inner">
               <div class="mega-menu-section">
                 <div class="mega-menu-label">Digital Marketing</div>
-                <a href="/services" class="mega-menu-item" role="menuitem">
+                <a href="/services/digital-marketing" class="mega-menu-item" role="menuitem">
                   <span class="mega-icon">📈</span>
                   <div>
                     <div class="mega-item-title">Digital Marketing</div>
                     <div class="mega-item-desc">Comprehensive growth campaigns</div>
                   </div>
                 </a>
-                <a href="/services" class="mega-menu-item" role="menuitem">
+                <a href="/services/seo" class="mega-menu-item" role="menuitem">
                   <span class="mega-icon">🔍</span>
                   <div>
                     <div class="mega-item-title">SEO Services</div>
                     <div class="mega-item-desc">Search engine visibility optimization</div>
                   </div>
                 </a>
-                <a href="/services" class="mega-menu-item" role="menuitem">
+                <a href="/services/performance-marketing" class="mega-menu-item" role="menuitem">
                   <span class="mega-icon">🎯</span>
                   <div>
                     <div class="mega-item-title">Performance Marketing</div>
                     <div class="mega-item-desc">Meta & Google PPC growth strategy</div>
                   </div>
                 </a>
-                <a href="/services" class="mega-menu-item" role="menuitem">
+                <a href="/services/social-media-marketing" class="mega-menu-item" role="menuitem">
                   <span class="mega-icon">👥</span>
                   <div>
                     <div class="mega-item-title">Social Media Marketing</div>
@@ -154,28 +154,28 @@ export function createNavbar() {
               </div>
               <div class="mega-menu-section">
                 <div class="mega-menu-label">Web & App Engineering</div>
-                <a href="/services" class="mega-menu-item" role="menuitem">
+                <a href="/services/website-development" class="mega-menu-item" role="menuitem">
                   <span class="mega-icon">💻</span>
                   <div>
                     <div class="mega-item-title">Website Development</div>
                     <div class="mega-item-desc">Landing pages & corporate sites</div>
                   </div>
                 </a>
-                <a href="/services" class="mega-menu-item" role="menuitem">
+                <a href="/services/ecommerce-development" class="mega-menu-item" role="menuitem">
                   <span class="mega-icon">🛒</span>
                   <div>
                     <div class="mega-item-title">Ecommerce Development</div>
                     <div class="mega-item-desc">Cart, pay & catalog setups</div>
                   </div>
                 </a>
-                <a href="/services" class="mega-menu-item" role="menuitem">
+                <a href="/services/mobile-app-development" class="mega-menu-item" role="menuitem">
                   <span class="mega-icon">📱</span>
                   <div>
                     <div class="mega-item-title">Mobile App Development</div>
                     <div class="mega-item-desc">Native iOS & Android development</div>
                   </div>
                 </a>
-                <a href="/services" class="mega-menu-item" role="menuitem">
+                <a href="/services/ui-ux-design" class="mega-menu-item" role="menuitem">
                   <span class="mega-icon">✨</span>
                   <div>
                     <div class="mega-item-title">UI/UX Design</div>
@@ -194,37 +194,53 @@ export function createNavbar() {
           </button>
           <div class="mega-menu mega-menu-solutions" role="menu">
             <div class="mega-menu-inner mega-menu-grid-small">
-              <a href="/solutions" class="mega-menu-item" role="menuitem">
+              <a href="/solutions/real-estate" class="mega-menu-item" role="menuitem">
                 <span class="mega-icon">🏠</span>
                 <div><div class="mega-item-title">Real Estate</div></div>
               </a>
-              <a href="/solutions" class="mega-menu-item" role="menuitem">
+              <a href="/solutions/healthcare" class="mega-menu-item" role="menuitem">
                 <span class="mega-icon">🏥</span>
                 <div><div class="mega-item-title">Healthcare</div></div>
               </a>
-              <a href="/solutions" class="mega-menu-item" role="menuitem">
+              <a href="/solutions/ecommerce" class="mega-menu-item" role="menuitem">
                 <span class="mega-icon">🛍️</span>
                 <div><div class="mega-item-title">Ecommerce</div></div>
               </a>
-              <a href="/solutions" class="mega-menu-item" role="menuitem">
+              <a href="/solutions/restaurants" class="mega-menu-item" role="menuitem">
                 <span class="mega-icon">🍽️</span>
                 <div><div class="mega-item-title">Restaurants</div></div>
               </a>
-              <a href="/solutions" class="mega-menu-item" role="menuitem">
+              <a href="/solutions/education" class="mega-menu-item" role="menuitem">
                 <span class="mega-icon">🎓</span>
                 <div><div class="mega-item-title">Education</div></div>
               </a>
-              <a href="/solutions" class="mega-menu-item" role="menuitem">
+              <a href="/solutions/textile" class="mega-menu-item" role="menuitem">
                 <span class="mega-icon">🧵</span>
                 <div><div class="mega-item-title">Textile Industry</div></div>
               </a>
-              <a href="/solutions" class="mega-menu-item" role="menuitem">
+              <a href="/solutions/jewellery" class="mega-menu-item" role="menuitem">
                 <span class="mega-icon">💎</span>
                 <div><div class="mega-item-title">Jewellery</div></div>
               </a>
-              <a href="/solutions" class="mega-menu-item" role="menuitem">
+              <a href="/solutions/events" class="mega-menu-item" role="menuitem">
                 <span class="mega-icon">🎪</span>
                 <div><div class="mega-item-title">Event Management</div></div>
+              </a>
+              <a href="/solutions/automotive" class="mega-menu-item" role="menuitem">
+                <span class="mega-icon">🚗</span>
+                <div><div class="mega-item-title">Automotive</div></div>
+              </a>
+              <a href="/solutions/travel" class="mega-menu-item" role="menuitem">
+                <span class="mega-icon">✈️</span>
+                <div><div class="mega-item-title">Travel & Tourism</div></div>
+              </a>
+              <a href="/solutions/fitness" class="mega-menu-item" role="menuitem">
+                <span class="mega-icon">💪</span>
+                <div><div class="mega-item-title">Fitness & Wellness</div></div>
+              </a>
+              <a href="/solutions/finance" class="mega-menu-item" role="menuitem">
+                <span class="mega-icon">🏦</span>
+                <div><div class="mega-item-title">Banking & Finance</div></div>
               </a>
             </div>
           </div>

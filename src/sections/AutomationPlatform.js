@@ -1,5 +1,6 @@
 /* ═══════════════════════════════════════════════════
-   AI AUTOMATION PLATFORM — TABBED DASHBOARD SECTION
+   AI AUTOMATION PLATFORM — CSS-RECREATED DASHBOARDS
+   Inspired by real Botzo.io platform, branded correctly
    ═══════════════════════════════════════════════════ */
 
 const PLATFORM_TABS = [
@@ -170,31 +171,94 @@ const PLATFORM_TABS = [
     `,
   },
   {
-    id: 'crm',
-    label: 'CRM',
-    icon: '📊',
-    title: 'Centralized CRM',
-    desc: 'Track every lead, manage pipelines, automate follow-ups, and close deals faster.',
+    id: 'pipeline',
+    label: 'Pipeline',
+    icon: '📋',
+    title: 'Lead Pipeline Board',
+    desc: 'Manage leads with a visual Kanban board. Track every prospect from first contact to conversion.',
     dashboard: `
-      <div class="dash-crm">
-        <div class="dash-crm-pipeline">
-          <div class="dash-crm-col">
-            <div class="pipeline-stage">New Leads</div>
-            <div class="pipeline-card"><div class="pipeline-card-name">Acme Corp</div><div class="pipeline-card-value">₹2.5L</div></div>
-            <div class="pipeline-card"><div class="pipeline-card-name">TechFlow</div><div class="pipeline-card-value">₹1.2L</div></div>
+      <div class="dash-pipeline-board">
+        <div class="pipeline-kanban">
+          <div class="kanban-col">
+            <div class="kanban-col-header" style="border-top-color:#25D366;">
+              <span class="kanban-col-title">New</span>
+              <span class="kanban-col-count">87</span>
+            </div>
+            <div class="kanban-card">
+              <div class="kanban-card-phone">Vikram Enterprises</div>
+              <div class="kanban-card-meta">
+                <span>📅 Today, 3:00 PM</span>
+                <span>💬 WhatsApp</span>
+              </div>
+              <div class="kanban-card-note">Interested in Growth plan — wants live demo</div>
+              <div class="kanban-card-actions">
+                <button class="kanban-btn kanban-btn-move">Move Chat</button>
+                <button class="kanban-btn kanban-btn-open">Open Chat</button>
+              </div>
+            </div>
+            <div class="kanban-card">
+              <div class="kanban-card-phone">Ananya Reddy</div>
+              <div class="kanban-card-meta">
+                <span>📅 Yesterday</span>
+                <span>📸 Instagram</span>
+              </div>
+              <div class="kanban-card-note">Asked about API integration for Shopify</div>
+              <div class="kanban-card-actions">
+                <button class="kanban-btn kanban-btn-move">Move Chat</button>
+                <button class="kanban-btn kanban-btn-open">Open Chat</button>
+              </div>
+            </div>
           </div>
-          <div class="dash-crm-col">
-            <div class="pipeline-stage" style="border-color:var(--color-blue);">Qualified</div>
-            <div class="pipeline-card"><div class="pipeline-card-name">Bright Labs</div><div class="pipeline-card-value">₹4.8L</div></div>
+          <div class="kanban-col">
+            <div class="kanban-col-header" style="border-top-color:#FF6B35;">
+              <span class="kanban-col-title">Follow Up</span>
+              <span class="kanban-col-count">22</span>
+            </div>
+            <div class="kanban-card">
+              <div class="kanban-card-phone">Rohit Malhotra</div>
+              <div class="kanban-card-meta">
+                <span>📅 Tomorrow, 11 AM</span>
+              </div>
+              <div class="kanban-card-note">Requested pricing comparison — follow up scheduled</div>
+              <div class="kanban-card-actions">
+                <button class="kanban-btn kanban-btn-move">Move Chat</button>
+                <button class="kanban-btn kanban-btn-open">Open Chat</button>
+              </div>
+            </div>
           </div>
-          <div class="dash-crm-col">
-            <div class="pipeline-stage" style="border-color:var(--color-orange);">Proposal</div>
-            <div class="pipeline-card"><div class="pipeline-card-name">GreenMart</div><div class="pipeline-card-value">₹3.1L</div></div>
-            <div class="pipeline-card"><div class="pipeline-card-name">Zenith Ltd</div><div class="pipeline-card-value">₹5.5L</div></div>
+          <div class="kanban-col">
+            <div class="kanban-col-header" style="border-top-color:#0088FF;">
+              <span class="kanban-col-title">Demo Scheduled</span>
+              <span class="kanban-col-count">14</span>
+            </div>
+            <div class="kanban-card">
+              <div class="kanban-card-phone">Sunita Pharma Ltd</div>
+              <div class="kanban-card-meta">
+                <span>📅 Wed, 4:30 PM</span>
+              </div>
+              <div class="kanban-card-note">Enterprise plan demo — 3 team members joining</div>
+              <div class="kanban-card-actions">
+                <button class="kanban-btn kanban-btn-move">Move Chat</button>
+                <button class="kanban-btn kanban-btn-open">Open Chat</button>
+              </div>
+            </div>
           </div>
-          <div class="dash-crm-col">
-            <div class="pipeline-stage" style="border-color:var(--color-green);">Won 🎉</div>
-            <div class="pipeline-card" style="border-color:rgba(37,211,102,0.2);"><div class="pipeline-card-name">SkyNet Inc</div><div class="pipeline-card-value" style="color:var(--color-green);">₹8.2L</div></div>
+          <div class="kanban-col">
+            <div class="kanban-col-header" style="border-top-color:#9C27FF;">
+              <span class="kanban-col-title">Qualified</span>
+              <span class="kanban-col-count">18</span>
+            </div>
+            <div class="kanban-card">
+              <div class="kanban-card-phone">Deepak Auto Group</div>
+              <div class="kanban-card-meta">
+                <span>📅 Closing soon</span>
+              </div>
+              <div class="kanban-card-note">Ready to onboard — sending proposal today</div>
+              <div class="kanban-card-actions">
+                <button class="kanban-btn kanban-btn-move">Move Chat</button>
+                <button class="kanban-btn kanban-btn-open">Open Chat</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -214,26 +278,32 @@ const PLATFORM_TABS = [
             <div class="workflow-node-label">New Message</div>
             <div class="workflow-node-type">Trigger</div>
           </div>
-          <div class="workflow-connector"></div>
+          <div class="workflow-connector workflow-connector-animated"></div>
           <div class="workflow-node workflow-node-condition">
-            <div class="workflow-node-icon">🔀</div>
-            <div class="workflow-node-label">Contains "pricing"?</div>
-            <div class="workflow-node-type">Condition</div>
+            <div class="workflow-node-icon">🤖</div>
+            <div class="workflow-node-label">Trained AI Bot</div>
+            <div class="workflow-node-type">AI Agent</div>
+          </div>
+          <div class="workflow-connector workflow-connector-animated"></div>
+          <div class="workflow-node workflow-node-condition" style="border-color:rgba(0,136,255,0.3);background:rgba(0,136,255,0.06);">
+            <div class="workflow-node-icon">❓</div>
+            <div class="workflow-node-label">Send Question</div>
+            <div class="workflow-node-type">Collect Data</div>
           </div>
           <div class="workflow-branch">
             <div class="workflow-branch-yes">
-              <div class="workflow-connector-short"></div>
+              <div class="workflow-connector-short workflow-connector-animated"></div>
               <div class="workflow-node workflow-node-action" style="border-color:rgba(37,211,102,0.3);">
-                <div class="workflow-node-icon">💰</div>
-                <div class="workflow-node-label">Send Pricing</div>
-                <div class="workflow-node-type">Action</div>
+                <div class="workflow-node-icon">⏳</div>
+                <div class="workflow-node-label">Smart Wait</div>
+                <div class="workflow-node-type">Delay</div>
               </div>
             </div>
             <div class="workflow-branch-no">
-              <div class="workflow-connector-short"></div>
+              <div class="workflow-connector-short workflow-connector-animated"></div>
               <div class="workflow-node workflow-node-action" style="border-color:rgba(0,136,255,0.3);">
-                <div class="workflow-node-icon">🤖</div>
-                <div class="workflow-node-label">AI Response</div>
+                <div class="workflow-node-icon">💬</div>
+                <div class="workflow-node-label">Send Reply</div>
                 <div class="workflow-node-type">Action</div>
               </div>
             </div>
@@ -300,12 +370,23 @@ export function createAutomationPlatform() {
     </button>
   `).join('');
 
-  const panelsHTML = PLATFORM_TABS.map((tab, i) => `
+  const TAB_SLUG_MAP = {
+    'whatsapp': '/platform/whatsapp-api',
+    'omnichannel': '/platform/team-inbox',
+    'inbox': '/platform/team-inbox',
+    'pipeline': '/platform/crm',
+    'workflows': '/platform/workflow-automation',
+    'campaigns': '/platform/bulk-campaigns'
+  };
+
+  const panelsHTML = PLATFORM_TABS.map((tab, i) => {
+    const targetUrl = TAB_SLUG_MAP[tab.id] || '/platform';
+    return `
     <div class="platform-panel ${i === 0 ? 'active' : ''}" data-panel="${tab.id}">
       <div class="platform-panel-info">
         <h3 class="heading-subsection">${tab.title}</h3>
         <p class="text-body">${tab.desc}</p>
-        <a href="#demo" class="btn btn-glass btn-sm" style="margin-top:1rem;">
+        <a href="${targetUrl}" class="btn btn-glass btn-sm" style="margin-top:1rem;">
           Learn More
           <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none">
             <path d="M1 7h11M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -326,7 +407,7 @@ export function createAutomationPlatform() {
         </div>
       </div>
     </div>
-  `).join('');
+  `; }).join('');
 
   section.innerHTML = `
     <div class="container">

@@ -96,19 +96,22 @@ export function createPlatform() {
             <div class="feature-tab-pane active" id="pane-whatsapp">
               <h3 style="color: #25D366;">WhatsApp Business API Ecosystem</h3>
               <p class="text-body">
-                Tap into the world's most popular messaging channel. Botzo enables official green-tick verification, automated business templates, bulk newsletters with high open-rates, and multi-agent customer support on a single phone number.
+                Tap into the world's most popular messaging channel. Botzo enables interactive CTA buttons, automated business templates, bulk newsletters with high open-rates, and multi-agent customer support on a single phone number.
               </p>
+              <div style="margin: 1rem 0 1.5rem;">
+                <a href="/platform/whatsapp-api" class="btn btn-glass btn-sm">Explore WhatsApp API &rarr;</a>
+              </div>
               <div class="whatsapp-mockup glass-card">
                 <div class="mockup-header">
                   <div class="status-dot"></div>
-                  <strong style="font-size: 0.9rem;">Botzo Assistant (Verified)</strong>
+                  <strong style="font-size: 0.9rem;">Botzo Support</strong>
                 </div>
                 <div class="msg-bubbles">
                   <div class="msg-bubble incoming">
                     Hello! We've automated your order tracking. Here is your tracking link: <strong>botzo.io/track/876</strong>
                   </div>
                   <div class="msg-bubble outgoing">
-                    Awesome! Thank you for the quick update.
+                    Awesome! Thank you for the quick update. 🙏
                   </div>
                 </div>
               </div>
@@ -119,6 +122,10 @@ export function createPlatform() {
               <p class="text-body">
                 Never miss an inquiry on social channels. Automate responses to Instagram Direct Messages, Messenger chats, and comment mentions. Instantly convert interest into leads by auto-sending links to your product or booking pages whenever a user comments on your post.
               </p>
+              <div style="display: flex; gap: 1rem; margin: 1rem 0 1.5rem;">
+                <a href="/platform/instagram-automation" class="btn btn-glass btn-sm">Instagram Automation &rarr;</a>
+                <a href="/platform/facebook-automation" class="btn btn-glass btn-sm">Facebook Automation &rarr;</a>
+              </div>
               <div class="glass-card" style="padding: 1.5rem; border-radius: var(--radius-lg); border-color: rgba(228, 64, 95, 0.2);">
                 <div class="social-flow">
                   <div class="social-flow-step" style="background: rgba(228, 64, 95, 0.1); color: #E4405F;">IG Mention Trigger</div>
@@ -133,6 +140,9 @@ export function createPlatform() {
               <p class="text-body">
                 Upgrade traditional SMS to rich, brand-verified mobile cards. Reach Android users natively with dynamic carousels, custom suggestion buttons, calendar booking slot interactions, and verified sender profiles directly inside their messaging app.
               </p>
+              <div style="margin: 1rem 0 1.5rem;">
+                <a href="/platform/rcs-messaging" class="btn btn-glass btn-sm">Explore RCS Messaging &rarr;</a>
+              </div>
               <div class="rcs-preview glass-card" style="border-color: rgba(54, 197, 240, 0.25);">
                 <div class="rcs-carousel-placeholder">[ Product Carousel Card ]</div>
                 <div style="font-weight: 600; font-size: 0.85rem; margin-bottom: 0.3rem;">Confirm Appointment Slot</div>
@@ -149,17 +159,20 @@ export function createPlatform() {
               <p class="text-body">
                 Equip your customer support representatives with a shared, multi-channel dashboard. Consolidate messages from WhatsApp, Instagram, Facebook, and RCS into a unified feed. Assign conversations, tag items, write internal comments, and coordinate resolution instantly.
               </p>
+              <div style="margin: 1rem 0 1.5rem;">
+                <a href="/platform/team-inbox" class="btn btn-glass btn-sm">Explore Team Inbox &rarr;</a>
+              </div>
               <div class="inbox-mockup glass-card">
                 <div class="inbox-header">
                   <strong>Active Tickets (4)</strong>
                   <span style="opacity: 0.5;">Assigned to Me</span>
                 </div>
                 <div class="inbox-ticket active">
-                  <span>📲 #1289 - John (WhatsApp)</span>
+                  <span>📲 #1289 - Rahul (WhatsApp)</span>
                   <span style="color:#B84DFF; font-weight:bold;">Pending Reply</span>
                 </div>
                 <div class="inbox-ticket">
-                  <span>📸 #1288 - Sarah (Instagram)</span>
+                  <span>📸 #1288 - Sneha (Instagram)</span>
                   <span style="opacity: 0.5;">Assigned: Agent B</span>
                 </div>
               </div>
@@ -170,17 +183,30 @@ export function createPlatform() {
               <p class="text-body">
                 Design sophisticated communication logic without writing a single line of code. Connect triggers (e.g. New Order, Comment Mention) with structured actions (e.g. delay 5 minutes, send receipt, branch on user reply, tag lead) inside our node editor.
               </p>
+              <div style="margin: 1rem 0 1.5rem;">
+                <a href="/platform/workflow-automation" class="btn btn-glass btn-sm">Explore Workflow Builder &rarr;</a>
+              </div>
               <div class="workflow-nodes">
                 <div class="workflow-node" style="background: rgba(156, 39, 255, 0.15); border: 1px solid rgba(156, 39, 255, 0.3);">
-                  🔔 Trigger<br><span class="node-label">User Comments "INFO"</span>
+                  🔔 Trigger<br><span class="node-label">New WhatsApp Message</span>
                 </div>
                 <span class="workflow-arrow">➔</span>
-                <div class="workflow-node" style="background: rgba(255,255,255,0.03); border: 1px dashed rgba(255,255,255,0.1);">
-                  ⌛ Delay Node<br><span class="node-label">Wait 2 Seconds</span>
+                <div class="workflow-node" style="background: rgba(0, 136, 255, 0.1); border: 1px solid rgba(0, 136, 255, 0.3);">
+                  🤖 Trained AI Bot<br><span class="node-label">Process & Respond</span>
                 </div>
                 <span class="workflow-arrow">➔</span>
                 <div class="workflow-node" style="background: rgba(0, 230, 118, 0.15); border: 1px solid rgba(0, 230, 118, 0.3);">
-                  💬 Action Node<br><span class="node-label">Send WhatsApp Catalog</span>
+                  ⏳ Smart Wait<br><span class="node-label">Delay Before Follow-up</span>
+                </div>
+              </div>
+              <div class="glass-card" style="padding: 1rem; border-radius: var(--radius-lg); margin-top: 1rem; border-color: rgba(255, 107, 53, 0.2);">
+                <div style="font-size:0.72rem;font-weight:600;color:var(--color-orange);margin-bottom:0.5rem;">Webhook Automation</div>
+                <div class="social-flow">
+                  <div class="social-flow-step" style="background: rgba(255, 107, 53, 0.1); color: #FF6B35;">Webhook Trigger</div>
+                  <span class="workflow-arrow">➔</span>
+                  <div class="social-flow-step" style="background: rgba(156, 39, 255, 0.1); color: var(--color-primary-light);">Router Logic</div>
+                  <span class="workflow-arrow">➔</span>
+                  <div class="social-flow-step" style="background: rgba(37, 211, 102, 0.1); color: #25D366;">CRM Update</div>
                 </div>
               </div>
             </div>
@@ -190,19 +216,45 @@ export function createPlatform() {
               <p class="text-body">
                 Say goodbye to scattered customer profiles. Botzo gathers user demographics, conversation history, activity tags, and order status inside a unified CRM pipeline. Trigger bulk campaign broadcasts to targeted segments on WhatsApp or RCS, fully tracked with delivery and read receipt stats.
               </p>
+              <div style="display: flex; gap: 1rem; margin: 1rem 0 1.5rem;">
+                <a href="/platform/crm" class="btn btn-glass btn-sm">Centralized CRM &rarr;</a>
+                <a href="/platform/bulk-campaigns" class="btn btn-glass btn-sm">Bulk Campaigns &rarr;</a>
+              </div>
               <div class="glass-card" style="padding: 1.5rem; border-radius: var(--radius-lg);">
+                <div style="font-size:0.72rem;font-weight:600;color:var(--color-white-text);margin-bottom:0.8rem;">Campaign Quick Report</div>
                 <div class="crm-stats-grid">
                   <div class="crm-stat-item">
                     <div class="crm-stat-label">Delivered</div>
-                    <div class="crm-stat-value" style="color: #36C5F0;">98.4%</div>
+                    <div class="crm-stat-value" style="color: #25D366;">98.4%</div>
                   </div>
                   <div class="crm-stat-item">
                     <div class="crm-stat-label">Read Rate</div>
                     <div class="crm-stat-value" style="color: #B84DFF;">89.2%</div>
                   </div>
                   <div class="crm-stat-item">
-                    <div class="crm-stat-label">Click Rate</div>
-                    <div class="crm-stat-value" style="color: #00E676;">41.6%</div>
+                    <div class="crm-stat-label">Replied</div>
+                    <div class="crm-stat-value" style="color: #0088FF;">41.6%</div>
+                  </div>
+                  <div class="crm-stat-item">
+                    <div class="crm-stat-label">Failed</div>
+                    <div class="crm-stat-value" style="color: var(--color-red);">1.2%</div>
+                  </div>
+                </div>
+              </div>
+              <div class="glass-card" style="padding: 1rem; border-radius: var(--radius-lg); margin-top: 1rem;">
+                <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--color-primary-light);font-weight:600;margin-bottom:0.5rem;">Lead Pipeline</div>
+                <div style="display:flex;gap:0.5rem;">
+                  <div style="flex:1;padding:0.4rem;background:rgba(37,211,102,0.06);border-radius:6px;border-top:2px solid #25D366;">
+                    <div style="font-size:0.6rem;font-weight:600;">New</div>
+                    <div style="font-size:0.9rem;font-weight:700;">87</div>
+                  </div>
+                  <div style="flex:1;padding:0.4rem;background:rgba(255,107,53,0.06);border-radius:6px;border-top:2px solid #FF6B35;">
+                    <div style="font-size:0.6rem;font-weight:600;">Callback</div>
+                    <div style="font-size:0.9rem;font-weight:700;">22</div>
+                  </div>
+                  <div style="flex:1;padding:0.4rem;background:rgba(156,39,255,0.06);border-radius:6px;border-top:2px solid #9C27FF;">
+                    <div style="font-size:0.6rem;font-weight:600;">Quality</div>
+                    <div style="font-size:0.9rem;font-weight:700;">18</div>
                   </div>
                 </div>
               </div>
@@ -213,6 +265,10 @@ export function createPlatform() {
               <p class="text-body">
                 Drive conversions by letting users pay directly inside their chat window. Securely integrate Razorpay, Stripe, or WhatsApp Pay. Generate dynamic QR entry tickets and confirmation slips for flights, events, cinemas, or store pick-ups, automatically delivered to their WhatsApp thread.
               </p>
+              <div style="display: flex; gap: 1rem; margin: 1rem 0 1.5rem;">
+                <a href="/platform/payment-integration" class="btn btn-glass btn-sm">Payment Integration &rarr;</a>
+                <a href="/platform/qr-ticketing" class="btn btn-glass btn-sm">QR Ticketing &rarr;</a>
+              </div>
               <div class="qr-mockup glass-card" style="border-color: rgba(0, 230, 118, 0.2);">
                 <div class="qr-code-display">
                   <div class="qr-code-pattern"></div>

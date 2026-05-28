@@ -915,6 +915,240 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(1.05);
 }
 
+/* ─── Inline Message Buttons attached to message bubble ─── */
+.wa-bubble-has-buttons {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.wa-inline-buttons {
+  display: flex;
+  flex-direction: column;
+  background: #1f2c34;
+  border-bottom-left-radius: 7.5px;
+  border-bottom-right-radius: 7.5px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  margin-top: -1px; /* visual merge with bubble above */
+  max-width: 85%;
+  position: relative;
+  z-index: 1;
+}
+
+.wa-btn-inline {
+  width: 100%;
+  padding: 0.55rem;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: #53bdeb;
+  font-size: 0.72rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.2s ease;
+  font-family: var(--font-body);
+}
+
+.wa-btn-inline:last-child {
+  border-bottom: none;
+}
+
+.wa-btn-inline:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.wa-btn-inline:active {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.wa-btn-inline.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* ─── Custom Interactive Selector Cards ─── */
+.wa-card {
+  align-self: flex-start;
+  max-width: 85%;
+  background: #1f2c34;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 0.6rem;
+  margin: 0.4rem 0;
+  font-family: var(--font-body);
+  position: relative;
+  z-index: 1;
+}
+
+.wa-card-header {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #8696a0;
+  margin-bottom: 0.45rem;
+  font-weight: 600;
+}
+
+.wa-dates-grid {
+  display: flex;
+  gap: 0.4rem;
+  overflow-x: auto;
+  padding-bottom: 0.2rem;
+  scrollbar-width: none;
+}
+
+.wa-dates-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.wa-date-chip {
+  padding: 0.4rem 0.6rem;
+  background: #202c33;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  text-align: center;
+  font-size: 0.65rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  color: #e9edef;
+  min-width: 60px;
+  transition: all 0.2s ease;
+}
+
+.wa-date-chip:hover {
+  background: #2a3942;
+  border-color: #00a884;
+}
+
+.wa-date-chip.selected {
+  background: #005c4b;
+  border-color: #00a884;
+}
+
+.wa-date-chip.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.wa-times-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.4rem;
+}
+
+.wa-time-chip {
+  padding: 0.4rem 0.2rem;
+  background: #202c33;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  text-align: center;
+  font-size: 0.65rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #e9edef;
+}
+
+.wa-time-chip:hover {
+  background: #2a3942;
+  border-color: #00a884;
+}
+
+.wa-time-chip.selected {
+  background: #005c4b;
+  border-color: #00a884;
+}
+
+.wa-time-chip.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* ─── Rich Confirmation Ticket/Receipt Card ─── */
+.wa-confirmation-card {
+  align-self: flex-start;
+  max-width: 85%;
+  background: #1f2c34;
+  border-radius: 8px;
+  border-left: 4px solid #00a884;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 0.7rem;
+  margin: 0.4rem 0;
+  font-family: var(--font-body);
+  position: relative;
+  z-index: 1;
+}
+
+.wa-conf-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: rgba(0, 168, 132, 0.15);
+  color: #00a884;
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.62rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.wa-conf-details {
+  font-size: 0.7rem;
+  line-height: 1.45;
+  color: #e9edef;
+  margin-bottom: 0.55rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.wa-conf-row {
+  display: flex;
+}
+
+.wa-conf-row strong {
+  color: #8696a0;
+  font-weight: normal;
+  display: inline-block;
+  width: 75px;
+  flex-shrink: 0;
+}
+
+.wa-conf-row span {
+  color: #e9edef;
+}
+
+.wa-conf-actions {
+  display: flex;
+  gap: 0.4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 0.45rem;
+  margin-top: 0.4rem;
+}
+
+.wa-conf-btn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #53bdeb;
+  font-size: 0.68rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  font-family: var(--font-body);
+  padding: 0.25rem 0;
+}
+
+.wa-conf-btn:hover {
+  text-decoration: underline;
+}
+
 /* Legacy chat bubble fallback (used in Hero section) */
 .chat-bubble {
   padding: 0.7rem 1rem;
