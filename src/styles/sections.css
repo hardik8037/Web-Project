@@ -1702,17 +1702,18 @@
 }
 
 .testimonial-card {
-  position: absolute;
+  position: absolute !important;
   inset: 0;
   padding: 2.5rem;
   opacity: 0;
   transform: translateX(30px);
   transition: all 0.5s var(--ease-premium);
   pointer-events: none;
+  overflow: hidden;
 }
 
 .testimonial-card.active {
-  opacity: 1;
+  opacity: 1 !important;
   transform: translateX(0);
   pointer-events: auto;
 }
@@ -2328,7 +2329,7 @@
   }
 }
 
-.glass-card, .glass-card-strong, .dashboard-frame, .pricing-card, .service-card, .feature-card {
+.glass-card, .glass-card-strong, .dashboard-frame, .service-card, .feature-card {
   position: relative;
   overflow: hidden;
   transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
@@ -2391,5 +2392,13 @@
 .volumetric-fog-bottom {
   bottom: 0;
   background: linear-gradient(to top, var(--color-dark-bg) 0%, transparent 100%);
+}
+
+/* Navbar active link highlighting */
+.botzo-pill-link.active, .mobile-nav-link.active {
+  color: var(--color-white-text) !important;
+  background: rgba(156, 39, 255, 0.1) !important;
+  box-shadow: 0 0 15px -3px rgba(156, 39, 255, 0.2);
+  border: 1px solid rgba(156, 39, 255, 0.25) !important;
 }
 

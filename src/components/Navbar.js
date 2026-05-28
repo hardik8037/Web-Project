@@ -16,6 +16,8 @@ export function createNavbar() {
 
       <!-- Center Pill Navigation -->
       <nav class="botzo-nav-pill" aria-label="Main navigation">
+        
+        <!-- Platform Dropdown -->
         <div class="nav-dropdown">
           <button class="botzo-pill-link nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
             Platform <svg width="8" height="5" viewBox="0 0 8 5" fill="none"><path d="M1 1l3 3 3-3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -24,28 +26,28 @@ export function createNavbar() {
             <div class="mega-menu-inner">
               <div class="mega-menu-section">
                 <div class="mega-menu-label">Communication</div>
-                <a href="#platform" class="mega-menu-item" role="menuitem">
+                <a href="/platform" class="mega-menu-item" role="menuitem">
                   <span class="mega-icon">💬</span>
                   <div>
                     <div class="mega-item-title">WhatsApp API</div>
                     <div class="mega-item-desc">Official Business API integration</div>
                   </div>
                 </a>
-                <a href="#platform" class="mega-menu-item" role="menuitem">
+                <a href="/platform" class="mega-menu-item" role="menuitem">
                   <span class="mega-icon">📸</span>
                   <div>
                     <div class="mega-item-title">Instagram Automation</div>
                     <div class="mega-item-desc">DM & comment automation</div>
                   </div>
                 </a>
-                <a href="#platform" class="mega-menu-item" role="menuitem">
+                <a href="/platform" class="mega-menu-item" role="menuitem">
                   <span class="mega-icon">📘</span>
                   <div>
                     <div class="mega-item-title">Facebook Automation</div>
                     <div class="mega-item-desc">Messenger & lead gen flows</div>
                   </div>
                 </a>
-                <a href="#platform" class="mega-menu-item" role="menuitem">
+                <a href="/platform" class="mega-menu-item" role="menuitem">
                   <span class="mega-icon">📱</span>
                   <div>
                     <div class="mega-item-title">RCS Messaging</div>
@@ -55,28 +57,28 @@ export function createNavbar() {
               </div>
               <div class="mega-menu-section">
                 <div class="mega-menu-label">Productivity</div>
-                <a href="#platform" class="mega-menu-item" role="menuitem">
+                <a href="/platform" class="mega-menu-item" role="menuitem">
                   <span class="mega-icon">📥</span>
                   <div>
                     <div class="mega-item-title">Unified Team Inbox</div>
                     <div class="mega-item-desc">All channels in one place</div>
                   </div>
                 </a>
-                <a href="#platform" class="mega-menu-item" role="menuitem">
+                <a href="/platform" class="mega-menu-item" role="menuitem">
                   <span class="mega-icon">⚡</span>
                   <div>
                     <div class="mega-item-title">Workflow Automation</div>
                     <div class="mega-item-desc">Visual flow builder</div>
                   </div>
                 </a>
-                <a href="#platform" class="mega-menu-item" role="menuitem">
+                <a href="/platform" class="mega-menu-item" role="menuitem">
                   <span class="mega-icon">📊</span>
                   <div>
                     <div class="mega-item-title">Centralized CRM</div>
                     <div class="mega-item-desc">Unified customer data</div>
                   </div>
                 </a>
-                <a href="#platform" class="mega-menu-item" role="menuitem">
+                <a href="/platform" class="mega-menu-item" role="menuitem">
                   <span class="mega-icon">📢</span>
                   <div>
                     <div class="mega-item-title">Bulk Campaigns</div>
@@ -86,21 +88,21 @@ export function createNavbar() {
               </div>
               <div class="mega-menu-section">
                 <div class="mega-menu-label">Commerce</div>
-                <a href="#platform" class="mega-menu-item" role="menuitem">
+                <a href="/platform" class="mega-menu-item" role="menuitem">
                   <span class="mega-icon">📅</span>
                   <div>
                     <div class="mega-item-title">Appointment Booking</div>
                     <div class="mega-item-desc">Automated scheduling</div>
                   </div>
                 </a>
-                <a href="#platform" class="mega-menu-item" role="menuitem">
+                <a href="/platform" class="mega-menu-item" role="menuitem">
                   <span class="mega-icon">💳</span>
                   <div>
                     <div class="mega-item-title">Payment Integration</div>
                     <div class="mega-item-desc">In-chat payments</div>
                   </div>
                 </a>
-                <a href="#platform" class="mega-menu-item" role="menuitem">
+                <a href="/platform" class="mega-menu-item" role="menuitem">
                   <span class="mega-icon">🎫</span>
                   <div>
                     <div class="mega-item-title">Dynamic QR Ticketing</div>
@@ -112,41 +114,115 @@ export function createNavbar() {
           </div>
         </div>
 
+        <!-- Services Dropdown (New!) -->
+        <div class="nav-dropdown">
+          <button class="botzo-pill-link nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+            Services <svg width="8" height="5" viewBox="0 0 8 5" fill="none"><path d="M1 1l3 3 3-3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="mega-menu mega-menu-services" role="menu">
+            <div class="mega-menu-inner">
+              <div class="mega-menu-section">
+                <div class="mega-menu-label">Digital Marketing</div>
+                <a href="/services" class="mega-menu-item" role="menuitem">
+                  <span class="mega-icon">📈</span>
+                  <div>
+                    <div class="mega-item-title">Digital Marketing</div>
+                    <div class="mega-item-desc">Comprehensive growth campaigns</div>
+                  </div>
+                </a>
+                <a href="/services" class="mega-menu-item" role="menuitem">
+                  <span class="mega-icon">🔍</span>
+                  <div>
+                    <div class="mega-item-title">SEO Services</div>
+                    <div class="mega-item-desc">Search engine visibility optimization</div>
+                  </div>
+                </a>
+                <a href="/services" class="mega-menu-item" role="menuitem">
+                  <span class="mega-icon">🎯</span>
+                  <div>
+                    <div class="mega-item-title">Performance Marketing</div>
+                    <div class="mega-item-desc">Meta & Google PPC growth strategy</div>
+                  </div>
+                </a>
+                <a href="/services" class="mega-menu-item" role="menuitem">
+                  <span class="mega-icon">👥</span>
+                  <div>
+                    <div class="mega-item-title">Social Media Marketing</div>
+                    <div class="mega-item-desc">Instagram & FB brand styling</div>
+                  </div>
+                </a>
+              </div>
+              <div class="mega-menu-section">
+                <div class="mega-menu-label">Web & App Engineering</div>
+                <a href="/services" class="mega-menu-item" role="menuitem">
+                  <span class="mega-icon">💻</span>
+                  <div>
+                    <div class="mega-item-title">Website Development</div>
+                    <div class="mega-item-desc">Landing pages & corporate sites</div>
+                  </div>
+                </a>
+                <a href="/services" class="mega-menu-item" role="menuitem">
+                  <span class="mega-icon">🛒</span>
+                  <div>
+                    <div class="mega-item-title">Ecommerce Development</div>
+                    <div class="mega-item-desc">Cart, pay & catalog setups</div>
+                  </div>
+                </a>
+                <a href="/services" class="mega-menu-item" role="menuitem">
+                  <span class="mega-icon">📱</span>
+                  <div>
+                    <div class="mega-item-title">Mobile App Development</div>
+                    <div class="mega-item-desc">Native iOS & Android development</div>
+                  </div>
+                </a>
+                <a href="/services" class="mega-menu-item" role="menuitem">
+                  <span class="mega-icon">✨</span>
+                  <div>
+                    <div class="mega-item-title">UI/UX Design</div>
+                    <div class="mega-item-desc">Premium SaaS micro-interactions</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Solutions Dropdown -->
         <div class="nav-dropdown">
           <button class="botzo-pill-link nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
             Solutions <svg width="8" height="5" viewBox="0 0 8 5" fill="none"><path d="M1 1l3 3 3-3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <div class="mega-menu mega-menu-solutions" role="menu">
             <div class="mega-menu-inner mega-menu-grid-small">
-              <a href="#solutions" class="mega-menu-item" role="menuitem">
+              <a href="/solutions" class="mega-menu-item" role="menuitem">
                 <span class="mega-icon">🏠</span>
                 <div><div class="mega-item-title">Real Estate</div></div>
               </a>
-              <a href="#solutions" class="mega-menu-item" role="menuitem">
+              <a href="/solutions" class="mega-menu-item" role="menuitem">
                 <span class="mega-icon">🏥</span>
                 <div><div class="mega-item-title">Healthcare</div></div>
               </a>
-              <a href="#solutions" class="mega-menu-item" role="menuitem">
+              <a href="/solutions" class="mega-menu-item" role="menuitem">
                 <span class="mega-icon">🛍️</span>
                 <div><div class="mega-item-title">Ecommerce</div></div>
               </a>
-              <a href="#solutions" class="mega-menu-item" role="menuitem">
+              <a href="/solutions" class="mega-menu-item" role="menuitem">
                 <span class="mega-icon">🍽️</span>
                 <div><div class="mega-item-title">Restaurants</div></div>
               </a>
-              <a href="#solutions" class="mega-menu-item" role="menuitem">
+              <a href="/solutions" class="mega-menu-item" role="menuitem">
                 <span class="mega-icon">🎓</span>
                 <div><div class="mega-item-title">Education</div></div>
               </a>
-              <a href="#solutions" class="mega-menu-item" role="menuitem">
+              <a href="/solutions" class="mega-menu-item" role="menuitem">
                 <span class="mega-icon">🧵</span>
                 <div><div class="mega-item-title">Textile Industry</div></div>
               </a>
-              <a href="#solutions" class="mega-menu-item" role="menuitem">
+              <a href="/solutions" class="mega-menu-item" role="menuitem">
                 <span class="mega-icon">💎</span>
                 <div><div class="mega-item-title">Jewellery</div></div>
               </a>
-              <a href="#solutions" class="mega-menu-item" role="menuitem">
+              <a href="/solutions" class="mega-menu-item" role="menuitem">
                 <span class="mega-icon">🎪</span>
                 <div><div class="mega-item-title">Event Management</div></div>
               </a>
@@ -154,14 +230,14 @@ export function createNavbar() {
           </div>
         </div>
 
-        <a href="#pricing" class="botzo-pill-link">Pricing</a>
-        <a href="#services" class="botzo-pill-link">Resources</a>
+        <a href="/pricing" class="botzo-pill-link">Pricing</a>
+        <a href="/resources" class="botzo-pill-link">Resources</a>
       </nav>
 
       <!-- Right Actions -->
       <div class="botzo-nav-actions">
-        <a href="#contact" class="botzo-nav-login">Log In</a>
-        <a href="#demo" class="botzo-nav-cta">Book Demo</a>
+        <a href="/contact" class="botzo-nav-login">Log In</a>
+        <a href="/demo" class="botzo-nav-cta">Book Demo</a>
       </div>
 
       <!-- Mobile Hamburger -->
@@ -173,35 +249,51 @@ export function createNavbar() {
     <!-- Mobile Menu Drawer -->
     <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
       <div class="mobile-drawer-content">
-        <a href="#home" class="mobile-nav-link">Home</a>
+        <a href="/" class="mobile-nav-link">Home</a>
+        
+        <!-- Mobile Platform -->
         <div class="mobile-nav-group">
           <button class="mobile-nav-link mobile-nav-group-trigger">Platform <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
           <div class="mobile-nav-submenu">
-            <a href="#platform" class="mobile-submenu-link">WhatsApp API</a>
-            <a href="#platform" class="mobile-submenu-link">Instagram Automation</a>
-            <a href="#platform" class="mobile-submenu-link">Facebook Automation</a>
-            <a href="#platform" class="mobile-submenu-link">RCS Messaging</a>
-            <a href="#platform" class="mobile-submenu-link">Unified Team Inbox</a>
-            <a href="#platform" class="mobile-submenu-link">Workflow Automation</a>
-            <a href="#platform" class="mobile-submenu-link">CRM</a>
-            <a href="#platform" class="mobile-submenu-link">Bulk Campaigns</a>
+            <a href="/platform" class="mobile-submenu-link">WhatsApp API</a>
+            <a href="/platform" class="mobile-submenu-link">Instagram Automation</a>
+            <a href="/platform" class="mobile-submenu-link">Facebook Automation</a>
+            <a href="/platform" class="mobile-submenu-link">RCS Messaging</a>
+            <a href="/platform" class="mobile-submenu-link">Unified Team Inbox</a>
+            <a href="/platform" class="mobile-submenu-link">Workflow Automation</a>
+            <a href="/platform" class="mobile-submenu-link">CRM</a>
+            <a href="/platform" class="mobile-submenu-link">Bulk Campaigns</a>
           </div>
         </div>
+
+        <!-- Mobile Services -->
+        <div class="mobile-nav-group">
+          <button class="mobile-nav-link mobile-nav-group-trigger">Services <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+          <div class="mobile-nav-submenu">
+            <a href="/services" class="mobile-submenu-link">Digital Marketing</a>
+            <a href="/services" class="mobile-submenu-link">SEO Services</a>
+            <a href="/services" class="mobile-submenu-link">Website Development</a>
+            <a href="/services" class="mobile-submenu-link">Mobile App Dev</a>
+          </div>
+        </div>
+
+        <!-- Mobile Solutions -->
         <div class="mobile-nav-group">
           <button class="mobile-nav-link mobile-nav-group-trigger">Solutions <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
           <div class="mobile-nav-submenu">
-            <a href="#solutions" class="mobile-submenu-link">Real Estate</a>
-            <a href="#solutions" class="mobile-submenu-link">Healthcare</a>
-            <a href="#solutions" class="mobile-submenu-link">Ecommerce</a>
-            <a href="#solutions" class="mobile-submenu-link">Restaurants</a>
-            <a href="#solutions" class="mobile-submenu-link">Education</a>
+            <a href="/solutions" class="mobile-submenu-link">Real Estate</a>
+            <a href="/solutions" class="mobile-submenu-link">Healthcare</a>
+            <a href="/solutions" class="mobile-submenu-link">Ecommerce</a>
+            <a href="/solutions" class="mobile-submenu-link">Restaurants</a>
+            <a href="/solutions" class="mobile-submenu-link">Education</a>
           </div>
         </div>
-        <a href="#pricing" class="mobile-nav-link">Pricing</a>
-        <a href="#services" class="mobile-nav-link">Resources</a>
-        <a href="#contact" class="mobile-nav-link">Log In</a>
+
+        <a href="/pricing" class="mobile-nav-link">Pricing</a>
+        <a href="/resources" class="mobile-nav-link">Resources</a>
+        <a href="/contact" class="mobile-nav-link">Log In</a>
         <div class="mobile-drawer-cta">
-          <a href="#demo" class="btn btn-primary btn-lg" style="width:100%;">Book a Demo</a>
+          <a href="/demo" class="btn btn-primary btn-lg" style="width:100%;">Book a Demo</a>
         </div>
       </div>
     </div>

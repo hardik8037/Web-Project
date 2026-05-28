@@ -1,0 +1,256 @@
+/* ═══════════════════════════════════════════════════
+   BOTZO.IO — PLATFORM FEATURES PAGE
+   ═══════════════════════════════════════════════════ */
+
+import { createFinalCTA } from '../sections/FinalCTA.js';
+
+export function createPlatform() {
+  const container = document.createElement('div');
+  container.className = 'page platform-page';
+
+  container.innerHTML = `
+    <!-- Platform Hero Section -->
+    <section class="section page-hero platform-hero-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="text-overline">The Engine of Growth</span>
+          <h1 class="heading-hero">AI-Driven Business<br><span class="text-gradient">Automation Platform</span></h1>
+          <p class="text-body-lg" style="max-width: 720px; margin: 0 auto 2rem;">
+            A unified ecosystem designed to automate your customer communication, optimize marketing campaigns, collect payments, and manage leads in one centralized place.
+          </p>
+          <div class="hero-actions">
+            <a href="/demo" class="btn btn-primary">Book Technical Demo</a>
+            <a href="/pricing" class="btn btn-ghost">View Pricing Plans</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Interactive Feature Deep Dive -->
+    <section class="section platform-features-deep" style="padding: 6rem 0;">
+      <div class="container">
+        <div class="section-header" style="margin-bottom: 4rem;">
+          <span class="text-overline">Deep Dive</span>
+          <h2 class="heading-section">Explore Botzo's <span class="text-gradient">Capabilities</span></h2>
+          <p class="text-body">Click through our operational features to see what happens behind the scenes.</p>
+        </div>
+
+        <div class="platform-interactive-layout">
+          <!-- Left Navigation Menu -->
+          <div class="feature-menu-sidebar">
+            <button class="feature-tab-btn active" data-feature="whatsapp">
+              <span class="tab-icon">💬</span>
+              <div>
+                <div class="tab-title">WhatsApp API</div>
+                <div class="tab-desc">Official business integrations</div>
+              </div>
+            </button>
+            <button class="feature-tab-btn" data-feature="socials">
+              <span class="tab-icon">📸</span>
+              <div>
+                <div class="tab-title">Instagram & Facebook</div>
+                <div class="tab-desc">Auto DMs & comment replies</div>
+              </div>
+            </button>
+            <button class="feature-tab-btn" data-feature="rcs">
+              <span class="tab-icon">📱</span>
+              <div>
+                <div class="tab-title">RCS Messaging</div>
+                <div class="tab-desc">Rich Android messaging</div>
+              </div>
+            </button>
+            <button class="feature-tab-btn" data-feature="inbox">
+              <span class="tab-icon">📥</span>
+              <div>
+                <div class="tab-title">Unified Team Inbox</div>
+                <div class="tab-desc">Collaborative chat agent view</div>
+              </div>
+            </button>
+            <button class="feature-tab-btn" data-feature="workflows">
+              <span class="tab-icon">⚡</span>
+              <div>
+                <div class="tab-title">Workflow Builder</div>
+                <div class="tab-desc">No-code automation logic</div>
+              </div>
+            </button>
+            <button class="feature-tab-btn" data-feature="crm">
+              <span class="tab-icon">📊</span>
+              <div>
+                <div class="tab-title">Central CRM & Campaigns</div>
+                <div class="tab-desc">Lead pipelines & broadcasts</div>
+              </div>
+            </button>
+            <button class="feature-tab-btn" data-feature="payments">
+              <span class="tab-icon">🎫</span>
+              <div>
+                <div class="tab-title">Commerce & Tickets</div>
+                <div class="tab-desc">In-chat checkouts & QR tickets</div>
+              </div>
+            </button>
+          </div>
+
+          <!-- Right Content Display Area -->
+          <div class="feature-content-display glass-card-strong">
+            <div class="feature-tab-pane active" id="pane-whatsapp">
+              <h3 style="color: #25D366;">WhatsApp Business API Ecosystem</h3>
+              <p class="text-body">
+                Tap into the world's most popular messaging channel. Botzo enables official green-tick verification, automated business templates, bulk newsletters with high open-rates, and multi-agent customer support on a single phone number.
+              </p>
+              <div class="whatsapp-mockup glass-card">
+                <div class="mockup-header">
+                  <div class="status-dot"></div>
+                  <strong style="font-size: 0.9rem;">Botzo Assistant (Verified)</strong>
+                </div>
+                <div class="msg-bubbles">
+                  <div class="msg-bubble incoming">
+                    Hello! We've automated your order tracking. Here is your tracking link: <strong>botzo.io/track/876</strong>
+                  </div>
+                  <div class="msg-bubble outgoing">
+                    Awesome! Thank you for the quick update.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="feature-tab-pane" id="pane-socials">
+              <h3 style="color: #E4405F;">Instagram & Facebook Automation</h3>
+              <p class="text-body">
+                Never miss an inquiry on social channels. Automate responses to Instagram Direct Messages, Messenger chats, and comment mentions. Instantly convert interest into leads by auto-sending links to your product or booking pages whenever a user comments on your post.
+              </p>
+              <div class="glass-card" style="padding: 1.5rem; border-radius: var(--radius-lg); border-color: rgba(228, 64, 95, 0.2);">
+                <div class="social-flow">
+                  <div class="social-flow-step" style="background: rgba(228, 64, 95, 0.1); color: #E4405F;">IG Mention Trigger</div>
+                  <span class="workflow-arrow">➔</span>
+                  <div class="social-flow-step" style="background: rgba(156, 39, 255, 0.1); color: var(--color-primary-light);">Send Automated DM Link</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="feature-tab-pane" id="pane-rcs">
+              <h3 style="color: #36C5F0;">RCS (Rich Communication Services)</h3>
+              <p class="text-body">
+                Upgrade traditional SMS to rich, brand-verified mobile cards. Reach Android users natively with dynamic carousels, custom suggestion buttons, calendar booking slot interactions, and verified sender profiles directly inside their messaging app.
+              </p>
+              <div class="rcs-preview glass-card" style="border-color: rgba(54, 197, 240, 0.25);">
+                <div class="rcs-carousel-placeholder">[ Product Carousel Card ]</div>
+                <div style="font-weight: 600; font-size: 0.85rem; margin-bottom: 0.3rem;">Confirm Appointment Slot</div>
+                <div style="font-size: 0.72rem; opacity: 0.6; margin-bottom: 0.8rem;">Click slots to reserve automatically.</div>
+                <div class="rcs-slot-btns">
+                  <button class="rcs-slot-btn">10:00 AM</button>
+                  <button class="rcs-slot-btn">02:30 PM</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="feature-tab-pane" id="pane-inbox">
+              <h3 style="color: #9C27FF;">Unified Agent Collaboration Inbox</h3>
+              <p class="text-body">
+                Equip your customer support representatives with a shared, multi-channel dashboard. Consolidate messages from WhatsApp, Instagram, Facebook, and RCS into a unified feed. Assign conversations, tag items, write internal comments, and coordinate resolution instantly.
+              </p>
+              <div class="inbox-mockup glass-card">
+                <div class="inbox-header">
+                  <strong>Active Tickets (4)</strong>
+                  <span style="opacity: 0.5;">Assigned to Me</span>
+                </div>
+                <div class="inbox-ticket active">
+                  <span>📲 #1289 - John (WhatsApp)</span>
+                  <span style="color:#B84DFF; font-weight:bold;">Pending Reply</span>
+                </div>
+                <div class="inbox-ticket">
+                  <span>📸 #1288 - Sarah (Instagram)</span>
+                  <span style="opacity: 0.5;">Assigned: Agent B</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="feature-tab-pane" id="pane-workflows">
+              <h3 style="color: #B84DFF;">Visual Workflow Builder</h3>
+              <p class="text-body">
+                Design sophisticated communication logic without writing a single line of code. Connect triggers (e.g. New Order, Comment Mention) with structured actions (e.g. delay 5 minutes, send receipt, branch on user reply, tag lead) inside our node editor.
+              </p>
+              <div class="workflow-nodes">
+                <div class="workflow-node" style="background: rgba(156, 39, 255, 0.15); border: 1px solid rgba(156, 39, 255, 0.3);">
+                  🔔 Trigger<br><span class="node-label">User Comments "INFO"</span>
+                </div>
+                <span class="workflow-arrow">➔</span>
+                <div class="workflow-node" style="background: rgba(255,255,255,0.03); border: 1px dashed rgba(255,255,255,0.1);">
+                  ⌛ Delay Node<br><span class="node-label">Wait 2 Seconds</span>
+                </div>
+                <span class="workflow-arrow">➔</span>
+                <div class="workflow-node" style="background: rgba(0, 230, 118, 0.15); border: 1px solid rgba(0, 230, 118, 0.3);">
+                  💬 Action Node<br><span class="node-label">Send WhatsApp Catalog</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="feature-tab-pane" id="pane-crm">
+              <h3 style="color: #F5F5F7;">Centralized CRM & Broadcasting</h3>
+              <p class="text-body">
+                Say goodbye to scattered customer profiles. Botzo gathers user demographics, conversation history, activity tags, and order status inside a unified CRM pipeline. Trigger bulk campaign broadcasts to targeted segments on WhatsApp or RCS, fully tracked with delivery and read receipt stats.
+              </p>
+              <div class="glass-card" style="padding: 1.5rem; border-radius: var(--radius-lg);">
+                <div class="crm-stats-grid">
+                  <div class="crm-stat-item">
+                    <div class="crm-stat-label">Delivered</div>
+                    <div class="crm-stat-value" style="color: #36C5F0;">98.4%</div>
+                  </div>
+                  <div class="crm-stat-item">
+                    <div class="crm-stat-label">Read Rate</div>
+                    <div class="crm-stat-value" style="color: #B84DFF;">89.2%</div>
+                  </div>
+                  <div class="crm-stat-item">
+                    <div class="crm-stat-label">Click Rate</div>
+                    <div class="crm-stat-value" style="color: #00E676;">41.6%</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="feature-tab-pane" id="pane-payments">
+              <h3 style="color: #00E676;">In-Chat Commerce & QR Ticketing</h3>
+              <p class="text-body">
+                Drive conversions by letting users pay directly inside their chat window. Securely integrate Razorpay, Stripe, or WhatsApp Pay. Generate dynamic QR entry tickets and confirmation slips for flights, events, cinemas, or store pick-ups, automatically delivered to their WhatsApp thread.
+              </p>
+              <div class="qr-mockup glass-card" style="border-color: rgba(0, 230, 118, 0.2);">
+                <div class="qr-code-display">
+                  <div class="qr-code-pattern"></div>
+                </div>
+                <div style="font-weight: bold; font-size: 0.82rem;">BOTZO CONFERENCE 2026</div>
+                <div style="font-size: 0.72rem; opacity: 0.6;">Entry Pass - Verified</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  `;
+
+  // Bind click listener for interactive tab pane swapping
+  setTimeout(() => {
+    const tabButtons = container.querySelectorAll('.feature-tab-btn');
+    const panes = container.querySelectorAll('.feature-tab-pane');
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const feature = btn.getAttribute('data-feature');
+
+        tabButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        panes.forEach(pane => pane.classList.remove('active'));
+        
+        const targetPane = container.querySelector(`#pane-${feature}`);
+        if (targetPane) {
+          targetPane.classList.add('active');
+        }
+      });
+    });
+  }, 100);
+
+  // Append Final CTA
+  container.appendChild(createFinalCTA());
+
+  return container;
+}

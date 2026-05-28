@@ -301,66 +301,74 @@ export function heroEntrance() {
 export function initScrollAnimations() {
   if (prefersReducedMotion) return;
 
-  // Fade in up for section headers
+  // Fade in up for section headers — with immediate play for elements already in viewport
   gsap.utils.toArray('.section-header').forEach((header) => {
-    fadeInUp(header.children, { trigger: header, stagger: 0.1 });
-  });
-
-  // Reveal elements
-  gsap.utils.toArray('.reveal').forEach((el) => {
-    gsap.to(el, {
-      y: 0,
-      opacity: 1,
-      duration: 0.9,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: el,
-        start: 'top 88%',
-        toggleActions: 'play none none none',
+    const children = header.children;
+    const st = ScrollTrigger.create({
+      trigger: header,
+      start: 'top 92%',
+      onEnter: () => {
+        fadeInUp(children, { stagger: 0.1 });
       },
     });
+    // If already past trigger on init, show immediately
+    if (st.progress > 0) {
+      gsap.set(children, { y: 0, opacity: 1 });
+    }
+  });
+
+  // Reveal elements — with immediate play for elements already in viewport
+  gsap.utils.toArray('.reveal').forEach((el) => {
+    const st = ScrollTrigger.create({
+      trigger: el,
+      start: 'top 92%',
+      onEnter: () => {
+        gsap.to(el, { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out' });
+      },
+    });
+    // If already past trigger on init, reveal immediately
+    if (st.progress > 0) {
+      gsap.set(el, { y: 0, opacity: 1 });
+    }
   });
 
   gsap.utils.toArray('.reveal-left').forEach((el) => {
-    gsap.to(el, {
-      x: 0,
-      opacity: 1,
-      duration: 0.9,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: el,
-        start: 'top 88%',
-        toggleActions: 'play none none none',
+    const st = ScrollTrigger.create({
+      trigger: el,
+      start: 'top 92%',
+      onEnter: () => {
+        gsap.to(el, { x: 0, opacity: 1, duration: 0.9, ease: 'power3.out' });
       },
     });
+    if (st.progress > 0) {
+      gsap.set(el, { x: 0, opacity: 1 });
+    }
   });
 
   gsap.utils.toArray('.reveal-right').forEach((el) => {
-    gsap.to(el, {
-      x: 0,
-      opacity: 1,
-      duration: 0.9,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: el,
-        start: 'top 88%',
-        toggleActions: 'play none none none',
+    const st = ScrollTrigger.create({
+      trigger: el,
+      start: 'top 92%',
+      onEnter: () => {
+        gsap.to(el, { x: 0, opacity: 1, duration: 0.9, ease: 'power3.out' });
       },
     });
+    if (st.progress > 0) {
+      gsap.set(el, { x: 0, opacity: 1 });
+    }
   });
 
   gsap.utils.toArray('.reveal-scale').forEach((el) => {
-    gsap.to(el, {
-      scale: 1,
-      opacity: 1,
-      duration: 0.8,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: el,
-        start: 'top 88%',
-        toggleActions: 'play none none none',
+    const st = ScrollTrigger.create({
+      trigger: el,
+      start: 'top 92%',
+      onEnter: () => {
+        gsap.to(el, { scale: 1, opacity: 1, duration: 0.8, ease: 'power3.out' });
       },
     });
+    if (st.progress > 0) {
+      gsap.set(el, { scale: 1, opacity: 1 });
+    }
   });
 
   // Section dividers

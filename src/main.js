@@ -1,5 +1,6 @@
 /* ═══════════════════════════════════════════════════
    BOTZO.IO — MAIN APPLICATION ENTRY
+   Multi-page dynamic mounting and cinematic core.
    ═══════════════════════════════════════════════════ */
 
 import './styles/globals.css';
@@ -8,24 +9,12 @@ import './styles/globals.css';
 import { createNavbar } from './components/Navbar.js';
 import { createFooter } from './components/Footer.js';
 
-// Sections
-import { createHero } from './sections/Hero.js';
-import { createIntegrations } from './sections/Integrations.js';
-import { createAutomationPlatform } from './sections/AutomationPlatform.js';
-import { createLiveDemo } from './sections/LiveDemo.js';
-import { createProblemSolution } from './sections/ProblemSolution.js';
-import { createDigitalServices } from './sections/DigitalServices.js';
-import { createPricing } from './sections/Pricing.js';
-import { createUseCases } from './sections/UseCases.js';
-import { createTestimonials } from './sections/Testimonials.js';
-import { createFAQ } from './sections/FAQ.js';
-import { createFinalCTA } from './sections/FinalCTA.js';
-
 // JS Systems
-import { heroEntrance, initNavbarScroll, initScrollAnimations } from './js/animations.js';
+import { initNavbarScroll } from './js/animations.js';
 import { AtmosphereEngine } from './js/atmosphere.js';
 import { MouseParallax } from './js/mouse-parallax.js';
 import { ChatbotDemo } from './js/chatbot-demo.js';
+import { Router } from './js/router.js';
 
 /* ═══════════════════════════════════════════════════
    APP INITIALIZATION
@@ -35,51 +24,28 @@ function initApp() {
   const app = document.getElementById('app');
   if (!app) return;
 
-  // Build the page
+  // 1. Mount static Navbar
   app.appendChild(createNavbar());
 
-  const main = document.createElement('main');
-  main.id = 'main-content';
+  // 2. Mount dynamic Page Container (swapped by Router)
+  const pageContainer = document.createElement('div');
+  pageContainer.id = 'page-container';
+  pageContainer.style.width = '100%';
+  pageContainer.style.minHeight = '100vh';
+  app.appendChild(pageContainer);
 
-  main.appendChild(createHero());
-  main.appendChild(createDivider());
-  main.appendChild(createIntegrations());
-  main.appendChild(createDivider());
-  main.appendChild(createAutomationPlatform());
-  main.appendChild(createDivider());
-  main.appendChild(createLiveDemo());
-  main.appendChild(createDivider());
-  main.appendChild(createProblemSolution());
-  main.appendChild(createDivider());
-  main.appendChild(createDigitalServices());
-  main.appendChild(createDivider());
-  main.appendChild(createPricing());
-  main.appendChild(createDivider());
-  main.appendChild(createUseCases());
-  main.appendChild(createDivider());
-  main.appendChild(createTestimonials());
-  main.appendChild(createDivider());
-  main.appendChild(createFAQ());
-  main.appendChild(createFinalCTA());
-
-  app.appendChild(main);
+  // 3. Mount static Footer
   app.appendChild(createFooter());
 
-  // Initialize systems after DOM is populated
+  // Initialize systems after DOM is mounted
   requestAnimationFrame(() => {
-    // Hide loader
+    // Hide loading screen
     hideLoader();
 
-    // Initialize animations
-    heroEntrance();
+    // Init scroll state handler for navigation styling
     initNavbarScroll();
 
-    // Delay scroll animations to avoid initial layout thrashing
-    setTimeout(() => {
-      initScrollAnimations();
-    }, 500);
-
-    // Initialize global cinematic systems
+    // Initialize global Three.js and Mouse Parallax systems
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!reduceMotion) {
       try {
@@ -90,23 +56,17 @@ function initApp() {
       }
     }
 
-    // Initialize floating background grid element inside app container
+    // Append floating background grid element inside app wrapper
     const grid = document.createElement('div');
     grid.className = 'floating-grid';
     app.appendChild(grid);
 
-    // Initialize chatbot demo
+    // Initialize interactive chatbot demo handler globally
     new ChatbotDemo();
 
-    // Smooth scroll for anchor links
-    initSmoothScroll();
+    // Initialize Custom Router to handle client-side navigation
+    window.router = new Router('#page-container');
   });
-}
-
-function createDivider() {
-  const div = document.createElement('div');
-  div.className = 'section-divider';
-  return div;
 }
 
 function hideLoader() {
@@ -115,23 +75,6 @@ function hideLoader() {
     loader.classList.add('loaded');
     setTimeout(() => loader.remove(), 800);
   }
-}
-
-function initSmoothScroll() {
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
-
-      const target = document.querySelector(targetId);
-      if (target) {
-        e.preventDefault();
-        const navbarHeight = document.getElementById('navbar')?.offsetHeight || 0;
-        const top = target.getBoundingClientRect().top + window.scrollY - navbarHeight - 20;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
-    });
-  });
 }
 
 /* ═══════════════════════════════════════════════════

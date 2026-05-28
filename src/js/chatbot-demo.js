@@ -2,6 +2,7 @@ import { gsap } from 'gsap';
 
 /* ═══════════════════════════════════════════════════
    INTERACTIVE CHATBOT & CRM DEMO SYSTEM
+   Authentic WhatsApp-style live demo with CRM sync.
    ═══════════════════════════════════════════════════ */
 
 const CHATBOT_MESSAGES = {
@@ -20,7 +21,8 @@ const CHATBOT_MESSAGES = {
       botReply: "Great choice! 🎯 Our plans start at ₹999/mo for the Starter plan. The Growth plan at ₹2,999/mo is our most popular — includes WhatsApp API, CRM, and bulk messaging.\n\nWould you like me to help you pick the right plan?",
       crmUpdate: {
         leadName: 'New Lead — Pricing Inquiry',
-        stage: 'Interested',
+        stage: 'interested',
+        stageLabel: 'Interested',
         score: 72,
         activity: 'Checked pricing details',
       },
@@ -30,7 +32,8 @@ const CHATBOT_MESSAGES = {
       botReply: "Awesome! 🚀 I'd love to show you how Botzo.io can transform your business.\n\nOur team will reach out within 2 hours to schedule a personalized demo. What time works best for you?",
       crmUpdate: {
         leadName: 'Hot Lead — Demo Request',
-        stage: 'Qualified',
+        stage: 'qualified',
+        stageLabel: 'Qualified',
         score: 91,
         activity: 'Requested product demo',
       },
@@ -40,7 +43,8 @@ const CHATBOT_MESSAGES = {
       botReply: "Of course! 🤝 I'm connecting you with our team now.\n\nAgent Priya is available and will join in just a moment. Average response time: under 30 seconds!",
       crmUpdate: {
         leadName: 'Lead — Agent Handoff',
-        stage: 'Engaged',
+        stage: 'interested',
+        stageLabel: 'Engaged',
         score: 85,
         activity: 'Requested human agent',
       },
@@ -48,58 +52,138 @@ const CHATBOT_MESSAGES = {
   },
 };
 
+function getTimeString() {
+  const now = new Date();
+  return now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+}
+
 export class ChatbotDemo {
   constructor() {
-    this.chatMessages = document.getElementById('chat-messages');
-    this.quickReplies = document.getElementById('quick-replies');
-    this.crmPipeline = document.getElementById('crm-pipeline');
-    this.activityFeed = document.getElementById('activity-feed');
-    this.kpiLeads = document.getElementById('kpi-leads');
-    this.kpiResponse = document.getElementById('kpi-response');
-    this.kpiConversion = document.getElementById('kpi-conversion');
+    this.bound = false;
     this.isInteracted = false;
+    this.activeTimeouts = new Set();
+    this.chatMessages = null;
+    this.tryBind();
 
-    if (!this.chatMessages) return;
-    this.init();
+    // Listen for DOM changes (when router loads home page)
+    this._observer = new MutationObserver(() => {
+      this.tryBind();
+    });
+    this._observer.observe(document.getElementById('app') || document.body, {
+      childList: true, subtree: true,
+    });
+  }
+
+  safeTimeout(fn, delay) {
+    const id = setTimeout(() => {
+      this.activeTimeouts.delete(id);
+      fn();
+    }, delay);
+    this.activeTimeouts.add(id);
+    return id;
+  }
+
+  clearTimeouts() {
+    this.activeTimeouts.forEach(id => clearTimeout(id));
+    this.activeTimeouts.clear();
+  }
+
+  tryBind() {
+    const chatMessagesEl = document.getElementById('chat-messages');
+    if (!chatMessagesEl) {
+      if (this.bound) {
+        this.bound = false;
+        this.chatMessages = null;
+        this.clearTimeouts();
+      }
+      return;
+    }
+
+    if (chatMessagesEl !== this.chatMessages) {
+      this.clearTimeouts();
+      this.chatMessages = chatMessagesEl;
+      this.quickReplies = document.getElementById('quick-replies');
+      this.crmPipeline = document.getElementById('crm-pipeline');
+      this.activityFeed = document.getElementById('activity-feed');
+      this.kpiLeads = document.getElementById('kpi-leads');
+      this.kpiResponse = document.getElementById('kpi-response');
+      this.kpiConversion = document.getElementById('kpi-conversion');
+
+      this.bound = true;
+      this.isInteracted = false;
+      this.init();
+    }
+  }
+
+  reset() {
+    this.bound = false;
+    this.chatMessages = null;
+    this.isInteracted = false;
+    this.clearTimeouts();
+    this.tryBind();
   }
 
   init() {
-    // Show greeting after a delay
-    setTimeout(() => this.showTypingThenMessage(CHATBOT_MESSAGES.greeting.text, 'bot'), 800);
-    setTimeout(() => this.showQuickReplies(), 2400);
+    // Clear any existing content
+    if (this.chatMessages) this.chatMessages.innerHTML = '';
+    if (this.quickReplies) this.quickReplies.innerHTML = '';
+
+    // Show greeting after a small delay
+    this.safeTimeout(() => this.showTypingThenMessage(CHATBOT_MESSAGES.greeting.text, 'bot'), 600);
+    this.safeTimeout(() => this.showQuickReplies(), 2200);
   }
 
   showTypingThenMessage(text, type = 'bot', callback) {
+    if (!this.chatMessages) return;
     // Show typing indicator
     const typingEl = document.createElement('div');
-    typingEl.className = 'typing-dots chat-bubble-incoming';
-    typingEl.style.maxWidth = '60px';
-    typingEl.innerHTML = '<span></span><span></span><span></span>';
+    typingEl.className = 'wa-typing-indicator';
+    typingEl.innerHTML = '<div class="wa-typing-dots"><span></span><span></span><span></span></div>';
     this.chatMessages.appendChild(typingEl);
     this.scrollChat();
 
     // Replace with actual message
-    setTimeout(() => {
-      typingEl.remove();
+    this.safeTimeout(() => {
+      if (typingEl.parentNode) {
+        typingEl.remove();
+      }
       this.addMessage(text, type);
       if (callback) callback();
     }, 1200);
   }
 
   addMessage(text, type = 'bot') {
-    const msg = document.createElement('div');
-    msg.className = `chat-bubble ${type === 'bot' ? 'chat-bubble-bot' : 'chat-bubble-outgoing'}`;
-    msg.style.opacity = '0';
-    msg.style.transform = 'translateY(10px)';
-    msg.textContent = text;
-    this.chatMessages.appendChild(msg);
+    if (!this.chatMessages) return;
+    const wrapper = document.createElement('div');
+    wrapper.className = `wa-msg ${type === 'bot' ? 'wa-msg-incoming' : 'wa-msg-outgoing'}`;
+    wrapper.style.opacity = '0';
+    wrapper.style.transform = 'translateY(8px) scale(0.95)';
+
+    const bubble = document.createElement('div');
+    bubble.className = `wa-bubble ${type === 'bot' ? 'wa-bubble-incoming' : 'wa-bubble-outgoing'}`;
+
+    // Format text with newlines
+    const textEl = document.createElement('span');
+    textEl.className = 'wa-bubble-text';
+    textEl.innerHTML = text.replace(/\n/g, '<br>');
+    bubble.appendChild(textEl);
+
+    // Timestamp + read receipts
+    const meta = document.createElement('span');
+    meta.className = 'wa-bubble-meta';
+    meta.innerHTML = `${getTimeString()}${type === 'user' ? ' <span class="wa-read-ticks">✓✓</span>' : ''}`;
+    bubble.appendChild(meta);
+
+    wrapper.appendChild(bubble);
+    this.chatMessages.appendChild(wrapper);
     this.scrollChat();
 
-    gsap.to(msg, {
+    gsap.to(wrapper, {
       opacity: 1,
       y: 0,
-      duration: 0.4,
-      ease: 'power2.out',
+      scale: 1,
+      duration: 0.35,
+      ease: 'back.out(1.5)',
     });
   }
 
@@ -109,10 +193,10 @@ export class ChatbotDemo {
 
     CHATBOT_MESSAGES.options.forEach((opt, i) => {
       const btn = document.createElement('button');
-      btn.className = 'quick-reply-btn';
+      btn.className = 'wa-quick-btn';
       btn.textContent = opt.label;
       btn.style.opacity = '0';
-      btn.style.transform = 'translateY(10px)';
+      btn.style.transform = 'translateY(8px)';
       btn.addEventListener('click', () => this.handleReply(opt.id));
       this.quickReplies.appendChild(btn);
 
@@ -120,7 +204,7 @@ export class ChatbotDemo {
         opacity: 1,
         y: 0,
         duration: 0.3,
-        delay: i * 0.1,
+        delay: 0.1 + i * 0.08,
         ease: 'power2.out',
       });
     });
@@ -134,25 +218,27 @@ export class ChatbotDemo {
     if (!response) return;
 
     // Hide quick replies
-    gsap.to(this.quickReplies.children, {
-      opacity: 0,
-      y: -10,
-      duration: 0.2,
-      stagger: 0.05,
-      onComplete: () => {
-        this.quickReplies.innerHTML = '';
-      },
-    });
+    if (this.quickReplies) {
+      gsap.to(this.quickReplies.children, {
+        opacity: 0,
+        y: -8,
+        duration: 0.2,
+        stagger: 0.04,
+        onComplete: () => {
+          if (this.quickReplies) this.quickReplies.innerHTML = '';
+        },
+      });
+    }
 
     // Show user message
-    setTimeout(() => {
+    this.safeTimeout(() => {
       this.addMessage(response.userMsg, 'user');
 
       // Show bot response with typing
-      setTimeout(() => {
+      this.safeTimeout(() => {
         this.showTypingThenMessage(response.botReply, 'bot', () => {
           // Reset for replay
-          setTimeout(() => {
+          this.safeTimeout(() => {
             this.isInteracted = false;
             this.showQuickReplies();
           }, 3000);
@@ -174,13 +260,13 @@ export class ChatbotDemo {
       card.innerHTML = `
         <div class="pipeline-card-name">${data.leadName}</div>
         <div class="pipeline-card-value">
-          <span class="status-badge status-badge-active">${data.stage}</span>
+          <span class="status-badge status-badge-active">${data.stageLabel}</span>
         </div>
       `;
 
       // Find the right stage column
       const targetStage = this.crmPipeline.querySelector(
-        `[data-stage="${data.stage.toLowerCase()}"]`
+        `[data-stage="${data.stage}"]`
       ) || this.crmPipeline.querySelector('.pipeline-column:nth-child(2)');
 
       if (targetStage) {
