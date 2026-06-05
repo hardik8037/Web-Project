@@ -9,7 +9,7 @@ export function createContact() {
   container.innerHTML = `
     <!-- Contact Hero -->
     <section class="section page-hero contact-hero">
-      <div class="container">
+      <div class="container container-wide">
         <div class="section-header">
           <span class="text-overline">Get In Touch</span>
           <h1 class="heading-hero">Connect With Our<br><span class="text-gradient">Automation Experts</span></h1>

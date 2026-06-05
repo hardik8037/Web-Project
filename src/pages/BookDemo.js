@@ -9,7 +9,7 @@ export function createBookDemo() {
   container.innerHTML = `
     <!-- Booking Hero -->
     <section class="section page-hero booking-hero">
-      <div class="container">
+      <div class="container container-wide">
         <div class="section-header">
           <span class="text-overline">Schedule Live Consultation</span>
           <h1 class="heading-hero">Book a Free 1-on-1<br><span class="text-gradient">Automation Call</span></h1>

@@ -10,7 +10,7 @@ export function createAbout() {
   container.innerHTML = `
     <!-- Cinematic Hero -->
     <section class="section page-hero about-hero" style="padding: 8rem 0 4rem 0; position: relative; overflow: hidden;">
-      <div class="container">
+      <div class="container container-wide">
         <div class="section-header" style="max-width: 800px; margin: 0 auto; text-align: center;">
           <span class="text-overline" style="letter-spacing: 3px; font-weight: 700; color: var(--color-primary-light);">THE COMMUNICATION GRID</span>
           <h1 class="heading-hero" style="font-size: 3.5rem; line-height: 1.1; font-weight: 800; letter-spacing: -1px; margin: 1rem 0;">

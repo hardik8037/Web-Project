@@ -29,7 +29,7 @@ const FAQS = [
   },
   {
     q: 'Can Botzo.io integrate with my existing CRM and tools?',
-    a: "Yes, Botzo.io integrates with 150+ tools including Shopify, Zoho, HubSpot, Google Sheets, Razorpay, and more. We also offer API access and webhook support for custom integrations. If you need a specific integration, our team can build it for you.",
+    a: "Yes, Botzo.io integrates with 500+ tools including Shopify, Zoho, HubSpot, Google Sheets, Razorpay, and more. We also offer API access and webhook support for custom integrations. If you need a specific integration, our team can build it for you.",
   },
   {
     q: 'What kind of support do you provide?',

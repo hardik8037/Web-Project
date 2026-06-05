@@ -9,6 +9,24 @@ export const SOLUTION_PAGES = {
     overline: 'Industry Solution', heroTitle: 'Real Estate', heroHighlight: 'Automation Suite',
     gradient: ['#FF6B35', '#E55100'],
     heroDesc: 'Automate property lead routing, site visit scheduling, virtual tour sharing, and agent follow-ups. Convert enquiries into site visits and closures 3x faster.',
+    heroVisualHTML: `
+      <div class="hero-ecosystem marketing-ecosystem">
+        <div class="ecosystem-card chart-board glass-card-strong float-slow">
+          <div class="kanban-header" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:10px; margin-bottom: 15px;">Campaign ROI</div>
+          <div class="chart-bars" style="display:flex; align-items:flex-end; gap:12px; height:100px;">
+            <div style="width:24px; height:40%; background:rgba(156,39,255,0.3); border-radius:4px;"></div>
+            <div style="width:24px; height:60%; background:rgba(156,39,255,0.5); border-radius:4px;"></div>
+            <div style="width:24px; height:85%; background:rgba(156,39,255,0.8); border-radius:4px;"></div>
+            <div style="width:24px; height:100%; background:#9C27FF; border-radius:4px; box-shadow:0 0 12px rgba(156,39,255,0.6);"></div>
+          </div>
+        </div>
+        <div class="ecosystem-card kpi-card glass-card float-medium" style="position: absolute; right: -20px; top: 10px;">
+          <div class="analytics-title">Conversion Rate</div>
+          <div class="analytics-value text-gradient" style="background: linear-gradient(90deg, #B84DFF, #FF6B35); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">24.5%</div>
+          <div class="analytics-trend" style="color: #25D366;">↑ 5.2% lift</div>
+        </div>
+      </div>
+`,
     featuresOverline: 'Built for Realtors',
     featuresTitle: 'Property Sales <span class="text-gradient">Automation</span>',
     features: [
@@ -68,6 +86,24 @@ export const SOLUTION_PAGES = {
     overline: 'Industry Solution', heroTitle: 'Healthcare', heroHighlight: 'Patient Automation',
     gradient: ['#0088FF', '#0055CC'],
     heroDesc: 'Automate appointment booking, prescription reminders, patient follow-ups, lab report delivery, and health consultations through WhatsApp.',
+    heroVisualHTML: `
+      <div class="hero-ecosystem marketing-ecosystem">
+        <div class="ecosystem-card chart-board glass-card-strong float-slow">
+          <div class="kanban-header" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:10px; margin-bottom: 15px;">Campaign ROI</div>
+          <div class="chart-bars" style="display:flex; align-items:flex-end; gap:12px; height:100px;">
+            <div style="width:24px; height:40%; background:rgba(156,39,255,0.3); border-radius:4px;"></div>
+            <div style="width:24px; height:60%; background:rgba(156,39,255,0.5); border-radius:4px;"></div>
+            <div style="width:24px; height:85%; background:rgba(156,39,255,0.8); border-radius:4px;"></div>
+            <div style="width:24px; height:100%; background:#9C27FF; border-radius:4px; box-shadow:0 0 12px rgba(156,39,255,0.6);"></div>
+          </div>
+        </div>
+        <div class="ecosystem-card kpi-card glass-card float-medium" style="position: absolute; right: -20px; top: 10px;">
+          <div class="analytics-title">Conversion Rate</div>
+          <div class="analytics-value text-gradient" style="background: linear-gradient(90deg, #B84DFF, #FF6B35); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">24.5%</div>
+          <div class="analytics-trend" style="color: #25D366;">↑ 5.2% lift</div>
+        </div>
+      </div>
+`,
     features: [
       { icon: '📅', title: 'Appointment Booking', desc: 'Patients book consultations via WhatsApp chatbot. Auto-sync with hospital management systems.', iconBg: 'rgba(0,136,255,0.1)', iconColor: '#0088FF' },
       { icon: '💊', title: 'Prescription Reminders', desc: 'Automated medication reminders sent at scheduled times to improve treatment adherence.', iconBg: 'rgba(0,136,255,0.1)', iconColor: '#0088FF' },
@@ -112,6 +148,24 @@ export const SOLUTION_PAGES = {
     overline: 'Industry Solution', heroTitle: 'Ecommerce', heroHighlight: 'Sales Automation',
     gradient: ['#9C27FF', '#7B1FA2'],
     heroDesc: 'Recover abandoned carts, automate order updates, handle returns, and drive repeat purchases through WhatsApp and conversational commerce.',
+    heroVisualHTML: `
+      <div class="hero-ecosystem marketing-ecosystem">
+        <div class="ecosystem-card chart-board glass-card-strong float-slow">
+          <div class="kanban-header" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:10px; margin-bottom: 15px;">Campaign ROI</div>
+          <div class="chart-bars" style="display:flex; align-items:flex-end; gap:12px; height:100px;">
+            <div style="width:24px; height:40%; background:rgba(156,39,255,0.3); border-radius:4px;"></div>
+            <div style="width:24px; height:60%; background:rgba(156,39,255,0.5); border-radius:4px;"></div>
+            <div style="width:24px; height:85%; background:rgba(156,39,255,0.8); border-radius:4px;"></div>
+            <div style="width:24px; height:100%; background:#9C27FF; border-radius:4px; box-shadow:0 0 12px rgba(156,39,255,0.6);"></div>
+          </div>
+        </div>
+        <div class="ecosystem-card kpi-card glass-card float-medium" style="position: absolute; right: -20px; top: 10px;">
+          <div class="analytics-title">Conversion Rate</div>
+          <div class="analytics-value text-gradient" style="background: linear-gradient(90deg, #B84DFF, #FF6B35); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">24.5%</div>
+          <div class="analytics-trend" style="color: #25D366;">↑ 5.2% lift</div>
+        </div>
+      </div>
+`,
     features: [
       { icon: '🛒', title: 'Cart Recovery', desc: 'Automated WhatsApp messages to shoppers who abandoned checkout. Include product images and direct payment links.', iconBg: 'rgba(156,39,255,0.1)', iconColor: '#9C27FF' },
       { icon: '📦', title: 'Order Tracking', desc: 'Real-time shipping updates, delivery confirmations, and tracking links sent automatically via WhatsApp.', iconBg: 'rgba(156,39,255,0.1)', iconColor: '#9C27FF' },
@@ -165,6 +219,24 @@ export const SOLUTION_PAGES = {
     overline: 'Industry Solution', heroTitle: 'Restaurant', heroHighlight: 'Order Automation',
     gradient: ['#FF6B35', '#E55100'],
     heroDesc: 'WhatsApp-based table reservations, digital menus, delivery orders, and loyalty programs. Increase direct orders and reduce platform dependency.',
+    heroVisualHTML: `
+      <div class="hero-ecosystem marketing-ecosystem">
+        <div class="ecosystem-card chart-board glass-card-strong float-slow">
+          <div class="kanban-header" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:10px; margin-bottom: 15px;">Campaign ROI</div>
+          <div class="chart-bars" style="display:flex; align-items:flex-end; gap:12px; height:100px;">
+            <div style="width:24px; height:40%; background:rgba(156,39,255,0.3); border-radius:4px;"></div>
+            <div style="width:24px; height:60%; background:rgba(156,39,255,0.5); border-radius:4px;"></div>
+            <div style="width:24px; height:85%; background:rgba(156,39,255,0.8); border-radius:4px;"></div>
+            <div style="width:24px; height:100%; background:#9C27FF; border-radius:4px; box-shadow:0 0 12px rgba(156,39,255,0.6);"></div>
+          </div>
+        </div>
+        <div class="ecosystem-card kpi-card glass-card float-medium" style="position: absolute; right: -20px; top: 10px;">
+          <div class="analytics-title">Conversion Rate</div>
+          <div class="analytics-value text-gradient" style="background: linear-gradient(90deg, #B84DFF, #FF6B35); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">24.5%</div>
+          <div class="analytics-trend" style="color: #25D366;">↑ 5.2% lift</div>
+        </div>
+      </div>
+`,
     features: [
       { icon: '🍽️', title: 'Table Reservations', desc: 'Instant WhatsApp booking with party size, date, and time selection. Auto-confirmation and reminders.', iconBg: 'rgba(255,107,53,0.1)', iconColor: '#FF6B35' },
       { icon: '📋', title: 'Digital Menu', desc: 'Interactive digital menu with images, descriptions, prices, and direct ordering from WhatsApp.', iconBg: 'rgba(255,107,53,0.1)', iconColor: '#FF6B35' },
@@ -199,6 +271,24 @@ export const SOLUTION_PAGES = {
     overline: 'Industry Solution', heroTitle: 'Education', heroHighlight: 'Communication Hub',
     gradient: ['#36C5F0', '#0088FF'],
     heroDesc: 'Streamline admissions, fee reminders, parent communication, and student engagement through automated WhatsApp workflows.',
+    heroVisualHTML: `
+      <div class="hero-ecosystem marketing-ecosystem">
+        <div class="ecosystem-card chart-board glass-card-strong float-slow">
+          <div class="kanban-header" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:10px; margin-bottom: 15px;">Campaign ROI</div>
+          <div class="chart-bars" style="display:flex; align-items:flex-end; gap:12px; height:100px;">
+            <div style="width:24px; height:40%; background:rgba(156,39,255,0.3); border-radius:4px;"></div>
+            <div style="width:24px; height:60%; background:rgba(156,39,255,0.5); border-radius:4px;"></div>
+            <div style="width:24px; height:85%; background:rgba(156,39,255,0.8); border-radius:4px;"></div>
+            <div style="width:24px; height:100%; background:#9C27FF; border-radius:4px; box-shadow:0 0 12px rgba(156,39,255,0.6);"></div>
+          </div>
+        </div>
+        <div class="ecosystem-card kpi-card glass-card float-medium" style="position: absolute; right: -20px; top: 10px;">
+          <div class="analytics-title">Conversion Rate</div>
+          <div class="analytics-value text-gradient" style="background: linear-gradient(90deg, #B84DFF, #FF6B35); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">24.5%</div>
+          <div class="analytics-trend" style="color: #25D366;">↑ 5.2% lift</div>
+        </div>
+      </div>
+`,
     features: [
       { icon: '🎓', title: 'Admission Guidance', desc: 'AI chatbot answers admission queries, shares brochures, and schedules campus visits 24/7.', iconBg: 'rgba(54,197,240,0.1)', iconColor: '#36C5F0' },
       { icon: '💰', title: 'Fee Reminders', desc: 'Automated fee payment reminders with payment links sent to parents before due dates.', iconBg: 'rgba(54,197,240,0.1)', iconColor: '#36C5F0' },
@@ -229,6 +319,24 @@ export const SOLUTION_PAGES = {
     overline: 'Industry Solution', heroTitle: 'Textile', heroHighlight: 'B2B Commerce',
     gradient: ['#9C27FF', '#7B1FA2'],
     heroDesc: 'Digital wholesale catalogs, bulk order management, agent distribution networks, and shipment tracking for textile manufacturers and distributors.',
+    heroVisualHTML: `
+      <div class="hero-ecosystem marketing-ecosystem">
+        <div class="ecosystem-card chart-board glass-card-strong float-slow">
+          <div class="kanban-header" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:10px; margin-bottom: 15px;">Campaign ROI</div>
+          <div class="chart-bars" style="display:flex; align-items:flex-end; gap:12px; height:100px;">
+            <div style="width:24px; height:40%; background:rgba(156,39,255,0.3); border-radius:4px;"></div>
+            <div style="width:24px; height:60%; background:rgba(156,39,255,0.5); border-radius:4px;"></div>
+            <div style="width:24px; height:85%; background:rgba(156,39,255,0.8); border-radius:4px;"></div>
+            <div style="width:24px; height:100%; background:#9C27FF; border-radius:4px; box-shadow:0 0 12px rgba(156,39,255,0.6);"></div>
+          </div>
+        </div>
+        <div class="ecosystem-card kpi-card glass-card float-medium" style="position: absolute; right: -20px; top: 10px;">
+          <div class="analytics-title">Conversion Rate</div>
+          <div class="analytics-value text-gradient" style="background: linear-gradient(90deg, #B84DFF, #FF6B35); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">24.5%</div>
+          <div class="analytics-trend" style="color: #25D366;">↑ 5.2% lift</div>
+        </div>
+      </div>
+`,
     features: [
       { icon: '📸', title: 'Digital Catalogs', desc: 'Share product catalogs with high-res fabric images, MOQ, pricing, and availability via WhatsApp.', iconBg: 'rgba(156,39,255,0.1)', iconColor: '#9C27FF' },
       { icon: '📦', title: 'Bulk Order Booking', desc: 'Collect wholesale orders with fabric type, quantity, color variants, and delivery requirements in chat.', iconBg: 'rgba(156,39,255,0.1)', iconColor: '#9C27FF' },
@@ -259,6 +367,24 @@ export const SOLUTION_PAGES = {
     overline: 'Industry Solution', heroTitle: 'Jewellery', heroHighlight: 'Client Engagement',
     gradient: ['#FFD700', '#FFA000'],
     heroDesc: 'VIP collection previews, secure invoice checkout, personalized recommendations, and high-touch client relationship management for jewellery brands.',
+    heroVisualHTML: `
+      <div class="hero-ecosystem marketing-ecosystem">
+        <div class="ecosystem-card chart-board glass-card-strong float-slow">
+          <div class="kanban-header" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:10px; margin-bottom: 15px;">Campaign ROI</div>
+          <div class="chart-bars" style="display:flex; align-items:flex-end; gap:12px; height:100px;">
+            <div style="width:24px; height:40%; background:rgba(156,39,255,0.3); border-radius:4px;"></div>
+            <div style="width:24px; height:60%; background:rgba(156,39,255,0.5); border-radius:4px;"></div>
+            <div style="width:24px; height:85%; background:rgba(156,39,255,0.8); border-radius:4px;"></div>
+            <div style="width:24px; height:100%; background:#9C27FF; border-radius:4px; box-shadow:0 0 12px rgba(156,39,255,0.6);"></div>
+          </div>
+        </div>
+        <div class="ecosystem-card kpi-card glass-card float-medium" style="position: absolute; right: -20px; top: 10px;">
+          <div class="analytics-title">Conversion Rate</div>
+          <div class="analytics-value text-gradient" style="background: linear-gradient(90deg, #B84DFF, #FF6B35); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">24.5%</div>
+          <div class="analytics-trend" style="color: #25D366;">↑ 5.2% lift</div>
+        </div>
+      </div>
+`,
     features: [
       { icon: '💎', title: 'Collection Launches', desc: 'Share new collections with high-resolution images, weight, purity, and pricing to VIP clients first.', iconBg: 'rgba(255,215,0,0.1)', iconColor: '#FFD700' },
       { icon: '🔒', title: 'Secure Invoicing', desc: 'Send digitally signed invoices with hallmark details and payment links directly via WhatsApp.', iconBg: 'rgba(255,215,0,0.1)', iconColor: '#FFD700' },
@@ -289,6 +415,24 @@ export const SOLUTION_PAGES = {
     overline: 'Industry Solution', heroTitle: 'Event', heroHighlight: 'Management Suite',
     gradient: ['#E040FB', '#9C27FF'],
     heroDesc: 'End-to-end event automation — registration, QR ticketing, schedule updates, attendee engagement, and post-event feedback collection.',
+    heroVisualHTML: `
+      <div class="hero-ecosystem marketing-ecosystem">
+        <div class="ecosystem-card chart-board glass-card-strong float-slow">
+          <div class="kanban-header" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:10px; margin-bottom: 15px;">Campaign ROI</div>
+          <div class="chart-bars" style="display:flex; align-items:flex-end; gap:12px; height:100px;">
+            <div style="width:24px; height:40%; background:rgba(156,39,255,0.3); border-radius:4px;"></div>
+            <div style="width:24px; height:60%; background:rgba(156,39,255,0.5); border-radius:4px;"></div>
+            <div style="width:24px; height:85%; background:rgba(156,39,255,0.8); border-radius:4px;"></div>
+            <div style="width:24px; height:100%; background:#9C27FF; border-radius:4px; box-shadow:0 0 12px rgba(156,39,255,0.6);"></div>
+          </div>
+        </div>
+        <div class="ecosystem-card kpi-card glass-card float-medium" style="position: absolute; right: -20px; top: 10px;">
+          <div class="analytics-title">Conversion Rate</div>
+          <div class="analytics-value text-gradient" style="background: linear-gradient(90deg, #B84DFF, #FF6B35); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">24.5%</div>
+          <div class="analytics-trend" style="color: #25D366;">↑ 5.2% lift</div>
+        </div>
+      </div>
+`,
     features: [
       { icon: '🎫', title: 'QR Ticketing', desc: 'Generate unique QR tickets delivered via WhatsApp. Real-time scanning at entry gates.', iconBg: 'rgba(224,64,251,0.1)', iconColor: '#E040FB' },
       { icon: '📋', title: 'Registration Bot', desc: 'WhatsApp-based event registration collecting name, contact, ticket type, and dietary preferences.', iconBg: 'rgba(224,64,251,0.1)', iconColor: '#E040FB' },
@@ -321,6 +465,24 @@ export const SOLUTION_PAGES = {
     overline: 'Industry Solution', heroTitle: 'Automotive', heroHighlight: 'Dealership Automation',
     gradient: ['#0088FF', '#0055CC'],
     heroDesc: 'Automate test drive bookings, service reminders, insurance renewals, and dealership follow-ups. Turn every enquiry into a showroom visit.',
+    heroVisualHTML: `
+      <div class="hero-ecosystem marketing-ecosystem">
+        <div class="ecosystem-card chart-board glass-card-strong float-slow">
+          <div class="kanban-header" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:10px; margin-bottom: 15px;">Campaign ROI</div>
+          <div class="chart-bars" style="display:flex; align-items:flex-end; gap:12px; height:100px;">
+            <div style="width:24px; height:40%; background:rgba(156,39,255,0.3); border-radius:4px;"></div>
+            <div style="width:24px; height:60%; background:rgba(156,39,255,0.5); border-radius:4px;"></div>
+            <div style="width:24px; height:85%; background:rgba(156,39,255,0.8); border-radius:4px;"></div>
+            <div style="width:24px; height:100%; background:#9C27FF; border-radius:4px; box-shadow:0 0 12px rgba(156,39,255,0.6);"></div>
+          </div>
+        </div>
+        <div class="ecosystem-card kpi-card glass-card float-medium" style="position: absolute; right: -20px; top: 10px;">
+          <div class="analytics-title">Conversion Rate</div>
+          <div class="analytics-value text-gradient" style="background: linear-gradient(90deg, #B84DFF, #FF6B35); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">24.5%</div>
+          <div class="analytics-trend" style="color: #25D366;">↑ 5.2% lift</div>
+        </div>
+      </div>
+`,
     features: [
       { icon: '🚗', title: 'Test Drive Booking', desc: 'Customers book test drives via WhatsApp with model selection, preferred date, and location.', iconBg: 'rgba(0,136,255,0.1)', iconColor: '#0088FF' },
       { icon: '🔧', title: 'Service Reminders', desc: 'Automated service interval reminders based on purchase date and mileage estimates.', iconBg: 'rgba(0,136,255,0.1)', iconColor: '#0088FF' },
@@ -355,6 +517,24 @@ export const SOLUTION_PAGES = {
     overline: 'Industry Solution', heroTitle: 'Travel &', heroHighlight: 'Tourism Automation',
     gradient: ['#36C5F0', '#0088FF'],
     heroDesc: 'Share itineraries, send booking confirmations, automate payment reminders, and deliver real-time travel updates — all through WhatsApp.',
+    heroVisualHTML: `
+      <div class="hero-ecosystem marketing-ecosystem">
+        <div class="ecosystem-card chart-board glass-card-strong float-slow">
+          <div class="kanban-header" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:10px; margin-bottom: 15px;">Campaign ROI</div>
+          <div class="chart-bars" style="display:flex; align-items:flex-end; gap:12px; height:100px;">
+            <div style="width:24px; height:40%; background:rgba(156,39,255,0.3); border-radius:4px;"></div>
+            <div style="width:24px; height:60%; background:rgba(156,39,255,0.5); border-radius:4px;"></div>
+            <div style="width:24px; height:85%; background:rgba(156,39,255,0.8); border-radius:4px;"></div>
+            <div style="width:24px; height:100%; background:#9C27FF; border-radius:4px; box-shadow:0 0 12px rgba(156,39,255,0.6);"></div>
+          </div>
+        </div>
+        <div class="ecosystem-card kpi-card glass-card float-medium" style="position: absolute; right: -20px; top: 10px;">
+          <div class="analytics-title">Conversion Rate</div>
+          <div class="analytics-value text-gradient" style="background: linear-gradient(90deg, #B84DFF, #FF6B35); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">24.5%</div>
+          <div class="analytics-trend" style="color: #25D366;">↑ 5.2% lift</div>
+        </div>
+      </div>
+`,
     features: [
       { icon: '✈️', title: 'Itinerary Sharing', desc: 'Send detailed trip itineraries with day-wise plans, hotel details, and activity schedules via WhatsApp.', iconBg: 'rgba(54,197,240,0.1)', iconColor: '#36C5F0' },
       { icon: '📋', title: 'Booking Confirmations', desc: 'Automated booking confirmations with travel dates, accommodation details, and PNR numbers.', iconBg: 'rgba(54,197,240,0.1)', iconColor: '#36C5F0' },
@@ -389,6 +569,24 @@ export const SOLUTION_PAGES = {
     overline: 'Industry Solution', heroTitle: 'Fitness &', heroHighlight: 'Wellness Automation',
     gradient: ['#00E676', '#00C853'],
     heroDesc: 'Automate class scheduling, membership renewals, trainer notifications, and client engagement for gyms, yoga studios, and wellness centers.',
+    heroVisualHTML: `
+      <div class="hero-ecosystem marketing-ecosystem">
+        <div class="ecosystem-card chart-board glass-card-strong float-slow">
+          <div class="kanban-header" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:10px; margin-bottom: 15px;">Campaign ROI</div>
+          <div class="chart-bars" style="display:flex; align-items:flex-end; gap:12px; height:100px;">
+            <div style="width:24px; height:40%; background:rgba(156,39,255,0.3); border-radius:4px;"></div>
+            <div style="width:24px; height:60%; background:rgba(156,39,255,0.5); border-radius:4px;"></div>
+            <div style="width:24px; height:85%; background:rgba(156,39,255,0.8); border-radius:4px;"></div>
+            <div style="width:24px; height:100%; background:#9C27FF; border-radius:4px; box-shadow:0 0 12px rgba(156,39,255,0.6);"></div>
+          </div>
+        </div>
+        <div class="ecosystem-card kpi-card glass-card float-medium" style="position: absolute; right: -20px; top: 10px;">
+          <div class="analytics-title">Conversion Rate</div>
+          <div class="analytics-value text-gradient" style="background: linear-gradient(90deg, #B84DFF, #FF6B35); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">24.5%</div>
+          <div class="analytics-trend" style="color: #25D366;">↑ 5.2% lift</div>
+        </div>
+      </div>
+`,
     features: [
       { icon: '🏋️', title: 'Class Scheduling', desc: 'Members book workout sessions, yoga classes, or PT slots via WhatsApp with real-time availability.', iconBg: 'rgba(0,230,118,0.1)', iconColor: '#00E676' },
       { icon: '🔔', title: 'Membership Renewal', desc: 'Automated renewal reminders sent 7 days, 3 days, and 1 day before expiry with payment links.', iconBg: 'rgba(0,230,118,0.1)', iconColor: '#00E676' },
@@ -423,6 +621,24 @@ export const SOLUTION_PAGES = {
     overline: 'Industry Solution', heroTitle: 'Banking &', heroHighlight: 'Finance Automation',
     gradient: ['#0055CC', '#003399'],
     heroDesc: 'Secure account alerts, loan application tracking, EMI reminders, document collection, and customer support automation for financial institutions.',
+    heroVisualHTML: `
+      <div class="hero-ecosystem marketing-ecosystem">
+        <div class="ecosystem-card chart-board glass-card-strong float-slow">
+          <div class="kanban-header" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:10px; margin-bottom: 15px;">Campaign ROI</div>
+          <div class="chart-bars" style="display:flex; align-items:flex-end; gap:12px; height:100px;">
+            <div style="width:24px; height:40%; background:rgba(156,39,255,0.3); border-radius:4px;"></div>
+            <div style="width:24px; height:60%; background:rgba(156,39,255,0.5); border-radius:4px;"></div>
+            <div style="width:24px; height:85%; background:rgba(156,39,255,0.8); border-radius:4px;"></div>
+            <div style="width:24px; height:100%; background:#9C27FF; border-radius:4px; box-shadow:0 0 12px rgba(156,39,255,0.6);"></div>
+          </div>
+        </div>
+        <div class="ecosystem-card kpi-card glass-card float-medium" style="position: absolute; right: -20px; top: 10px;">
+          <div class="analytics-title">Conversion Rate</div>
+          <div class="analytics-value text-gradient" style="background: linear-gradient(90deg, #B84DFF, #FF6B35); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">24.5%</div>
+          <div class="analytics-trend" style="color: #25D366;">↑ 5.2% lift</div>
+        </div>
+      </div>
+`,
     features: [
       { icon: '🔔', title: 'Account Alerts', desc: 'Transaction notifications, balance alerts, and suspicious activity warnings sent securely via WhatsApp.', iconBg: 'rgba(0,85,204,0.1)', iconColor: '#0055CC' },
       { icon: '📋', title: 'Loan Tracking', desc: 'Customers check loan application status, upload documents, and receive approval updates in chat.', iconBg: 'rgba(0,85,204,0.1)', iconColor: '#0055CC' },

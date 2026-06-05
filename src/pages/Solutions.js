@@ -109,7 +109,7 @@ export function createSolutions() {
   container.innerHTML = `
     <!-- Solutions Hero -->
     <section class="section page-hero solutions-hero">
-      <div class="container">
+      <div class="container container-wide">
         <div class="section-header">
           <span class="text-overline">Industry Vertical Blueprints</span>
           <h1 class="heading-hero">Engineered for Your<br><span class="text-gradient" style="background: linear-gradient(135deg, #36C5F0 0%, #B84DFF 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Specific Industry</span></h1>

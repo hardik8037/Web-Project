@@ -11,7 +11,7 @@ export function createServices() {
   container.innerHTML = `
     <!-- Services Hero Section -->
     <section class="section page-hero services-hero">
-      <div class="container">
+      <div class="container container-wide">
         <div class="section-header">
           <span class="text-overline">Design & Development Division</span>
           <h1 class="heading-hero">Futuristic Agency &<br><span class="text-gradient" style="background: linear-gradient(135deg, #00E676 0%, #B84DFF 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Digital Services</span></h1>

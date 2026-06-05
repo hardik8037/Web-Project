@@ -58,7 +58,8 @@ export class AtmosphereEngine {
       depth: false,
     });
     this.renderer.setSize(this.width, this.height);
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, this.isMobile ? 1 : 1.5));
+    const dpr = this.isMobile ? 1.0 : this.isTablet ? 1.2 : Math.min(window.devicePixelRatio, 2.0);
+    this.renderer.setPixelRatio(dpr);
     this.renderer.setClearColor(0x000000, 0);
 
     this.container.appendChild(this.renderer.domElement);
@@ -66,7 +67,7 @@ export class AtmosphereEngine {
 
   /* ═══ PARTICLE FIELD ═══ */
   createParticleField() {
-    const count = this.isMobile ? 400 : this.isTablet ? 600 : 900;
+    const count = this.isMobile ? 120 : this.isTablet ? 450 : 950;
     const geometry = new THREE.BufferGeometry();
     const positions = new Float32Array(count * 3);
     const colors = new Float32Array(count * 3);
@@ -298,11 +299,17 @@ export class AtmosphereEngine {
     this._onResize = () => {
       this.width = window.innerWidth;
       this.height = window.innerHeight;
+      this.isMobile = this.width < 768;
+      this.isTablet = this.width < 1024;
       this.camera.aspect = this.width / this.height;
       this.camera.updateProjectionMatrix();
       this.renderer.setSize(this.width, this.height);
-      this.isMobile = this.width < 768;
-      this.isTablet = this.width < 1024;
+
+      const dpr = this.isMobile ? 1.0 : this.isTablet ? 1.2 : Math.min(window.devicePixelRatio, 2.0);
+      this.renderer.setPixelRatio(dpr);
+      if (this.particles && this.particles.material.uniforms && this.particles.material.uniforms.uPixelRatio) {
+        this.particles.material.uniforms.uPixelRatio.value = dpr;
+      }
     };
 
     this._onMouseMove = (e) => {

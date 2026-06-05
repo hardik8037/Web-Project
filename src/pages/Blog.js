@@ -348,7 +348,7 @@ export function createBlog() {
     container.innerHTML = `
       <!-- Blog Hero -->
       <section class="section page-hero blog-hero" style="padding-bottom: 2rem;">
-        <div class="container">
+        <div class="container container-wide">
           <div class="section-header">
             <span class="text-overline">Editorial Publications</span>
             <h1 class="heading-hero">Engineering & Marketing<br><span class="text-gradient">Ecosystem Blog</span></h1>

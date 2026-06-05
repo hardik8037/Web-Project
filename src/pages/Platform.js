@@ -11,7 +11,7 @@ export function createPlatform() {
   container.innerHTML = `
     <!-- Platform Hero Section -->
     <section class="section page-hero platform-hero-section">
-      <div class="container">
+      <div class="container container-wide">
         <div class="section-header">
           <span class="text-overline">The Engine of Growth</span>
           <h1 class="heading-hero">AI-Driven Business<br><span class="text-gradient">Automation Platform</span></h1>
@@ -30,7 +30,7 @@ export function createPlatform() {
 
     <!-- Interactive Feature Deep Dive -->
     <section class="section platform-features-deep" style="padding: 6rem 0;">
-      <div class="container">
+      <div class="container container-wide">
         <div class="section-header" style="margin-bottom: 4rem;">
           <span class="text-overline">Deep Dive</span>
           <h2 class="heading-section">Explore Botzo's <span class="text-gradient">Capabilities</span></h2>
@@ -87,6 +87,27 @@ export function createPlatform() {
               <div>
                 <div class="tab-title">Commerce & Tickets</div>
                 <div class="tab-desc">In-chat checkouts & QR tickets</div>
+              </div>
+            </button>
+            <button class="feature-tab-btn" data-feature="voice-ai">
+              <span class="tab-icon">🎙️</span>
+              <div>
+                <div class="tab-title">Voice AI</div>
+                <div class="tab-desc">Human-like voice calling</div>
+              </div>
+            </button>
+            <button class="feature-tab-btn" data-feature="ai-studio">
+              <span class="tab-icon">📸</span>
+              <div>
+                <div class="tab-title">AI Studio</div>
+                <div class="tab-desc">On-model product photos</div>
+              </div>
+            </button>
+            <button class="feature-tab-btn" data-feature="ai-bot">
+              <span class="tab-icon">🤖</span>
+              <div>
+                <div class="tab-title">AI Bot</div>
+                <div class="tab-desc">Autonomous support agents</div>
               </div>
             </button>
           </div>
@@ -275,6 +296,77 @@ export function createPlatform() {
                 </div>
                 <div style="font-weight: bold; font-size: 0.82rem;">BOTZO CONFERENCE 2026</div>
                 <div style="font-size: 0.72rem; opacity: 0.6;">Entry Pass - Verified</div>
+              </div>
+            </div>
+
+            <div class="feature-tab-pane" id="pane-voice-ai">
+              <h3 style="color: #00F2FE;">Voice AI Calling</h3>
+              <p class="text-body">
+                Deploy human-like, low-latency AI voice agents that handle support calls, automate outbound lead qualification, and process bookings. Senses customer sentiment in real time, and immediately updates your CRM system with detailed summary transcripts.
+              </p>
+              <div style="margin: 1rem 0 1.5rem;">
+                <a href="/platform/voice-ai" class="btn btn-glass btn-sm">Explore Voice AI &rarr;</a>
+              </div>
+              <div class="voice-call-mockup glass-card">
+                <div class="voice-call-header">
+                  <div class="voice-call-avatar">🗣️</div>
+                  <div>
+                    <div style="font-size: 0.8rem; font-weight: 600; color: var(--color-white-text);">Inbound Call #VC-7182</div>
+                    <div style="font-size: 0.65rem; color: var(--color-green);">Active Call — 1m 45s</div>
+                  </div>
+                </div>
+                <div class="voice-waveform-container" style="margin-top: 1rem;">
+                  <span class="voice-waveform-bar active" style="height: 10px; animation-delay: 0.1s;"></span>
+                  <span class="voice-waveform-bar active" style="height: 22px; animation-delay: 0.3s;"></span>
+                  <span class="voice-waveform-bar active" style="height: 16px; animation-delay: 0.2s;"></span>
+                  <span class="voice-waveform-bar active" style="height: 32px; animation-delay: 0.4s;"></span>
+                  <span class="voice-waveform-bar active" style="height: 12px; animation-delay: 0.15s;"></span>
+                  <span class="voice-waveform-bar active" style="height: 25px; animation-delay: 0.35s;"></span>
+                  <span class="voice-waveform-bar active" style="height: 18px; animation-delay: 0.25s;"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="feature-tab-pane" id="pane-ai-studio">
+              <h3 style="color: #FF416C;">AI Studio Fashion Photos</h3>
+              <p class="text-body">
+                Transform flat-lay product photos into professional on-model catalog shots instantly. Upload your garment images, select model demographics and poses, customize backgrounds, and download production-ready 4K visual assets.
+              </p>
+              <div style="margin: 1rem 0 1.5rem;">
+                <a href="/platform/ai-studio" class="btn btn-glass btn-sm">Explore AI Studio &rarr;</a>
+              </div>
+              <div class="studio-fashion-mockup glass-card">
+                <div class="studio-fashion-preview-split">
+                  <div class="preview-split-box">
+                    <div class="split-box-label">Product Flat-Lay</div>
+                    <div class="split-box-graphic">👕</div>
+                  </div>
+                  <div class="preview-split-arrow">➔</div>
+                  <div class="preview-split-box highlighted">
+                    <div class="split-box-label">On-Model Render</div>
+                    <div class="split-box-graphic">🧑‍💼</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="feature-tab-pane" id="pane-ai-bot">
+              <h3 style="color: #8A2BE2;">Autonomous AI Support Bot</h3>
+              <p class="text-body">
+                Deploy autonomous support bots capable of solving complex multi-step user inquiries, checking order status via API, and processing refunds or bookings. Gracefully hands off to human agents when finding complex corner cases.
+              </p>
+              <div style="margin: 1rem 0 1.5rem;">
+                <a href="/platform/ai-bot" class="btn btn-glass btn-sm">Explore AI Bot &rarr;</a>
+              </div>
+              <div class="bot-reasoning-mockup glass-card">
+                <div style="font-size: 0.72rem; font-weight: 600; color: var(--color-white-text); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.3rem;">
+                  <span class="status-dot green"></span> Autonomous Reasoning Log
+                </div>
+                <div class="reasoning-step-log">
+                  <div>🔍 Intent: Refund Request for order #9021</div>
+                  <div>⚙️ Call: Shopify API check -> Paid & Delivered</div>
+                  <div>⚖️ Policy: Within 15 days -> Eligible</div>
+                </div>
               </div>
             </div>
           </div>

@@ -39,7 +39,7 @@ export function createPricing() {
   container.innerHTML = `
     <!-- Pricing Hero -->
     <section class="section page-hero pricing-hero">
-      <div class="container">
+      <div class="container container-wide">
         <div class="section-header">
           <span class="text-overline">Fair & Scalable Plans</span>
           <h1 class="heading-hero">Choose Your Journey to<br><span class="text-gradient">Automation & Growth</span></h1>

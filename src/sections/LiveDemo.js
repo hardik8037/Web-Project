@@ -9,7 +9,7 @@ export function createLiveDemo() {
   section.className = 'section demo-section';
 
   section.innerHTML = `
-    <div class="container">
+    <div class="container-wide">
       <div class="section-header">
         <span class="text-overline">Interactive Experience</span>
         <h2 class="heading-section">See the Magic <span class="text-gradient">In Action</span></h2>

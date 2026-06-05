@@ -8,7 +8,7 @@ export function createNavbar() {
   nav.setAttribute('role', 'banner');
 
   nav.innerHTML = `
-    <div class="botzo-nav">
+    <div class="botzo-nav container-wide">
       <!-- Logo -->
       <a href="/" class="botzo-nav-logo" aria-label="Botzo.io Home">
         <img src="/assets/images/logo.png" alt="Botzo.io" class="botzo-logo-img" />
@@ -107,6 +107,30 @@ export function createNavbar() {
                   <div>
                     <div class="mega-item-title">Dynamic QR Ticketing</div>
                     <div class="mega-item-desc">Event & entry management</div>
+                  </div>
+                </a>
+              </div>
+              <div class="mega-menu-section">
+                <div class="mega-menu-label">AI Automation</div>
+                <a href="/platform/voice-ai" class="mega-menu-item" role="menuitem">
+                  <span class="mega-icon">🎙️</span>
+                  <div>
+                    <div class="mega-item-title">Voice AI</div>
+                    <div class="mega-item-desc">Human-like voice agents & dialing</div>
+                  </div>
+                </a>
+                <a href="/platform/ai-studio" class="mega-menu-item" role="menuitem">
+                  <span class="mega-icon">📸</span>
+                  <div>
+                    <div class="mega-item-title">AI Studio</div>
+                    <div class="mega-item-desc">On-model product photos</div>
+                  </div>
+                </a>
+                <a href="/platform/ai-bot" class="mega-menu-item" role="menuitem">
+                  <span class="mega-icon">🤖</span>
+                  <div>
+                    <div class="mega-item-title">AI Bot</div>
+                    <div class="mega-item-desc">Autonomous customer support chat</div>
                   </div>
                 </a>
               </div>
@@ -288,6 +312,13 @@ export function createNavbar() {
       </button>
     </div>
 
+    </div>
+  `;
+
+
+  // Append mobile drawer to body (portal style) to avoid stacking context issues
+  if (!document.getElementById('mobile-drawer')) {
+    document.body.insertAdjacentHTML('beforeend', `
     <!-- Mobile Menu Drawer -->
     <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
       <div class="mobile-drawer-content">
@@ -297,14 +328,20 @@ export function createNavbar() {
         <div class="mobile-nav-group">
           <button class="mobile-nav-link mobile-nav-group-trigger">Platform <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
           <div class="mobile-nav-submenu">
-            <a href="/platform" class="mobile-submenu-link">WhatsApp API</a>
-            <a href="/platform" class="mobile-submenu-link">Instagram Automation</a>
-            <a href="/platform" class="mobile-submenu-link">Facebook Automation</a>
-            <a href="/platform" class="mobile-submenu-link">RCS Messaging</a>
-            <a href="/platform" class="mobile-submenu-link">Unified Team Inbox</a>
-            <a href="/platform" class="mobile-submenu-link">Workflow Automation</a>
-            <a href="/platform" class="mobile-submenu-link">CRM</a>
-            <a href="/platform" class="mobile-submenu-link">Bulk Campaigns</a>
+            <a href="/platform/whatsapp-api" class="mobile-submenu-link">WhatsApp API</a>
+            <a href="/platform/instagram-automation" class="mobile-submenu-link">Instagram Automation</a>
+            <a href="/platform/facebook-automation" class="mobile-submenu-link">Facebook Automation</a>
+            <a href="/platform/rcs-messaging" class="mobile-submenu-link">RCS Messaging</a>
+            <a href="/platform/team-inbox" class="mobile-submenu-link">Unified Team Inbox</a>
+            <a href="/platform/workflow-automation" class="mobile-submenu-link">Workflow Automation</a>
+            <a href="/platform/crm" class="mobile-submenu-link">CRM</a>
+            <a href="/platform/bulk-campaigns" class="mobile-submenu-link">Bulk Campaigns</a>
+            <a href="/platform/appointment-booking" class="mobile-submenu-link">Appointment Booking</a>
+            <a href="/platform/payment-integration" class="mobile-submenu-link">Payment Integration</a>
+            <a href="/platform/qr-ticketing" class="mobile-submenu-link">QR Ticketing</a>
+            <a href="/platform/voice-ai" class="mobile-submenu-link">Voice AI</a>
+            <a href="/platform/ai-studio" class="mobile-submenu-link">AI Studio</a>
+            <a href="/platform/ai-bot" class="mobile-submenu-link">AI Bot</a>
           </div>
         </div>
 
@@ -347,8 +384,9 @@ export function createNavbar() {
           <a href="/demo" class="btn btn-primary btn-lg" style="width:100%;">Book a Demo</a>
         </div>
       </div>
-    </div>
-  `;
+    </d
+    `);
+  }
 
   initNavbarInteractions(nav);
   return nav;
@@ -400,7 +438,7 @@ function initNavbarInteractions(nav) {
 
   // Mobile hamburger
   const hamburger = nav.querySelector('#hamburger-btn');
-  const drawer = nav.querySelector('#mobile-drawer');
+  const drawer = document.getElementById('mobile-drawer');
 
   if (hamburger && drawer) {
     hamburger.addEventListener('click', () => {
@@ -408,7 +446,7 @@ function initNavbarInteractions(nav) {
       hamburger.classList.toggle('active');
       hamburger.setAttribute('aria-expanded', isOpen.toString());
       drawer.setAttribute('aria-hidden', (!isOpen).toString());
-      document.body.style.overflow = isOpen ? 'hidden' : '';
+      document.body.classList.toggle('nav-open', isOpen);
     });
 
     const groupTriggers = drawer.querySelectorAll('.mobile-nav-group-trigger');
@@ -424,7 +462,7 @@ function initNavbarInteractions(nav) {
         hamburger.classList.remove('active');
         hamburger.setAttribute('aria-expanded', 'false');
         drawer.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
+        document.body.classList.remove('nav-open');
       });
     });
   }

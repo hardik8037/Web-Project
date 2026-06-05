@@ -1,0 +1,176 @@
+/* ═══════════════════════════════════════════════════
+   SHADCN UI COMPONENTS (Botzo Flavored)
+   ═══════════════════════════════════════════════════ */
+
+/* --- Buttons --- */
+.ui-btn {
+  @apply inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 h-9 px-4 py-2;
+}
+
+.ui-btn-primary {
+  @apply bg-primary text-primary-foreground shadow hover:bg-primary/90 shadow-[var(--shadow-glow-sm)];
+}
+
+.ui-btn-secondary {
+  @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
+}
+
+.ui-btn-outline {
+  @apply border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground;
+}
+
+.ui-btn-ghost {
+  @apply hover:bg-accent hover:text-accent-foreground;
+}
+
+.ui-btn-sm {
+  @apply h-8 rounded-md px-3 text-xs;
+}
+
+.ui-btn-lg {
+  @apply h-10 rounded-md px-8;
+}
+
+.ui-btn-icon {
+  @apply h-9 w-9;
+}
+
+/* --- Cards --- */
+.ui-card {
+  @apply rounded-xl border border-border bg-card text-card-foreground shadow shadow-[var(--shadow-glow-sm)];
+}
+
+.ui-card-header {
+  @apply flex flex-col space-y-1.5 p-6;
+}
+
+.ui-card-title {
+  @apply font-semibold leading-none tracking-tight;
+}
+
+.ui-card-description {
+  @apply text-sm text-muted-foreground;
+}
+
+.ui-card-content {
+  @apply p-6 pt-0;
+}
+
+.ui-card-footer {
+  @apply flex items-center p-6 pt-0;
+}
+
+/* --- Inputs --- */
+.ui-input {
+  @apply flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+/* --- Modals (Dialog) --- */
+.dialog-overlay {
+  @apply fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 transition-all duration-300;
+}
+
+.dialog-overlay.hidden {
+  display: none;
+}
+
+.dialog-overlay:not(.open) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.dialog-content {
+  @apply w-full max-w-lg border border-border bg-background p-6 shadow-lg sm:rounded-lg duration-300 transition-all;
+  transform: scale(0.95);
+  box-shadow: var(--shadow-elevated), var(--shadow-glow-md);
+}
+
+.dialog-overlay.open .dialog-content {
+  transform: scale(1);
+}
+
+.dialog-header {
+  @apply flex flex-col space-y-1.5 text-center sm:text-left;
+}
+
+.dialog-footer {
+  @apply flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2;
+}
+
+.dialog-title {
+  @apply text-lg font-semibold leading-none tracking-tight;
+}
+
+.dialog-description {
+  @apply text-sm text-muted-foreground;
+}
+
+/* --- Accordions --- */
+.ui-accordion-item {
+  @apply border-b border-border;
+}
+
+.ui-accordion-summary {
+  @apply flex flex-1 items-center justify-between py-4 text-sm font-medium transition-all hover:underline cursor-pointer list-none [&::-webkit-details-marker]:hidden;
+}
+
+.ui-accordion-content {
+  @apply pb-4 pt-0 text-sm text-muted-foreground;
+}
+
+/* --- Dropdowns --- */
+.dropdown-content {
+  @apply absolute z-50 min-w-[8rem] overflow-hidden rounded-md border border-border bg-popover p-1 text-popover-foreground shadow-md transition-all duration-150;
+  box-shadow: var(--shadow-md), var(--shadow-glow-sm);
+  transform: scale(0.95);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.dropdown-content.open {
+  transform: scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.dropdown-item {
+  @apply relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors hover:bg-accent hover:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50;
+}
+
+/* --- Tabs --- */
+.ui-tabs-list {
+  @apply inline-flex h-9 items-center justify-center rounded-lg bg-muted p-1 text-muted-foreground;
+}
+
+.ui-tabs-trigger {
+  @apply inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow;
+}
+
+.ui-tabs-content {
+  @apply mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+}
+
+/* --- Tables --- */
+.ui-table-wrapper {
+  @apply relative w-full overflow-auto rounded-md border border-border;
+}
+
+.ui-table {
+  @apply w-full caption-bottom text-sm;
+}
+
+.ui-table-header {
+  @apply [&_tr]:border-b;
+}
+
+.ui-table-row {
+  @apply border-b border-border transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted;
+}
+
+.ui-table-head {
+  @apply h-10 px-2 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0;
+}
+
+.ui-table-cell {
+  @apply p-2 align-middle [&:has([role=checkbox])]:pr-0;
+}

@@ -13,6 +13,23 @@ export const PLATFORM_PAGES = {
     heroHighlight: 'API Integration',
     gradient: ['#25D366', '#128C7E'],
     heroDesc: 'Connect with 2+ billion WhatsApp users through the official Business API. Send templates, automate responses, manage multi-agent support, and drive conversions — all from one verified business number.',
+    heroVisualHTML: `
+      <div class="hero-ecosystem whatsapp-ecosystem">
+        <div class="ecosystem-card inbox-card glass-card-strong float-slow">
+          <div class="dash-sidebar-header"><span style="font-weight:600;font-size:0.75rem;">Team Inbox</span><span class="status-badge status-badge-active">5 New</span></div>
+          <div class="dash-contact active"><div class="dash-avatar" style="background:#25D366;">V</div><div class="dash-contact-info"><div class="dash-contact-name">Vikram Enterprises</div><div class="dash-contact-msg">Thanks! When can we start?</div></div><div class="dash-contact-time">1m</div></div>
+          <div class="dash-contact"><div class="dash-avatar" style="background:#0088FF;">D</div><div class="dash-contact-info"><div class="dash-contact-name">Deepak Auto</div><div class="dash-contact-msg">Proposal received.</div></div><div class="dash-contact-time">15m</div></div>
+        </div>
+        <div class="ecosystem-card analytics-card glass-card float-medium" style="position: absolute; right: -40px; top: 30px;">
+          <div class="analytics-title">Response Time</div>
+          <div class="analytics-value text-gradient" style="background: linear-gradient(90deg, #25D366, #128C7E); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">&lt; 2 mins</div>
+          <div class="analytics-trend">↑ 45% faster</div>
+        </div>
+        <div class="ecosystem-card chat-bubble-card glass-card float-fast" style="position: absolute; left: -30px; bottom: 20px;">
+          <div class="chat-bubble chat-bubble-outgoing" style="margin:0; box-shadow:none;">Hi Vikram! 👋 Onboarding takes 48 hours.</div>
+        </div>
+      </div>
+`,
     featuresOverline: 'Core Capabilities',
     featuresTitle: 'Enterprise-Grade <span class="text-gradient">WhatsApp Infrastructure</span>',
     features: [
@@ -84,6 +101,15 @@ export const PLATFORM_PAGES = {
     overline: 'Social Commerce', heroTitle: 'Instagram', heroHighlight: 'DM & Comment Automation',
     gradient: ['#E4405F', '#F56040'],
     heroDesc: 'Automatically respond to Instagram DMs, story mentions, and post comments. Convert every interaction into a qualified lead with zero manual effort.',
+    heroVisualHTML: `
+      <div class="hero-ecosystem automation-ecosystem">
+        <div class="ecosystem-card workflow-board glass-card-strong float-slow">
+          <div class="wf-node wf-trigger">Incoming Message</div><div class="wf-line"></div><div class="wf-node wf-condition">Is VIP?</div>
+          <div class="wf-split"><div class="wf-branch"><div class="wf-line-curved-left"></div><div class="wf-node wf-action">Route to Agent</div></div>
+          <div class="wf-branch"><div class="wf-line-curved-right"></div><div class="wf-node wf-action">AI Auto-Reply</div></div></div>
+        </div>
+      </div>
+`,
     features: [
       { icon: '💬', title: 'Auto DM Replies', desc: 'Instantly respond to Direct Messages with personalized templates, product links, or AI-generated answers.', iconBg: 'rgba(228,64,95,0.1)', iconColor: '#E4405F' },
       { icon: '💭', title: 'Comment Automation', desc: 'Trigger auto-replies when users comment specific keywords on your posts. Send them product links via DM.', iconBg: 'rgba(228,64,95,0.1)', iconColor: '#E4405F' },
@@ -114,6 +140,15 @@ export const PLATFORM_PAGES = {
     overline: 'Social Commerce', heroTitle: 'Facebook', heroHighlight: 'Messenger & Lead Gen',
     gradient: ['#1877F2', '#0A5DC2'],
     heroDesc: 'Automate Messenger conversations, Facebook comment replies, and lead generation ads. Convert social engagement into real business opportunities.',
+    heroVisualHTML: `
+      <div class="hero-ecosystem automation-ecosystem">
+        <div class="ecosystem-card workflow-board glass-card-strong float-slow">
+          <div class="wf-node wf-trigger">Incoming Message</div><div class="wf-line"></div><div class="wf-node wf-condition">Is VIP?</div>
+          <div class="wf-split"><div class="wf-branch"><div class="wf-line-curved-left"></div><div class="wf-node wf-action">Route to Agent</div></div>
+          <div class="wf-branch"><div class="wf-line-curved-right"></div><div class="wf-node wf-action">AI Auto-Reply</div></div></div>
+        </div>
+      </div>
+`,
     features: [
       { icon: '💬', title: 'Messenger Chatbot', desc: 'Deploy AI-powered chatbots on Facebook Messenger that qualify leads, answer FAQs, and book appointments.', iconBg: 'rgba(24,119,242,0.1)', iconColor: '#1877F2' },
       { icon: '💭', title: 'Comment Auto-Reply', desc: 'Automatically respond to post and ad comments with personalized messages, offers, or product links.', iconBg: 'rgba(24,119,242,0.1)', iconColor: '#1877F2' },
@@ -144,6 +179,24 @@ export const PLATFORM_PAGES = {
     overline: 'Next-Gen SMS', heroTitle: 'RCS Rich', heroHighlight: 'Communication Services',
     gradient: ['#36C5F0', '#0088FF'],
     heroDesc: 'Upgrade plain SMS to rich, branded messaging experiences. Send carousels, interactive buttons, calendar bookings, and verified sender profiles directly in Android messaging apps.',
+    heroVisualHTML: `
+      <div class="hero-ecosystem marketing-ecosystem">
+        <div class="ecosystem-card chart-board glass-card-strong float-slow">
+          <div class="kanban-header" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:10px; margin-bottom: 15px;">Campaign ROI</div>
+          <div class="chart-bars" style="display:flex; align-items:flex-end; gap:12px; height:100px;">
+            <div style="width:24px; height:40%; background:rgba(156,39,255,0.3); border-radius:4px;"></div>
+            <div style="width:24px; height:60%; background:rgba(156,39,255,0.5); border-radius:4px;"></div>
+            <div style="width:24px; height:85%; background:rgba(156,39,255,0.8); border-radius:4px;"></div>
+            <div style="width:24px; height:100%; background:#9C27FF; border-radius:4px; box-shadow:0 0 12px rgba(156,39,255,0.6);"></div>
+          </div>
+        </div>
+        <div class="ecosystem-card kpi-card glass-card float-medium" style="position: absolute; right: -20px; top: 10px;">
+          <div class="analytics-title">Conversion Rate</div>
+          <div class="analytics-value text-gradient" style="background: linear-gradient(90deg, #B84DFF, #FF6B35); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">24.5%</div>
+          <div class="analytics-trend" style="color: #25D366;">↑ 5.2% lift</div>
+        </div>
+      </div>
+`,
     features: [
       { icon: '🎨', title: 'Rich Media Cards', desc: 'Send product carousels, image galleries, and promotional banners directly in the native messaging app.', iconBg: 'rgba(54,197,240,0.1)', iconColor: '#36C5F0' },
       { icon: '🔘', title: 'Interactive Buttons', desc: 'Add quick action buttons for booking, purchasing, or contacting support without leaving the conversation.', iconBg: 'rgba(54,197,240,0.1)', iconColor: '#36C5F0' },
@@ -173,6 +226,24 @@ export const PLATFORM_PAGES = {
     overline: 'Collaboration Hub', heroTitle: 'Unified Team', heroHighlight: 'Inbox',
     gradient: ['#9C27FF', '#7B1FA2'],
     heroDesc: 'One inbox for every channel. WhatsApp, Instagram, Facebook, RCS, email — all conversations in a single unified view with agent assignment, internal notes, and real-time collaboration.',
+    heroVisualHTML: `
+      <div class="hero-ecosystem marketing-ecosystem">
+        <div class="ecosystem-card chart-board glass-card-strong float-slow">
+          <div class="kanban-header" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:10px; margin-bottom: 15px;">Campaign ROI</div>
+          <div class="chart-bars" style="display:flex; align-items:flex-end; gap:12px; height:100px;">
+            <div style="width:24px; height:40%; background:rgba(156,39,255,0.3); border-radius:4px;"></div>
+            <div style="width:24px; height:60%; background:rgba(156,39,255,0.5); border-radius:4px;"></div>
+            <div style="width:24px; height:85%; background:rgba(156,39,255,0.8); border-radius:4px;"></div>
+            <div style="width:24px; height:100%; background:#9C27FF; border-radius:4px; box-shadow:0 0 12px rgba(156,39,255,0.6);"></div>
+          </div>
+        </div>
+        <div class="ecosystem-card kpi-card glass-card float-medium" style="position: absolute; right: -20px; top: 10px;">
+          <div class="analytics-title">Conversion Rate</div>
+          <div class="analytics-value text-gradient" style="background: linear-gradient(90deg, #B84DFF, #FF6B35); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">24.5%</div>
+          <div class="analytics-trend" style="color: #25D366;">↑ 5.2% lift</div>
+        </div>
+      </div>
+`,
     features: [
       { icon: '📥', title: 'Unified Feed', desc: 'See every customer message from every channel in one chronological feed. No more switching between apps.', iconBg: 'rgba(156,39,255,0.1)', iconColor: '#9C27FF' },
       { icon: '👤', title: 'Agent Assignment', desc: 'Auto-assign conversations based on skills, availability, or round-robin. Manual reassignment with one click.', iconBg: 'rgba(156,39,255,0.1)', iconColor: '#9C27FF' },
@@ -232,6 +303,15 @@ export const PLATFORM_PAGES = {
     overline: 'No-Code Builder', heroTitle: 'Visual Workflow', heroHighlight: 'Automation Engine',
     gradient: ['#B84DFF', '#7B1FA2'],
     heroDesc: 'Build sophisticated automation flows with drag-and-drop — no coding required. Connect triggers, conditions, actions, and delays to create intelligent communication workflows.',
+    heroVisualHTML: `
+      <div class="hero-ecosystem automation-ecosystem">
+        <div class="ecosystem-card workflow-board glass-card-strong float-slow">
+          <div class="wf-node wf-trigger">Incoming Message</div><div class="wf-line"></div><div class="wf-node wf-condition">Is VIP?</div>
+          <div class="wf-split"><div class="wf-branch"><div class="wf-line-curved-left"></div><div class="wf-node wf-action">Route to Agent</div></div>
+          <div class="wf-branch"><div class="wf-line-curved-right"></div><div class="wf-node wf-action">AI Auto-Reply</div></div></div>
+        </div>
+      </div>
+`,
     featuresOverline: 'Builder Capabilities',
     featuresTitle: 'Design Logic <span class="text-gradient">Without Code</span>',
     features: [
@@ -297,6 +377,22 @@ export const PLATFORM_PAGES = {
     overline: 'Customer Management', heroTitle: 'Centralized', heroHighlight: 'CRM & Pipeline',
     gradient: ['#0088FF', '#0055CC'],
     heroDesc: 'Track every lead from first contact to conversion. Manage pipelines, automate follow-ups, segment contacts, and gain actionable insights — all integrated with your messaging channels.',
+    heroVisualHTML: `
+      <div class="hero-ecosystem crm-ecosystem">
+        <div class="ecosystem-card kanban-board glass-card-strong float-slow">
+          <div class="kanban-header">Lead Pipeline</div>
+          <div class="kanban-columns">
+            <div class="kanban-col"><div class="k-col-title">New Leads <span class="badge">12</span></div><div class="k-card"><div class="k-name">Acme Corp</div><div class="k-value">$4,500</div></div><div class="k-card"><div class="k-name">Global Tech</div><div class="k-value">$1,200</div></div></div>
+            <div class="kanban-col"><div class="k-col-title">Qualified <span class="badge">4</span></div><div class="k-card"><div class="k-name">Stark Ind.</div><div class="k-value">$12,000</div></div></div>
+          </div>
+        </div>
+        <div class="ecosystem-card kpi-card glass-card float-medium" style="position: absolute; right: -20px; top: -10px;">
+          <div class="analytics-title">Pipeline Value</div>
+          <div class="analytics-value text-gradient" style="background: linear-gradient(90deg, #0088FF, #00C6FF); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">$45,200</div>
+          <div class="analytics-trend">↑ 12% this week</div>
+        </div>
+      </div>
+`,
     features: [
       { icon: '📋', title: 'Visual Pipeline', desc: 'Drag-and-drop Kanban boards to track leads through custom stages like New, Follow Up, Demo Scheduled, and Qualified.', iconBg: 'rgba(0,136,255,0.1)', iconColor: '#0088FF' },
       { icon: '👤', title: 'Contact Profiles', desc: 'Unified customer profiles with conversation history, tags, notes, custom fields, and activity timeline.', iconBg: 'rgba(0,136,255,0.1)', iconColor: '#0088FF' },
@@ -349,6 +445,24 @@ export const PLATFORM_PAGES = {
     overline: 'Broadcasting Engine', heroTitle: 'Bulk Campaign', heroHighlight: 'Broadcasting',
     gradient: ['#FF6B35', '#E55100'],
     heroDesc: 'Launch WhatsApp & RCS broadcast campaigns to thousands of contacts with approved templates, smart scheduling, audience segmentation, and real-time delivery analytics.',
+    heroVisualHTML: `
+      <div class="hero-ecosystem marketing-ecosystem">
+        <div class="ecosystem-card chart-board glass-card-strong float-slow">
+          <div class="kanban-header" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:10px; margin-bottom: 15px;">Campaign ROI</div>
+          <div class="chart-bars" style="display:flex; align-items:flex-end; gap:12px; height:100px;">
+            <div style="width:24px; height:40%; background:rgba(156,39,255,0.3); border-radius:4px;"></div>
+            <div style="width:24px; height:60%; background:rgba(156,39,255,0.5); border-radius:4px;"></div>
+            <div style="width:24px; height:85%; background:rgba(156,39,255,0.8); border-radius:4px;"></div>
+            <div style="width:24px; height:100%; background:#9C27FF; border-radius:4px; box-shadow:0 0 12px rgba(156,39,255,0.6);"></div>
+          </div>
+        </div>
+        <div class="ecosystem-card kpi-card glass-card float-medium" style="position: absolute; right: -20px; top: 10px;">
+          <div class="analytics-title">Conversion Rate</div>
+          <div class="analytics-value text-gradient" style="background: linear-gradient(90deg, #B84DFF, #FF6B35); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">24.5%</div>
+          <div class="analytics-trend" style="color: #25D366;">↑ 5.2% lift</div>
+        </div>
+      </div>
+`,
     features: [
       { icon: '📤', title: 'Mass Broadcasting', desc: 'Send personalized messages to unlimited contacts with variable substitution for names, orders, and custom data.', iconBg: 'rgba(255,107,53,0.1)', iconColor: '#FF6B35' },
       { icon: '📅', title: 'Smart Scheduling', desc: 'Schedule campaigns for optimal send times based on timezone, industry benchmarks, and historical engagement data.', iconBg: 'rgba(255,107,53,0.1)', iconColor: '#FF6B35' },
@@ -391,6 +505,24 @@ export const PLATFORM_PAGES = {
     overline: 'Commerce Tools', heroTitle: 'Automated', heroHighlight: 'Appointment Booking',
     gradient: ['#25D366', '#00897B'],
     heroDesc: 'Let customers book appointments directly through WhatsApp and RCS. Automated scheduling, reminders, rescheduling, and no-show follow-ups.',
+    heroVisualHTML: `
+      <div class="hero-ecosystem marketing-ecosystem">
+        <div class="ecosystem-card chart-board glass-card-strong float-slow">
+          <div class="kanban-header" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:10px; margin-bottom: 15px;">Campaign ROI</div>
+          <div class="chart-bars" style="display:flex; align-items:flex-end; gap:12px; height:100px;">
+            <div style="width:24px; height:40%; background:rgba(156,39,255,0.3); border-radius:4px;"></div>
+            <div style="width:24px; height:60%; background:rgba(156,39,255,0.5); border-radius:4px;"></div>
+            <div style="width:24px; height:85%; background:rgba(156,39,255,0.8); border-radius:4px;"></div>
+            <div style="width:24px; height:100%; background:#9C27FF; border-radius:4px; box-shadow:0 0 12px rgba(156,39,255,0.6);"></div>
+          </div>
+        </div>
+        <div class="ecosystem-card kpi-card glass-card float-medium" style="position: absolute; right: -20px; top: 10px;">
+          <div class="analytics-title">Conversion Rate</div>
+          <div class="analytics-value text-gradient" style="background: linear-gradient(90deg, #B84DFF, #FF6B35); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">24.5%</div>
+          <div class="analytics-trend" style="color: #25D366;">↑ 5.2% lift</div>
+        </div>
+      </div>
+`,
     features: [
       { icon: '📅', title: 'Chat-Based Booking', desc: 'Customers select available time slots directly in the chat conversation. No external links needed.', iconBg: 'rgba(37,211,102,0.1)', iconColor: '#25D366' },
       { icon: '🔔', title: 'Auto Reminders', desc: 'Send automatic reminders 24h, 2h, and 30min before the appointment to reduce no-shows.', iconBg: 'rgba(37,211,102,0.1)', iconColor: '#25D366' },
@@ -421,6 +553,24 @@ export const PLATFORM_PAGES = {
     overline: 'Commerce Tools', heroTitle: 'In-Chat', heroHighlight: 'Payment Collection',
     gradient: ['#00E676', '#00C853'],
     heroDesc: 'Collect payments directly inside WhatsApp and RCS conversations. Integrate Razorpay, Stripe, or WhatsApp Pay for seamless in-chat checkout experiences.',
+    heroVisualHTML: `
+      <div class="hero-ecosystem marketing-ecosystem">
+        <div class="ecosystem-card chart-board glass-card-strong float-slow">
+          <div class="kanban-header" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:10px; margin-bottom: 15px;">Campaign ROI</div>
+          <div class="chart-bars" style="display:flex; align-items:flex-end; gap:12px; height:100px;">
+            <div style="width:24px; height:40%; background:rgba(156,39,255,0.3); border-radius:4px;"></div>
+            <div style="width:24px; height:60%; background:rgba(156,39,255,0.5); border-radius:4px;"></div>
+            <div style="width:24px; height:85%; background:rgba(156,39,255,0.8); border-radius:4px;"></div>
+            <div style="width:24px; height:100%; background:#9C27FF; border-radius:4px; box-shadow:0 0 12px rgba(156,39,255,0.6);"></div>
+          </div>
+        </div>
+        <div class="ecosystem-card kpi-card glass-card float-medium" style="position: absolute; right: -20px; top: 10px;">
+          <div class="analytics-title">Conversion Rate</div>
+          <div class="analytics-value text-gradient" style="background: linear-gradient(90deg, #B84DFF, #FF6B35); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">24.5%</div>
+          <div class="analytics-trend" style="color: #25D366;">↑ 5.2% lift</div>
+        </div>
+      </div>
+`,
     features: [
       { icon: '💳', title: 'In-Chat Checkout', desc: 'Send payment links that open directly in the chat window. No redirects, no friction.', iconBg: 'rgba(0,230,118,0.1)', iconColor: '#00E676' },
       { icon: '🔒', title: 'Secure Payments', desc: 'PCI-DSS compliant payment processing through Razorpay, Stripe, and WhatsApp Pay integrations.', iconBg: 'rgba(0,230,118,0.1)', iconColor: '#00E676' },
@@ -451,6 +601,24 @@ export const PLATFORM_PAGES = {
     overline: 'Commerce Tools', heroTitle: 'Dynamic QR', heroHighlight: 'Ticketing System',
     gradient: ['#FF6B35', '#E55100'],
     heroDesc: 'Generate unique QR-coded tickets for events, flights, movies, and store pick-ups. Deliver directly to WhatsApp with real-time validation and entry management.',
+    heroVisualHTML: `
+      <div class="hero-ecosystem marketing-ecosystem">
+        <div class="ecosystem-card chart-board glass-card-strong float-slow">
+          <div class="kanban-header" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:10px; margin-bottom: 15px;">Campaign ROI</div>
+          <div class="chart-bars" style="display:flex; align-items:flex-end; gap:12px; height:100px;">
+            <div style="width:24px; height:40%; background:rgba(156,39,255,0.3); border-radius:4px;"></div>
+            <div style="width:24px; height:60%; background:rgba(156,39,255,0.5); border-radius:4px;"></div>
+            <div style="width:24px; height:85%; background:rgba(156,39,255,0.8); border-radius:4px;"></div>
+            <div style="width:24px; height:100%; background:#9C27FF; border-radius:4px; box-shadow:0 0 12px rgba(156,39,255,0.6);"></div>
+          </div>
+        </div>
+        <div class="ecosystem-card kpi-card glass-card float-medium" style="position: absolute; right: -20px; top: 10px;">
+          <div class="analytics-title">Conversion Rate</div>
+          <div class="analytics-value text-gradient" style="background: linear-gradient(90deg, #B84DFF, #FF6B35); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">24.5%</div>
+          <div class="analytics-trend" style="color: #25D366;">↑ 5.2% lift</div>
+        </div>
+      </div>
+`,
     features: [
       { icon: '🎫', title: 'Dynamic QR Generation', desc: 'Each ticket gets a unique, time-limited QR code that prevents duplication and fraud.', iconBg: 'rgba(255,107,53,0.1)', iconColor: '#FF6B35' },
       { icon: '📱', title: 'WhatsApp Delivery', desc: 'Tickets delivered instantly to the customer\'s WhatsApp. No app downloads or email checks needed.', iconBg: 'rgba(37,211,102,0.1)', iconColor: '#25D366' },
@@ -473,6 +641,316 @@ export const PLATFORM_PAGES = {
       { icon: '🎪', title: 'Event Management', desc: 'Full event automation', href: '/solutions/events' },
       { icon: '💳', title: 'Payment Integration', desc: 'In-chat ticket purchases', href: '/platform/payment-integration' },
       { icon: '💬', title: 'WhatsApp API', desc: 'Ticket delivery channel', href: '/platform/whatsapp-api' },
+    ],
+  },
+
+  'voice-ai': {
+    slug: 'voice-ai',
+    category: 'platform',
+    title: 'Voice AI',
+    overline: 'AI Telephony',
+    heroTitle: 'Autonomous Voice',
+    heroHighlight: 'AI Agents',
+    gradient: ['#00F2FE', '#4FACFE'],
+    heroDesc: 'Deploy human-like, low-latency AI voice agents that handle inbound support calls, automate outbound lead qualification, schedule appointments, and update your CRM in real time.',
+    heroVisualHTML: `
+      <div class="hero-ecosystem marketing-ecosystem">
+        <div class="ecosystem-card chart-board glass-card-strong float-slow">
+          <div class="kanban-header" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:10px; margin-bottom: 15px;">Campaign ROI</div>
+          <div class="chart-bars" style="display:flex; align-items:flex-end; gap:12px; height:100px;">
+            <div style="width:24px; height:40%; background:rgba(156,39,255,0.3); border-radius:4px;"></div>
+            <div style="width:24px; height:60%; background:rgba(156,39,255,0.5); border-radius:4px;"></div>
+            <div style="width:24px; height:85%; background:rgba(156,39,255,0.8); border-radius:4px;"></div>
+            <div style="width:24px; height:100%; background:#9C27FF; border-radius:4px; box-shadow:0 0 12px rgba(156,39,255,0.6);"></div>
+          </div>
+        </div>
+        <div class="ecosystem-card kpi-card glass-card float-medium" style="position: absolute; right: -20px; top: 10px;">
+          <div class="analytics-title">Conversion Rate</div>
+          <div class="analytics-value text-gradient" style="background: linear-gradient(90deg, #B84DFF, #FF6B35); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">24.5%</div>
+          <div class="analytics-trend" style="color: #25D366;">↑ 5.2% lift</div>
+        </div>
+      </div>
+`,
+    featuresOverline: 'Voice Capabilities',
+    featuresTitle: 'Enterprise <span class="text-gradient">Voice Automation</span>',
+    features: [
+      { icon: '🗣️', title: 'Ultra-Low Latency', desc: 'Sub-500ms conversational response time for natural, flowing verbal communication.', iconBg: 'rgba(0,242,254,0.1)', iconColor: '#00F2FE' },
+      { icon: '🧠', title: 'Context-Aware Memory', desc: 'Retains customer profile, conversation history, and billing context during active calls.', iconBg: 'rgba(0,242,254,0.1)', iconColor: '#00F2FE' },
+      { icon: '📅', title: 'Real-Time Actions', desc: 'Triggers CRM updates, schedules calendar meetings, and initiates API tasks during calls.', iconBg: 'rgba(79,172,254,0.1)', iconColor: '#4FACFE' },
+      { icon: '🎙️', title: 'Emotional Intelligence', desc: 'Senses speaker tone and sentiment, automatically adapting pacing and empathy levels.', iconBg: 'rgba(156,39,255,0.1)', iconColor: '#9C27FF' },
+      { icon: '🔐', title: 'PCI & HIPAA Compliant', desc: 'Securely processes sensitive details, orders, and healthcare data with zero token leakage.', iconBg: 'rgba(37,211,102,0.1)', iconColor: '#25D366' },
+      { icon: '📊', title: 'Call Transcripts & Analytics', desc: 'Review detailed audio recordings, automated transcripts, summaries, and sentiment trends.', iconBg: 'rgba(255,107,53,0.1)', iconColor: '#FF6B35' },
+    ],
+    demoOverline: 'Interactive Simulation',
+    demoTitle: 'Real-Time Voice <span class="text-gradient">Call Feed</span>',
+    demoDesc: 'Monitor active AI voice conversations, live transcriptions, and sentiment scores as they happen.',
+    demo: `
+      <div class="dash-voice-call">
+        <div class="voice-call-header">
+          <div class="voice-call-avatar">🗣️</div>
+          <div style="min-width: 0;">
+            <div style="font-weight:600;font-size:0.78rem;color:var(--color-white-text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Inbound Call #VC-7182</div>
+            <div style="font-size:0.65rem;color:var(--color-dim-text);">Active Call — 1m 45s</div>
+          </div>
+          <div class="voice-call-sentiment-badge">Positive (88%)</div>
+        </div>
+        <div class="voice-waveform-container">
+          <span class="voice-waveform-bar active" style="height: 12px; animation-delay: 0.1s;"></span>
+          <span class="voice-waveform-bar active" style="height: 24px; animation-delay: 0.3s;"></span>
+          <span class="voice-waveform-bar active" style="height: 18px; animation-delay: 0.2s;"></span>
+          <span class="voice-waveform-bar active" style="height: 36px; animation-delay: 0.4s;"></span>
+          <span class="voice-waveform-bar active" style="height: 15px; animation-delay: 0.15s;"></span>
+          <span class="voice-waveform-bar active" style="height: 28px; animation-delay: 0.35s;"></span>
+          <span class="voice-waveform-bar active" style="height: 8px; animation-delay: 0.05s;"></span>
+          <span class="voice-waveform-bar active" style="height: 20px; animation-delay: 0.25s;"></span>
+        </div>
+        <div class="voice-call-transcript">
+          <div class="transcript-line agent">
+            <span class="transcript-speaker">Botzo Agent (Voice)</span>
+            <span class="transcript-text">"Thanks for calling support. Yes, I can help reschedule your flight. Do you prefer morning or evening?"</span>
+          </div>
+          <div class="transcript-line customer">
+            <span class="transcript-speaker">Customer (Verbal)</span>
+            <span class="transcript-text">"Morning flight would be perfect, ideally after 9 AM."</span>
+          </div>
+          <div class="transcript-line agent">
+            <span class="transcript-speaker">Botzo Agent (Voice)</span>
+            <span class="transcript-text">"I have a 9:45 AM option available. I have booked that and sent the new boarding pass to your WhatsApp. Is there anything else?"</span>
+          </div>
+        </div>
+        <div class="voice-action-log">
+          <div class="action-log-item"><span class="action-time">10:45:12</span> <span class="action-desc">API call successful: Flight rescheduled</span></div>
+          <div class="action-log-item"><span class="action-time">10:45:14</span> <span class="action-desc">WhatsApp Notification dispatched: QR Ticket</span></div>
+        </div>
+      </div>
+    `,
+    steps: [
+      { number: '01', title: 'Configure Persona', desc: 'Select from 40+ professional, realistic voices and set the tone, accent, and conversational speed.' },
+      { number: '02', title: 'Define Knowledge', desc: 'Upload prompt instructions, FAQs, customer policies, and database APIs to guide the voice agent.' },
+      { number: '03', title: 'Connect Lines', desc: 'Link your business VoIP lines, Twilio trunking, or buy a dedicated number directly through Botzo.' },
+      { number: '04', title: 'Analyze Call Feed', desc: 'Go live and track conversational success rates, call durations, resolutions, and sentiment analysis.' },
+    ],
+    benefits: [
+      { value: '24/7', label: 'Inbound Availability', color: '#00F2FE' },
+      { value: '<500ms', label: 'Response Latency', color: '#4FACFE' },
+      { value: '75%', label: 'Cost Reduction vs Human', color: '#9C27FF' },
+      { value: '92%', label: 'First-Call Resolution', color: '#FF6B35' },
+    ],
+    faq: [
+      { q: 'How human-like does the Voice AI sound?', a: 'Extremely. Botzo utilizes advanced text-to-speech models that replicate natural human breath, inflections, pauses, and speech rhythms. Most customers cannot tell they are speaking to an AI.' },
+      { q: 'Can it transfer calls to human agents?', a: 'Yes. If the AI detects high frustration levels or if the user requests a human, it performs a warm transfer to a support queue with call context and transcripts.' },
+      { q: 'Which languages and accents are supported?', a: 'We support over 30 languages, including multiple English accents (Indian, US, UK, Australian), Hindi, Spanish, French, German, and major Indian regional languages.' },
+      { q: 'How does it integrate with our CRM?', a: 'It syncs natively with HubSpot, Salesforce, and custom endpoints via webhooks. Immediately after a call ends, the transcript and call summary are pushed to the contact timeline.' },
+    ],
+    testimonials: [
+      { name: 'Sanjay Dutt', role: 'Support Director, IndGo Airlines', quote: 'Our inbound peak reservation inquiries were fully handled by Botzo\'s Voice AI during the holiday season. The system handled 5,000 concurrent calls with zero queue delay.', color: '#00F2FE' },
+    ],
+    integrations: [
+      { icon: '📞', name: 'Twilio' }, { icon: '📞', name: 'Exotel' }, { icon: '📊', name: 'Salesforce' },
+      { icon: '💼', name: 'HubSpot' }, { icon: '🔄', name: 'Zapier' },
+    ],
+    relatedLinks: [
+      { icon: '📥', title: 'Team Inbox', desc: 'Manage tickets and transcripts in one place', href: '/platform/team-inbox' },
+      { icon: '⚡', title: 'Workflow Automation', desc: 'Trigger callback schedules and tasks', href: '/platform/workflow-automation' },
+    ],
+  },
+
+  'ai-studio': {
+    slug: 'ai-studio',
+    category: 'platform',
+    title: 'AI Studio',
+    overline: 'Creative Engine',
+    heroTitle: 'On-Model AI',
+    heroHighlight: 'Product Studio',
+    gradient: ['#FF416C', '#FF4B2B'],
+    heroDesc: 'Transform flat-lay product photos into professional on-model fashion shots. Upload product images, choose model demographics, poses, and backdrops, and generate studio-grade catalog photography instantly.',
+    heroVisualHTML: `
+      <div class="hero-ecosystem marketing-ecosystem">
+        <div class="ecosystem-card chart-board glass-card-strong float-slow">
+          <div class="kanban-header" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:10px; margin-bottom: 15px;">Campaign ROI</div>
+          <div class="chart-bars" style="display:flex; align-items:flex-end; gap:12px; height:100px;">
+            <div style="width:24px; height:40%; background:rgba(156,39,255,0.3); border-radius:4px;"></div>
+            <div style="width:24px; height:60%; background:rgba(156,39,255,0.5); border-radius:4px;"></div>
+            <div style="width:24px; height:85%; background:rgba(156,39,255,0.8); border-radius:4px;"></div>
+            <div style="width:24px; height:100%; background:#9C27FF; border-radius:4px; box-shadow:0 0 12px rgba(156,39,255,0.6);"></div>
+          </div>
+        </div>
+        <div class="ecosystem-card kpi-card glass-card float-medium" style="position: absolute; right: -20px; top: 10px;">
+          <div class="analytics-title">Conversion Rate</div>
+          <div class="analytics-value text-gradient" style="background: linear-gradient(90deg, #B84DFF, #FF6B35); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">24.5%</div>
+          <div class="analytics-trend" style="color: #25D366;">↑ 5.2% lift</div>
+        </div>
+      </div>
+`,
+    featuresOverline: 'Studio Tools',
+    featuresTitle: 'The Creative <span class="text-gradient">Control Center</span>',
+    features: [
+      { icon: '📸', title: 'On-Model Generation', desc: 'Place apparel, accessories, or footwear on highly realistic AI models of any demographic.', iconBg: 'rgba(255,65,108,0.1)', iconColor: '#FF416C' },
+      { icon: '🖼️', title: 'Smart Backgrounds', desc: 'Instantly swap backgrounds with high-fidelity studio, outdoor, or lifestyle environments.', iconBg: 'rgba(255,65,108,0.1)', iconColor: '#FF416C' },
+      { icon: '⚡', title: 'Instant Retouching', desc: 'Enhance lighting, remove wrinkles, adjust shadows, and upscale to 4K resolution automatically.', iconBg: 'rgba(255,75,43,0.1)', iconColor: '#FF4B2B' },
+      { icon: '📐', title: 'Proportional Fitting', desc: 'AI preserves exact textures, details, shapes, and draping of your original product.', iconBg: 'rgba(156,39,255,0.1)', iconColor: '#9C27FF' },
+      { icon: '📊', title: 'Catalog Sync', desc: 'Directly sync generated photos back to your Shopify, WooCommerce, or Magento catalog.', iconBg: 'rgba(0,136,255,0.1)', iconColor: '#0088FF' },
+      { icon: '🎨', title: 'Pose Customization', desc: 'Select from hundreds of dynamic fashion model poses, facial expressions, and lighting rigs.', iconBg: 'rgba(37,211,102,0.1)', iconColor: '#25D366' },
+    ],
+    demoOverline: 'Interactive Workbench',
+    demoTitle: 'Product-to-Model <span class="text-gradient">Generator</span>',
+    demoDesc: 'Test model prompts and parameters in real time with our simulated fashion photography workbench.',
+    demo: `
+      <div class="dash-studio-fashion">
+        <div class="studio-fashion-params">
+          <div class="studio-param-group">
+            <label class="studio-label">Input Flat-Lay Photo</label>
+            <div class="studio-image-upload-box">
+              <span class="uploaded-product-emoji">👕</span>
+              <div style="min-width: 0;">
+                <div style="font-weight:600;font-size:0.7rem;color:var(--color-white-text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">classic-tee-blue.jpg</div>
+                <div style="font-size:0.6rem;color:var(--color-dim-text);">1.2 MB — Uploaded</div>
+              </div>
+            </div>
+          </div>
+          <div class="studio-param-group">
+            <label class="studio-label">Model Demographic</label>
+            <select class="studio-select" disabled>
+              <option>Male — Young Adult (Athletic)</option>
+              <option>Female — Young Adult (Casual)</option>
+            </select>
+          </div>
+          <div class="studio-param-group">
+            <label class="studio-label">Scene & Backdrop Prompt</label>
+            <div class="studio-prompt-box">
+              "Studio portrait, professional commercial lighting, neutral beige backdrop, soft shadows"
+            </div>
+          </div>
+        </div>
+        <div class="studio-photo-preview">
+          <div class="studio-preview-header">Generated Catalog Photo</div>
+          <div class="studio-photo-wrapper">
+            <div class="studio-photo-container">
+              <div class="studio-mock-model">
+                <span style="font-size: 2.2rem; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));">🧑‍💼</span>
+                <span class="studio-mock-apparel">Blue Tee</span>
+              </div>
+              <div class="studio-photo-backdrop-badge">Studio White</div>
+            </div>
+          </div>
+          <div class="studio-test-actions">
+            <button class="studio-btn-test">Regenerate Pose 🔄</button>
+            <span style="font-size:0.7rem;color:var(--color-green);margin-left:auto;">✓ Fit Score: 99.1%</span>
+          </div>
+        </div>
+      </div>
+    `,
+    steps: [
+      { number: '01', title: 'Upload Product Photo', desc: 'Upload a clean photo of your apparel, product, or accessory on a flat-lay or hanger.' },
+      { number: '02', title: 'Choose Model & Poses', desc: 'Select model age, gender, ethnicity, pose style, and expression from our library.' },
+      { number: '03', title: 'Set Background Scene', desc: 'Type a descriptive prompt or choose from pre-set studio backdrops and real-world scenes.' },
+      { number: '04', title: 'Download HD Asset', desc: 'Generate multiple options in seconds. Download 4K resolution files ready for catalog and ads.' },
+    ],
+    benefits: [
+      { value: '90%', label: 'Cost Reduction vs Photoshoots', color: '#FF416C' },
+      { value: '10x', label: 'Faster Time-to-Market', color: '#FF4B2B' },
+      { value: '4K', label: 'Ultra-HD Resolutions', color: '#9C27FF' },
+      { value: '100+', label: 'Model Customization Options', color: '#25D366' },
+    ],
+    faq: [
+      { q: 'Does the AI distort product details or logos?', a: 'No. Our advanced neural shape-preserving technology locks in the exact fabric patterns, logos, textures, and details of your original garment while fitting it to the model.' },
+      { q: 'Can we generate models of specific demographics?', a: 'Yes. You have full control over the model\'s gender, age range, ethnicity, skin tone, hair style, and pose to align with your brand identity.' },
+      { q: 'What kind of products does this work for?', a: 'It is highly optimized for apparel (t-shirts, shirts, dresses, hoodies, pants), activewear, jewelry, sunglasses, and footwear.' },
+      { q: 'How many images can we generate?', a: 'Growth plan includes 250 high-res generations/month. Enterprise plans offer unlimited generations and custom fine-tuned brand models.' },
+    ],
+    testimonials: [
+      { name: 'Ananya Sharma', role: 'Founder, ThreadVerse Fashion', quote: 'AI Studio completely eliminated our need for weekly model shoots. We upload flat-lays of our new designs and have a fully model-showcased ecommerce catalog in 10 minutes.', color: '#FF416C' },
+    ],
+    integrations: [
+      { icon: '🌐', name: 'OpenAI' }, { icon: '🐙', name: 'GitHub' }, { icon: '📁', name: 'S3 Bucket' },
+      { icon: '📊', name: 'Pinecone' }, { icon: '🔄', name: 'Zapier' },
+    ],
+    relatedLinks: [
+      { icon: '🤖', title: 'AI Bot', desc: 'Deploy studio agents into chat bots', href: '/platform/ai-bot' },
+      { icon: '⚡', title: 'Workflow Automation', desc: 'Embed studio prompt nodes in flows', href: '/platform/workflow-automation' },
+    ],
+  },
+
+  'ai-bot': {
+    slug: 'ai-bot',
+    category: 'platform',
+    title: 'AI Bot',
+    overline: 'Autonomous Chat',
+    heroTitle: 'Autonomous Customer',
+    heroHighlight: 'AI Chatbot',
+    gradient: ['#8A2BE2', '#4A00E0'],
+    heroDesc: 'Deploy fully autonomous AI chatbots that resolve complex customer inquiries, process returns, handle billing FAQs, and navigate APIs without human intervention.',
+    heroVisualHTML: `
+      <div class="hero-ecosystem automation-ecosystem">
+        <div class="ecosystem-card workflow-board glass-card-strong float-slow">
+          <div class="wf-node wf-trigger">Incoming Message</div><div class="wf-line"></div><div class="wf-node wf-condition">Is VIP?</div>
+          <div class="wf-split"><div class="wf-branch"><div class="wf-line-curved-left"></div><div class="wf-node wf-action">Route to Agent</div></div>
+          <div class="wf-branch"><div class="wf-line-curved-right"></div><div class="wf-node wf-action">AI Auto-Reply</div></div></div>
+        </div>
+      </div>
+`,
+    featuresOverline: 'Agent Capabilities',
+    featuresTitle: 'Intelligent <span class="text-gradient">Self-Service</span>',
+    features: [
+      { icon: '🤖', title: 'Autonomous Resolutions', desc: 'Solves complex support issues, processes refunds, and changes reservations end-to-end.', iconBg: 'rgba(138,43,226,0.1)', iconColor: '#8A2BE2' },
+      { icon: '💡', title: 'Reasoning & Planning', desc: 'Thinks through problems step-by-step: analyzes intent, searches knowledge, calls APIs, and resolves.', iconBg: 'rgba(138,43,226,0.1)', iconColor: '#8A2BE2' },
+      { icon: '🔌', title: 'API Integration', desc: 'Reads and writes securely to your database, Shopify store, Zendesk, or payment gateways.', iconBg: 'rgba(74,0,224,0.1)', iconColor: '#4A00E0' },
+      { icon: '🔄', title: 'Seamless Handover', desc: 'Gracefully hands off complex issues to human agents on our Unified Team Inbox when needed.', iconBg: 'rgba(156,39,255,0.1)', iconColor: '#9C27FF' },
+      { icon: '🌍', title: 'Multilingual Support', desc: 'Understands and responds in 80+ languages natively, detecting language shifts dynamically.', iconBg: 'rgba(37,211,102,0.1)', iconColor: '#25D366' },
+      { icon: '📊', title: 'Resolution Auditing', desc: 'Audits reasoning logs, customer satisfaction scores, and action logs in a visual dashboard.', iconBg: 'rgba(255,107,53,0.1)', iconColor: '#FF6B35' },
+    ],
+    demoOverline: 'Autonomous Demo',
+    demoTitle: 'Reasoning Agent <span class="text-gradient">In Action</span>',
+    demoDesc: 'Observe how the AI Bot thinks, plans, retrieves data, and triggers database API steps to solve a live issue.',
+    demo: `
+      <div class="dash-autonomous-bot">
+        <div class="bot-header">
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <span class="status-dot green"></span>
+            <span style="font-weight:600;font-size:0.78rem;color:var(--color-white-text);">Autonomous Support Agent</span>
+          </div>
+          <div class="status-badge" style="background:rgba(138,43,226,0.15);color:#B84DFF;font-size:0.65rem;">Active</div>
+        </div>
+        <div class="bot-chat-body">
+          <div class="chat-bubble chat-bubble-incoming" style="font-size: 0.72rem; padding: 0.4rem 0.5rem;">Customer: "I want to return order #9021. The size is too small."</div>
+          <div class="bot-reasoning-flow">
+            <div class="reasoning-step"><span class="reason-icon">🔍</span> <span class="reason-text">Intent Classified: Return Request</span></div>
+            <div class="reasoning-step"><span class="reason-icon">📞</span> <span class="reason-text">Calling Shopify API (Order #9021) -> Status: Delivered</span></div>
+            <div class="reasoning-step"><span class="reason-icon">⚖️</span> <span class="reason-text">Checking Return Policy -> Purchase date within 15 days (Eligible)</span></div>
+            <div class="reasoning-step"><span class="reason-icon">🔧</span> <span class="reason-text">Action: Creating pre-paid shipping return slip</span></div>
+          </div>
+          <div class="chat-bubble chat-bubble-outgoing" style="font-size: 0.72rem; padding: 0.4rem 0.5rem; background: #005c4b;">Bot: "I have verified your order #9021. It is eligible for return. I've generated your prepaid return label and sent it to your registered email. Let me know if you need anything else!"</div>
+        </div>
+      </div>
+    `,
+    steps: [
+      { number: '01', title: 'Upload Documentation', desc: 'Sync your Zendesk articles, PDFs, and website FAQs. The bot reads them in minutes.' },
+      { number: '02', title: 'Link API Actions', desc: 'Connect secure API routes for order searches, reservation updates, and payment status checks.' },
+      { number: '03', title: 'Style & Brand', desc: 'Customize chat widgets, avatars, and fonts to match your company\'s style guidelines.' },
+      { number: '04', title: 'Embed & Run', desc: 'Copy the lightweight JS snippet into your header or publish it to WhatsApp/Instagram.' },
+    ],
+    benefits: [
+      { value: '82%', label: 'Autonomy Resolution Rate', color: '#8A2BE2' },
+      { value: '10s', label: 'Average Resolution Time', color: '#4A00E0' },
+      { value: '24/7/365', label: 'Instant Service', color: '#9C27FF' },
+      { value: '4.7/5', label: 'CSAT Rating', color: '#25D366' },
+    ],
+    faq: [
+      { q: 'How does the AI Bot handle complex actions like refunds?', a: 'By executing secure API requests. If a customer requests a refund, the bot verifies the order date and refund policy, calls your ecommerce API to check status, processes it, and updates the customer.' },
+      { q: 'Will it hallucinate fake policies?', a: 'No. The AI Bot uses a strict context retrieval lock. If the answer is not present in your uploaded documentation, it will state it doesn\'t know and hand over to a human.' },
+      { q: 'Can we install it on our mobile app?', a: 'Yes! We provide an iOS and Android SDK, as well as a clean web widget snippet that loads fast and responds on any screen size.' },
+      { q: 'How does human agent fallback work?', a: 'When the AI Bot encounters an unresolvable issue or high customer frustration, it places the ticket in the Unified Team Inbox and alerts online agents with a full summary.' },
+    ],
+    testimonials: [
+      { name: 'Vikram Mehta', role: 'VP Customer Success, ShopZillion', quote: 'Botzo\'s AI Bot resolved 82% of our inbound order tracking and returns questions automatically. Our support team can now focus on high-value sales chats.', color: '#8A2BE2' },
+    ],
+    integrations: [
+      { icon: '🛒', name: 'Shopify' }, { icon: '🎫', name: 'Zendesk' }, { icon: '💳', name: 'Razorpay' },
+      { icon: '🔄', name: 'Zapier' }, { icon: '💬', name: 'WhatsApp API' },
+    ],
+    relatedLinks: [
+      { icon: '🎙️', title: 'Voice AI', desc: 'Automate voice calling support', href: '/platform/voice-ai' },
+      { icon: '📥', title: 'Team Inbox', desc: 'Unified human-agent workspace', href: '/platform/team-inbox' },
     ],
   },
 };

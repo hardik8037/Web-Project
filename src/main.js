@@ -8,6 +8,7 @@ import './styles/globals.css';
 // Components
 import { createNavbar } from './components/Navbar.js';
 import { createFooter } from './components/Footer.js';
+import { initUI } from './components/ui/index.js';
 
 // JS Systems
 import { initNavbarScroll } from './js/animations.js';
@@ -72,6 +73,9 @@ function initApp() {
 
     // Initialize Custom Router to handle client-side navigation
     window.router = new Router('#page-container');
+
+    // Initialize Shadcn-style Vanilla UI Components
+    initUI();
   });
 }
 

@@ -18,7 +18,7 @@ export function createHero() {
       <div class="hero-orb hero-orb-3"></div>
     </div>
 
-    <div class="container hero-content">
+    <div class="container-wide hero-content">
       <div class="hero-text-block">
         <div class="hero-overline">
           <span class="overline-badge">
@@ -28,8 +28,8 @@ export function createHero() {
         </div>
 
         <h1 class="heading-hero hero-title">
-          Automate Everything.<br>
-          <span class="text-gradient">Communicate Everywhere.</span><br>
+          Automate Everything.<br class="hide-mobile">
+          <span class="text-gradient">Communicate Everywhere.</span><br class="hide-mobile">
           Grow Without Limits.
         </h1>
 
@@ -233,7 +233,7 @@ export function createHero() {
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
-          <div class="stat-value counter-value" data-target="150" data-suffix="+">150+</div>
+          <div class="stat-value counter-value" data-target="500" data-suffix="+">500+</div>
           <div class="stat-label">Integrations</div>
         </div>
       </div>

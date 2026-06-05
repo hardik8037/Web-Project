@@ -9,6 +9,24 @@ export const SERVICE_PAGES = {
     overline: 'Growth Engine', heroTitle: 'Comprehensive', heroHighlight: 'Digital Marketing',
     gradient: ['#00E676', '#00C853'],
     heroDesc: 'Drive measurable growth with data-driven digital marketing strategies. From SEO to paid ads, social media to content marketing — we build full-funnel campaigns that convert.',
+    heroVisualHTML: `
+      <div class="hero-ecosystem marketing-ecosystem">
+        <div class="ecosystem-card chart-board glass-card-strong float-slow">
+          <div class="kanban-header" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:10px; margin-bottom: 15px;">Campaign ROI</div>
+          <div class="chart-bars" style="display:flex; align-items:flex-end; gap:12px; height:100px;">
+            <div style="width:24px; height:40%; background:rgba(156,39,255,0.3); border-radius:4px;"></div>
+            <div style="width:24px; height:60%; background:rgba(156,39,255,0.5); border-radius:4px;"></div>
+            <div style="width:24px; height:85%; background:rgba(156,39,255,0.8); border-radius:4px;"></div>
+            <div style="width:24px; height:100%; background:#9C27FF; border-radius:4px; box-shadow:0 0 12px rgba(156,39,255,0.6);"></div>
+          </div>
+        </div>
+        <div class="ecosystem-card kpi-card glass-card float-medium" style="position: absolute; right: -20px; top: 10px;">
+          <div class="analytics-title">Conversion Rate</div>
+          <div class="analytics-value text-gradient" style="background: linear-gradient(90deg, #B84DFF, #FF6B35); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">24.5%</div>
+          <div class="analytics-trend" style="color: #25D366;">↑ 5.2% lift</div>
+        </div>
+      </div>
+`,
     featuresOverline: 'Service Scope',
     featuresTitle: 'Full-Funnel <span class="text-gradient">Growth Strategy</span>',
     features: [
@@ -52,6 +70,24 @@ export const SERVICE_PAGES = {
     overline: 'Organic Growth', heroTitle: 'Search Engine', heroHighlight: 'Optimization',
     gradient: ['#36C5F0', '#0088FF'],
     heroDesc: 'Dominate search rankings with technical SEO, content strategy, and authority building. We drive sustainable organic traffic that compounds over time.',
+    heroVisualHTML: `
+      <div class="hero-ecosystem marketing-ecosystem">
+        <div class="ecosystem-card chart-board glass-card-strong float-slow">
+          <div class="kanban-header" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:10px; margin-bottom: 15px;">Campaign ROI</div>
+          <div class="chart-bars" style="display:flex; align-items:flex-end; gap:12px; height:100px;">
+            <div style="width:24px; height:40%; background:rgba(156,39,255,0.3); border-radius:4px;"></div>
+            <div style="width:24px; height:60%; background:rgba(156,39,255,0.5); border-radius:4px;"></div>
+            <div style="width:24px; height:85%; background:rgba(156,39,255,0.8); border-radius:4px;"></div>
+            <div style="width:24px; height:100%; background:#9C27FF; border-radius:4px; box-shadow:0 0 12px rgba(156,39,255,0.6);"></div>
+          </div>
+        </div>
+        <div class="ecosystem-card kpi-card glass-card float-medium" style="position: absolute; right: -20px; top: 10px;">
+          <div class="analytics-title">Conversion Rate</div>
+          <div class="analytics-value text-gradient" style="background: linear-gradient(90deg, #B84DFF, #FF6B35); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">24.5%</div>
+          <div class="analytics-trend" style="color: #25D366;">↑ 5.2% lift</div>
+        </div>
+      </div>
+`,
     features: [
       { icon: '🔧', title: 'Technical SEO', desc: 'Site speed optimization, Core Web Vitals, structured data, crawlability, indexation, and mobile-first improvements.', iconBg: 'rgba(54,197,240,0.1)', iconColor: '#36C5F0' },
       { icon: '📝', title: 'Content Strategy', desc: 'Keyword research, topic clusters, blog calendars, and SEO-optimized content that ranks and converts.', iconBg: 'rgba(54,197,240,0.1)', iconColor: '#36C5F0' },
@@ -82,6 +118,24 @@ export const SERVICE_PAGES = {
     overline: 'Paid Advertising', heroTitle: 'Performance', heroHighlight: 'Marketing & Ads',
     gradient: ['#FF6B35', '#E55100'],
     heroDesc: 'ROI-focused advertising across Meta, Google, LinkedIn, and YouTube. Every rupee tracked, optimized, and accountable.',
+    heroVisualHTML: `
+      <div class="hero-ecosystem marketing-ecosystem">
+        <div class="ecosystem-card chart-board glass-card-strong float-slow">
+          <div class="kanban-header" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:10px; margin-bottom: 15px;">Campaign ROI</div>
+          <div class="chart-bars" style="display:flex; align-items:flex-end; gap:12px; height:100px;">
+            <div style="width:24px; height:40%; background:rgba(156,39,255,0.3); border-radius:4px;"></div>
+            <div style="width:24px; height:60%; background:rgba(156,39,255,0.5); border-radius:4px;"></div>
+            <div style="width:24px; height:85%; background:rgba(156,39,255,0.8); border-radius:4px;"></div>
+            <div style="width:24px; height:100%; background:#9C27FF; border-radius:4px; box-shadow:0 0 12px rgba(156,39,255,0.6);"></div>
+          </div>
+        </div>
+        <div class="ecosystem-card kpi-card glass-card float-medium" style="position: absolute; right: -20px; top: 10px;">
+          <div class="analytics-title">Conversion Rate</div>
+          <div class="analytics-value text-gradient" style="background: linear-gradient(90deg, #B84DFF, #FF6B35); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">24.5%</div>
+          <div class="analytics-trend" style="color: #25D366;">↑ 5.2% lift</div>
+        </div>
+      </div>
+`,
     features: [
       { icon: '📱', title: 'Meta Ads', desc: 'Facebook & Instagram campaigns with advanced targeting, lookalike audiences, and dynamic creative optimization.', iconBg: 'rgba(255,107,53,0.1)', iconColor: '#FF6B35' },
       { icon: '🔍', title: 'Google Ads', desc: 'Search, Shopping, Display, and YouTube campaigns. Smart bidding, quality score optimization, and conversion tracking.', iconBg: 'rgba(255,107,53,0.1)', iconColor: '#FF6B35' },
@@ -112,6 +166,24 @@ export const SERVICE_PAGES = {
     overline: 'Brand Building', heroTitle: 'Social Media', heroHighlight: 'Brand Strategy',
     gradient: ['#E4405F', '#9C27FF'],
     heroDesc: 'Build a powerful social media presence that drives engagement, builds brand loyalty, and generates leads. Instagram, Facebook, LinkedIn, and YouTube — managed professionally.',
+    heroVisualHTML: `
+      <div class="hero-ecosystem marketing-ecosystem">
+        <div class="ecosystem-card chart-board glass-card-strong float-slow">
+          <div class="kanban-header" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:10px; margin-bottom: 15px;">Campaign ROI</div>
+          <div class="chart-bars" style="display:flex; align-items:flex-end; gap:12px; height:100px;">
+            <div style="width:24px; height:40%; background:rgba(156,39,255,0.3); border-radius:4px;"></div>
+            <div style="width:24px; height:60%; background:rgba(156,39,255,0.5); border-radius:4px;"></div>
+            <div style="width:24px; height:85%; background:rgba(156,39,255,0.8); border-radius:4px;"></div>
+            <div style="width:24px; height:100%; background:#9C27FF; border-radius:4px; box-shadow:0 0 12px rgba(156,39,255,0.6);"></div>
+          </div>
+        </div>
+        <div class="ecosystem-card kpi-card glass-card float-medium" style="position: absolute; right: -20px; top: 10px;">
+          <div class="analytics-title">Conversion Rate</div>
+          <div class="analytics-value text-gradient" style="background: linear-gradient(90deg, #B84DFF, #FF6B35); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">24.5%</div>
+          <div class="analytics-trend" style="color: #25D366;">↑ 5.2% lift</div>
+        </div>
+      </div>
+`,
     features: [
       { icon: '🎨', title: 'Content Design', desc: 'Professional social media creatives, reels, stories, and carousel posts designed by our in-house team.', iconBg: 'rgba(228,64,95,0.1)', iconColor: '#E4405F' },
       { icon: '📅', title: 'Content Calendar', desc: 'Strategic posting schedules aligned with trending topics, seasonal events, and your marketing goals.', iconBg: 'rgba(228,64,95,0.1)', iconColor: '#E4405F' },
@@ -142,6 +214,24 @@ export const SERVICE_PAGES = {
     overline: 'Web Engineering', heroTitle: 'Premium', heroHighlight: 'Website Development',
     gradient: ['#B84DFF', '#7B1FA2'],
     heroDesc: 'Build lightning-fast, SEO-optimized websites that convert visitors into customers. From landing pages to complex web applications — engineered for performance.',
+    heroVisualHTML: `
+      <div class="hero-ecosystem marketing-ecosystem">
+        <div class="ecosystem-card chart-board glass-card-strong float-slow">
+          <div class="kanban-header" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:10px; margin-bottom: 15px;">Campaign ROI</div>
+          <div class="chart-bars" style="display:flex; align-items:flex-end; gap:12px; height:100px;">
+            <div style="width:24px; height:40%; background:rgba(156,39,255,0.3); border-radius:4px;"></div>
+            <div style="width:24px; height:60%; background:rgba(156,39,255,0.5); border-radius:4px;"></div>
+            <div style="width:24px; height:85%; background:rgba(156,39,255,0.8); border-radius:4px;"></div>
+            <div style="width:24px; height:100%; background:#9C27FF; border-radius:4px; box-shadow:0 0 12px rgba(156,39,255,0.6);"></div>
+          </div>
+        </div>
+        <div class="ecosystem-card kpi-card glass-card float-medium" style="position: absolute; right: -20px; top: 10px;">
+          <div class="analytics-title">Conversion Rate</div>
+          <div class="analytics-value text-gradient" style="background: linear-gradient(90deg, #B84DFF, #FF6B35); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">24.5%</div>
+          <div class="analytics-trend" style="color: #25D366;">↑ 5.2% lift</div>
+        </div>
+      </div>
+`,
     featuresOverline: 'What We Build',
     featuresTitle: 'Web Solutions That <span class="text-gradient">Convert</span>',
     features: [
@@ -185,6 +275,24 @@ export const SERVICE_PAGES = {
     overline: 'Online Commerce', heroTitle: 'Ecommerce', heroHighlight: 'Store Development',
     gradient: ['#FF6B35', '#E55100'],
     heroDesc: 'Build high-performance online stores with cart, checkout, payment integration, inventory management, and WhatsApp commerce capabilities.',
+    heroVisualHTML: `
+      <div class="hero-ecosystem marketing-ecosystem">
+        <div class="ecosystem-card chart-board glass-card-strong float-slow">
+          <div class="kanban-header" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:10px; margin-bottom: 15px;">Campaign ROI</div>
+          <div class="chart-bars" style="display:flex; align-items:flex-end; gap:12px; height:100px;">
+            <div style="width:24px; height:40%; background:rgba(156,39,255,0.3); border-radius:4px;"></div>
+            <div style="width:24px; height:60%; background:rgba(156,39,255,0.5); border-radius:4px;"></div>
+            <div style="width:24px; height:85%; background:rgba(156,39,255,0.8); border-radius:4px;"></div>
+            <div style="width:24px; height:100%; background:#9C27FF; border-radius:4px; box-shadow:0 0 12px rgba(156,39,255,0.6);"></div>
+          </div>
+        </div>
+        <div class="ecosystem-card kpi-card glass-card float-medium" style="position: absolute; right: -20px; top: 10px;">
+          <div class="analytics-title">Conversion Rate</div>
+          <div class="analytics-value text-gradient" style="background: linear-gradient(90deg, #B84DFF, #FF6B35); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">24.5%</div>
+          <div class="analytics-trend" style="color: #25D366;">↑ 5.2% lift</div>
+        </div>
+      </div>
+`,
     features: [
       { icon: '🛒', title: 'Shopify & Custom Stores', desc: 'Shopify themes, WooCommerce setups, or fully custom ecommerce platforms built to your specifications.', iconBg: 'rgba(255,107,53,0.1)', iconColor: '#FF6B35' },
       { icon: '💳', title: 'Payment Gateway', desc: 'Razorpay, Stripe, PayU, and UPI integration. Multiple currency support and EMI options.', iconBg: 'rgba(255,107,53,0.1)', iconColor: '#FF6B35' },
@@ -215,6 +323,24 @@ export const SERVICE_PAGES = {
     overline: 'Mobile Engineering', heroTitle: 'Mobile App', heroHighlight: 'Development',
     gradient: ['#36C5F0', '#0088FF'],
     heroDesc: 'Native iOS and Android apps with fluid animations, push notifications, offline support, and API integrations. Cross-platform with React Native or Flutter.',
+    heroVisualHTML: `
+      <div class="hero-ecosystem marketing-ecosystem">
+        <div class="ecosystem-card chart-board glass-card-strong float-slow">
+          <div class="kanban-header" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:10px; margin-bottom: 15px;">Campaign ROI</div>
+          <div class="chart-bars" style="display:flex; align-items:flex-end; gap:12px; height:100px;">
+            <div style="width:24px; height:40%; background:rgba(156,39,255,0.3); border-radius:4px;"></div>
+            <div style="width:24px; height:60%; background:rgba(156,39,255,0.5); border-radius:4px;"></div>
+            <div style="width:24px; height:85%; background:rgba(156,39,255,0.8); border-radius:4px;"></div>
+            <div style="width:24px; height:100%; background:#9C27FF; border-radius:4px; box-shadow:0 0 12px rgba(156,39,255,0.6);"></div>
+          </div>
+        </div>
+        <div class="ecosystem-card kpi-card glass-card float-medium" style="position: absolute; right: -20px; top: 10px;">
+          <div class="analytics-title">Conversion Rate</div>
+          <div class="analytics-value text-gradient" style="background: linear-gradient(90deg, #B84DFF, #FF6B35); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">24.5%</div>
+          <div class="analytics-trend" style="color: #25D366;">↑ 5.2% lift</div>
+        </div>
+      </div>
+`,
     features: [
       { icon: '🍏', title: 'iOS Development', desc: 'Native Swift apps with Apple design guidelines, App Store optimization, and seamless iOS ecosystem integration.', iconBg: 'rgba(54,197,240,0.1)', iconColor: '#36C5F0' },
       { icon: '🤖', title: 'Android Development', desc: 'Native Kotlin apps with Material Design, Play Store optimization, and deep Android platform integration.', iconBg: 'rgba(54,197,240,0.1)', iconColor: '#36C5F0' },
@@ -245,6 +371,24 @@ export const SERVICE_PAGES = {
     overline: 'Design Studio', heroTitle: 'Premium', heroHighlight: 'UI/UX Design',
     gradient: ['#9C27FF', '#E040FB'],
     heroDesc: 'Craft intuitive, beautiful interfaces that delight users and drive business results. From wireframes to polished design systems — every pixel matters.',
+    heroVisualHTML: `
+      <div class="hero-ecosystem marketing-ecosystem">
+        <div class="ecosystem-card chart-board glass-card-strong float-slow">
+          <div class="kanban-header" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:10px; margin-bottom: 15px;">Campaign ROI</div>
+          <div class="chart-bars" style="display:flex; align-items:flex-end; gap:12px; height:100px;">
+            <div style="width:24px; height:40%; background:rgba(156,39,255,0.3); border-radius:4px;"></div>
+            <div style="width:24px; height:60%; background:rgba(156,39,255,0.5); border-radius:4px;"></div>
+            <div style="width:24px; height:85%; background:rgba(156,39,255,0.8); border-radius:4px;"></div>
+            <div style="width:24px; height:100%; background:#9C27FF; border-radius:4px; box-shadow:0 0 12px rgba(156,39,255,0.6);"></div>
+          </div>
+        </div>
+        <div class="ecosystem-card kpi-card glass-card float-medium" style="position: absolute; right: -20px; top: 10px;">
+          <div class="analytics-title">Conversion Rate</div>
+          <div class="analytics-value text-gradient" style="background: linear-gradient(90deg, #B84DFF, #FF6B35); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">24.5%</div>
+          <div class="analytics-trend" style="color: #25D366;">↑ 5.2% lift</div>
+        </div>
+      </div>
+`,
     features: [
       { icon: '🎨', title: 'Visual Design', desc: 'Stunning interfaces with cohesive color palettes, typography systems, and micro-interactions that feel premium.', iconBg: 'rgba(156,39,255,0.1)', iconColor: '#9C27FF' },
       { icon: '🧠', title: 'UX Research', desc: 'User interviews, journey mapping, heatmap analysis, and usability testing to inform design decisions.', iconBg: 'rgba(156,39,255,0.1)', iconColor: '#9C27FF' },

@@ -12,7 +12,7 @@ export function createResources() {
   container.innerHTML = `
     <!-- Resources Hero -->
     <section class="section page-hero resources-hero">
-      <div class="container">
+      <div class="container container-wide">
         <div class="section-header">
           <span class="text-overline">Media & Knowledge Hub</span>
           <h1 class="heading-hero">Ecosystem Hub &<br><span class="text-gradient">Company Insights</span></h1>

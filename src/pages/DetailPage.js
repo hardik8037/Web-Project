@@ -1023,13 +1023,15 @@ export function createDetailPage(config) {
   // ─── HERO SECTION ───
   let heroHTML = `
     <section class="section page-hero detail-hero">
-      <div class="container">
+      <div class="container container-wide">
         <div class="section-header">
-          <span class="text-overline">${config.overline || config.category}</span>
-          <h1 class="heading-hero">${config.heroTitle || config.title}<br>
+          <div class="detail-hero-badge" style="--badge-color: ${accentColor}">
+            <span class="badge-dot"></span>${config.overline || config.category}
+          </div>
+          <h1 class="heading-hero detail-hero-title">${config.heroTitle || config.title} 
             <span class="text-gradient" style="${gradientStyle}">${config.heroHighlight || ''}</span>
           </h1>
-          <p class="text-body-lg" style="max-width: 720px; margin: 0 auto 2rem;">
+          <p class="text-body-lg detail-hero-desc">
             ${config.heroDesc}
           </p>
           <div class="hero-actions">
@@ -1228,38 +1230,6 @@ export function createDetailPage(config) {
     `;
   }
 
-  // ─── TESTIMONIALS ───
-  let testimonialHTML = '';
-  if (config.testimonials && config.testimonials.length) {
-    const cards = config.testimonials.map(t => `
-      <div class="detail-testimonial-card glass-card-strong">
-        <div class="detail-testimonial-quote">"${t.quote}"</div>
-        <div class="detail-testimonial-author">
-          <div class="dash-avatar" style="background:${t.color || '#9C27FF'};width:32px;height:32px;font-size:0.7rem;">${t.name[0]}</div>
-          <div>
-            <div class="detail-testimonial-name">${t.name}</div>
-            <div class="detail-testimonial-role">${t.role}</div>
-          </div>
-        </div>
-      </div>
-    `).join('');
-
-    testimonialHTML = `
-      <section class="section detail-testimonials-section">
-        <div class="container">
-          <div class="section-header" style="margin-bottom: 3rem;">
-            <span class="text-overline">Customer Stories</span>
-            <h2 class="heading-section">Trusted by <span class="text-gradient">Industry Leaders</span></h2>
-          </div>
-          <div class="detail-testimonials-grid">
-            ${cards}
-          </div>
-        </div>
-      </section>
-      <div class="section-divider"></div>
-    `;
-  }
-
   // ─── INTEGRATIONS ───
   let integrationsHTML = '';
   if (config.integrations && config.integrations.length) {
@@ -1318,7 +1288,7 @@ export function createDetailPage(config) {
   }
 
   // ─── ASSEMBLE ───
-  container.innerHTML = heroHTML + featuresHTML + demoHTML + stepsHTML + benefitsHTML + faqHTML + testimonialHTML + integrationsHTML + crossLinkHTML;
+  container.innerHTML = heroHTML + featuresHTML + demoHTML + stepsHTML + benefitsHTML + faqHTML + integrationsHTML + crossLinkHTML;
 
   // Append Final CTA
   container.appendChild(createFinalCTA());

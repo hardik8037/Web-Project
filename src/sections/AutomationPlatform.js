@@ -1,6 +1,8 @@
+
+import { gsap } from 'gsap';
+
 /* ═══════════════════════════════════════════════════
-   AI AUTOMATION PLATFORM — CSS-RECREATED DASHBOARDS
-   Inspired by real Botzo.io platform, branded correctly
+   AI AUTOMATION PLATFORM — REDESIGNED DASHBOARDS
    ═══════════════════════════════════════════════════ */
 
 const PLATFORM_TABS = [
@@ -8,261 +10,76 @@ const PLATFORM_TABS = [
     id: 'whatsapp',
     label: 'WhatsApp API',
     icon: '💬',
-    title: 'Official WhatsApp Business API',
+    title: 'WhatsApp Business API',
     desc: 'Send & receive messages at scale with verified business profile, templates, and automated responses.',
     dashboard: `
-      <div class="dash-whatsapp">
-        <div class="dash-sidebar">
-          <div class="dash-sidebar-header">
-            <span style="font-weight:600;font-size:0.8rem;">Conversations</span>
-            <span class="status-badge status-badge-active">247 active</span>
+      <div class="dash-new dash-whatsapp-analytics">
+        <div class="dash-analytics-header">
+          <div class="dash-metric">
+            <span class="dash-metric-label">Messages Sent</span>
+            <span class="dash-metric-val">124.5K</span>
+            <span class="dash-metric-change positive">+12.4%</span>
           </div>
-          <div class="dash-contact active">
-            <div class="dash-avatar" style="background:#25D366;">R</div>
-            <div class="dash-contact-info">
-              <div class="dash-contact-name">Rahul Sharma</div>
-              <div class="dash-contact-msg">Thanks for the quick response!</div>
-            </div>
-            <div class="dash-contact-time">2m</div>
+          <div class="dash-metric">
+            <span class="dash-metric-label">Open Rate</span>
+            <span class="dash-metric-val">94.2%</span>
+            <span class="dash-metric-change positive">+2.1%</span>
           </div>
-          <div class="dash-contact">
-            <div class="dash-avatar" style="background:#9C27FF;">P</div>
-            <div class="dash-contact-info">
-              <div class="dash-contact-name">Priya Patel</div>
-              <div class="dash-contact-msg">I'd like to book an appointment</div>
-            </div>
-            <div class="dash-contact-time">5m</div>
-          </div>
-          <div class="dash-contact">
-            <div class="dash-avatar" style="background:#0088FF;">A</div>
-            <div class="dash-contact-info">
-              <div class="dash-contact-name">Amit Singh</div>
-              <div class="dash-contact-msg">What are your pricing plans?</div>
-            </div>
-            <div class="dash-contact-time">12m</div>
+          <div class="dash-metric">
+            <span class="dash-metric-label">Conversions</span>
+            <span class="dash-metric-val">8,402</span>
+            <span class="dash-metric-change positive">+18.5%</span>
           </div>
         </div>
-        <div class="dash-chat-main">
-          <div class="dash-chat-header">
-            <div class="dash-avatar" style="background:#25D366;width:28px;height:28px;font-size:0.65rem;">R</div>
-            <div>
-              <div style="font-size:0.78rem;font-weight:600;">Rahul Sharma</div>
-              <div style="font-size:0.65rem;color:var(--color-green);">Online</div>
-            </div>
-          </div>
-          <div class="dash-chat-body">
-            <div class="chat-bubble chat-bubble-incoming" style="font-size:0.78rem;">Hi, I saw your ad on Instagram. Can you tell me more about your services?</div>
-            <div class="chat-bubble chat-bubble-outgoing" style="font-size:0.78rem;">Hello Rahul! 👋 Of course! We offer complete business automation including WhatsApp API, CRM, and workflow builder.</div>
-            <div class="chat-bubble chat-bubble-incoming" style="font-size:0.78rem;">Thanks for the quick response! What's the pricing?</div>
-          </div>
+        <div class="dash-chart-container">
+          <!-- Animated Bar Chart Mockup -->
+          <div class="dash-chart-bar" style="height: 40%"></div>
+          <div class="dash-chart-bar" style="height: 60%"></div>
+          <div class="dash-chart-bar" style="height: 45%"></div>
+          <div class="dash-chart-bar" style="height: 80%"></div>
+          <div class="dash-chart-bar" style="height: 65%"></div>
+          <div class="dash-chart-bar" style="height: 95%"></div>
+          <div class="dash-chart-bar" style="height: 75%"></div>
+          <div class="dash-chart-line"></div>
+        </div>
+        <div class="dash-live-status">
+          <span class="status-dot pulsing"></span> Live Campaign Routing Active
         </div>
       </div>
-    `,
+    `
   },
   {
     id: 'omnichannel',
     label: 'Omnichannel',
     icon: '🔗',
-    title: 'Omnichannel Communication Hub',
+    title: 'Unified Communication',
     desc: 'Unify WhatsApp, Instagram, Facebook, RCS, and more into a single conversation stream.',
     dashboard: `
-      <div class="dash-omni">
-        <div class="dash-omni-channels">
-          <div class="dash-omni-channel active" style="--ch-color:#25D366;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
-            <span>WhatsApp</span>
-            <span class="dash-omni-count">142</span>
-          </div>
-          <div class="dash-omni-channel" style="--ch-color:#E4405F;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="#E4405F"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="#E4405F" stroke-width="2"/><circle cx="12" cy="12" r="5" fill="none" stroke="#E4405F" stroke-width="2"/></svg>
-            <span>Instagram</span>
-            <span class="dash-omni-count">58</span>
-          </div>
-          <div class="dash-omni-channel" style="--ch-color:#1877F2;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            <span>Facebook</span>
-            <span class="dash-omni-count">34</span>
-          </div>
-          <div class="dash-omni-channel" style="--ch-color:#0088FF;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="#0088FF"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="#0088FF" stroke-width="1.5"/><path d="M3 7l9 6 9-6" fill="none" stroke="#0088FF" stroke-width="1.5"/></svg>
-            <span>RCS</span>
-            <span class="dash-omni-count">21</span>
-          </div>
+      <div class="dash-new dash-omni-ui">
+        <div class="dash-omni-sidebar">
+          <div class="omni-channel active"><span style="color:#25D366">●</span> WhatsApp</div>
+          <div class="omni-channel"><span style="color:#E4405F">●</span> Instagram</div>
+          <div class="omni-channel"><span style="color:#1877F2">●</span> Messenger</div>
+          <div class="omni-channel"><span style="color:#0088FF">●</span> RCS</div>
         </div>
-        <div class="dash-omni-feed">
-          <div class="dash-omni-msg">
-            <div class="dash-avatar" style="background:#25D366;width:24px;height:24px;font-size:0.55rem;">R</div>
-            <div class="dash-omni-msg-content">
-              <div class="dash-omni-msg-header">
-                <span class="dash-omni-msg-name">Rahul via WhatsApp</span>
-                <span class="dash-omni-msg-time">2m ago</span>
-              </div>
-              <div class="dash-omni-msg-text">I need pricing info for the Growth plan</div>
+        <div class="dash-omni-chat">
+          <div class="chat-header-glass">
+            <div class="chat-avatar gradient-1">SJ</div>
+            <div>
+              <div class="chat-name">Sarah Jenkins</div>
+              <div class="chat-source">via Instagram DM</div>
             </div>
           </div>
-          <div class="dash-omni-msg">
-            <div class="dash-avatar" style="background:#E4405F;width:24px;height:24px;font-size:0.55rem;">S</div>
-            <div class="dash-omni-msg-content">
-              <div class="dash-omni-msg-header">
-                <span class="dash-omni-msg-name">Sneha via Instagram</span>
-                <span class="dash-omni-msg-time">5m ago</span>
-              </div>
-              <div class="dash-omni-msg-text">Love your product! Can I get a demo?</div>
-            </div>
-          </div>
-          <div class="dash-omni-msg">
-            <div class="dash-avatar" style="background:#1877F2;width:24px;height:24px;font-size:0.55rem;">V</div>
-            <div class="dash-omni-msg-content">
-              <div class="dash-omni-msg-header">
-                <span class="dash-omni-msg-name">Vikram via Facebook</span>
-                <span class="dash-omni-msg-time">8m ago</span>
-              </div>
-              <div class="dash-omni-msg-text">How do I integrate with Shopify?</div>
+          <div class="chat-body-glass">
+            <div class="chat-msg incoming delay-1">Hi, is the Pro plan available for annual billing?</div>
+            <div class="chat-msg outgoing delay-2">Yes Sarah! You get 2 months free on the annual plan.</div>
+            <div class="chat-typing delay-3">
+              <span></span><span></span><span></span>
             </div>
           </div>
         </div>
       </div>
-    `,
-  },
-  {
-    id: 'inbox',
-    label: 'Team Inbox',
-    icon: '📥',
-    title: 'Unified Team Inbox',
-    desc: 'Assign conversations, collaborate with team members, use canned responses, and never miss a lead.',
-    dashboard: `
-      <div class="dash-inbox">
-        <div class="dash-inbox-toolbar">
-          <div class="dash-inbox-filter active">All <span class="dash-inbox-badge">255</span></div>
-          <div class="dash-inbox-filter">Unassigned <span class="dash-inbox-badge">23</span></div>
-          <div class="dash-inbox-filter">My Chats <span class="dash-inbox-badge">12</span></div>
-        </div>
-        <div class="dash-inbox-list">
-          <div class="dash-inbox-item priority-high">
-            <div class="dash-avatar" style="background:var(--color-red);width:28px;height:28px;font-size:0.6rem;">A</div>
-            <div class="dash-inbox-item-content">
-              <div class="dash-inbox-item-top">
-                <span class="dash-inbox-item-name">Arjun Mehta</span>
-                <span class="status-badge status-badge-pending">Urgent</span>
-              </div>
-              <div class="dash-inbox-item-msg">Payment issue — needs immediate help</div>
-              <div class="dash-inbox-item-meta">
-                <span>👤 Assigned: Priya</span>
-                <span>🏷️ Billing</span>
-              </div>
-            </div>
-          </div>
-          <div class="dash-inbox-item">
-            <div class="dash-avatar" style="background:#25D366;width:28px;height:28px;font-size:0.6rem;">M</div>
-            <div class="dash-inbox-item-content">
-              <div class="dash-inbox-item-top">
-                <span class="dash-inbox-item-name">Meera Joshi</span>
-                <span class="status-badge status-badge-active">Active</span>
-              </div>
-              <div class="dash-inbox-item-msg">Interested in Enterprise plan features</div>
-              <div class="dash-inbox-item-meta">
-                <span>👤 Assigned: Raj</span>
-                <span>🏷️ Sales</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    `,
-  },
-  {
-    id: 'pipeline',
-    label: 'Pipeline',
-    icon: '📋',
-    title: 'Lead Pipeline Board',
-    desc: 'Manage leads with a visual Kanban board. Track every prospect from first contact to conversion.',
-    dashboard: `
-      <div class="dash-pipeline-board">
-        <div class="pipeline-kanban">
-          <div class="kanban-col">
-            <div class="kanban-col-header" style="border-top-color:#25D366;">
-              <span class="kanban-col-title">New</span>
-              <span class="kanban-col-count">87</span>
-            </div>
-            <div class="kanban-card">
-              <div class="kanban-card-phone">Vikram Enterprises</div>
-              <div class="kanban-card-meta">
-                <span>📅 Today, 3:00 PM</span>
-                <span>💬 WhatsApp</span>
-              </div>
-              <div class="kanban-card-note">Interested in Growth plan — wants live demo</div>
-              <div class="kanban-card-actions">
-                <button class="kanban-btn kanban-btn-move">Move Chat</button>
-                <button class="kanban-btn kanban-btn-open">Open Chat</button>
-              </div>
-            </div>
-            <div class="kanban-card">
-              <div class="kanban-card-phone">Ananya Reddy</div>
-              <div class="kanban-card-meta">
-                <span>📅 Yesterday</span>
-                <span>📸 Instagram</span>
-              </div>
-              <div class="kanban-card-note">Asked about API integration for Shopify</div>
-              <div class="kanban-card-actions">
-                <button class="kanban-btn kanban-btn-move">Move Chat</button>
-                <button class="kanban-btn kanban-btn-open">Open Chat</button>
-              </div>
-            </div>
-          </div>
-          <div class="kanban-col">
-            <div class="kanban-col-header" style="border-top-color:#FF6B35;">
-              <span class="kanban-col-title">Follow Up</span>
-              <span class="kanban-col-count">22</span>
-            </div>
-            <div class="kanban-card">
-              <div class="kanban-card-phone">Rohit Malhotra</div>
-              <div class="kanban-card-meta">
-                <span>📅 Tomorrow, 11 AM</span>
-              </div>
-              <div class="kanban-card-note">Requested pricing comparison — follow up scheduled</div>
-              <div class="kanban-card-actions">
-                <button class="kanban-btn kanban-btn-move">Move Chat</button>
-                <button class="kanban-btn kanban-btn-open">Open Chat</button>
-              </div>
-            </div>
-          </div>
-          <div class="kanban-col">
-            <div class="kanban-col-header" style="border-top-color:#0088FF;">
-              <span class="kanban-col-title">Demo Scheduled</span>
-              <span class="kanban-col-count">14</span>
-            </div>
-            <div class="kanban-card">
-              <div class="kanban-card-phone">Sunita Pharma Ltd</div>
-              <div class="kanban-card-meta">
-                <span>📅 Wed, 4:30 PM</span>
-              </div>
-              <div class="kanban-card-note">Enterprise plan demo — 3 team members joining</div>
-              <div class="kanban-card-actions">
-                <button class="kanban-btn kanban-btn-move">Move Chat</button>
-                <button class="kanban-btn kanban-btn-open">Open Chat</button>
-              </div>
-            </div>
-          </div>
-          <div class="kanban-col">
-            <div class="kanban-col-header" style="border-top-color:#9C27FF;">
-              <span class="kanban-col-title">Qualified</span>
-              <span class="kanban-col-count">18</span>
-            </div>
-            <div class="kanban-card">
-              <div class="kanban-card-phone">Deepak Auto Group</div>
-              <div class="kanban-card-meta">
-                <span>📅 Closing soon</span>
-              </div>
-              <div class="kanban-card-note">Ready to onboard — sending proposal today</div>
-              <div class="kanban-card-actions">
-                <button class="kanban-btn kanban-btn-move">Move Chat</button>
-                <button class="kanban-btn kanban-btn-open">Open Chat</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    `,
+    `
   },
   {
     id: 'workflows',
@@ -271,91 +88,117 @@ const PLATFORM_TABS = [
     title: 'Visual Workflow Builder',
     desc: 'Build powerful automation flows with drag-and-drop — no coding required.',
     dashboard: `
-      <div class="dash-workflow">
-        <div class="workflow-canvas">
-          <div class="workflow-node workflow-node-trigger">
-            <div class="workflow-node-icon">📩</div>
-            <div class="workflow-node-label">New Message</div>
-            <div class="workflow-node-type">Trigger</div>
+      <div class="dash-new dash-workflow-ui">
+        <div class="workflow-canvas-grid">
+          <div class="wf-node wf-trigger pulse-node">
+            <div class="wf-icon">🎯</div>
+            <span>Lead Captured</span>
           </div>
-          <div class="workflow-connector workflow-connector-animated"></div>
-          <div class="workflow-node workflow-node-condition">
-            <div class="workflow-node-icon">🤖</div>
-            <div class="workflow-node-label">Trained AI Bot</div>
-            <div class="workflow-node-type">AI Agent</div>
+          <div class="wf-line">
+            <div class="wf-dot-move"></div>
           </div>
-          <div class="workflow-connector workflow-connector-animated"></div>
-          <div class="workflow-node workflow-node-condition" style="border-color:rgba(0,136,255,0.3);background:rgba(0,136,255,0.06);">
-            <div class="workflow-node-icon">❓</div>
-            <div class="workflow-node-label">Send Question</div>
-            <div class="workflow-node-type">Collect Data</div>
+          <div class="wf-node wf-ai pulse-node delay-1">
+            <div class="wf-icon">⚖️</div>
+            <span>Condition: Score > 80</span>
           </div>
-          <div class="workflow-branch">
-            <div class="workflow-branch-yes">
-              <div class="workflow-connector-short workflow-connector-animated"></div>
-              <div class="workflow-node workflow-node-action" style="border-color:rgba(37,211,102,0.3);">
-                <div class="workflow-node-icon">⏳</div>
-                <div class="workflow-node-label">Smart Wait</div>
-                <div class="workflow-node-type">Delay</div>
+          <div class="wf-split">
+            <div class="wf-branch">
+              <div class="wf-line vertical"></div>
+              <div class="wf-line horizontal left">
+                <div class="wf-dot-move"></div>
+              </div>
+              <div class="wf-node wf-action pulse-node delay-2">
+                <div class="wf-icon">📅</div>
+                <span>Book Demo</span>
+              </div>
+              <div class="wf-line">
+                <div class="wf-dot-move delay-3"></div>
+              </div>
+              <div class="wf-node wf-action pulse-node delay-3">
+                <div class="wf-icon">🔄</div>
+                <span>Sync to CRM</span>
               </div>
             </div>
-            <div class="workflow-branch-no">
-              <div class="workflow-connector-short workflow-connector-animated"></div>
-              <div class="workflow-node workflow-node-action" style="border-color:rgba(0,136,255,0.3);">
-                <div class="workflow-node-icon">💬</div>
-                <div class="workflow-node-label">Send Reply</div>
-                <div class="workflow-node-type">Action</div>
+            <div class="wf-branch">
+              <div class="wf-line vertical"></div>
+              <div class="wf-line horizontal right">
+                <div class="wf-dot-move"></div>
+              </div>
+              <div class="wf-node wf-action pulse-node delay-2">
+                <div class="wf-icon">📧</div>
+                <span>Nurture Email 1</span>
+              </div>
+              <div class="wf-line">
+                <div class="wf-dot-move delay-3"></div>
+              </div>
+              <div class="wf-node wf-action pulse-node delay-3" style="border-style: dashed; opacity: 0.8;">
+                <div class="wf-icon">⏳</div>
+                <span>Wait 3 Days</span>
+              </div>
+              <div class="wf-line">
+                <div class="wf-dot-move delay-4"></div>
+              </div>
+              <div class="wf-node wf-action pulse-node delay-4">
+                <div class="wf-icon">📧</div>
+                <span>Nurture Email 2</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-    `,
+    `
   },
   {
-    id: 'campaigns',
-    label: 'Campaigns',
-    icon: '📢',
-    title: 'Bulk Campaign Engine',
-    desc: 'Launch WhatsApp & RCS campaigns to thousands with templates, scheduling, and analytics.',
+    id: 'voice_ai',
+    label: 'Voice AI',
+    icon: '🎙️',
+    title: 'Conversational Voice AI',
+    desc: 'Deploy human-like AI voice agents to handle inbound calls, qualify leads, and schedule appointments 24/7.',
     dashboard: `
-      <div class="dash-campaign">
-        <div class="dash-campaign-header">
-          <div>
-            <div style="font-size:0.78rem;font-weight:600;color:var(--color-white-text);">Diwali Sale Campaign</div>
-            <div style="font-size:0.65rem;color:var(--color-green);">● Live — Sending</div>
+      <div class="dash-new dash-voice-ui">
+        <div class="voice-center">
+          <div class="voice-orb">
+            <div class="voice-ring ring-1"></div>
+            <div class="voice-ring ring-2"></div>
+            <div class="voice-ring ring-3"></div>
+            <div class="voice-mic-icon">🎙️</div>
           </div>
-          <div class="status-badge status-badge-active">WhatsApp</div>
+          <div class="voice-status">AI Agent Listening...</div>
         </div>
-        <div class="dash-campaign-stats">
-          <div class="kpi-card">
-            <div class="kpi-value" style="font-size:1.3rem;">24,500</div>
-            <div class="kpi-label">Sent</div>
-          </div>
-          <div class="kpi-card">
-            <div class="kpi-value" style="font-size:1.3rem;color:var(--color-green);">22,180</div>
-            <div class="kpi-label">Delivered</div>
-            <div class="kpi-change kpi-change-positive">90.5%</div>
-          </div>
-          <div class="kpi-card">
-            <div class="kpi-value" style="font-size:1.3rem;color:var(--color-primary-light);">8,450</div>
-            <div class="kpi-label">Read</div>
-            <div class="kpi-change kpi-change-positive">34.5%</div>
-          </div>
-          <div class="kpi-card">
-            <div class="kpi-value" style="font-size:1.3rem;color:var(--color-blue);">2,890</div>
-            <div class="kpi-label">Clicked</div>
-            <div class="kpi-change kpi-change-positive">11.8%</div>
-          </div>
-        </div>
-        <div class="dash-campaign-bar">
-          <div class="dash-campaign-bar-fill" style="width:90.5%;background:var(--color-green);"></div>
-          <div class="dash-campaign-bar-fill" style="width:34.5%;background:var(--color-primary-light);"></div>
-          <div class="dash-campaign-bar-fill" style="width:11.8%;background:var(--color-blue);"></div>
+        <div class="voice-transcript-box">
+          <div class="v-line bot">"Hi there, I see you're interested in the Enterprise plan."</div>
+          <div class="v-line human delay-1">"Yes, does it include custom integrations?"</div>
+          <div class="v-line bot delay-2">"Absolutely. Let me connect you with our solutions engineer."</div>
         </div>
       </div>
-    `,
+    `
   },
+  {
+    id: 'ai_studio',
+    label: 'AI Studio',
+    icon: '✨',
+    title: 'AI Product Photography',
+    desc: 'Generate studio-quality product lifestyle images instantly using advanced generative AI.',
+    dashboard: `
+      <div class="dash-new dash-studio-ui">
+        <div class="studio-prompt-bar">
+          <span class="prompt-icon">✨</span>
+          <span class="prompt-text typing-text">A sleek perfume bottle on a neon cyberpunk podium...</span>
+        </div>
+        <div class="studio-generation-area">
+          <div class="studio-skeleton">
+            <div class="scan-line"></div>
+          </div>
+          <div class="studio-result-grid hidden">
+            <div class="s-img img-1"></div>
+            <div class="s-img img-2"></div>
+            <div class="s-img img-3"></div>
+            <div class="s-img img-4"></div>
+          </div>
+        </div>
+      </div>
+    `
+  }
 ];
 
 export function createAutomationPlatform() {
@@ -363,29 +206,24 @@ export function createAutomationPlatform() {
   section.id = 'platform';
   section.className = 'section platform-section';
 
-  const tabsHTML = PLATFORM_TABS.map((tab, i) => `
-    <button class="platform-tab ${i === 0 ? 'active' : ''}" data-tab="${tab.id}">
-      <span class="platform-tab-icon">${tab.icon}</span>
-      <span class="platform-tab-label">${tab.label}</span>
-    </button>
-  `).join('');
-
   const TAB_SLUG_MAP = {
     'whatsapp': '/platform/whatsapp-api',
     'omnichannel': '/platform/team-inbox',
-    'inbox': '/platform/team-inbox',
-    'pipeline': '/platform/crm',
     'workflows': '/platform/workflow-automation',
-    'campaigns': '/platform/bulk-campaigns'
+    'voice_ai': '/platform/voice-ai',
+    'ai_studio': '/platform/ai-studio'
   };
 
-  const panelsHTML = PLATFORM_TABS.map((tab, i) => {
+  const tabsHTML = PLATFORM_TABS.map((tab, i) => {
     const targetUrl = TAB_SLUG_MAP[tab.id] || '/platform';
     return `
-    <div class="platform-panel ${i === 0 ? 'active' : ''}" data-panel="${tab.id}">
-      <div class="platform-panel-info">
-        <h3 class="heading-subsection">${tab.title}</h3>
-        <p class="text-body">${tab.desc}</p>
+    <div class="platform-card-tab ${i === 0 ? 'active' : ''}" data-tab="${tab.id}">
+      <div class="platform-card-header">
+        <span class="platform-card-icon">${tab.icon}</span>
+        <h3 class="platform-card-title">${tab.title}</h3>
+      </div>
+      <div class="platform-card-body">
+        <p class="platform-card-desc">${tab.desc}</p>
         <a href="${targetUrl}" class="btn btn-glass btn-sm" style="margin-top:1rem;">
           Learn More
           <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -393,65 +231,173 @@ export function createAutomationPlatform() {
           </svg>
         </a>
       </div>
-      <div class="platform-panel-dashboard">
-        <div class="dashboard-frame">
-          <div class="dashboard-titlebar">
-            <span class="dashboard-dot dashboard-dot-red"></span>
-            <span class="dashboard-dot dashboard-dot-yellow"></span>
-            <span class="dashboard-dot dashboard-dot-green"></span>
-            <span style="margin-left:auto;font-size:0.65rem;color:var(--color-dim-text);">Botzo.io / ${tab.label}</span>
-          </div>
-          <div class="dashboard-content">
-            ${tab.dashboard}
-          </div>
+      <div class="tab-progress-bar"></div>
+      <div class="platform-card-glow"></div>
+    </div>
+  `;}).join('');
+
+  const dashboardsHTML = PLATFORM_TABS.map((tab, i) => `
+    <div class="platform-dashboard-view ${i === 0 ? 'active' : ''}" data-panel="${tab.id}">
+      <div class="dashboard-frame premium-glass">
+        <div class="dashboard-titlebar">
+          <span class="dashboard-dot dashboard-dot-red"></span>
+          <span class="dashboard-dot dashboard-dot-yellow"></span>
+          <span class="dashboard-dot dashboard-dot-green"></span>
+          <span style="margin-left:auto;font-size:0.65rem;color:var(--color-dim-text);">Botzo.io / ${tab.label}</span>
+        </div>
+        <div class="dashboard-content">
+          ${tab.dashboard}
         </div>
       </div>
     </div>
-  `; }).join('');
+  `).join('');
 
   section.innerHTML = `
-    <div class="container">
+    <div class="container container-wide">
       <div class="section-header">
         <span class="text-overline">AI Automation Platform</span>
         <h2 class="heading-section">The Complete Business<br><span class="text-gradient">Automation Ecosystem</span></h2>
         <p class="text-body-lg">Everything you need to automate communication, manage leads, and scale operations — built for enterprise performance.</p>
       </div>
 
-      <div class="platform-tabs-container reveal">
-        <div class="platform-tabs-scroll">
+      <div class="platform-grid reveal">
+        <div class="platform-tabs-list">
           ${tabsHTML}
         </div>
-      </div>
-
-      <div class="platform-panels reveal-scale">
-        ${panelsHTML}
+        <div class="platform-showcase">
+          <div class="platform-showcase-inner">
+            ${dashboardsHTML}
+          </div>
+        </div>
       </div>
     </div>
   `;
 
-  // Tab switching
   setTimeout(() => initPlatformTabs(section), 0);
   return section;
 }
 
 function initPlatformTabs(section) {
-  const tabs = section.querySelectorAll('.platform-tab');
-  const panels = section.querySelectorAll('.platform-panel');
+  const tabs = section.querySelectorAll('.platform-card-tab');
+  const panels = section.querySelectorAll('.platform-dashboard-view');
+  let currentIndex = 0;
 
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const targetId = tab.dataset.tab;
+  const AUTOPLAY_DELAY = 10; // seconds
+  let progressTween = null;
 
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
+  function switchTab(index, userInitiated = false) {
+    if (index < 0 || index >= tabs.length) return;
+    
+    // Stop the previous progress bar animation
+    if (progressTween) progressTween.kill();
+    
+    tabs.forEach(t => {
+      t.classList.remove('active');
+      const progress = t.querySelector('.tab-progress-bar');
+      if (progress) gsap.set(progress, { width: '0%' });
+    });
 
-      panels.forEach(panel => {
-        if (panel.dataset.panel === targetId) {
-          panel.classList.add('active');
-        } else {
-          panel.classList.remove('active');
+    const activeTab = tabs[index];
+    activeTab.classList.add('active');
+    
+    const activeProgress = activeTab.querySelector('.tab-progress-bar');
+    if (activeProgress) {
+      // Start a new progress bar animation
+      progressTween = gsap.to(activeProgress, { 
+        width: '100%', 
+        duration: AUTOPLAY_DELAY, 
+        ease: 'none',
+        onComplete: () => {
+          // When progress finishes, strictly trigger the next tab
+          let nextIndex = (currentIndex + 1) % tabs.length;
+          switchTab(nextIndex);
         }
       });
+    }
+
+    if (window.innerWidth <= 1024 && userInitiated) {
+      activeTab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+
+    const targetId = activeTab.dataset.tab;
+
+    panels.forEach(panel => {
+      if (panel.dataset.panel === targetId) {
+        panel.classList.add('active');
+        const dashboard = panel.querySelector('.dashboard-content');
+        
+        // Main Dashboard Fade In
+        gsap.fromTo(dashboard, 
+          { scale: 0.95, opacity: 0, y: 15 }, 
+          { scale: 1, opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }
+        );
+        
+        // Micro-Animations Routing
+        if (targetId === 'whatsapp') {
+          gsap.fromTo(panel.querySelectorAll('.dash-chart-bar'), 
+            { scaleY: 0, transformOrigin: "bottom" },
+            { scaleY: 1, duration: 0.8, stagger: 0.1, ease: 'back.out(1.5)', delay: 0.2 }
+          );
+        } else if (targetId === 'omnichannel') {
+          gsap.fromTo(panel.querySelectorAll('.chat-msg'),
+            { opacity: 0, x: -10 },
+            { opacity: 1, x: 0, duration: 0.5, stagger: 0.3, ease: 'power2.out', delay: 0.3 }
+          );
+        } else if (targetId === 'workflows') {
+          gsap.fromTo(panel.querySelectorAll('.wf-node'),
+            { opacity: 0, scale: 0.8 },
+            { opacity: 1, scale: 1, duration: 0.5, stagger: 0.2, ease: 'back.out(1.5)', delay: 0.2 }
+          );
+        } else if (targetId === 'voice_ai') {
+          gsap.fromTo(panel.querySelectorAll('.v-line'),
+            { opacity: 0, y: 10 },
+            { opacity: 1, y: 0, duration: 0.6, stagger: 0.8, ease: 'power2.out', delay: 0.5 }
+          );
+        } else if (targetId === 'ai_studio') {
+          const skel = panel.querySelector('.studio-skeleton');
+          const grid = panel.querySelector('.studio-result-grid');
+          gsap.set(skel, { display: 'block', opacity: 1 });
+          gsap.set(grid, { display: 'none', opacity: 0 });
+          
+          gsap.to(skel, { opacity: 0, duration: 0.3, delay: 2.5, onComplete: () => {
+            gsap.set(skel, { display: 'none' });
+            gsap.set(grid, { display: 'grid' });
+            gsap.to(grid, { opacity: 1, duration: 0.5 });
+            gsap.fromTo(grid.querySelectorAll('.s-img'), 
+              { scale: 0.8, opacity: 0 },
+              { scale: 1, opacity: 1, duration: 0.5, stagger: 0.1, ease: 'back.out(1.2)' }
+            );
+          }});
+        }
+
+      } else {
+        panel.classList.remove('active');
+      }
+    });
+    
+    currentIndex = index;
+  }
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => switchTab(index, true));
+    
+    // Hover Glow Effect
+    tab.addEventListener('mousemove', (e) => {
+      const rect = tab.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const glow = tab.querySelector('.platform-card-glow');
+      if(glow) glow.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(156, 39, 255, 0.15) 0%, transparent 60%)`;
+    });
+    tab.addEventListener('mouseleave', () => {
+      const glow = tab.querySelector('.platform-card-glow');
+      if(glow) glow.style.background = 'transparent';
     });
   });
+
+  const showcase = section.querySelector('.platform-grid');
+  // Hover logic removed to prevent auto-play from pausing
+
+  // Initialize first tab (this automatically starts the progress tween)
+  switchTab(0);
 }
