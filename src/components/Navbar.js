@@ -294,6 +294,13 @@ export function createNavbar() {
                     <div class="mega-item-desc">Our mission, vision & platform story</div>
                   </div>
                 </a>
+                <a href="/contact" class="mega-menu-item" role="menuitem">
+                  <span class="mega-icon">📞</span>
+                  <div>
+                    <div class="mega-item-title">Contact Sales</div>
+                    <div class="mega-item-desc">Get in touch with our experts</div>
+                  </div>
+                </a>
               </div>
             </div>
           </div>
@@ -302,7 +309,7 @@ export function createNavbar() {
 
       <!-- Right Actions -->
       <div class="botzo-nav-actions">
-        <a href="/contact" class="botzo-nav-login">Log In</a>
+        <a href="https://app.botzo.io" class="botzo-nav-login">Log In</a>
         <a href="/demo" class="botzo-nav-cta">Book Demo</a>
       </div>
 
@@ -379,7 +386,7 @@ export function createNavbar() {
           </div>
         </div>
 
-        <a href="/contact" class="mobile-nav-link">Log In</a>
+        <a href="https://app.botzo.io" class="mobile-nav-link">Log In</a>
         <div class="mobile-drawer-cta">
           <a href="/demo" class="btn btn-primary btn-lg" style="width:100%;">Book a Demo</a>
         </div>

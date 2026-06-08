@@ -463,6 +463,37 @@ export function initScrollAnimations() {
       }
     );
   });
+
+  // 5. Counter Number Roll-Up
+  gsap.utils.toArray('.industry-card-metric, .stat-value, .stat-number').forEach(el => {
+    const rawText = el.textContent.trim();
+    const numMatch = rawText.match(/([\d,]+)/);
+    if (!numMatch) return;
+
+    const target = parseInt(numMatch[1].replace(/,/g, ''), 10);
+    if (isNaN(target) || target <= 0) return;
+
+    const prefix = rawText.substring(0, rawText.indexOf(numMatch[1]));
+    const suffix = rawText.substring(rawText.indexOf(numMatch[1]) + numMatch[1].length);
+
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top 90%',
+      once: true,
+      onEnter: () => {
+        const obj = { value: 0 };
+        gsap.to(obj, {
+          value: target,
+          duration: 1.8,
+          delay: el.closest('.hero-section, .page-hero') ? 1.2 : 0,
+          ease: 'power2.out',
+          onUpdate: () => {
+            el.textContent = prefix + Math.round(obj.value).toLocaleString('en-IN') + suffix;
+          }
+        });
+      }
+    });
+  });
 }
 
 export { gsap, ScrollTrigger };

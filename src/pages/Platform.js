@@ -10,17 +10,52 @@ export function createPlatform() {
 
   container.innerHTML = `
     <!-- Platform Hero Section -->
-    <section class="section page-hero platform-hero-section">
-      <div class="container container-wide">
-        <div class="section-header">
-          <span class="text-overline">The Engine of Growth</span>
-          <h1 class="heading-hero">AI-Driven Business<br><span class="text-gradient">Automation Platform</span></h1>
-          <p class="text-body-lg" style="max-width: 720px; margin: 0 auto 2rem;">
+    <section class="section page-hero platform-hero-section" style="padding-bottom: 0;">
+      <div class="container-wide">
+        <div class="section-header" style="max-width: 680px; margin: 0 auto;">
+          <div class="detail-hero-badge" style="--badge-color: var(--color-primary-light); margin-bottom: 1.5rem;">
+            <span class="badge-dot"></span>CORE INFRASTRUCTURE
+          </div>
+          <h1 class="heading-hero" style="font-size: 4rem; line-height: 1; font-weight: 800; letter-spacing: -1px; margin: 0 0 1rem 0;">
+            AI-Driven Business<br><span class="text-gradient">Automation Platform</span>
+          </h1>
+          <p class="text-body-lg" style="margin: 0 0 1.5rem 0; font-weight: 400; opacity: 0.9;">
             A unified ecosystem designed to automate your customer communication, optimize marketing campaigns, collect payments, and manage leads in one centralized place.
           </p>
           <div class="hero-actions">
             <a href="/demo" class="btn btn-primary">Book Technical Demo</a>
             <a href="/pricing" class="btn btn-ghost">View Pricing Plans</a>
+          </div>
+        </div>
+
+        <!-- Platform Ecosystem Layer -->
+        <div class="hero-ecosystem" style="margin-top: 9rem;">
+          <div style="position: relative; width: 800px; height: 300px; display: flex; justify-content: center; align-items: flex-start;">
+            <!-- Connector Line -->
+            <div style="position: absolute; top: 30px; left: 15%; width: 70%; height: 2px; background: linear-gradient(90deg, transparent, rgba(184,77,255,0.5), rgba(0,230,118,0.5), rgba(0,176,255,0.5), transparent); z-index: 1;"></div>
+            
+            <!-- Nodes -->
+            <div style="display: flex; gap: 4rem; z-index: 2; margin-top: -10px;">
+              <div class="glass-card-strong" style="width: 180px; padding: 1.5rem; text-align: center; border-radius: 16px; border-color: rgba(184,77,255,0.3); background: rgba(15,12,20,0.8); transform: translateY(20px);">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">📱</div>
+                <div style="font-weight: 700; font-size: 0.85rem; color: #fff;">Trigger</div>
+                <div style="font-size: 0.65rem; color: var(--color-dim-text);">New WhatsApp Msg</div>
+              </div>
+
+              <div class="glass-card-strong" style="width: 200px; padding: 1.5rem; text-align: center; border-radius: 16px; border-color: rgba(0,230,118,0.3); background: rgba(15,12,20,0.8); transform: scale(1.1); box-shadow: 0 20px 40px rgba(0,230,118,0.1);">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🤖</div>
+                <div style="font-weight: 700; font-size: 0.85rem; color: #fff;">AI Logic Layer</div>
+                <div style="font-size: 0.65rem; color: var(--color-dim-text);">Analyze Intent & Route</div>
+              </div>
+
+              <div class="glass-card-strong" style="width: 180px; padding: 1.5rem; text-align: center; border-radius: 16px; border-color: rgba(0,176,255,0.3); background: rgba(15,12,20,0.8); transform: translateY(20px);">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">📊</div>
+                <div style="font-weight: 700; font-size: 0.85rem; color: #fff;">CRM Update</div>
+                <div style="font-size: 0.65rem; color: var(--color-dim-text);">Sync Lead Status</div>
+              </div>
+            </div>
+            
+            <div style="position: absolute; width: 600px; height: 300px; top: 0; background: radial-gradient(circle, rgba(184, 77, 255, 0.1) 0%, transparent 60%); pointer-events: none; z-index: 0;"></div>
           </div>
         </div>
       </div>

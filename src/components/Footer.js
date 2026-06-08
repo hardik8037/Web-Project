@@ -80,10 +80,16 @@ export function createFooter() {
         </div>
       </div>
 
+      <!-- Newsletter -->
       <div class="footer-newsletter reveal">
         <div class="newsletter-content">
-          <h4 class="heading-card">Stay ahead with Botzo.io</h4>
-          <p class="text-body">Get automation tips, product updates, and growth strategies.</p>
+          <div class="newsletter-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-light)" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="M22 7l-10 6L2 7"/></svg>
+          </div>
+          <div>
+            <h4 class="heading-card" style="margin-bottom: 0.25rem;">Stay ahead with Botzo.io</h4>
+            <p class="text-body" style="opacity: 0.6; font-size: 0.82rem;">Get automation tips, product updates, and growth strategies.</p>
+          </div>
         </div>
         <form class="newsletter-form" onsubmit="event.preventDefault(); this.querySelector('.newsletter-success').style.display='flex'; this.querySelector('.newsletter-input-group').style.display='none';">
           <div class="newsletter-input-group">
@@ -97,12 +103,17 @@ export function createFooter() {
         </form>
       </div>
 
+      <!-- Footer Bottom -->
       <div class="footer-bottom">
-        <p class="footer-copyright">© ${new Date().getFullYear()} Botzo.io. All rights reserved.</p>
+        <p class="footer-copyright">© ${new Date().getFullYear()} Botzo.io — All rights reserved.</p>
         <div class="footer-bottom-links">
           <a href="#">Privacy</a>
+          <span class="footer-divider">·</span>
           <a href="#">Terms</a>
+          <span class="footer-divider">·</span>
           <a href="#">Security</a>
+          <span class="footer-divider">·</span>
+          <a href="#">Sitemap</a>
         </div>
       </div>
     </div>

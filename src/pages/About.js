@@ -9,19 +9,38 @@ export function createAbout() {
 
   container.innerHTML = `
     <!-- Cinematic Hero -->
-    <section class="section page-hero about-hero" style="padding: 8rem 0 4rem 0; position: relative; overflow: hidden;">
-      <div class="container container-wide">
-        <div class="section-header" style="max-width: 800px; margin: 0 auto; text-align: center;">
-          <span class="text-overline" style="letter-spacing: 3px; font-weight: 700; color: var(--color-primary-light);">THE COMMUNICATION GRID</span>
-          <h1 class="heading-hero" style="font-size: 3.5rem; line-height: 1.1; font-weight: 800; letter-spacing: -1px; margin: 1rem 0;">
+    <section class="section page-hero about-hero" style="position: relative; overflow: hidden;">
+      <div class="container-wide">
+        <div class="section-header" style="max-width: 680px; margin: 0 auto;">
+          <div class="detail-hero-badge" style="--badge-color: var(--color-primary-light); margin-bottom: 1.5rem;">
+            <span class="badge-dot"></span>THE COMMUNICATION GRID
+          </div>
+          <h1 class="heading-hero" style="font-size: 4rem; line-height: 1; font-weight: 800; letter-spacing: -1px; margin: 0 0 1rem 0;">
             The Architecture of<br><span class="text-gradient">Intelligent Dialog</span>
           </h1>
-          <p class="text-body-lg" style="max-width: 680px; margin: 1.5rem auto 0; font-weight: 400; opacity: 0.95;">
+          <p class="text-body-lg" style="margin: 0; font-weight: 400; opacity: 0.9;">
             We build high-capacity, low-latency business communication pipelines. Botzo.io resolves conversational friction, enabling real-time client automation at a global scale.
           </p>
+          <div class="hero-actions">
+            <a href="/contact" class="btn btn-primary">Connect With Us</a>
+            <a href="/platform" class="btn btn-ghost">View Capabilities</a>
+          </div>
+        </div>
+        
+        <!-- About Ecosystem layer -->
+        <div class="hero-ecosystem">
+          <div class="glass-card-strong" style="width: 800px; height: 250px; border-radius: 24px; position: relative; background: linear-gradient(180deg, rgba(184,77,255,0.05) 0%, transparent 100%); border-top: 1px solid rgba(184,77,255,0.3); display: flex; justify-content: center; align-items: flex-start; padding-top: 2rem;">
+            <div style="display: flex; gap: 2rem; align-items: center;">
+               <div style="width: 80px; height: 80px; border-radius: 50%; background: rgba(184,77,255,0.1); border: 1px solid rgba(184,77,255,0.3); display: flex; justify-content: center; align-items: center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-light)" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg></div>
+               <div style="width: 100px; height: 2px; background: linear-gradient(90deg, rgba(184,77,255,0.5), transparent);"></div>
+               <div style="width: 120px; height: 120px; border-radius: 50%; background: rgba(0,230,118,0.1); border: 1px solid rgba(0,230,118,0.3); display: flex; justify-content: center; align-items: center;"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-green)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg></div>
+               <div style="width: 100px; height: 2px; background: linear-gradient(270deg, rgba(0,176,255,0.5), transparent);"></div>
+               <div style="width: 80px; height: 80px; border-radius: 50%; background: rgba(0,176,255,0.1); border: 1px solid rgba(0,176,255,0.3); display: flex; justify-content: center; align-items: center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-blue)" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg></div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="about-hero-blur" style="position: absolute; width: 400px; height: 400px; top: 10%; left: 50%; transform: translateX(-50%); background: radial-gradient(circle, rgba(184, 77, 255, 0.08) 0%, transparent 70%); pointer-events: none; z-index: -1;"></div>
+      <div class="about-hero-blur" style="position: absolute; width: 400px; height: 400px; top: -10%; left: 50%; transform: translateX(-50%); background: radial-gradient(circle, rgba(184, 77, 255, 0.15) 0%, transparent 70%); pointer-events: none; z-index: -1;"></div>
     </section>
 
     <div class="section-divider"></div>

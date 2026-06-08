@@ -347,20 +347,24 @@ export function createBlog() {
 
     container.innerHTML = `
       <!-- Blog Hero -->
-      <section class="section page-hero blog-hero" style="padding-bottom: 2rem;">
-        <div class="container container-wide">
-          <div class="section-header">
-            <span class="text-overline">Editorial Publications</span>
-            <h1 class="heading-hero">Engineering & Marketing<br><span class="text-gradient">Ecosystem Blog</span></h1>
-            <p class="text-body-lg" style="max-width: 720px; margin: 0 auto 2.5rem;">
+      <section class="section page-hero blog-hero" style="padding-bottom: 0;">
+        <div class="container-wide">
+          <div class="section-header" style="max-width: 680px; margin: 0 auto;">
+            <div class="detail-hero-badge" style="--badge-color: #00B0FF; margin-bottom: 1.5rem;">
+              <span class="badge-dot"></span>DEVELOPER BLOG
+            </div>
+            <h1 class="heading-hero" style="font-size: 4rem; line-height: 1; font-weight: 800; letter-spacing: -1px; margin: 0 0 1rem 0;">
+              Engineering & Marketing<br><span class="text-gradient">Ecosystem Blog</span>
+            </h1>
+            <p class="text-body-lg" style="margin: 0 0 1.5rem 0; font-weight: 400; opacity: 0.9;">
               Expert analysis, technical code configurations, and operational growth strategies for modern messaging channels.
             </p>
           </div>
         </div>
       </section>
 
-      <!-- Search & Filters -->
-      <section class="section blog-controls" style="padding: 1rem 0 3rem 0;">
+      <!-- Search & Filters (Ecosystem Layer) -->
+      <section class="section blog-controls hero-ecosystem" style="padding: 0 0 3rem 0; margin-top: 8rem;">
         <div class="container" style="max-width: 900px;">
           <div class="blog-search-container glass-card" style="display:flex; align-items:center; padding: 0.5rem 1.25rem; border-radius: 999px; margin-bottom: 1.5rem; border: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.015);">
             <span style="font-size: 1.1rem; opacity:0.5; margin-right: 0.75rem;">🔍</span>

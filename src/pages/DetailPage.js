@@ -1022,16 +1022,17 @@ export function createDetailPage(config) {
 
   // ─── HERO SECTION ───
   let heroHTML = `
-    <section class="section page-hero detail-hero">
-      <div class="container container-wide">
-        <div class="section-header">
-          <div class="detail-hero-badge" style="--badge-color: ${accentColor}">
+    <section class="section page-hero detail-hero" style="padding-bottom: 0;">
+      <div class="container-wide">
+        <div class="section-header" style="max-width: 680px; margin: 0 auto;">
+          <div class="detail-hero-badge" style="--badge-color: ${accentColor}; margin-bottom: 1.5rem;">
             <span class="badge-dot"></span>${config.overline || config.category}
           </div>
-          <h1 class="heading-hero detail-hero-title">${config.heroTitle || config.title} 
+          <h1 class="heading-hero detail-hero-title" style="font-size: 4rem; line-height: 1; font-weight: 800; letter-spacing: -1px; margin: 0 0 1rem 0;">
+            ${config.heroTitle || config.title} 
             <span class="text-gradient" style="${gradientStyle}">${config.heroHighlight || ''}</span>
           </h1>
-          <p class="text-body-lg detail-hero-desc">
+          <p class="text-body-lg detail-hero-desc" style="margin: 0 0 1.5rem 0; font-weight: 400; opacity: 0.9;">
             ${config.heroDesc}
           </p>
           <div class="hero-actions">
@@ -1041,7 +1042,6 @@ export function createDetailPage(config) {
         </div>
       </div>
     </section>
-    <div class="section-divider"></div>
   `;
 
   // ─── FEATURE CARDS ───
@@ -1058,7 +1058,8 @@ export function createDetailPage(config) {
     `).join('');
 
     featuresHTML = `
-      <section class="section detail-features-section">
+      <!-- Features Grid (Ecosystem Layer) -->
+      <section class="section detail-features-section hero-ecosystem" style="padding: 0 0 6rem; margin-top: 8rem;">
         <div class="container">
           <div class="section-header" style="margin-bottom: 3rem;">
             <span class="text-overline">${config.featuresOverline || 'Key Features'}</span>

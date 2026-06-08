@@ -108,22 +108,24 @@ export function createSolutions() {
 
   container.innerHTML = `
     <!-- Solutions Hero -->
-    <section class="section page-hero solutions-hero">
-      <div class="container container-wide">
-        <div class="section-header">
-          <span class="text-overline">Industry Vertical Blueprints</span>
-          <h1 class="heading-hero">Engineered for Your<br><span class="text-gradient" style="background: linear-gradient(135deg, #36C5F0 0%, #B84DFF 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Specific Industry</span></h1>
-          <p class="text-body-lg" style="max-width: 720px; margin: 0 auto;">
+    <section class="section page-hero solutions-hero" style="padding-bottom: 0;">
+      <div class="container-wide">
+        <div class="section-header" style="max-width: 680px; margin: 0 auto;">
+          <div class="detail-hero-badge" style="--badge-color: #36C5F0; margin-bottom: 1.5rem;">
+            <span class="badge-dot"></span>TAILORED SOLUTIONS
+          </div>
+          <h1 class="heading-hero" style="font-size: 4rem; line-height: 1; font-weight: 800; letter-spacing: -1px; margin: 0 0 1rem 0;">
+            Engineered for Your<br><span class="text-gradient" style="background: linear-gradient(135deg, #36C5F0 0%, #B84DFF 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Specific Industry</span>
+          </h1>
+          <p class="text-body-lg" style="margin: 0 0 1.5rem 0; font-weight: 400; opacity: 0.9;">
             Whether you run an ecommerce store, distribute wholesale textiles, manage real estate property tours, or organize events, Botzo provides dedicated operational templates.
           </p>
         </div>
       </div>
     </section>
 
-    <div class="section-divider"></div>
-
-    <!-- Industry Grid -->
-    <section class="section solutions-grid-section" style="padding: 6rem 0;">
+    <!-- Industry Grid (Ecosystem Layer) -->
+    <section class="section solutions-grid-section hero-ecosystem" style="padding: 0 0 6rem; margin-top: 8rem;">
       <div class="container">
         <div class="solutions-grid">
           ${cardsHTML}

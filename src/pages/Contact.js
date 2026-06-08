@@ -8,22 +8,24 @@ export function createContact() {
 
   container.innerHTML = `
     <!-- Contact Hero -->
-    <section class="section page-hero contact-hero">
-      <div class="container container-wide">
-        <div class="section-header">
-          <span class="text-overline">Get In Touch</span>
-          <h1 class="heading-hero">Connect With Our<br><span class="text-gradient">Automation Experts</span></h1>
-          <p class="text-body-lg" style="max-width: 720px; margin: 0 auto;">
+    <section class="section page-hero contact-hero" style="padding-bottom: 0;">
+      <div class="container-wide">
+        <div class="section-header" style="max-width: 680px; margin: 0 auto;">
+          <div class="detail-hero-badge" style="--badge-color: var(--color-primary-light); margin-bottom: 1.5rem;">
+            <span class="badge-dot"></span>GLOBAL SUPPORT
+          </div>
+          <h1 class="heading-hero" style="font-size: 4rem; line-height: 1; font-weight: 800; letter-spacing: -1px; margin: 0 0 1rem 0;">
+            Connect With Our<br><span class="text-gradient">Automation Experts</span>
+          </h1>
+          <p class="text-body-lg" style="margin: 0 0 1.5rem 0; font-weight: 400; opacity: 0.9;">
             Have questions about official API verification, pricing packages, or custom engineering? Submit an inquiry and get feedback in minutes.
           </p>
         </div>
       </div>
     </section>
 
-    <div class="section-divider"></div>
-
-    <!-- Contact Form Section -->
-    <section class="section contact-form-section" style="padding: 6rem 0;">
+    <!-- Contact Form Section (Ecosystem Layer) -->
+    <section class="section contact-form-section hero-ecosystem" style="padding: 0 0 6rem; margin-top: 8rem;">
       <div class="container">
         <div class="contact-layout">
           <!-- Quick Channels Sidebar -->
@@ -83,10 +85,62 @@ export function createContact() {
   setTimeout(() => {
     const form = container.querySelector('#contact-form');
     if (form) {
-      form.addEventListener('submit', (e) => {
+      form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        alert('Thank you! Your sales inquiry has been logged. Our automation consultants will contact you shortly.');
-        form.reset();
+        
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerHTML;
+        
+        // --- ⚙️ WEBHOOK CONFIGURATION ---
+        // Replace this URL with your Make.com, Zapier, or custom webhook URL
+        const WEBHOOK_URL = 'https://your-webhook-url.com/endpoint'; 
+        
+        // 1. Gather form data
+        const inputs = form.querySelectorAll('input, select, textarea');
+        const formData = {
+          type: 'Sales Inquiry',
+          source: 'Contact Page',
+          submittedAt: new Date().toISOString()
+        };
+        
+        inputs.forEach(input => {
+          const label = input.previousElementSibling ? input.previousElementSibling.innerText : input.tagName;
+          formData[label] = input.value;
+        });
+
+        // 2. UI Loading State
+        submitBtn.innerHTML = '<span style="display:inline-block; width:16px; height:16px; border:2px solid rgba(255,255,255,0.3); border-top-color:#fff; border-radius:50%; animation:spin 1s linear infinite;"></span> Sending...';
+        submitBtn.style.pointerEvents = 'none';
+        submitBtn.style.opacity = '0.8';
+
+        try {
+          // 3. Send Data to Webhook
+          /* 
+          // Uncomment this block when you have added your real webhook URL above!
+          const response = await fetch(WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+          });
+          
+          if (!response.ok) throw new Error('Webhook failed');
+          */
+
+          // Simulate network delay for demo (Remove this when using real webhook)
+          await new Promise(resolve => setTimeout(resolve, 1200));
+
+          // 4. Success UI
+          alert('Thank you! Your sales inquiry has been logged. Our automation consultants will contact you shortly.');
+          form.reset();
+        } catch (error) {
+          console.error('Error sending webhook:', error);
+          alert('Something went wrong sending your inquiry. Please try again or contact us via WhatsApp.');
+        } finally {
+          // Reset Button
+          submitBtn.innerHTML = originalBtnText;
+          submitBtn.style.pointerEvents = 'auto';
+          submitBtn.style.opacity = '1';
+        }
       });
     }
   }, 100);
