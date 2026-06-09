@@ -311,17 +311,15 @@ export function createAutomationPlatform() {
       
       ScrollTrigger.create({
         trigger: layoutElement,
-        start: 'top 15%',
+        start: 'top 20%',
         end: '+=2500', // Total scroll distance required to view all features
         pin: true,
-        anticipatePin: 1, // Smooths out the layout recalculation right before pinning
-        fastScrollEnd: true,
-        scrub: 1.5, // Increase smoothing to 1.5s for a silkier feel
+        scrub: 1, // Add 1s of smoothing to the scrub so it doesn't feel forced/abrupt
         snap: {
           snapTo: 1 / (btns.length - 1), // Snap smoothly to the nearest feature tab
-          duration: { min: 0.3, max: 0.8 },
-          delay: 0.05,
-          ease: "power2.inOut"
+          duration: { min: 0.2, max: 0.8 },
+          delay: 0.1,
+          ease: "power1.inOut"
         },
         onUpdate: (self) => {
           // self.progress goes from 0 to 1

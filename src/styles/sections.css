@@ -959,14 +959,6 @@ body.nav-open {
   flex-direction: column;
 }
 
-/* Hardware Acceleration & Optimization */
-.dash-whatsapp-analytics, .dash-omni-ui, .dash-workflow-ui, .dash-voice-ui, .dash-studio-ui,
-.chat-msg, .chat-typing, #omni-chat-feed, .wf-node, .wf-line, .dash-chart-bar, .generated-image-wrapper, .floating-art {
-  will-change: transform, opacity;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
 /* WhatsApp Analytics (Live Data Upgrade) */
 .dash-whatsapp-analytics {
   gap: 2rem;
