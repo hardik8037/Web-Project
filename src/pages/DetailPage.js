@@ -1023,12 +1023,12 @@ export function createDetailPage(config) {
   // ─── HERO SECTION ───
   let heroHTML = `
     <section class="section page-hero detail-hero" style="padding-bottom: 0;">
-      <div class="container-wide">
+      <div class="container">
         <div class="section-header" style="max-width: 680px; margin: 0 auto;">
           <div class="detail-hero-badge" style="--badge-color: ${accentColor}; margin-bottom: 1.5rem;">
             <span class="badge-dot"></span>${config.overline || config.category}
           </div>
-          <h1 class="heading-hero detail-hero-title" style="font-size: 4rem; line-height: 1; font-weight: 800; letter-spacing: -1px; margin: 0 0 1rem 0;">
+          <h1 class="heading-hero detail-hero-title">
             ${config.heroTitle || config.title} 
             <span class="text-gradient" style="${gradientStyle}">${config.heroHighlight || ''}</span>
           </h1>
@@ -1273,6 +1273,12 @@ export function createDetailPage(config) {
       </a>
     `).join('');
 
+    const dotsHTML = config.relatedLinks.length > 1 ? `
+      <div class="slider-dots crosslink-dots mobile-only-dots">
+        ${config.relatedLinks.map((_, i) => `<div class="slider-dot ${i === 0 ? 'active' : ''}"></div>`).join('')}
+      </div>
+    ` : '';
+
     crossLinkHTML = `
       <section class="section detail-crosslinks-section">
         <div class="container">
@@ -1280,8 +1286,11 @@ export function createDetailPage(config) {
             <span class="text-overline">Explore More</span>
             <h2 class="heading-section">Related <span class="text-gradient">Solutions</span></h2>
           </div>
-          <div class="detail-crosslinks-grid">
-            ${linkCards}
+          <div class="crosslinks-carousel-wrapper">
+            <div class="detail-crosslinks-grid">
+              ${linkCards}
+            </div>
+            ${dotsHTML}
           </div>
         </div>
       </section>
@@ -1316,6 +1325,26 @@ export function createDetailPage(config) {
     const simulator = container.querySelector('.solution-whatsapp-simulator');
     if (simulator) {
       initWhatsAppSimulator(simulator, config.slug);
+    }
+
+    // Crosslinks Scroll Spy for dots
+    const crosslinksGrid = container.querySelector('.detail-crosslinks-grid');
+    const crosslinkDots = container.querySelectorAll('.crosslink-dots .slider-dot');
+    
+    if (crosslinksGrid && crosslinkDots.length > 0) {
+      crosslinksGrid.addEventListener('scroll', () => {
+        const scrollLeft = crosslinksGrid.scrollLeft;
+        const cardWidth = crosslinksGrid.querySelector('.detail-crosslink-card').offsetWidth;
+        const index = Math.round(scrollLeft / cardWidth);
+        
+        crosslinkDots.forEach((dot, i) => {
+          if (i === index) {
+            dot.classList.add('active');
+          } else {
+            dot.classList.remove('active');
+          }
+        });
+      });
     }
   }, 100);
 

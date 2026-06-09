@@ -16,6 +16,8 @@ import { AtmosphereEngine } from './js/atmosphere.js';
 import { MouseParallax } from './js/mouse-parallax.js';
 import { ChatbotDemo } from './js/chatbot-demo.js';
 import { Router } from './js/router.js';
+import Lenis from 'lenis';
+import 'lenis/dist/lenis.css';
 
 /* ═══════════════════════════════════════════════════
    APP INITIALIZATION
@@ -52,8 +54,23 @@ function initApp() {
     // Init scroll state handler for navigation styling
     initNavbarScroll();
 
-    // Initialize global Three.js and Mouse Parallax systems
+    // Initialize Lenis Smooth Scrolling
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduceMotion) {
+      window.lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+      });
+
+      function raf(time) {
+        window.lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+    }
+
+    // Initialize global Three.js and Mouse Parallax systems
     if (!reduceMotion) {
       try {
         window.atmosphere = new AtmosphereEngine();

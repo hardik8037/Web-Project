@@ -44,7 +44,7 @@ export function createPricing() {
   container.innerHTML = `
     <!-- Pricing Hero -->
     <section class="section page-hero pricing-hero" style="padding-bottom: 0;">
-      <div class="container-wide">
+      <div class="container">
         <div class="section-header pricing-header-override" style="max-width: 900px; margin-bottom: 2rem;">
           <span class="text-overline"><span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--color-primary); margin-right:8px; box-shadow: 0 0 10px var(--color-primary);"></span>FAIR & TRANSPARENT PRICING</span>
           <h1 class="heading-hero">Choose the Perfect Plan<br>to <span class="text-gradient">Scale Your Business</span></h1>
@@ -93,7 +93,7 @@ export function createPricing() {
 
     <!-- Pricing Columns Container -->
     <section class="section pricing-cards-section hero-ecosystem" style="padding: 0 0 4rem; margin-top: 0;">
-      <div class="container-wide">
+      <div class="container">
         <div class="pricing-grid" id="pricing-grid">
           <!-- Loaded dynamically via JS below -->
         </div>

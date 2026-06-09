@@ -467,10 +467,15 @@ export function initScrollAnimations() {
   // 5. Counter Number Roll-Up
   gsap.utils.toArray('.industry-card-metric, .stat-value, .stat-number').forEach(el => {
     const rawText = el.textContent.trim();
-    const numMatch = rawText.match(/([\d,]+)/);
+    // Match numbers including decimals
+    const numMatch = rawText.match(/([\d,.]+)/);
     if (!numMatch) return;
 
-    const target = parseInt(numMatch[1].replace(/,/g, ''), 10);
+    const numStr = numMatch[1].replace(/,/g, '');
+    const isFloat = numStr.includes('.');
+    const decimals = isFloat ? numStr.split('.')[1].length : 0;
+    const target = parseFloat(numStr);
+    
     if (isNaN(target) || target <= 0) return;
 
     const prefix = rawText.substring(0, rawText.indexOf(numMatch[1]));
@@ -484,11 +489,17 @@ export function initScrollAnimations() {
         const obj = { value: 0 };
         gsap.to(obj, {
           value: target,
-          duration: 1.8,
-          delay: el.closest('.hero-section, .page-hero') ? 1.2 : 0,
-          ease: 'power2.out',
+          duration: 2,
+          // Reduced delay from 1.2s to 0.2s for much faster, smoother response
+          delay: el.closest('.hero-section, .page-hero') ? 0.2 : 0, 
+          ease: 'power3.out',
           onUpdate: () => {
-            el.textContent = prefix + Math.round(obj.value).toLocaleString('en-IN') + suffix;
+            let currentVal = isFloat ? obj.value.toFixed(decimals) : Math.round(obj.value);
+            // Re-apply Indian comma formatting for large integers
+            if (!isFloat && currentVal >= 1000) {
+              currentVal = Number(currentVal).toLocaleString('en-IN');
+            }
+            el.textContent = prefix + currentVal + suffix;
           }
         });
       }

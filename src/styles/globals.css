@@ -114,7 +114,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   font-feature-settings: 'kern' 1, 'liga' 1;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
@@ -130,7 +130,7 @@ body {
     radial-gradient(circle 100vw at 50% 1000vh, rgba(156, 39, 255, 0.08), transparent 70%);
   color: var(--color-white-text);
   line-height: 1.6;
-  overflow-x: hidden;
+  overflow-x: clip;
   min-height: 100vh;
 }
 
@@ -138,7 +138,7 @@ body {
   position: relative;
   width: 100%;
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* Atmospheric Noise Texture overlay for film-grain cinematic depth */
@@ -225,53 +225,64 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.02em;
   line-height: 1.1;
   color: var(--color-white-text);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+p {
+  max-width: 65ch;
 }
 
 .heading-hero {
-  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+  font-size: clamp(2.2rem, 6vw, 4.2rem);
   letter-spacing: -0.03em;
   line-height: 1.05;
   font-weight: 700;
 }
 
 .heading-section {
-  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
   letter-spacing: -0.025em;
+  line-height: 1.15;
 }
 
 .heading-subsection {
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
   letter-spacing: -0.02em;
+  line-height: 1.2;
 }
 
 .heading-card {
-  font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
   letter-spacing: -0.01em;
+  line-height: 1.3;
 }
 
 .text-body {
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  line-height: 1.6;
   color: var(--color-muted-text);
 }
 
 .text-body-lg {
-  font-size: clamp(1.05rem, 1.3vw, 1.25rem);
-  line-height: 1.7;
+  font-size: clamp(1.05rem, 1.3vw, 1.15rem);
+  line-height: 1.6;
   color: var(--color-muted-text);
 }
 
 .text-caption {
-  font-size: 0.85rem;
-  letter-spacing: 0.02em;
+  font-size: clamp(0.8rem, 1vw, 0.88rem);
+  letter-spacing: 0.01em;
+  line-height: 1.5;
   color: var(--color-dim-text);
 }
 
 .text-overline {
-  font-size: 0.8rem;
+  font-size: clamp(0.72rem, 1vw, 0.8rem);
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
+  line-height: 1.4;
   color: var(--color-primary-light);
 }
 
@@ -330,7 +341,9 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: var(--radius-md);
   color: var(--color-white-text);
   padding: 0.75rem 1rem;
+  min-height: 48px;
   font-family: var(--font-body);
+  font-size: clamp(0.88rem, 1.1vw, 1rem);
   transition: all var(--duration-fast) ease;
 }
 
@@ -412,9 +425,10 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   gap: 0.5rem;
   padding: 0.8rem 1.8rem;
+  min-height: 48px;
   border-radius: var(--radius-md);
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: clamp(0.88rem, 1.2vw, 0.95rem);
   font-weight: 500;
   cursor: pointer;
   text-decoration: none;
@@ -527,16 +541,16 @@ h1, h2, h3, h4, h5, h6 {
 
 .container {
   width: 100%;
-  max-width: 1536px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 clamp(1.25rem, 4vw, 3rem);
+  padding: 0 clamp(1.25rem, 5vw, 2.5rem);
 }
 
 .container-wide {
   width: 100%;
-  max-width: 1800px;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 0 clamp(1.5rem, 5vw, 4rem);
+  padding: 0 clamp(1.25rem, 5vw, 3rem);
 }
 
 .container-full {
@@ -560,20 +574,21 @@ h1, h2, h3, h4, h5, h6 {
 .section-header {
   text-align: center;
   max-width: 700px;
-  margin: 0 auto 4rem auto;
+  margin: 0 auto clamp(2rem, 4vw, 4rem) auto;
+  padding: 0 1rem;
 }
 
 .section-header .text-overline {
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   display: block;
 }
 
 .section-header .heading-section {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 .section-header .text-body-lg {
-  max-width: 560px;
+  max-width: 65ch;
   margin: 0 auto;
 }
 

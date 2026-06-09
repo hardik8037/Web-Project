@@ -14,7 +14,7 @@ export function createContact() {
           <div class="detail-hero-badge" style="--badge-color: var(--color-primary-light); margin-bottom: 1.5rem;">
             <span class="badge-dot"></span>GLOBAL SUPPORT
           </div>
-          <h1 class="heading-hero" style="font-size: 4rem; line-height: 1; font-weight: 800; letter-spacing: -1px; margin: 0 0 1rem 0;">
+          <h1 class="heading-hero">
             Connect With Our<br><span class="text-gradient">Automation Experts</span>
           </h1>
           <p class="text-body-lg" style="margin: 0 0 1.5rem 0; font-weight: 400; opacity: 0.9;">

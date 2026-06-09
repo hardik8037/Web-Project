@@ -25,7 +25,7 @@ const FAQS = [
   },
   {
     q: 'How is pricing structured? Are there hidden charges?',
-    a: 'Our pricing is transparent with no hidden charges. The AI Automation Platform starts at ₹999/mo with a 14-day free trial. Digital marketing, web development, and app development are priced separately based on scope. WhatsApp API conversation charges are billed by Meta separately at standard rates.',
+    a: 'Our pricing is transparent with no hidden charges. The Automation Platform starts at ₹999/mo with a 14-day free trial. Digital marketing, web development, and app development are priced separately based on scope. WhatsApp API conversation charges are billed by Meta separately at standard rates.',
   },
   {
     q: 'Can Botzo.io integrate with my existing CRM and tools?',

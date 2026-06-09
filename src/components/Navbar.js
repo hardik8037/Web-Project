@@ -448,12 +448,22 @@ function initNavbarInteractions(nav) {
   const drawer = document.getElementById('mobile-drawer');
 
   if (hamburger && drawer) {
+    let savedScrollY = 0;
     hamburger.addEventListener('click', () => {
       const isOpen = drawer.classList.toggle('open');
       hamburger.classList.toggle('active');
       hamburger.setAttribute('aria-expanded', isOpen.toString());
       drawer.setAttribute('aria-hidden', (!isOpen).toString());
-      document.body.classList.toggle('nav-open', isOpen);
+      
+      if (isOpen) {
+        savedScrollY = window.scrollY;
+        document.body.style.top = `-${savedScrollY}px`;
+        document.body.classList.add('nav-open');
+      } else {
+        document.body.classList.remove('nav-open');
+        document.body.style.top = '';
+        window.scrollTo(0, savedScrollY);
+      }
     });
 
     const groupTriggers = drawer.querySelectorAll('.mobile-nav-group-trigger');
@@ -470,6 +480,8 @@ function initNavbarInteractions(nav) {
         hamburger.setAttribute('aria-expanded', 'false');
         drawer.setAttribute('aria-hidden', 'true');
         document.body.classList.remove('nav-open');
+        document.body.style.top = '';
+        window.scrollTo(0, savedScrollY);
       });
     });
   }

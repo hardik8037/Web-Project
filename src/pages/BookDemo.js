@@ -30,7 +30,7 @@ export function createBookDemo() {
   container.innerHTML = `
     <!-- Booking Hero -->
     <section class="section page-hero booking-hero" style="padding-bottom: 0;">
-      <div class="container-wide">
+      <div class="container">
         <div class="section-header booking-section-header">
           <div class="detail-hero-badge" style="--badge-color: var(--color-green); margin-bottom: 1.2rem;">
             <span class="badge-dot"></span>LIVE DEMO

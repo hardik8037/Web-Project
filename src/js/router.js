@@ -29,7 +29,7 @@ import { SOLUTION_PAGES } from '../data/solutionPages.js';
 
 const ROUTES = {
   '/': { title: 'Botzo.io — Business Automation Ecosystem', builder: createHome, mood: 'default' },
-  '/platform': { title: 'AI Automation Platform | Botzo.io', builder: createPlatform, mood: 'platform' },
+  '/platform': { title: 'Automation Platform | Botzo.io', builder: createPlatform, mood: 'platform' },
   '/services': { title: 'Digital Agency & Development Services | Botzo.io', builder: createServices, mood: 'services' },
   '/solutions': { title: 'Industry-Specific Solutions | Botzo.io', builder: createSolutions, mood: 'solutions' },
   '/pricing': { title: 'Plans & Pricing | Botzo.io', builder: createPricing, mood: 'pricing' },

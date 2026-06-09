@@ -4,7 +4,7 @@
 
 const PRICING_DATA = {
   automation: {
-    label: 'AI Automation Platform',
+    label: 'Automation Platform',
     plans: [
       {
         name: 'Starter',

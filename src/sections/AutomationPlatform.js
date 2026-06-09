@@ -57,7 +57,7 @@ const PLATFORM_TABS = [
     dashboard: `
       <div class="dash-new dash-omni-ui">
         <div class="dash-omni-sidebar">
-          <div class="omni-channel active"><span style="color:#25D366">●</span> WhatsApp</div>
+          <div class="omni-channel active"><span style="color:#25D366">●</span> WhatsApp <span class="badge-omni">2</span></div>
           <div class="omni-channel"><span style="color:#E4405F">●</span> Instagram</div>
           <div class="omni-channel"><span style="color:#1877F2">●</span> Messenger</div>
           <div class="omni-channel"><span style="color:#0088FF">●</span> RCS</div>
@@ -70,11 +70,17 @@ const PLATFORM_TABS = [
               <div class="chat-source">via Instagram DM</div>
             </div>
           </div>
-          <div class="chat-body-glass">
-            <div class="chat-msg incoming delay-1">Hi, is the Pro plan available for annual billing?</div>
-            <div class="chat-msg outgoing delay-2">Yes Sarah! You get 2 months free on the annual plan.</div>
-            <div class="chat-typing delay-3">
-              <span></span><span></span><span></span>
+          <div class="chat-scroll-wrapper">
+            <div class="chat-body-glass" id="omni-chat-feed">
+              <div class="chat-msg incoming delay-0">Hi, is the Pro plan available for annual billing?</div>
+              
+              <div class="chat-typing type-1"><span></span><span></span><span></span></div>
+              <div class="chat-msg outgoing delay-1">Yes Sarah! You get 2 months free on the annual plan.</div>
+              
+              <div class="chat-msg incoming delay-2">Great! How do I upgrade my account?</div>
+              
+              <div class="chat-typing type-2"><span></span><span></span><span></span></div>
+              <div class="chat-msg outgoing delay-3">I've just sent a secure checkout link to your email. Let me know if you need help!</div>
             </div>
           </div>
         </div>
@@ -156,19 +162,29 @@ const PLATFORM_TABS = [
     desc: 'Deploy human-like AI voice agents to handle inbound calls, qualify leads, and schedule appointments 24/7.',
     dashboard: `
       <div class="dash-new dash-voice-ui">
-        <div class="voice-center">
-          <div class="voice-orb">
-            <div class="voice-ring ring-1"></div>
-            <div class="voice-ring ring-2"></div>
-            <div class="voice-ring ring-3"></div>
-            <div class="voice-mic-icon">🎙️</div>
+        <div class="voice-agent-header">
+          <div class="agent-avatar premium-gradient-bg"></div>
+          <div class="agent-details">
+            <div class="agent-name">Sarah <span class="badge-sales">Sales AI</span></div>
+            <div class="agent-status"><span class="pulse-dot"></span> Live Call · 02:14</div>
           </div>
-          <div class="voice-status">AI Agent Listening...</div>
+          <div class="agent-sentiment">Sentiment: <span class="sentiment-val">Positive</span></div>
         </div>
-        <div class="voice-transcript-box">
-          <div class="v-line bot">"Hi there, I see you're interested in the Enterprise plan."</div>
-          <div class="v-line human delay-1">"Yes, does it include custom integrations?"</div>
-          <div class="v-line bot delay-2">"Absolutely. Let me connect you with our solutions engineer."</div>
+        
+        <div class="voice-equalizer-container">
+          <div class="equalizer-bar eq-1"></div>
+          <div class="equalizer-bar eq-2"></div>
+          <div class="equalizer-bar eq-3"></div>
+          <div class="equalizer-bar eq-4"></div>
+          <div class="equalizer-bar eq-5"></div>
+          <div class="equalizer-bar eq-6"></div>
+          <div class="equalizer-bar eq-7"></div>
+        </div>
+
+        <div class="voice-transcript-thread">
+          <div class="chat-bubble bot"><div class="chat-av bot-av"></div><div class="chat-txt">"Hi there, I see you're interested in the Enterprise plan."</div></div>
+          <div class="chat-bubble human delay-1"><div class="chat-txt">"Yes, does it include custom integrations?"</div><div class="chat-av hum-av"></div></div>
+          <div class="chat-bubble bot delay-2"><div class="chat-av bot-av"></div><div class="chat-txt typing-pulse">"Absolutely. Let me connect you with..."</div></div>
         </div>
       </div>
     `
@@ -181,25 +197,39 @@ const PLATFORM_TABS = [
     desc: 'Generate studio-quality product lifestyle images instantly using advanced generative AI.',
     dashboard: `
       <div class="dash-new dash-studio-ui">
-        <div class="studio-prompt-bar">
-          <span class="prompt-icon">✨</span>
-          <span class="prompt-text typing-text">A sleek perfume bottle on a neon cyberpunk podium...</span>
+        <div class="studio-top-bar">
+          <div class="studio-prompt-input">
+            <span class="prompt-icon">✨</span>
+            <span class="prompt-text typing-text-fast">A minimalist luxury skincare jar floating over crystal water...</span>
+          </div>
+          <div class="studio-params">
+            <span class="param-pill">1:1 Square</span>
+            <span class="param-pill">Studio Lighting</span>
+          </div>
         </div>
-        <div class="studio-generation-area">
-          <div class="studio-skeleton">
-            <div class="scan-line"></div>
+        
+        <div class="studio-main-stage interactive-stage">
+          <div class="generated-image-wrapper floating-art">
+            <div class="art-bg-glow soft-glow"></div>
+            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80" alt="Generated Cosmetic Jar" class="generated-img-main" />
+            <div class="sparkles">✨</div>
           </div>
-          <div class="studio-result-grid hidden">
-            <div class="s-img img-1"></div>
-            <div class="s-img img-2"></div>
-            <div class="s-img img-3"></div>
-            <div class="s-img img-4"></div>
-          </div>
+          <div class="studio-wireframe-grid"></div>
+          <div class="studio-scan-beam"></div>
+        </div>
+
+        <div class="studio-variants">
+          <div class="variant-thumb thumb-1"><img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=200&q=80" alt="Thumb 1" /></div>
+          <div class="variant-thumb thumb-2"><img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?auto=format&fit=crop&w=200&q=80" alt="Thumb 2" /></div>
+          <div class="variant-thumb thumb-3"><img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=200&q=80" alt="Thumb 3" /></div>
+          <div class="variant-thumb thumb-4"><img src="https://images.unsplash.com/photo-1599305090598-fe179d501227?auto=format&fit=crop&w=200&q=80" alt="Thumb 4" /></div>
         </div>
       </div>
     `
   }
 ];
+
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export function createAutomationPlatform() {
   const section = document.createElement('section');
@@ -214,30 +244,18 @@ export function createAutomationPlatform() {
     'ai_studio': '/platform/ai-studio'
   };
 
-  const tabsHTML = PLATFORM_TABS.map((tab, i) => {
-    const targetUrl = TAB_SLUG_MAP[tab.id] || '/platform';
-    return `
-    <div class="platform-card-tab ${i === 0 ? 'active' : ''}" data-tab="${tab.id}">
-      <div class="platform-card-header">
-        <span class="platform-card-icon">${tab.icon}</span>
-        <h3 class="platform-card-title">${tab.title}</h3>
+  const sidebarHTML = PLATFORM_TABS.map((tab, i) => `
+    <button class="feature-tab-btn ${i === 0 ? 'active' : ''}" data-tab-id="${tab.id}">
+      <span class="tab-icon">${tab.icon}</span>
+      <div class="tab-content-text">
+        <div class="tab-title">${tab.title}</div>
+        <div class="tab-desc">${tab.desc}</div>
       </div>
-      <div class="platform-card-body">
-        <p class="platform-card-desc">${tab.desc}</p>
-        <a href="${targetUrl}" class="btn btn-glass btn-sm" style="margin-top:1rem;">
-          Learn More
-          <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path d="M1 7h11M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-      </div>
-      <div class="tab-progress-bar"></div>
-      <div class="platform-card-glow"></div>
-    </div>
-  `;}).join('');
+    </button>
+  `).join('');
 
-  const dashboardsHTML = PLATFORM_TABS.map((tab, i) => `
-    <div class="platform-dashboard-view ${i === 0 ? 'active' : ''}" data-panel="${tab.id}">
+  const panesHTML = PLATFORM_TABS.map((tab, i) => `
+    <div class="feature-tab-pane ${i === 0 ? 'active' : ''}" id="pane-${tab.id}">
       <div class="dashboard-frame premium-glass">
         <div class="dashboard-titlebar">
           <span class="dashboard-dot dashboard-dot-red"></span>
@@ -255,149 +273,71 @@ export function createAutomationPlatform() {
   section.innerHTML = `
     <div class="container container-wide">
       <div class="section-header">
-        <span class="text-overline">AI Automation Platform</span>
-        <h2 class="heading-section">The Complete Business<br><span class="text-gradient">Automation Ecosystem</span></h2>
+        <span class="text-overline">Automation Ecosystem</span>
+        <h2 class="heading-section">The Complete Business<br><span class="text-gradient">Growth Platform</span></h2>
         <p class="text-body-lg">Everything you need to automate communication, manage leads, and scale operations — built for enterprise performance.</p>
       </div>
 
-      <div class="platform-grid reveal">
-        <div class="platform-tabs-list">
-          ${tabsHTML}
+      <div class="platform-interactive-layout reveal">
+        <div class="feature-menu-sidebar">
+          ${sidebarHTML}
         </div>
-        <div class="platform-showcase">
-          <div class="platform-showcase-inner">
-            ${dashboardsHTML}
-          </div>
+        <div class="feature-content-display">
+          ${panesHTML}
         </div>
       </div>
     </div>
   `;
 
-  setTimeout(() => initPlatformTabs(section), 0);
-  return section;
-}
+  // Initialize Scroll-Spy & Click Interaction
+  setTimeout(() => {
+    const btns = section.querySelectorAll('.feature-tab-btn');
+    const panes = section.querySelectorAll('.feature-tab-pane');
 
-function initPlatformTabs(section) {
-  const tabs = section.querySelectorAll('.platform-card-tab');
-  const panels = section.querySelectorAll('.platform-dashboard-view');
-  let currentIndex = 0;
+    const switchTab = (id) => {
+      btns.forEach(btn => btn.classList.toggle('active', btn.dataset.tabId === id));
+      panes.forEach(pane => pane.classList.toggle('active', pane.id === 'pane-' + id));
+    };
 
-  const AUTOPLAY_DELAY = 10; // seconds
-  let progressTween = null;
-
-  function switchTab(index, userInitiated = false) {
-    if (index < 0 || index >= tabs.length) return;
-    
-    // Stop the previous progress bar animation
-    if (progressTween) progressTween.kill();
-    
-    tabs.forEach(t => {
-      t.classList.remove('active');
-      const progress = t.querySelector('.tab-progress-bar');
-      if (progress) gsap.set(progress, { width: '0%' });
+    // Click handler fallback
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => switchTab(btn.dataset.tabId));
     });
 
-    const activeTab = tabs[index];
-    activeTab.classList.add('active');
-    
-    const activeProgress = activeTab.querySelector('.tab-progress-bar');
-    if (activeProgress) {
-      // Start a new progress bar animation
-      progressTween = gsap.to(activeProgress, { 
-        width: '100%', 
-        duration: AUTOPLAY_DELAY, 
-        ease: 'none',
-        onComplete: () => {
-          // When progress finishes, strictly trigger the next tab
-          let nextIndex = (currentIndex + 1) % tabs.length;
-          switchTab(nextIndex);
+    // Pinned Scroll-Spy Setup (Desktop Only)
+    const isMobile = window.matchMedia('(max-width: 1024px)').matches;
+    if (!isMobile) {
+      const layoutElement = section.querySelector('.platform-interactive-layout');
+      
+      ScrollTrigger.create({
+        trigger: layoutElement,
+        start: 'top 15%',
+        end: '+=2500', // Total scroll distance required to view all features
+        pin: true,
+        anticipatePin: 1, // Smooths out the layout recalculation right before pinning
+        fastScrollEnd: true,
+        scrub: 1.5, // Increase smoothing to 1.5s for a silkier feel
+        snap: {
+          snapTo: 1 / (btns.length - 1), // Snap smoothly to the nearest feature tab
+          duration: { min: 0.3, max: 0.8 },
+          delay: 0.05,
+          ease: "power2.inOut"
+        },
+        onUpdate: (self) => {
+          // self.progress goes from 0 to 1
+          const totalTabs = btns.length;
+          let activeIndex = Math.floor(self.progress * totalTabs);
+          // Ensure it doesn't overshoot
+          if (activeIndex >= totalTabs) activeIndex = totalTabs - 1;
+          
+          const targetBtn = btns[activeIndex];
+          if (targetBtn && !targetBtn.classList.contains('active')) {
+             switchTab(targetBtn.dataset.tabId);
+          }
         }
       });
     }
+  }, 0);
 
-    if (window.innerWidth <= 1024 && userInitiated) {
-      activeTab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-    }
-
-    const targetId = activeTab.dataset.tab;
-
-    panels.forEach(panel => {
-      if (panel.dataset.panel === targetId) {
-        panel.classList.add('active');
-        const dashboard = panel.querySelector('.dashboard-content');
-        
-        // Main Dashboard Fade In
-        gsap.fromTo(dashboard, 
-          { scale: 0.95, opacity: 0, y: 15 }, 
-          { scale: 1, opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }
-        );
-        
-        // Micro-Animations Routing
-        if (targetId === 'whatsapp') {
-          gsap.fromTo(panel.querySelectorAll('.dash-chart-bar'), 
-            { scaleY: 0, transformOrigin: "bottom" },
-            { scaleY: 1, duration: 0.8, stagger: 0.1, ease: 'back.out(1.5)', delay: 0.2 }
-          );
-        } else if (targetId === 'omnichannel') {
-          gsap.fromTo(panel.querySelectorAll('.chat-msg'),
-            { opacity: 0, x: -10 },
-            { opacity: 1, x: 0, duration: 0.5, stagger: 0.3, ease: 'power2.out', delay: 0.3 }
-          );
-        } else if (targetId === 'workflows') {
-          gsap.fromTo(panel.querySelectorAll('.wf-node'),
-            { opacity: 0, scale: 0.8 },
-            { opacity: 1, scale: 1, duration: 0.5, stagger: 0.2, ease: 'back.out(1.5)', delay: 0.2 }
-          );
-        } else if (targetId === 'voice_ai') {
-          gsap.fromTo(panel.querySelectorAll('.v-line'),
-            { opacity: 0, y: 10 },
-            { opacity: 1, y: 0, duration: 0.6, stagger: 0.8, ease: 'power2.out', delay: 0.5 }
-          );
-        } else if (targetId === 'ai_studio') {
-          const skel = panel.querySelector('.studio-skeleton');
-          const grid = panel.querySelector('.studio-result-grid');
-          gsap.set(skel, { display: 'block', opacity: 1 });
-          gsap.set(grid, { display: 'none', opacity: 0 });
-          
-          gsap.to(skel, { opacity: 0, duration: 0.3, delay: 2.5, onComplete: () => {
-            gsap.set(skel, { display: 'none' });
-            gsap.set(grid, { display: 'grid' });
-            gsap.to(grid, { opacity: 1, duration: 0.5 });
-            gsap.fromTo(grid.querySelectorAll('.s-img'), 
-              { scale: 0.8, opacity: 0 },
-              { scale: 1, opacity: 1, duration: 0.5, stagger: 0.1, ease: 'back.out(1.2)' }
-            );
-          }});
-        }
-
-      } else {
-        panel.classList.remove('active');
-      }
-    });
-    
-    currentIndex = index;
-  }
-
-  tabs.forEach((tab, index) => {
-    tab.addEventListener('click', () => switchTab(index, true));
-    
-    // Hover Glow Effect
-    tab.addEventListener('mousemove', (e) => {
-      const rect = tab.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const glow = tab.querySelector('.platform-card-glow');
-      if(glow) glow.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(156, 39, 255, 0.15) 0%, transparent 60%)`;
-    });
-    tab.addEventListener('mouseleave', () => {
-      const glow = tab.querySelector('.platform-card-glow');
-      if(glow) glow.style.background = 'transparent';
-    });
-  });
-
-  const showcase = section.querySelector('.platform-grid');
-  // Hover logic removed to prevent auto-play from pausing
-
-  // Initialize first tab (this automatically starts the progress tween)
-  switchTab(0);
+  return section;
 }

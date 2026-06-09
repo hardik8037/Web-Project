@@ -55,9 +55,10 @@ export function createHero() {
       </div>
 
       <!-- ═══ CINEMATIC CSS-RECREATED DASHBOARDS ═══ -->
-      <div class="hero-dashboards">
-        <!-- Main Dashboard — Analytics Overview -->
-        <div class="hero-dashboard hero-dashboard-main float">
+      <div class="hero-dashboards-wrapper">
+        <div class="hero-dashboards">
+          <!-- Main Dashboard — Analytics Overview -->
+          <div class="hero-dashboard hero-dashboard-main float">
           <div class="dashboard-frame">
             <div class="dashboard-titlebar">
               <span class="dashboard-dot dashboard-dot-red"></span>
@@ -213,6 +214,7 @@ export function createHero() {
             </div>
           </div>
         </div>
+      </div>
       </div>
 
       <!-- Stats Bar -->

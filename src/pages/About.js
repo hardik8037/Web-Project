@@ -10,12 +10,12 @@ export function createAbout() {
   container.innerHTML = `
     <!-- Cinematic Hero -->
     <section class="section page-hero about-hero" style="position: relative; overflow: hidden;">
-      <div class="container-wide">
+      <div class="container">
         <div class="section-header" style="max-width: 680px; margin: 0 auto;">
           <div class="detail-hero-badge" style="--badge-color: var(--color-primary-light); margin-bottom: 1.5rem;">
             <span class="badge-dot"></span>THE COMMUNICATION GRID
           </div>
-          <h1 class="heading-hero" style="font-size: 4rem; line-height: 1; font-weight: 800; letter-spacing: -1px; margin: 0 0 1rem 0;">
+          <h1 class="heading-hero">
             The Architecture of<br><span class="text-gradient">Intelligent Dialog</span>
           </h1>
           <p class="text-body-lg" style="margin: 0; font-weight: 400; opacity: 0.9;">
