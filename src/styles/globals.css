@@ -357,6 +357,15 @@ p {
   color: var(--color-dim-text);
 }
 
+/* Fix for Chrome Autofill turning glass inputs white */
+.glass-input:-webkit-autofill,
+.glass-input:-webkit-autofill:hover, 
+.glass-input:-webkit-autofill:focus, 
+.glass-input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 50px #130624 inset !important;
+  -webkit-text-fill-color: white !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
 /* ═══════════════════════════════════════════════════
    GLOW & HOLOGRAPHIC EFFECTS
    ═══════════════════════════════════════════════════ */

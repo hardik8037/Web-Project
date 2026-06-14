@@ -34,12 +34,12 @@ export function createContact() {
               <span class="contact-channel-icon">💬</span>
               <strong class="contact-channel-name">Chat on WhatsApp</strong>
               <span class="contact-channel-desc">Instant support channel</span>
-              <a href="https://wa.me/911234567890" target="_blank" class="btn btn-primary" style="background:#25D366; border:none; color:#000; font-weight:bold; font-size: 0.8rem; width: 100%; text-align: center; display: block;">Open WhatsApp Chat</a>
+              <a href="https://wa.me/919727372130" target="_blank" class="btn btn-primary" style="background:#25D366; border:none; color:#000; font-weight:bold; font-size: 0.8rem; width: 100%; text-align: center; display: block;">Open WhatsApp Chat</a>
             </div>
             
             <div class="glass-card contact-info-card">
               📧 <strong>sales@botzo.io</strong><br>
-              📞 <strong>+91 (0) 123 456 789</strong><br>
+              📞 <strong>+91 97273 72130</strong><br>
               📍 Mumbai, Maharashtra, India
             </div>
           </div>

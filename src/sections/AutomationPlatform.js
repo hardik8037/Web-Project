@@ -270,6 +270,29 @@ export function createAutomationPlatform() {
     </div>
   `).join('');
 
+  const mobileLayoutHTML = PLATFORM_TABS.map((tab) => `
+    <div class="mobile-feature-slide gs-mobile-slide">
+      <div class="mobile-feature-text">
+        <span class="tab-icon">${tab.icon}</span>
+        <h3 class="tab-title">${tab.title}</h3>
+        <p class="tab-desc">${tab.desc}</p>
+      </div>
+      <div class="mobile-feature-dashboard">
+        <div class="dashboard-frame premium-glass">
+          <div class="dashboard-titlebar">
+            <span class="dashboard-dot dashboard-dot-red"></span>
+            <span class="dashboard-dot dashboard-dot-yellow"></span>
+            <span class="dashboard-dot dashboard-dot-green"></span>
+            <span style="margin-left:auto;font-size:0.65rem;color:var(--color-dim-text);">Botzo.io / ${tab.label}</span>
+          </div>
+          <div class="dashboard-content">
+            ${tab.dashboard}
+          </div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
   section.innerHTML = `
     <div class="container container-wide">
       <div class="section-header">
@@ -278,6 +301,7 @@ export function createAutomationPlatform() {
         <p class="text-body-lg">Everything you need to automate communication, manage leads, and scale operations — built for enterprise performance.</p>
       </div>
 
+      <!-- DESKTOP PINNED LAYOUT -->
       <div class="platform-interactive-layout reveal">
         <div class="feature-menu-sidebar">
           ${sidebarHTML}
@@ -285,6 +309,11 @@ export function createAutomationPlatform() {
         <div class="feature-content-display">
           ${panesHTML}
         </div>
+      </div>
+
+      <!-- MOBILE SLIDE-BY-SLIDE LAYOUT -->
+      <div class="platform-mobile-layout">
+        ${mobileLayoutHTML}
       </div>
     </div>
   `;
@@ -304,37 +333,52 @@ export function createAutomationPlatform() {
       btn.addEventListener('click', () => switchTab(btn.dataset.tabId));
     });
 
-    // Pinned Scroll-Spy Setup (Desktop Only)
+    // Pinned Scroll-Spy Setup (Desktop & Mobile)
     const isMobile = window.matchMedia('(max-width: 1024px)').matches;
-    if (!isMobile) {
-      const layoutElement = section.querySelector('.platform-interactive-layout');
-      
-      ScrollTrigger.create({
-        trigger: layoutElement,
-        start: 'top 20%',
-        end: '+=2500', // Total scroll distance required to view all features
-        pin: true,
-        scrub: 1, // Add 1s of smoothing to the scrub so it doesn't feel forced/abrupt
-        snap: {
-          snapTo: 1 / (btns.length - 1), // Snap smoothly to the nearest feature tab
-          duration: { min: 0.2, max: 0.8 },
-          delay: 0.1,
-          ease: "power1.inOut"
-        },
-        onUpdate: (self) => {
-          // self.progress goes from 0 to 1
-          const totalTabs = btns.length;
-          let activeIndex = Math.floor(self.progress * totalTabs);
-          // Ensure it doesn't overshoot
-          if (activeIndex >= totalTabs) activeIndex = totalTabs - 1;
-          
+    const layoutElement = isMobile 
+      ? section.querySelector('.platform-mobile-layout')
+      : section.querySelector('.platform-interactive-layout');
+    
+    // Mark as initialized for CSS fallback logic
+    layoutElement.classList.add('gsap-initialized');
+
+    // Dynamic scroll duration: significantly increased for slower, relaxed reading
+    const scrollDistance = isMobile ? window.innerHeight * 4 : 4500;
+    
+    ScrollTrigger.create({
+      trigger: layoutElement,
+      start: isMobile ? 'top 10%' : 'top 20%',
+      end: `+=${scrollDistance}`, 
+      pin: true,
+      scrub: isMobile ? 1 : 1.5, // More responsive scrubbing on mobile
+      snap: isMobile ? false : {
+        snapTo: 1 / (btns.length - 1),
+        duration: { min: 0.2, max: 0.6 },
+        delay: 0.1,
+        ease: "power2.inOut"
+      },
+      onUpdate: (self) => {
+        const totalTabs = btns.length;
+        // Map progress to active index, avoiding exact 1.0 mapping to an out-of-bounds array index
+        let activeIndex = Math.min(Math.floor(self.progress * totalTabs), totalTabs - 1);
+        
+        if (isMobile) {
+          const mobileSlides = section.querySelectorAll('.gs-mobile-slide');
+          mobileSlides.forEach((slide, idx) => {
+            if (idx === activeIndex) {
+              slide.classList.add('active');
+            } else {
+              slide.classList.remove('active');
+            }
+          });
+        } else {
           const targetBtn = btns[activeIndex];
           if (targetBtn && !targetBtn.classList.contains('active')) {
              switchTab(targetBtn.dataset.tabId);
           }
         }
-      });
-    }
+      }
+    });
   }, 0);
 
   return section;

@@ -11,7 +11,7 @@ export function createBookDemo() {
   let datesHTML = '';
   const today = new Date();
   
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 6; i++) {
     const d = new Date(today);
     d.setDate(today.getDate() + i);
     const dayName = daysArr[d.getDay()];
@@ -19,8 +19,9 @@ export function createBookDemo() {
     // Default to today (i === 0) as active
     const activeClass = i === 0 ? 'active' : ''; 
     
+    const fullDate = `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`;
     datesHTML += `
-      <button class="date-slot-btn ${activeClass}">
+      <button class="date-slot-btn ${activeClass}" data-date="${fullDate}">
         <span class="date-slot-day">${dayName}</span>
         <span class="date-slot-num">${dateNum}</span>
       </button>
@@ -75,14 +76,15 @@ export function createBookDemo() {
               ${datesHTML}
             </div>
 
-            <!-- Time Slots list -->
-            <div class="time-slots-container">
-              <button class="time-slot-btn">10:00 AM</button>
-              <button class="time-slot-btn">10:30 AM</button>
-              <button class="time-slot-btn">01:00 PM</button>
-              <button class="time-slot-btn">02:00 PM</button>
-              <button class="time-slot-btn">03:30 PM</button>
-              <button class="time-slot-btn active">04:30 PM</button>
+            <!-- Time Slots Dropdown -->
+            <div class="booking-form-group" style="margin-bottom: 2rem;">
+              <select id="booking-time-select" class="glass-input booking-input-field" style="width: 100%; cursor: pointer; appearance: none; background-image: url('data:image/svg+xml;utf8,<svg width=\\'12\\' height=\\'12\\' viewBox=\\'0 0 24 24\\' fill=\\'none\\' stroke=\\'white\\' stroke-width=\\'2\\' xmlns=\\'http://www.w3.org/2000/svg\\'><path d=\\'M6 9l6 6 6-6\\'/></svg>'); background-repeat: no-repeat; background-position: right 1rem center;">
+                <!-- Populated via JS -->
+              </select>
+              <style>
+                #booking-time-select option { background: #1a0b2e; color: #fff; padding: 10px; font-weight: 500; }
+                #booking-time-select option:disabled { color: rgba(255,255,255,0.3); background: #0d0618; }
+              </style>
             </div>
 
             <!-- Phone Number Input -->
@@ -188,23 +190,84 @@ export function createBookDemo() {
       });
     }
 
+    function updateTimeSlots() {
+      const timeSelect = container.querySelector('#booking-time-select');
+      const activeDateBtn = container.querySelector('.date-slot-btn.active');
+      if (!timeSelect || !activeDateBtn) return;
+
+      const selectedDateParts = activeDateBtn.dataset.date.split('-');
+      const selectedYear = parseInt(selectedDateParts[0]);
+      const selectedMonth = parseInt(selectedDateParts[1]) - 1;
+      const selectedDay = parseInt(selectedDateParts[2]);
+
+      const now = new Date();
+      const isToday = (now.getFullYear() === selectedYear && now.getMonth() === selectedMonth && now.getDate() === selectedDay);
+
+      const slots = [
+        { time: '10:30 AM', hour24: 10, min: 30 },
+        { time: '12:00 PM', hour24: 12, min: 0 },
+        { time: '01:30 PM', hour24: 13, min: 30 },
+        { time: '03:00 PM', hour24: 15, min: 0 },
+        { time: '04:30 PM', hour24: 16, min: 30 },
+        { time: '06:00 PM', hour24: 18, min: 0 },
+        { time: '07:00 PM', hour24: 19, min: 0 }
+      ];
+
+      const dateDay = activeDateBtn.querySelector('.date-slot-day').textContent;
+      const dateNum = activeDateBtn.querySelector('.date-slot-num').textContent;
+      const dateKey = `${dateDay}, ${dateNum}`;
+
+      const bookings = JSON.parse(localStorage.getItem('botzo_bookings') || '{}');
+
+      let optionsHTML = '';
+      let firstAvailableFound = false;
+
+      slots.forEach(slot => {
+        let disabled = false;
+        let label = slot.time;
+
+        if (isToday) {
+          if (now.getHours() > slot.hour24 || (now.getHours() === slot.hour24 && now.getMinutes() >= slot.min)) {
+            disabled = true;
+            label += ' (Passed)';
+          }
+        }
+
+        const slotKey = `${dateKey}_${slot.time}`;
+        if (bookings[slotKey] >= 2) {
+          disabled = true;
+          label += ' (Full)';
+        }
+
+        if (disabled) {
+          optionsHTML += `<option value="${slot.time}" disabled>${label}</option>`;
+        } else {
+          const selected = !firstAvailableFound ? 'selected' : '';
+          optionsHTML += `<option value="${slot.time}" ${selected}>${label}</option>`;
+          firstAvailableFound = true;
+        }
+      });
+
+      if (!firstAvailableFound) {
+        optionsHTML = `<option value="" disabled selected>No slots available</option>` + optionsHTML;
+      }
+
+      timeSelect.innerHTML = optionsHTML;
+    }
+
     // Date slot selection
     const dateSlots = container.querySelectorAll('.date-slot-btn');
     dateSlots.forEach(slot => {
       slot.addEventListener('click', () => {
         dateSlots.forEach(s => s.classList.remove('active'));
         slot.classList.add('active');
+        updateTimeSlots();
       });
     });
 
-    // Time slot selection
-    const timeSlots = container.querySelectorAll('.time-slot-btn');
-    timeSlots.forEach(slot => {
-      slot.addEventListener('click', () => {
-        timeSlots.forEach(s => s.classList.remove('active'));
-        slot.classList.add('active');
-      });
-    });
+    // Call initially
+    updateTimeSlots();
+
 
     // Confirm booking and Validation
     const confirmBtn = container.querySelector('#confirm-booking-btn');
@@ -247,8 +310,13 @@ export function createBookDemo() {
         const dateNum = activeDate ? activeDate.querySelector('.date-slot-num')?.textContent : '';
 
         // Get selected time
-        const activeTime = container.querySelector('.time-slot-btn.active');
-        let timeText = activeTime ? activeTime.textContent : '';
+        const timeSelect = container.querySelector('#booking-time-select');
+        let timeText = timeSelect ? timeSelect.value : '';
+
+        if (!timeText) {
+          alert('Please select a valid time slot. All slots for this day might be full or passed.');
+          return;
+        }
 
         // Get phone
         const countryCode = searchInput ? searchInput.dataset.code : '+91';
@@ -258,7 +326,13 @@ export function createBookDemo() {
         // Replace this URL with your Make.com, Zapier, or custom webhook URL
         const WEBHOOK_URL = 'https://your-webhook-url.com/endpoint'; 
         
-        // 1. Gather Booking Data
+        // 1. Gather Booking Data & Save to LocalStorage
+        const dateKey = `${dateDay}, ${dateNum}`;
+        const slotKey = `${dateKey}_${timeText}`;
+        const bookings = JSON.parse(localStorage.getItem('botzo_bookings') || '{}');
+        bookings[slotKey] = (bookings[slotKey] || 0) + 1;
+        localStorage.setItem('botzo_bookings', JSON.stringify(bookings));
+
         const bookingData = {
           type: 'Demo Booking',
           source: 'Book Demo Page',
@@ -354,7 +428,11 @@ export function createBookDemo() {
           const closeModal = () => {
             overlay.style.opacity = '0';
             overlay.querySelector('#booking-modal-card').style.transform = 'scale(0.85)';
-            setTimeout(() => { overlay.remove(); style.remove(); }, 300);
+            setTimeout(() => { 
+              overlay.remove(); style.remove(); 
+              // Refresh time slots to reflect new booking
+              updateTimeSlots();
+            }, 300);
           };
 
           overlay.querySelector('#close-booking-modal').addEventListener('click', closeModal);

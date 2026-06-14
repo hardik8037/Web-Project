@@ -64,13 +64,15 @@
   left: 0;
   right: 0;
   z-index: 9999;
-  padding: 0.75rem 0;
+  padding-top: max(0.75rem, env(safe-area-inset-top, 0px));
+  padding-bottom: 0.75rem;
   transition: padding 0.4s ease, background 0.4s ease;
 }
 
 #navbar.nav-scrolled {
-  padding: 0.5rem 0;
-  background: rgba(5, 5, 5, 0.8);
+  padding-top: max(0.5rem, env(safe-area-inset-top, 0px));
+  padding-bottom: 0.5rem;
+  background: rgba(5, 5, 5, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
@@ -528,6 +530,34 @@ body.nav-open {
 }
 
 @media (max-width: 767px) {
+  /* Fix iOS Safari backdrop-filter safe area gap */
+  #navbar {
+    transform: translateZ(0); 
+  }
+  #navbar.nav-scrolled {
+    background: #050505; /* Solid fallback */
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+  
+  .botzo-nav {
+    align-items: center !important;
+  }
+  .botzo-nav-logo {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+  .botzo-logo-img {
+    display: block;
+    margin: 0;
+    transform: translateY(-2px); /* Tweak to visually align with hamburger */
+  }
+  .hamburger {
+    margin: 0;
+    padding: 0;
+  }
   .botzo-nav-pill {
     display: none !important;
   }
@@ -1126,14 +1156,14 @@ body.nav-open {
 }
 
 /* Trigger Sequence on Active */
-.feature-tab-pane.active .chat-msg.delay-0 { animation: slideChatUp 0.4s ease 0.5s forwards; }
-.feature-tab-pane.active .chat-typing.type-1 { animation: showTyping 1.5s ease 1s forwards; }
-.feature-tab-pane.active .chat-msg.delay-1 { animation: slideChatUp 0.4s ease 2.5s forwards; }
-.feature-tab-pane.active .chat-msg.delay-2 { animation: slideChatUp 0.4s ease 4s forwards; }
-.feature-tab-pane.active .chat-typing.type-2 { animation: showTyping 2s ease 4.5s forwards; }
-.feature-tab-pane.active .chat-msg.delay-3 { animation: slideChatUp 0.4s ease 6.5s forwards; }
+.feature-tab-pane.active .chat-msg.delay-0, .gs-mobile-slide.active .chat-msg.delay-0 { animation: slideChatUp 0.4s ease 0.5s forwards; }
+.feature-tab-pane.active .chat-typing.type-1, .gs-mobile-slide.active .chat-typing.type-1 { animation: showTyping 1.5s ease 1s forwards; }
+.feature-tab-pane.active .chat-msg.delay-1, .gs-mobile-slide.active .chat-msg.delay-1 { animation: slideChatUp 0.4s ease 2.5s forwards; }
+.feature-tab-pane.active .chat-msg.delay-2, .gs-mobile-slide.active .chat-msg.delay-2 { animation: slideChatUp 0.4s ease 4s forwards; }
+.feature-tab-pane.active .chat-typing.type-2, .gs-mobile-slide.active .chat-typing.type-2 { animation: showTyping 2s ease 4.5s forwards; }
+.feature-tab-pane.active .chat-msg.delay-3, .gs-mobile-slide.active .chat-msg.delay-3 { animation: slideChatUp 0.4s ease 6.5s forwards; }
 
-.feature-tab-pane.active #omni-chat-feed {
+.feature-tab-pane.active #omni-chat-feed, .gs-mobile-slide.active #omni-chat-feed {
   animation: scrollChatFeed 8s ease forwards;
 }
 
@@ -1306,7 +1336,8 @@ body.nav-open {
   justify-content: center;
   gap: 12px;
   height: 100px;
-  margin: 1rem 0;
+  margin: auto 0;
+  transform: scale(0.45);
 }
 .equalizer-bar {
   width: 16px;
@@ -4879,6 +4910,51 @@ body.nav-open {
 .studio-btn-test:hover {
   background: rgba(255, 65, 108, 0.2);
   border-color: #FF416C;
+}
+
+/* ═══════════════════════════════════════════════════
+   DASHBOARD MOBILE OPTIMIZATIONS
+   ═══════════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .dash-new {
+    padding: 1rem;
+    min-height: 0;
+  }
+  
+  /* WhatsApp / Live Analytics */
+  .dash-whatsapp-analytics { gap: 0.75rem; }
+  .dash-analytics-header { grid-template-columns: 1fr; gap: 0.5rem; }
+  .dash-metric { padding: 0.75rem; }
+  .dash-metric-value { font-size: 1.4rem; margin-bottom: 0.2rem; }
+  .dash-metric p { margin-bottom: 0.2rem; }
+  .dash-chart { height: 90px; margin-top: 0.5rem; }
+  
+  /* Voice AI */
+  .dash-voice-ui { gap: 0.75rem; }
+  .voice-agent-header { padding-bottom: 0.5rem; }
+  .voice-wave { height: 35px; }
+  .live-transcript { gap: 0.5rem; }
+  
+  /* Omni-channel Inbox */
+  .dash-omni-ui { grid-template-columns: 1fr; min-height: 400px; }
+  .dash-omni-sidebar { display: none; }
+  
+  /* Workflow */
+  .workflow-canvas-grid { gap: 0.5rem; }
+  .wf-split { gap: 1.5rem; }
+}
+
+/* ═══════════════════════════════════════════════════
+   DESKTOP ADAPTIVE SCALING (SHORT SCREENS)
+   ═══════════════════════════════════════════════════ */
+@media (max-height: 850px) and (min-width: 1025px) {
+  .dash-workflow-ui {
+    transform: scale(0.85);
+    transform-origin: center top;
+  }
+  .dash-workflow-ui:hover {
+    transform: scale(0.87);
+  }
 }
 
 /* 3. Autonomous Support Bot Dashboard */

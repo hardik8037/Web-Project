@@ -4,6 +4,7 @@
 
 const USE_CASES = [
   {
+    slug: 'real-estate',
     icon: '🏠',
     title: 'Real Estate',
     pain: 'Slow lead response and scattered inquiries across platforms',
@@ -12,6 +13,7 @@ const USE_CASES = [
     color: '#FF6B35',
   },
   {
+    slug: 'healthcare',
     icon: '🏥',
     title: 'Healthcare',
     pain: 'Missed appointments and manual patient coordination',
@@ -20,6 +22,7 @@ const USE_CASES = [
     color: '#0088FF',
   },
   {
+    slug: 'ecommerce',
     icon: '🛍️',
     title: 'Ecommerce',
     pain: 'Cart abandonment and poor post-purchase engagement',
@@ -28,6 +31,7 @@ const USE_CASES = [
     color: '#25D366',
   },
   {
+    slug: 'restaurants',
     icon: '🍽️',
     title: 'Restaurants',
     pain: 'Phone-based reservations and manual order management',
@@ -36,6 +40,7 @@ const USE_CASES = [
     color: '#FF3B5C',
   },
   {
+    slug: 'education',
     icon: '🎓',
     title: 'Education',
     pain: 'Enrollment inquiries get lost in email and phone queues',
@@ -44,6 +49,7 @@ const USE_CASES = [
     color: '#9C27FF',
   },
   {
+    slug: 'textile',
     icon: '🧵',
     title: 'Textile Industry',
     pain: 'Catalog sharing via phone and manual B2B communication',
@@ -52,6 +58,7 @@ const USE_CASES = [
     color: '#E4405F',
   },
   {
+    slug: 'jewellery',
     icon: '💎',
     title: 'Jewellery',
     pain: 'High-touch sales with no digital follow-up system',
@@ -60,6 +67,7 @@ const USE_CASES = [
     color: '#F9AB00',
   },
   {
+    slug: 'events',
     icon: '🎪',
     title: 'Event Management',
     pain: 'Manual ticketing and scattered attendee communication',
@@ -67,6 +75,42 @@ const USE_CASES = [
     metric: '70% operational savings',
     color: '#635BFF',
   },
+  {
+    slug: 'automotive',
+    icon: '🚗',
+    title: 'Automotive',
+    pain: 'Missed test drive bookings and service reminders',
+    solution: 'Automated test drive scheduling, service alerts, insurance renewals',
+    metric: '+120% bookings',
+    color: '#0088FF',
+  },
+  {
+    slug: 'travel',
+    icon: '✈️',
+    title: 'Travel & Tourism',
+    pain: 'Manual itinerary sharing and delayed confirmations',
+    solution: 'Automated itinerary delivery, real-time travel updates, booking confirmations',
+    metric: '3x faster support',
+    color: '#36C5F0',
+  },
+  {
+    slug: 'fitness',
+    icon: '💪',
+    title: 'Fitness & Wellness',
+    pain: 'Low member retention and manual class scheduling',
+    solution: 'Class booking via WhatsApp, diet plan delivery, automated workout reminders',
+    metric: '2x retention',
+    color: '#FF3B5C',
+  },
+  {
+    slug: 'finance',
+    icon: '🏦',
+    title: 'Banking & Finance',
+    pain: 'High support costs for basic queries and delayed follow-ups',
+    solution: 'Loan document collection, account balance bot, automated EMI reminders',
+    metric: '-45% support cost',
+    color: '#25D366',
+  }
 ];
 
 export function createUseCases() {
@@ -75,7 +119,7 @@ export function createUseCases() {
   section.className = 'section usecases-section';
 
   const cardsHTML = USE_CASES.map(uc => `
-    <div class="usecase-card glass-card" style="--uc-color: ${uc.color}">
+    <a href="/solutions/${uc.slug}" class="usecase-card glass-card" style="--uc-color: ${uc.color}; text-decoration: none; cursor: pointer; display: block;">
       <div class="usecase-icon">${uc.icon}</div>
       <h4 class="heading-card">${uc.title}</h4>
       <div class="usecase-pain">
@@ -87,7 +131,7 @@ export function createUseCases() {
         <span>${uc.solution}</span>
       </div>
       <div class="usecase-metric" style="color:${uc.color};">${uc.metric}</div>
-    </div>
+    </a>
   `).join('');
 
   section.innerHTML = `

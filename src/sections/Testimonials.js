@@ -36,7 +36,7 @@ const TESTIMONIALS = [
     color: '#FF6B35',
   },
   {
-    quote: "From website development to WhatsApp automation — Botzo.io handled everything. The quality of work is premium, and the support team is incredibly responsive. Highly recommended!",
+    quote: "From web development to WhatsApp automation — Botzo.io handled everything. The quality of work is premium, and the support team is incredibly responsive. Highly recommended!",
     name: 'Vikram Singh',
     title: 'Director, Royal Properties',
     rating: 5,

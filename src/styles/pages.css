@@ -53,27 +53,32 @@
    PLATFORM PAGE — Feature Tab System
    ═══════════════════════════════════════════════════ */
 
-/* Interactive Layout Grid */
+/* Interactive Layout Grid (Desktop) */
 .platform-interactive-layout {
   display: grid;
-  grid-template-columns: 350px 1fr;
-  gap: 4rem;
+  grid-template-columns: clamp(300px, 25vw, 380px) 1fr;
+  gap: clamp(2rem, 4vw, 5rem);
   align-items: center;
-  min-height: 560px;
+  min-height: clamp(560px, 70vh, 800px);
+}
+
+/* Mobile Layout hidden by default on desktop */
+.platform-mobile-layout {
+  display: none;
 }
 
 /* Feature Sidebar Menu */
 .feature-menu-sidebar {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: clamp(0.25rem, 1vh, 0.75rem);
 }
 
 .feature-tab-btn {
   display: flex;
   align-items: flex-start;
-  gap: 1.25rem;
-  padding: 1.5rem;
+  gap: clamp(0.75rem, 1.5vw, 1.25rem);
+  padding: clamp(0.8rem, 1.5vh, 1.5rem) clamp(1rem, 2vw, 1.5rem);
   border-radius: var(--radius-lg);
   border: 1px solid transparent;
   background: transparent;
@@ -93,21 +98,33 @@
 }
 
 .feature-tab-btn.active {
-  background: rgba(156, 39, 255, 0.08);
-  border-color: rgba(156, 39, 255, 0.25);
-  box-shadow: 0 0 20px rgba(156, 39, 255, 0.08), inset 0 0 0 1px rgba(156, 39, 255, 0.08);
   opacity: 1;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 100%);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.feature-tab-btn.active .tab-title {
+  color: #fff;
+}
+
+.feature-tab-btn.active .tab-icon {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(156, 39, 255, 0.4);
 }
 
 .feature-tab-btn .tab-icon {
-  font-size: 1.5rem;
-  flex-shrink: 0;
-  margin-top: 2px;
+  font-size: clamp(1.25rem, 1.5vw, 1.5rem);
+  margin-top: 0.2rem;
+  transition: all 0.3s ease;
 }
 
 .feature-tab-btn .tab-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
   font-weight: 600;
-  font-size: 1.15rem;
   line-height: 1.3;
   margin-bottom: 0.25rem;
 }
@@ -122,7 +139,7 @@
 /* Feature Content Display Pane */
 .feature-content-display {
   padding: 0;
-  height: 560px;
+  height: clamp(560px, 70vh, 800px);
   position: relative;
   border-radius: var(--radius-xl);
 }
@@ -140,6 +157,10 @@
   transition: opacity 0.6s var(--ease-premium), transform 0.6s var(--ease-premium), visibility 0.6s;
   pointer-events: none;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .feature-tab-pane.active {
@@ -148,6 +169,10 @@
   transform: translateY(0) scale(1);
   pointer-events: auto;
   z-index: 2;
+}
+
+.feature-tab-pane .dashboard-frame {
+  width: 100%;
 }
 
 @keyframes tabFadeIn {
@@ -721,6 +746,10 @@
   padding: 0.2rem 0.6rem;
   border-radius: 9999px;
   margin-left: 0.3rem;
+}
+
+.badge-mobile {
+  display: none;
 }
 
 .pricing-tabs-wrapper {
@@ -1547,64 +1576,124 @@
     padding: 130px 0 3rem;
   }
 
-  /* Platform */
+  /* Platform Mobile Redesign */
   .platform-interactive-layout {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    display: none; /* Hide Desktop Pinned version */
   }
 
-  .feature-menu-sidebar {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding-bottom: 1rem;
-    gap: 0.5rem;
-    scroll-snap-type: x mandatory;
-    /* Hide scrollbar */
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  .feature-menu-sidebar::-webkit-scrollbar {
-    display: none;
+  .platform-mobile-layout {
+    display: block;
+    position: relative;
+    width: 100%;
+    /* Dynamically adapt between 75vh and 90vh */
+    height: clamp(650px, 85vh, 900px);
+    overflow: hidden;
+    padding-top: 2rem;
   }
 
-  .feature-tab-btn {
-    flex: 0 0 auto;
-    width: auto;
-    min-width: 160px;
-    min-height: 0;
-    justify-content: center;
+  /* Fallback: if GSAP fails, just stack them normally */
+  .platform-mobile-layout:not(.gsap-initialized) {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  .mobile-feature-slide {
+    position: absolute;
+    top: 2rem;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 2rem);
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    text-align: center;
-    padding: 0.8rem 1rem;
-    scroll-snap-align: start;
-    opacity: 0.5;
+    gap: 2rem;
+    
+    /* Animation initial state */
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px) scale(0.98);
+    transition: opacity 0.6s var(--ease-premium), transform 0.6s var(--ease-premium);
+    will-change: opacity, transform;
   }
 
-  .feature-tab-btn.active {
+  /* Active Slide State */
+  .mobile-feature-slide.active {
     opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
   }
 
-  .feature-tab-btn .tab-icon {
-    font-size: 1.25rem;
-    margin-top: 0;
-  }
-
-  .feature-tab-btn .tab-title {
-    font-size: 1rem;
-    margin-bottom: 0;
-  }
-
-  .feature-tab-btn .tab-desc {
-    display: none;
-  }
-
-  .feature-content-display {
-    min-height: auto;
+  /* Fallback: if GSAP fails, display all */
+  .platform-mobile-layout:not(.gsap-initialized) .mobile-feature-slide {
     position: relative;
     top: auto;
-    padding-top: 2rem;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+  }
+
+  .mobile-feature-text {
+    flex: 0 0 auto;
+    height: 25%; /* Target 20-25% of content */
+    padding: 0 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .mobile-feature-text .tab-icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    display: inline-block;
+  }
+
+  .mobile-feature-text .tab-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-white-text);
+  }
+
+  .mobile-feature-text .tab-desc {
+    font-size: 1rem;
+    color: var(--color-dim-text);
+    line-height: 1.5;
+    max-width: 400px;
+  }
+
+  .mobile-feature-dashboard {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 60%; /* Target 55-60% of content */
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 0.5rem;
+    position: relative;
+    /* Scale down further to guarantee massive layout height */
+    --dash-scale: 0.65;
+  }
+
+  .mobile-feature-dashboard .dashboard-frame {
+    width: 100%;
+    height: 100%; /* Force frame to match the container */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .mobile-feature-dashboard .dashboard-content {
+    /* To scale down the content while perfectly filling the frame, we expand its layout box inversely */
+    width: calc(100% / var(--dash-scale));
+    height: calc(100% / var(--dash-scale));
+    flex-shrink: 0;
+    
+    transform: scale(var(--dash-scale));
+    transform-origin: top left;
   }
 
   /* Services */
@@ -2345,5 +2434,122 @@
 @media (max-width: 768px) {
   .page-hero {
     padding: calc(var(--navbar-height, 64px) + 40px) 1rem 2rem;
+  }
+  
+  /* Pricing Mobile Optimizations */
+  .pricing-toggles-panel {
+    flex-direction: row;
+    padding: 0.6rem 0.2rem;
+    width: 100%;
+    justify-content: center;
+    gap: 0.35rem; /* Increased gap */
+    border-radius: 16px;
+  }
+  .toggle-divider {
+    margin: 0 0.5rem; /* Increased space around divider */
+    height: 40px;
+  }
+  .toggle-group {
+    gap: 0.5rem;
+  }
+  .toggle-label {
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.6);
+    display: block;
+    margin-bottom: 0;
+  }
+  .toggle-pill-container {
+    padding: 0.2rem;
+    border-radius: 9999px;
+  }
+  .toggle-pill-btn {
+    padding: 0.35rem 0.4rem;
+    font-size: 0.65rem;
+    white-space: nowrap;
+  }
+  .pricing-savings-badge {
+    padding: 0.15rem 0.25rem;
+    font-size: 0.55rem;
+    margin-left: 0.15rem;
+  }
+  .badge-desktop {
+    display: none;
+  }
+  .badge-mobile {
+    display: inline;
+  }
+  .pricing-tabs-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 16px;
+    padding: 0.5rem;
+    gap: 0.25rem;
+    width: 100%;
+  }
+  .pricing-tab-btn {
+    flex: 1 1 calc(50% - 0.5rem);
+    padding: 0.5rem;
+    font-size: 0.75rem;
+    border-radius: 12px;
+  }
+}
+
+/* Platform Deep Dive Mobile Optimizations */
+@media (max-width: 1024px) {
+  .platform-page .platform-features-deep .platform-interactive-layout {
+    display: flex !important;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .platform-page .platform-features-deep .feature-menu-sidebar {
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 1rem;
+    -webkit-overflow-scrolling: touch;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding-left: max(1rem, calc(50vw - 50%));
+    padding-right: max(1rem, calc(50vw - 50%));
+  }
+  .platform-page .platform-features-deep .feature-menu-sidebar::-webkit-scrollbar {
+    display: none;
+  }
+  .platform-page .platform-features-deep .feature-tab-btn {
+    flex: 0 0 auto;
+    width: 260px;
+    scroll-snap-align: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .platform-page .platform-features-deep .feature-content-display {
+    height: auto !important;
+    min-height: 450px;
+  }
+  .platform-page .platform-features-deep .feature-tab-pane {
+    position: relative;
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+  }
+  .platform-page .platform-features-deep .feature-tab-pane.active {
+    opacity: 1;
+    visibility: visible;
+    display: block;
+    position: relative;
+  }
+
+  /* Scale down the hero ecosystem on mobile so it doesn't break layout */
+  .platform-hero-section .hero-ecosystem > div {
+    transform: scale(0.65);
+    transform-origin: top center;
+  }
+}
+
+@media (max-width: 600px) {
+  .platform-hero-section .hero-ecosystem > div {
+    transform: scale(0.42);
+    transform-origin: top center;
   }
 }

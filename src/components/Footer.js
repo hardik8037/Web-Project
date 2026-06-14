@@ -28,39 +28,46 @@ export function createFooter() {
           <div class="footer-col">
             <h4 class="footer-col-title">Platform</h4>
             <ul class="footer-links">
-              <li><a href="/platform">WhatsApp API</a></li>
-              <li><a href="/platform">Instagram Automation</a></li>
-              <li><a href="/platform">Facebook Automation</a></li>
-              <li><a href="/platform">RCS Messaging</a></li>
-              <li><a href="/platform">Team Inbox</a></li>
-              <li><a href="/platform">Workflow Builder</a></li>
-              <li><a href="/platform">CRM</a></li>
-              <li><a href="/platform">Bulk Campaigns</a></li>
+              <li><a href="/platform/whatsapp-api">WhatsApp API</a></li>
+              <li><a href="/platform/instagram-automation">Instagram Automation</a></li>
+              <li><a href="/platform/facebook-automation">Facebook Automation</a></li>
+              <li><a href="/platform/rcs-messaging">RCS Messaging</a></li>
+              <li><a href="/platform/team-inbox">Team Inbox</a></li>
+              <li><a href="/platform/workflow-automation">Workflow Builder</a></li>
+              <li><a href="/platform/crm">CRM</a></li>
+              <li><a href="/platform/bulk-campaigns">Bulk Campaigns</a></li>
             </ul>
           </div>
 
           <div class="footer-col">
             <h4 class="footer-col-title">Services</h4>
             <ul class="footer-links">
-              <li><a href="/services">Digital Marketing</a></li>
-              <li><a href="/services">SEO Services</a></li>
-              <li><a href="/services">Performance Marketing</a></li>
-              <li><a href="/services">Social Media</a></li>
-              <li><a href="/services">Web Development</a></li>
-              <li><a href="/services">App Development</a></li>
-              <li><a href="/services">UI/UX Design</a></li>
+              <li><a href="/services/digital-marketing">Digital Marketing</a></li>
+              <li><a href="/services/seo">SEO Services</a></li>
+              <li><a href="/services/performance-marketing">Performance Marketing</a></li>
+              <li><a href="/services/social-media-marketing">Social Media</a></li>
+              <li><a href="/services/web-development">Web Development</a></li>
+              <li><a href="/services/ecommerce-development">Ecommerce Development</a></li>
+              <li><a href="/services/mobile-app-development">App Development</a></li>
+              <li><a href="/services/ui-ux-design">UI/UX Design</a></li>
             </ul>
           </div>
 
           <div class="footer-col">
             <h4 class="footer-col-title">Solutions</h4>
             <ul class="footer-links">
-              <li><a href="/solutions">Real Estate</a></li>
-              <li><a href="/solutions">Healthcare</a></li>
-              <li><a href="/solutions">Ecommerce</a></li>
-              <li><a href="/solutions">Restaurants</a></li>
-              <li><a href="/solutions">Education</a></li>
-              <li><a href="/solutions">Event Management</a></li>
+              <li><a href="/solutions/real-estate">Real Estate</a></li>
+              <li><a href="/solutions/healthcare">Healthcare</a></li>
+              <li><a href="/solutions/ecommerce">Ecommerce</a></li>
+              <li><a href="/solutions/restaurants">Restaurants</a></li>
+              <li><a href="/solutions/education">Education</a></li>
+              <li><a href="/solutions/textile">Textile Industry</a></li>
+              <li><a href="/solutions/jewellery">Jewellery</a></li>
+              <li><a href="/solutions/events">Event Management</a></li>
+              <li><a href="/solutions/automotive">Automotive</a></li>
+              <li><a href="/solutions/travel">Travel & Tourism</a></li>
+              <li><a href="/solutions/fitness">Fitness & Wellness</a></li>
+              <li><a href="/solutions/finance">Banking & Finance</a></li>
             </ul>
           </div>
 
@@ -72,7 +79,6 @@ export function createFooter() {
               <li><a href="/demo">Book a Demo</a></li>
               <li><a href="/pricing">Pricing</a></li>
               <li><a href="/blog">Blog</a></li>
-              <li><a href="#">Careers</a></li>
               <li><a href="#">Privacy Policy</a></li>
               <li><a href="#">Terms of Service</a></li>
             </ul>

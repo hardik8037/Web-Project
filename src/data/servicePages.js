@@ -61,7 +61,7 @@ export const SERVICE_PAGES = {
       { icon: '🔍', title: 'SEO Services', desc: 'Organic search optimization', href: '/services/seo' },
       { icon: '📢', title: 'Bulk Campaigns', desc: 'WhatsApp broadcast marketing', href: '/platform/bulk-campaigns' },
       { icon: '🛍️', title: 'Ecommerce', desc: 'D2C marketing automation', href: '/solutions/ecommerce' },
-      { icon: '💻', title: 'Website Development', desc: 'High-converting landing pages', href: '/services/website-development' },
+      { icon: '💻', title: 'Web Development', desc: 'Web apps, ERPs & corporate sites', href: '/services/web-development' },
     ],
   },
 
@@ -108,7 +108,7 @@ export const SERVICE_PAGES = {
     ],
     relatedLinks: [
       { icon: '📈', title: 'Digital Marketing', desc: 'Full marketing strategy', href: '/services/digital-marketing' },
-      { icon: '💻', title: 'Website Development', desc: 'SEO-optimized web builds', href: '/services/website-development' },
+      { icon: '💻', title: 'Web Development', desc: 'SEO-optimized web builds', href: '/services/web-development' },
       { icon: '🎯', title: 'Performance Marketing', desc: 'Paid + organic combo', href: '/services/performance-marketing' },
     ],
   },
@@ -209,11 +209,11 @@ export const SERVICE_PAGES = {
     ],
   },
 
-  'website-development': {
-    slug: 'website-development', category: 'services', title: 'Website Development',
-    overline: 'Web Engineering', heroTitle: 'Premium', heroHighlight: 'Website Development',
+  'web-development': {
+    slug: 'web-development', category: 'services', title: 'Web Development',
+    overline: 'Web Engineering', heroTitle: 'Premium', heroHighlight: 'Web Development',
     gradient: ['#B84DFF', '#7B1FA2'],
-    heroDesc: 'Build lightning-fast, SEO-optimized websites that convert visitors into customers. From landing pages to complex web applications — engineered for performance.',
+    heroDesc: 'Build lightning-fast, SEO-optimized web applications, ERPs, CRMs, and websites that convert visitors into customers.',
     heroVisualHTML: `
       <div class="hero-ecosystem marketing-ecosystem">
         <div class="ecosystem-card chart-board glass-card-strong float-slow">
@@ -237,7 +237,7 @@ export const SERVICE_PAGES = {
     features: [
       { icon: '🏠', title: 'Landing Pages', desc: 'High-converting landing pages optimized for ad campaigns, product launches, and lead generation with A/B testing.', iconBg: 'rgba(184,77,255,0.1)', iconColor: '#B84DFF' },
       { icon: '🏢', title: 'Corporate Websites', desc: 'Professional multi-page websites with CMS, blog, team pages, and contact forms. Fully responsive.', iconBg: 'rgba(184,77,255,0.1)', iconColor: '#B84DFF' },
-      { icon: '⚡', title: 'Web Applications', desc: 'Custom SaaS dashboards, admin panels, booking systems, and business tools built with React & Next.js.', iconBg: 'rgba(0,136,255,0.1)', iconColor: '#0088FF' },
+      { icon: '⚡', title: 'Web Apps, ERPs & CRM', desc: 'Custom enterprise software, ERPs, CRM systems, SaaS dashboards, and complex business tools built with scalable modern stacks.', iconBg: 'rgba(0,136,255,0.1)', iconColor: '#0088FF' },
       { icon: '🔍', title: 'SEO Architecture', desc: 'Built-in SEO from day one — structured data, meta optimization, Core Web Vitals, and sitemap generation.', iconBg: 'rgba(37,211,102,0.1)', iconColor: '#25D366' },
       { icon: '📱', title: 'Mobile-First Design', desc: 'Every website is designed mobile-first and tested across all devices and browsers.', iconBg: 'rgba(255,107,53,0.1)', iconColor: '#FF6B35' },
       { icon: '🚀', title: 'Performance First', desc: 'Sub-2 second load times with modern frameworks, CDN deployment, and image optimization.', iconBg: 'rgba(54,197,240,0.1)', iconColor: '#36C5F0' },
@@ -314,7 +314,7 @@ export const SERVICE_PAGES = {
     relatedLinks: [
       { icon: '🛍️', title: 'Ecommerce Solutions', desc: 'Industry automation', href: '/solutions/ecommerce' },
       { icon: '💳', title: 'Payment Integration', desc: 'In-chat checkout', href: '/platform/payment-integration' },
-      { icon: '💻', title: 'Website Development', desc: 'Landing pages & sites', href: '/services/website-development' },
+      { icon: '💻', title: 'Web Development', desc: 'Web apps & sites', href: '/services/web-development' },
     ],
   },
 
@@ -361,7 +361,7 @@ export const SERVICE_PAGES = {
     ],
     relatedLinks: [
       { icon: '✨', title: 'UI/UX Design', desc: 'Premium app interfaces', href: '/services/ui-ux-design' },
-      { icon: '💻', title: 'Website Development', desc: 'Companion web apps', href: '/services/website-development' },
+      { icon: '💻', title: 'Web Development', desc: 'Companion web apps', href: '/services/web-development' },
       { icon: '💬', title: 'WhatsApp API', desc: 'In-app chat integration', href: '/platform/whatsapp-api' },
     ],
   },
@@ -408,7 +408,7 @@ export const SERVICE_PAGES = {
       { value: '100%', label: 'Figma Handoff', color: '#25D366' },
     ],
     relatedLinks: [
-      { icon: '💻', title: 'Website Development', desc: 'We build what we design', href: '/services/website-development' },
+      { icon: '💻', title: 'Web Development', desc: 'We build what we design', href: '/services/web-development' },
       { icon: '📱', title: 'Mobile App Development', desc: 'App UI/UX design', href: '/services/mobile-app-development' },
       { icon: '👥', title: 'Social Media Marketing', desc: 'Brand visual identity', href: '/services/social-media-marketing' },
     ],

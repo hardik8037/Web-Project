@@ -72,8 +72,10 @@ export function createPricing() {
               <div class="toggle-pill-container billing-toggle-container">
                 <button class="toggle-pill-btn active" data-billing="monthly">Monthly</button>
                 <button class="toggle-pill-btn" data-billing="yearly">
-                  Yearly
-                  <span class="pricing-savings-badge">Save 20%</span>
+                  Yearly <span class="pricing-savings-badge">
+                    <span class="badge-desktop">Save 20%</span>
+                    <span class="badge-mobile">-20%</span>
+                  </span>
                 </button>
                 <div class="toggle-pill-indicator"></div>
               </div>
@@ -226,18 +228,26 @@ export function createPricing() {
     });
   });
 
-  // Initial render
-  setTimeout(() => {
-    // Init indicators
+  // Initial render & Indicator Fixes
+  const syncIndicators = () => {
     const activeCurrency = container.querySelector('.currency-toggle-container .active');
     const activeBilling = container.querySelector('.billing-toggle-container .active');
     if(activeCurrency) updateToggleIndicator(activeCurrency);
     if(activeBilling) updateToggleIndicator(activeBilling);
-    
+  };
+
+  setTimeout(() => {
+    syncIndicators();
     // Add CSS transition to grid for smooth opacity fades
     grid.style.transition = 'opacity 0.2s ease-in-out';
     renderGrid();
   }, 50);
+
+  // Recalculate indicators after fonts load and on window resize
+  if (document.fonts) {
+    document.fonts.ready.then(syncIndicators);
+  }
+  window.addEventListener('resize', syncIndicators);
 
   // Append FAQ & Final CTA
   container.appendChild(createFAQ());

@@ -178,11 +178,11 @@ export function createNavbar() {
               </div>
               <div class="mega-menu-section">
                 <div class="mega-menu-label">Web & App Engineering</div>
-                <a href="/services/website-development" class="mega-menu-item" role="menuitem">
+                <a href="/services/web-development" class="mega-menu-item" role="menuitem">
                   <span class="mega-icon">💻</span>
                   <div>
-                    <div class="mega-item-title">Website Development</div>
-                    <div class="mega-item-desc">Landing pages & corporate sites</div>
+                    <div class="mega-item-title">Web Development</div>
+                    <div class="mega-item-desc">Web apps, ERPs & corporate sites</div>
                   </div>
                 </a>
                 <a href="/services/ecommerce-development" class="mega-menu-item" role="menuitem">
@@ -323,9 +323,14 @@ export function createNavbar() {
   `;
 
 
+  // Remove existing mobile drawer to support Vite HMR updates
+  const existingDrawer = document.getElementById('mobile-drawer');
+  if (existingDrawer) {
+    existingDrawer.remove();
+  }
+  
   // Append mobile drawer to body (portal style) to avoid stacking context issues
-  if (!document.getElementById('mobile-drawer')) {
-    document.body.insertAdjacentHTML('beforeend', `
+  document.body.insertAdjacentHTML('beforeend', `
     <!-- Mobile Menu Drawer -->
     <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
       <div class="mobile-drawer-content">
@@ -356,10 +361,14 @@ export function createNavbar() {
         <div class="mobile-nav-group">
           <button class="mobile-nav-link mobile-nav-group-trigger">Services <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
           <div class="mobile-nav-submenu">
-            <a href="/services" class="mobile-submenu-link">Digital Marketing</a>
-            <a href="/services" class="mobile-submenu-link">SEO Services</a>
-            <a href="/services" class="mobile-submenu-link">Website Development</a>
-            <a href="/services" class="mobile-submenu-link">Mobile App Dev</a>
+            <a href="/services/digital-marketing" class="mobile-submenu-link">Digital Marketing</a>
+            <a href="/services/seo" class="mobile-submenu-link">SEO Services</a>
+            <a href="/services/performance-marketing" class="mobile-submenu-link">Performance Marketing</a>
+            <a href="/services/social-media-marketing" class="mobile-submenu-link">Social Media Marketing</a>
+            <a href="/services/web-development" class="mobile-submenu-link">Web Development</a>
+            <a href="/services/ecommerce-development" class="mobile-submenu-link">Ecommerce Development</a>
+            <a href="/services/mobile-app-development" class="mobile-submenu-link">Mobile App Development</a>
+            <a href="/services/ui-ux-design" class="mobile-submenu-link">UI/UX Design</a>
           </div>
         </div>
 
@@ -367,11 +376,18 @@ export function createNavbar() {
         <div class="mobile-nav-group">
           <button class="mobile-nav-link mobile-nav-group-trigger">Solutions <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
           <div class="mobile-nav-submenu">
-            <a href="/solutions" class="mobile-submenu-link">Real Estate</a>
-            <a href="/solutions" class="mobile-submenu-link">Healthcare</a>
-            <a href="/solutions" class="mobile-submenu-link">Ecommerce</a>
-            <a href="/solutions" class="mobile-submenu-link">Restaurants</a>
-            <a href="/solutions" class="mobile-submenu-link">Education</a>
+            <a href="/solutions/real-estate" class="mobile-submenu-link">Real Estate</a>
+            <a href="/solutions/healthcare" class="mobile-submenu-link">Healthcare</a>
+            <a href="/solutions/ecommerce" class="mobile-submenu-link">Ecommerce</a>
+            <a href="/solutions/restaurants" class="mobile-submenu-link">Restaurants</a>
+            <a href="/solutions/education" class="mobile-submenu-link">Education</a>
+            <a href="/solutions/textile" class="mobile-submenu-link">Textile Industry</a>
+            <a href="/solutions/jewellery" class="mobile-submenu-link">Jewellery</a>
+            <a href="/solutions/events" class="mobile-submenu-link">Event Management</a>
+            <a href="/solutions/automotive" class="mobile-submenu-link">Automotive</a>
+            <a href="/solutions/travel" class="mobile-submenu-link">Travel & Tourism</a>
+            <a href="/solutions/fitness" class="mobile-submenu-link">Fitness & Wellness</a>
+            <a href="/solutions/finance" class="mobile-submenu-link">Banking & Finance</a>
           </div>
         </div>
 
@@ -383,6 +399,7 @@ export function createNavbar() {
           <div class="mobile-nav-submenu">
             <a href="/blog" class="mobile-submenu-link">Blog</a>
             <a href="/about" class="mobile-submenu-link">About Us</a>
+            <a href="/contact" class="mobile-submenu-link">Contact Sales</a>
           </div>
         </div>
 
@@ -391,9 +408,8 @@ export function createNavbar() {
           <a href="/demo" class="btn btn-primary btn-lg" style="width:100%;">Book a Demo</a>
         </div>
       </div>
-    </d
+    </div>
     `);
-  }
 
   initNavbarInteractions(nav);
   return nav;
