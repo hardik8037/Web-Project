@@ -15,9 +15,9 @@ export class AtmosphereEngine {
     this.startTime = performance.now();
     this.frameCount = 0;
 
-    // Performance: reduce on mobile
-    this.isMobile = window.innerWidth < 768;
-    this.isTablet = window.innerWidth < 1024;
+    // Hybrid Tier Detection
+    this.determineTier();
+    this.fpsData = { frames: 0, start: performance.now(), downgraded: false };
 
     this.init();
     this.createParticleField();
@@ -26,6 +26,32 @@ export class AtmosphereEngine {
     this.createAmbientOrbs();
     this.bindEvents();
     this.animate();
+  }
+
+  determineTier() {
+    const width = window.innerWidth;
+    const dpr = window.devicePixelRatio || 1;
+    const cores = navigator.hardwareConcurrency || 4;
+    const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (isReduced) {
+      this.tier = 5;
+    } else if (width >= 1024) {
+      this.tier = (cores >= 8 && dpr >= 1) ? 1 : 2;
+    } else if (width >= 768) {
+      this.tier = 3;
+    } else {
+      this.tier = (cores >= 6) ? 4 : 5;
+    }
+
+    // Tier specific settings
+    this.settings = {
+      particles: [1200, 800, 400, 150, 60][this.tier - 1],
+      nodes: [50, 40, 25, 0, 0][this.tier - 1],
+      orbs: [5, 4, 3, 2, 0][this.tier - 1],
+      orbitals: [3, 3, 2, 0, 0][this.tier - 1],
+      dpr: [Math.min(dpr, 2.0), Math.min(dpr, 1.5), Math.min(dpr, 1.2), 1.0, 1.0][this.tier - 1]
+    };
   }
 
   init() {
@@ -58,8 +84,7 @@ export class AtmosphereEngine {
       depth: false,
     });
     this.renderer.setSize(this.width, this.height);
-    const dpr = this.isMobile ? 1.0 : this.isTablet ? 1.2 : Math.min(window.devicePixelRatio, 2.0);
-    this.renderer.setPixelRatio(dpr);
+    this.renderer.setPixelRatio(this.settings.dpr);
     this.renderer.setClearColor(0x000000, 0);
 
     this.container.appendChild(this.renderer.domElement);
@@ -67,7 +92,7 @@ export class AtmosphereEngine {
 
   /* ═══ PARTICLE FIELD ═══ */
   createParticleField() {
-    const count = this.isMobile ? 120 : this.isTablet ? 450 : 950;
+    const count = this.settings.particles;
     const geometry = new THREE.BufferGeometry();
     const positions = new Float32Array(count * 3);
     const colors = new Float32Array(count * 3);
@@ -184,9 +209,9 @@ export class AtmosphereEngine {
 
   /* ═══ NEURAL NETWORK LINES ═══ */
   createNeuralNetwork() {
-    if (this.isMobile) return; // Skip on mobile for performance
+    if (this.settings.nodes === 0) return; // Skip for lower tiers
 
-    const nodeCount = this.isTablet ? 30 : 50;
+    const nodeCount = this.settings.nodes;
     this.networkNodes = [];
     this.networkPositions = new Float32Array(nodeCount * 3);
 
@@ -227,19 +252,16 @@ export class AtmosphereEngine {
 
   /* ═══ ORBITAL GEOMETRY ═══ */
   createOrbitalGeometry() {
-    if (this.isMobile) return;
+    if (this.settings.orbitals === 0) return;
 
     this.orbitals = [];
-    const shapes = [
+    const allShapes = [
       { geo: new THREE.IcosahedronGeometry(1.2, 1), pos: [-3, 2, -5], speed: 0.08 },
       { geo: new THREE.OctahedronGeometry(0.8, 0), pos: [4, -1.5, -6], speed: 0.06 },
+      { geo: new THREE.TetrahedronGeometry(0.6, 0), pos: [-2, -3, -4], speed: 0.1 }
     ];
 
-    if (!this.isTablet) {
-      shapes.push(
-        { geo: new THREE.TetrahedronGeometry(0.6, 0), pos: [-2, -3, -4], speed: 0.1 }
-      );
-    }
+    const shapes = allShapes.slice(0, this.settings.orbitals);
 
     shapes.forEach(({ geo, pos, speed }) => {
       const edges = new THREE.EdgesGeometry(geo);
@@ -261,21 +283,20 @@ export class AtmosphereEngine {
 
   /* ═══ AMBIENT GLOW ORBS ═══ */
   createAmbientOrbs() {
+    if (this.settings.orbs === 0) return;
+
     this.orbs = [];
     const orbGeometry = new THREE.SphereGeometry(1, 12, 12);
 
-    const orbConfigs = [
+    const allConfigs = [
       { color: '#9C27FF', pos: [-3.5, 3, -5], radius: 1.4, speed: 0.15 },
       { color: '#B84DFF', pos: [4, 0, -6], radius: 1.2, speed: 0.12 },
       { color: '#7B1FA2', pos: [0, -4, -4], radius: 1.6, speed: 0.1 },
       { color: '#9C27FF', pos: [-2, -2, -7], radius: 1.0, speed: 0.18 },
+      { color: '#B84DFF', pos: [3, 4, -8], radius: 1.3, speed: 0.08 }
     ];
 
-    if (!this.isMobile) {
-      orbConfigs.push(
-        { color: '#B84DFF', pos: [3, 4, -8], radius: 1.3, speed: 0.08 }
-      );
-    }
+    const orbConfigs = allConfigs.slice(0, this.settings.orbs);
 
     orbConfigs.forEach(config => {
       const material = new THREE.MeshBasicMaterial({
@@ -299,16 +320,14 @@ export class AtmosphereEngine {
     this._onResize = () => {
       this.width = window.innerWidth;
       this.height = window.innerHeight;
-      this.isMobile = this.width < 768;
-      this.isTablet = this.width < 1024;
+      this.determineTier(); // Re-eval tier in case of major orientation change
       this.camera.aspect = this.width / this.height;
       this.camera.updateProjectionMatrix();
       this.renderer.setSize(this.width, this.height);
 
-      const dpr = this.isMobile ? 1.0 : this.isTablet ? 1.2 : Math.min(window.devicePixelRatio, 2.0);
-      this.renderer.setPixelRatio(dpr);
+      this.renderer.setPixelRatio(this.settings.dpr);
       if (this.particles && this.particles.material.uniforms && this.particles.material.uniforms.uPixelRatio) {
-        this.particles.material.uniforms.uPixelRatio.value = dpr;
+        this.particles.material.uniforms.uPixelRatio.value = this.settings.dpr;
       }
     };
 
@@ -340,11 +359,21 @@ export class AtmosphereEngine {
 
     if (!this.isVisible) return;
 
-    // Throttle to ~30fps on mobile
     this.frameCount++;
-    if (this.isMobile && this.frameCount % 2 !== 0) return;
+    const now = performance.now();
+    const elapsed = (now - this.startTime) / 1000;
 
-    const elapsed = (performance.now() - this.startTime) / 1000;
+    // Optional Runtime FPS sampling during first 1.5 seconds
+    if (!this.fpsData.downgraded && this.frameCount === 60) {
+      const timeFor60Frames = now - this.fpsData.start;
+      const currentFps = 60 / (timeFor60Frames / 1000);
+      if (currentFps < 45 && this.tier < 5) {
+        this.fpsData.downgraded = true;
+        // Dynamically hide expensive elements to recover FPS without re-allocating
+        if (this.networkLines) this.networkLines.visible = false;
+        if (this.orbs) this.orbs.forEach(o => o.visible = false);
+      }
+    }
 
     // Smooth mouse lerp
     this.mouse.x += (this.mouse.targetX - this.mouse.x) * 0.06;
@@ -352,24 +381,27 @@ export class AtmosphereEngine {
 
     // === Camera drift ===
     this.camera.position.x = this.mouse.x * 2.2;
-    // Boosted vertical shift for screen scroll
     this.camera.position.y = this.mouse.y * 1.8 - this.scroll.y * 0.0018;
-    // Scroll-driven camera zoom: User moves deep *through* the 3D space on scroll
     this.camera.position.z = 6.0 - Math.min(this.scroll.y * 0.0012, 3.2);
 
-    // Scroll-driven camera rotation: Rotate view direction as you scroll
-    this.camera.rotation.x = Math.sin(elapsed * 0.08) * 0.008 + this.mouse.y * 0.06 + this.scroll.y * 0.00015;
-    this.camera.rotation.y = Math.cos(elapsed * 0.06) * 0.006 - this.mouse.x * 0.08 + this.scroll.y * 0.00025;
+    // Skip expensive math on lower tiers
+    if (this.tier <= 3) {
+      this.camera.rotation.x = Math.sin(elapsed * 0.08) * 0.008 + this.mouse.y * 0.06 + this.scroll.y * 0.00015;
+      this.camera.rotation.y = Math.cos(elapsed * 0.06) * 0.006 - this.mouse.x * 0.08 + this.scroll.y * 0.00025;
+    }
 
     // === Particles ===
     if (this.particles) {
       const u = this.particles.material.uniforms;
       u.uTime.value = elapsed;
       u.uMouse.value.set(this.mouse.x, this.mouse.y);
+      // Only update scroll uniform if it changes significantly or skip for perf
       u.uScroll.value = this.scroll.y;
-      // Spin the particle field on scroll for vortex feel
-      this.particles.rotation.y = elapsed * 0.008 + this.scroll.y * 0.00035;
-      this.particles.rotation.x = this.scroll.y * 0.0001;
+      
+      if (this.tier <= 3) {
+        this.particles.rotation.y = elapsed * 0.008 + this.scroll.y * 0.00035;
+        this.particles.rotation.x = this.scroll.y * 0.0001;
+      }
     }
 
     // === Neural network ===

@@ -10,7 +10,7 @@ export function createAbout() {
   container.innerHTML = `
     <!-- Cinematic Hero -->
     <section class="section page-hero about-hero" style="position: relative; overflow: hidden;">
-      <div class="container">
+      <div class="container-standard">
         <div class="section-header" style="max-width: 680px; margin: 0 auto;">
           <div class="detail-hero-badge" style="--badge-color: var(--color-primary-light); margin-bottom: 1.5rem;">
             <span class="badge-dot"></span>THE COMMUNICATION GRID
@@ -47,7 +47,7 @@ export function createAbout() {
 
     <!-- Futuristic Narrative & Operational Philosophy -->
     <section class="section about-narrative-section" style="padding: 6rem 0;">
-      <div class="container">
+      <div class="container-standard">
         <div class="about-philosophy-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;">
           
           <div class="reveal-left" style="text-align: left;">
@@ -104,7 +104,7 @@ export function createAbout() {
 
     <!-- Impact Scale Metrics -->
     <section class="section about-stats-section" style="padding: 6rem 0; position: relative;">
-      <div class="container">
+      <div class="container-standard">
         <div class="section-header" style="margin-bottom: 4.5rem; text-align: center;">
           <span class="text-overline" style="color: var(--color-green);">Infrastructure Scale</span>
           <h2 class="heading-section" style="font-size: 2.5rem; margin: 0.5rem 0 0 0;">Numbers Confirming<br><span class="text-gradient" style="background: linear-gradient(135deg, #00E676 0%, #00B0FF 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Our Reliability</span></h2>
@@ -135,7 +135,7 @@ export function createAbout() {
 
     <!-- Futuristic Company Narrative Timeline -->
     <section class="section about-timeline-section" style="padding: 6rem 0;">
-      <div class="container" style="max-width: 900px;">
+      <div class="container-standard" style="max-width: 900px;">
         <div class="section-header" style="margin-bottom: 5rem; text-align: center;">
           <span class="text-overline">Evolution Roadmap</span>
           <h2 class="heading-section" style="font-size: 2.5rem; margin: 0.5rem 0 0 0;">The Botzo.io <span class="text-gradient">Roadmap</span></h2>

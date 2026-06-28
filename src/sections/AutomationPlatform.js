@@ -211,7 +211,7 @@ const PLATFORM_TABS = [
         <div class="studio-main-stage interactive-stage">
           <div class="generated-image-wrapper floating-art">
             <div class="art-bg-glow soft-glow"></div>
-            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80" alt="Generated Cosmetic Jar" class="generated-img-main" />
+            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80" alt="Generated Cosmetic Jar" width="600" height="600" loading="lazy" decoding="async" class="generated-img-main" />
             <div class="sparkles">✨</div>
           </div>
           <div class="studio-wireframe-grid"></div>
@@ -219,10 +219,10 @@ const PLATFORM_TABS = [
         </div>
 
         <div class="studio-variants">
-          <div class="variant-thumb thumb-1"><img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=200&q=80" alt="Thumb 1" /></div>
-          <div class="variant-thumb thumb-2"><img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?auto=format&fit=crop&w=200&q=80" alt="Thumb 2" /></div>
-          <div class="variant-thumb thumb-3"><img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=200&q=80" alt="Thumb 3" /></div>
-          <div class="variant-thumb thumb-4"><img src="https://images.unsplash.com/photo-1599305090598-fe179d501227?auto=format&fit=crop&w=200&q=80" alt="Thumb 4" /></div>
+          <div class="variant-thumb thumb-1"><img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=200&q=80" alt="Thumb 1" width="200" height="200" loading="lazy" decoding="async" /></div>
+          <div class="variant-thumb thumb-2"><img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?auto=format&fit=crop&w=200&q=80" alt="Thumb 2" width="200" height="200" loading="lazy" decoding="async" /></div>
+          <div class="variant-thumb thumb-3"><img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=200&q=80" alt="Thumb 3" width="200" height="200" loading="lazy" decoding="async" /></div>
+          <div class="variant-thumb thumb-4"><img src="https://images.unsplash.com/photo-1599305090598-fe179d501227?auto=format&fit=crop&w=200&q=80" alt="Thumb 4" width="200" height="200" loading="lazy" decoding="async" /></div>
         </div>
       </div>
     `

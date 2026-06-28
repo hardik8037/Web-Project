@@ -38,13 +38,13 @@ export function createHero() {
         </p>
 
         <div class="hero-cta-group">
-          <a href="#demo" class="btn btn-primary btn-lg">
-            Start Free Trial
+          <a href="/demo" class="btn btn-primary btn-lg">
+            Book a Demo
             <svg class="arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M3 8h9M8 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </a>
-          <a href="#demo" class="btn btn-ghost btn-lg">
+          <a href="/demo" class="btn btn-ghost btn-lg">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.2"/>
               <path d="M6.5 5.5l4 2.5-4 2.5V5.5z" fill="currentColor"/>

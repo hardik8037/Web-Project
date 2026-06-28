@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://botzo.io/sitemap.xml
+Host: botzo.io

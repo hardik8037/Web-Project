@@ -11,7 +11,7 @@ export function createServices() {
   container.innerHTML = `
     <!-- Services Hero Section -->
     <section class="section page-hero services-hero" style="padding-bottom: 0;">
-      <div class="container">
+      <div class="container-wide">
         <div class="section-header" style="max-width: 680px; margin: 0 auto;">
           <div class="detail-hero-badge" style="--badge-color: #00E676; margin-bottom: 1.5rem;">
             <span class="badge-dot"></span>DIGITAL AGENCY
@@ -32,7 +32,7 @@ export function createServices() {
 
     <!-- Agency Verticals Section (Ecosystem Layer) -->
     <section class="section services-verticals hero-ecosystem" style="padding: 0 0 6rem; margin-top: 8rem;">
-      <div class="container">
+      <div class="container-wide">
         <div class="services-grid">
           
           <!-- Marketing card -->
@@ -88,7 +88,7 @@ export function createServices() {
 
     <!-- Live Performance Showcase Mockup -->
     <section class="section services-showcase" style="padding: 6rem 0;">
-      <div class="container">
+      <div class="container-wide">
         <div class="services-showcase-grid">
           <div>
             <span class="text-overline">Proven Performance</span>

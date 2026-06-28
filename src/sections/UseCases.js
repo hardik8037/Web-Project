@@ -135,7 +135,7 @@ export function createUseCases() {
   `).join('');
 
   section.innerHTML = `
-    <div class="container">
+    <div class="container-wide">
       <div class="section-header">
         <span class="text-overline">Industry Solutions</span>
         <h2 class="heading-section">Built for <span class="text-gradient">Every Industry</span></h2>

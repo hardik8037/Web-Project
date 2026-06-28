@@ -11,7 +11,7 @@ export function createNavbar() {
     <div class="botzo-nav container-wide">
       <!-- Logo -->
       <a href="/" class="botzo-nav-logo" aria-label="Botzo.io Home">
-        <img src="/assets/images/logo.png" alt="Botzo.io" class="botzo-logo-img" />
+        <img src="/assets/images/logo.png" alt="Botzo.io" width="120" height="28" fetchpriority="high" decoding="async" class="botzo-logo-img" />
       </a>
 
       <!-- Center Pill Navigation -->
@@ -309,7 +309,7 @@ export function createNavbar() {
 
       <!-- Right Actions -->
       <div class="botzo-nav-actions">
-        <a href="https://app.botzo.io" class="botzo-nav-login">Log In</a>
+        <a href="https://app.botzo.io" class="botzo-nav-login" target="_blank" rel="noopener noreferrer">Log In</a>
         <a href="/demo" class="botzo-nav-cta">Book Demo</a>
       </div>
 
@@ -403,7 +403,7 @@ export function createNavbar() {
           </div>
         </div>
 
-        <a href="https://app.botzo.io" class="mobile-nav-link">Log In</a>
+        <a href="https://app.botzo.io" class="mobile-nav-link" target="_blank" rel="noopener noreferrer">Log In</a>
         <div class="mobile-drawer-cta">
           <a href="/demo" class="btn btn-primary btn-lg" style="width:100%;">Book a Demo</a>
         </div>

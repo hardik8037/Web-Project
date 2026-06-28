@@ -8,6 +8,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import * as THREE from 'three';
 import { initScrollAnimations } from './animations.js';
+import { SEO_CONFIG } from '../config/seo.js';
 
 // Import pages
 import { createHome } from '../pages/Home.js';
@@ -20,6 +21,9 @@ import { createBlog } from '../pages/Blog.js';
 import { createAbout } from '../pages/About.js';
 import { createContact } from '../pages/Contact.js';
 import { createBookDemo } from '../pages/BookDemo.js';
+import { createPrivacy } from '../pages/Privacy.js';
+import { createTerms } from '../pages/Terms.js';
+import { createSecurity } from '../pages/Security.js';
 
 // Import detail page system
 import { createDetailPage } from '../pages/DetailPage.js';
@@ -38,6 +42,9 @@ const ROUTES = {
   '/about': { title: 'About Our Vision | Botzo.io', builder: createAbout, mood: 'about' },
   '/contact': { title: 'Contact Sales & Support | Botzo.io', builder: createContact, mood: 'contact' },
   '/demo': { title: 'Schedule a Consultation | Botzo.io', builder: createBookDemo, mood: 'demo' },
+  '/privacy': { title: 'Privacy Policy | Botzo.io', builder: createPrivacy, mood: 'default' },
+  '/terms': { title: 'Terms of Service | Botzo.io', builder: createTerms, mood: 'default' },
+  '/security': { title: 'Data Security | Botzo.io', builder: createSecurity, mood: 'default' },
 };
 
 /**
@@ -164,7 +171,7 @@ export class Router {
     }
 
     this.currentPath = cleanPath;
-    document.title = routeConfig.title;
+    this.updateSEO(cleanPath, routeConfig);
 
     this.transitionPage(routeConfig, hash);
   }
@@ -348,5 +355,183 @@ export class Router {
         link.classList.remove('active');
       }
     });
+  }
+
+  updateSEO(path, routeConfig) {
+    const seo = SEO_CONFIG[path] || {
+      title: routeConfig.title || 'Botzo.io',
+      description: 'Botzo.io Business Automation',
+      canonical: `https://botzo.io${path === '/' ? '' : path}`,
+      ogTitle: routeConfig.title || 'Botzo.io',
+      ogDescription: 'Botzo.io Business Automation',
+      ogImage: 'https://botzo.io/assets/images/og-image.png',
+      twitterTitle: routeConfig.title || 'Botzo.io',
+      twitterDescription: 'Botzo.io Business Automation',
+      schemaType: 'WebSite'
+    };
+
+    document.title = seo.title;
+    
+    const updateMeta = (selector, attribute, value) => {
+      let el = document.querySelector(selector);
+      if (!el) {
+        el = document.createElement('meta');
+        if (selector.includes('property')) {
+          el.setAttribute('property', selector.match(/"([^"]+)"/)[1]);
+        } else {
+          el.setAttribute('name', selector.match(/"([^"]+)"/)[1]);
+        }
+        document.head.appendChild(el);
+      }
+      el.setAttribute(attribute, value);
+    };
+
+    updateMeta('meta[name="description"]', 'content', seo.description);
+    if (seo.keywords) updateMeta('meta[name="keywords"]', 'content', seo.keywords);
+    if (seo.robots) updateMeta('meta[name="robots"]', 'content', seo.robots);
+
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', seo.canonical);
+
+    updateMeta('meta[property="og:title"]', 'content', seo.ogTitle);
+    updateMeta('meta[property="og:description"]', 'content', seo.ogDescription);
+    updateMeta('meta[property="og:url"]', 'content', seo.canonical);
+    updateMeta('meta[property="og:image"]', 'content', seo.ogImage);
+
+    updateMeta('meta[name="twitter:title"]', 'content', seo.twitterTitle);
+    updateMeta('meta[name="twitter:description"]', 'content', seo.twitterDescription);
+    if (seo.twitterImage) updateMeta('meta[name="twitter:image"]', 'content', seo.twitterImage);
+
+    this.injectStructuredData(seo);
+  }
+
+  injectStructuredData(seo) {
+    let script = document.getElementById('seo-structured-data');
+    if (!script) {
+      script = document.createElement('script');
+      script.id = 'seo-structured-data';
+      script.type = 'application/ld+json';
+      document.head.appendChild(script);
+    }
+
+    const schemas = [];
+
+    // Base WebPage schema for all routes
+    const webPageSchema = {
+      "@context": "https://schema.org",
+      "@type": seo.schemaType === 'WebSite' ? 'WebSite' : "WebPage",
+      "name": seo.title,
+      "description": seo.description,
+      "url": seo.canonical
+    };
+    schemas.push(webPageSchema);
+
+    if (seo.schemaType === 'Organization') {
+      schemas.push({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Botzo.io",
+        "url": "https://botzo.io/",
+        "logo": "https://botzo.io/assets/images/logo.png",
+        "sameAs": [
+          "https://www.linkedin.com/company/botzo",
+          "https://twitter.com/botzo_io",
+          "https://www.instagram.com/botzo.io"
+        ]
+      });
+    } else if (seo.schemaType === 'Service') {
+      schemas.push({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": seo.title.split('|')[0].trim(),
+        "description": seo.description,
+        "provider": {
+          "@type": "Organization",
+          "name": "Botzo.io",
+          "url": "https://botzo.io/"
+        },
+        "url": seo.canonical
+      });
+    }
+
+    if (seo.schemaType === 'FAQ' || (seo.faqs && seo.faqs.length > 0)) {
+      schemas.push({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": (seo.faqs || []).map(faq => ({
+          "@type": "Question",
+          "name": faq.q,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.a
+          }
+        }))
+      });
+    }
+
+    if (seo.schemaType === 'Article' || seo.schemaType === 'BlogPosting') {
+      schemas.push({
+        "@context": "https://schema.org",
+        "@type": seo.schemaType,
+        "headline": seo.title,
+        "description": seo.description,
+        "image": seo.ogImage,
+        "author": {
+          "@type": "Organization",
+          "name": "Botzo.io"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Botzo.io",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://botzo.io/assets/images/logo.png"
+          }
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": seo.canonical
+        }
+      });
+    }
+
+    // Dynamic Breadcrumbs based on canonical URL depth
+    const pathParts = new URL(seo.canonical).pathname.split('/').filter(Boolean);
+    if (pathParts.length > 0) {
+      const breadcrumbElements = [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://botzo.io/"
+      }];
+      
+      let currentPath = "https://botzo.io";
+      pathParts.forEach((part, index) => {
+        currentPath += `/${part}`;
+        let partName = part.charAt(0).toUpperCase() + part.slice(1).replace(/-/g, ' ');
+        if (index === pathParts.length - 1 && seo.breadcrumb && seo.breadcrumb !== 'Home') {
+          partName = seo.breadcrumb;
+        }
+        breadcrumbElements.push({
+          "@type": "ListItem",
+          "position": index + 2,
+          "name": partName,
+          "item": currentPath
+        });
+      });
+
+      schemas.push({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": breadcrumbElements
+      });
+    }
+
+    script.textContent = JSON.stringify(schemas.length === 1 ? schemas[0] : schemas);
   }
 }

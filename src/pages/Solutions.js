@@ -109,7 +109,7 @@ export function createSolutions() {
   container.innerHTML = `
     <!-- Solutions Hero -->
     <section class="section page-hero solutions-hero" style="padding-bottom: 0;">
-      <div class="container">
+      <div class="container-standard">
         <div class="section-header" style="max-width: 680px; margin: 0 auto;">
           <div class="detail-hero-badge" style="--badge-color: #36C5F0; margin-bottom: 1.5rem;">
             <span class="badge-dot"></span>TAILORED SOLUTIONS
@@ -126,7 +126,7 @@ export function createSolutions() {
 
     <!-- Industry Grid (Ecosystem Layer) -->
     <section class="section solutions-grid-section hero-ecosystem" style="padding: 0 0 6rem; margin-top: 8rem;">
-      <div class="container">
+      <div class="container-standard">
         <div class="solutions-grid">
           ${cardsHTML}
         </div>

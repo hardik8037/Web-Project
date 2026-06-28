@@ -1023,7 +1023,7 @@ export function createDetailPage(config) {
   // ─── HERO SECTION ───
   let heroHTML = `
     <section class="section page-hero detail-hero" style="padding-bottom: 0;">
-      <div class="container">
+      <div class="container-wide">
         <div class="section-header" style="max-width: 680px; margin: 0 auto;">
           <div class="detail-hero-badge" style="--badge-color: ${accentColor}; margin-bottom: 1.5rem;">
             <span class="badge-dot"></span>${config.overline || config.category}
@@ -1060,7 +1060,7 @@ export function createDetailPage(config) {
     featuresHTML = `
       <!-- Features Grid (Ecosystem Layer) -->
       <section class="section detail-features-section hero-ecosystem" style="padding: 0 0 6rem; margin-top: 8rem;">
-        <div class="container">
+        <div class="container-wide">
           <div class="section-header" style="margin-bottom: 3rem;">
             <span class="text-overline">${config.featuresOverline || 'Key Features'}</span>
             <h2 class="heading-section">${config.featuresTitle || `What Makes It <span class="text-gradient">Powerful</span>`}</h2>
@@ -1134,7 +1134,7 @@ export function createDetailPage(config) {
 
     demoHTML = `
       <section class="section detail-demo-section">
-        <div class="container">
+        <div class="container-wide">
           <div class="detail-demo-layout">
             ${demoInfoHTML}
             <div class="detail-demo-panel">
@@ -1160,7 +1160,7 @@ export function createDetailPage(config) {
 
     stepsHTML = `
       <section class="section detail-steps-section">
-        <div class="container">
+        <div class="container-wide">
           <div class="section-header" style="margin-bottom: 3rem;">
             <span class="text-overline">How It Works</span>
             <h2 class="heading-section">Get Started in <span class="text-gradient">Minutes</span></h2>
@@ -1186,7 +1186,7 @@ export function createDetailPage(config) {
 
     benefitsHTML = `
       <section class="section detail-benefits-section">
-        <div class="container">
+        <div class="container-wide">
           <div class="section-header" style="margin-bottom: 3rem;">
             <span class="text-overline">Proven Results</span>
             <h2 class="heading-section">Measurable <span class="text-gradient">Impact</span></h2>
@@ -1219,7 +1219,7 @@ export function createDetailPage(config) {
 
     faqHTML = `
       <section class="section detail-faq-section">
-        <div class="container" style="max-width: 800px;">
+        <div class="container-wide" style="max-width: 800px;">
           <div class="section-header" style="margin-bottom: 3rem;">
             <span class="text-overline">Common Questions</span>
             <h2 class="heading-section">Frequently <span class="text-gradient">Asked</span></h2>
@@ -1243,7 +1243,7 @@ export function createDetailPage(config) {
 
     integrationsHTML = `
       <section class="section detail-integrations-section">
-        <div class="container">
+        <div class="container-wide">
           <div class="section-header" style="margin-bottom: 2rem;">
             <span class="text-overline">Ecosystem</span>
             <h2 class="heading-section">Seamless <span class="text-gradient">Integrations</span></h2>
@@ -1281,7 +1281,7 @@ export function createDetailPage(config) {
 
     crossLinkHTML = `
       <section class="section detail-crosslinks-section">
-        <div class="container">
+        <div class="container-wide">
           <div class="section-header" style="margin-bottom: 2.5rem;">
             <span class="text-overline">Explore More</span>
             <h2 class="heading-section">Related <span class="text-gradient">Solutions</span></h2>

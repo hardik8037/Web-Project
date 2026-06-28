@@ -35,7 +35,7 @@ export function createIntegrations() {
   const marqueeContent = logosHTML + logosHTML;
 
   section.innerHTML = `
-    <div class="container">
+    <div class="container-wide">
       <div class="section-header reveal">
         <span class="text-overline">Ecosystem</span>
         <h2 class="heading-section">Seamlessly Integrated With<br><span class="text-gradient">Your Entire Stack</span></h2>

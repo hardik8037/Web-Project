@@ -7,28 +7,28 @@ import { createFinalCTA } from '../sections/FinalCTA.js';
 
 const PLANS = {
   platform: [
-    { name: 'Starter', desc: 'Perfect for small businesses getting started with automation.', price: { inr: { monthly: '4,999', yearly: '3,999' }, usd: { monthly: '59', yearly: '49' } }, features: ['Official WhatsApp API access', '1,000 Free Contacts/mo', 'Unified Shared Inbox (3 Agents)', 'Basic Keyword Auto-Responders', 'Simple Broadcast Campaigns'] },
-    { name: 'Growth', desc: 'For growing businesses that need more power and flexibility.', popular: true, price: { inr: { monthly: '9,999', yearly: '7,999' }, usd: { monthly: '119', yearly: '99' } }, features: ['Everything in Starter', '5,000 Contacts/mo', 'Shared Inbox (10 Agents)', 'Visual Workflow Builder', 'Instagram & FB Comment Auto-Replies'] },
-    { name: 'Professional', desc: 'Enterprise-grade automation for scaling operations.', price: { inr: { monthly: '19,999', yearly: '15,999' }, usd: { monthly: '249', yearly: '199' } }, features: ['Everything in Growth', '15,000 Contacts/mo', 'Unlimited Agents', 'Advanced CRM & Lead Pipelines', 'In-Chat Checkout & Payments'] },
-    { name: 'Enterprise', desc: 'Tailored solutions for large-scale enterprise needs.', isEnterprise: true, price: 'Custom', features: ['Custom Pricing', 'Dedicated Account Manager', 'Priority Support', 'Custom Integrations', 'Advanced Automations', 'White Label Options'] },
+    { name: 'Starter', desc: 'Perfect for small businesses getting started with automation.', price: { inr: { monthly: '999', yearly: '799' }, usd: { monthly: '12', yearly: '9' } }, features: ['1 WhatsApp Number', '500 Conversations/mo', 'Basic Chatbot', 'Contact Management', 'Email Support', '2 Team Members'] },
+    { name: 'Growth', desc: 'For growing businesses that need more power and flexibility.', popular: true, price: { inr: { monthly: '2,999', yearly: '2,399' }, usd: { monthly: '35', yearly: '28' } }, features: ['2 WhatsApp Numbers', '5,000 Conversations/mo', 'Advanced Chatbot + AI', 'CRM + Pipeline', 'Workflow Builder', 'Bulk Campaigns', 'Instagram + Facebook', '5 Team Members', 'Priority Support'] },
+    { name: 'Professional', desc: 'Enterprise-grade automation for scaling operations.', price: { inr: { monthly: '7,999', yearly: '6,399' }, usd: { monthly: '95', yearly: '76' } }, features: ['5 WhatsApp Numbers', 'Unlimited Conversations', 'AI Chatbot + NLP', 'Advanced CRM', 'Omnichannel Inbox', 'Custom Workflows', 'API Access', 'RCS Messaging', '15 Team Members', 'Dedicated Manager'] },
+    { name: 'Enterprise', desc: 'Tailored solutions for large-scale enterprise needs.', isEnterprise: true, price: 'Custom', features: ['Unlimited Numbers', 'Unlimited Conversations', 'Custom AI Models', 'White-label Solution', 'Custom Integrations', 'SLA Guarantee', 'On-premise Option', 'Unlimited Team', '24/7 Priority Support'] },
   ],
   marketing: [
-    { name: 'Basic Marketing', desc: 'Essential marketing for building online presence.', price: { inr: { monthly: '25,000', yearly: '20,000' }, usd: { monthly: '299', yearly: '249' } }, features: ['Social Media Posts (12/mo)', 'Basic SEO Audit', 'Meta Ad Setup (Ad spend not incl.)', 'Monthly Performance Report'] },
-    { name: 'Growth Marketing', desc: 'Comprehensive marketing to accelerate growth.', popular: true, price: { inr: { monthly: '50,000', yearly: '40,000' }, usd: { monthly: '599', yearly: '499' } }, features: ['Social Media Posts (24/mo)', 'Full SEO Keywords Optimization', 'Meta & Google Ads Management', 'Weekly Funnel Optimization'] },
-    { name: 'Performance Marketing', desc: 'High-impact marketing with measurable ROI.', price: { inr: { monthly: '90,000', yearly: '72,000' }, usd: { monthly: '1,099', yearly: '899' } }, features: ['Custom Creative Design', 'Advanced E-commerce Retargeting', 'High-volume Lead Campaigns', 'Bi-weekly Analytics Review'] },
-    { name: 'Enterprise', desc: 'Full-scale marketing operations for enterprises.', isEnterprise: true, price: 'Custom', features: ['Custom Pricing', 'Dedicated Account Manager', 'Priority Support', 'Custom Integrations', 'Advanced Automations', 'White Label Options'] },
+    { name: 'Basic', desc: 'Essential marketing for building online presence.', price: { inr: { monthly: '15,000', yearly: '12,000' }, usd: { monthly: '179', yearly: '149' } }, features: ['SEO Audit & Strategy', 'Social Media (2 platforms)', '10 Content Pieces/mo', 'Monthly Reporting', 'Google Business Setup'] },
+    { name: 'Growth', desc: 'Comprehensive marketing to accelerate growth.', popular: true, price: { inr: { monthly: '35,000', yearly: '28,000' }, usd: { monthly: '419', yearly: '339' } }, features: ['Full SEO Optimization', 'Social Media (4 platforms)', '25 Content Pieces/mo', 'Google + Meta Ads', 'Lead Generation', 'Email Marketing', 'Weekly Reporting', 'Dedicated Strategist'] },
+    { name: 'Performance', desc: 'High-impact marketing with measurable ROI.', price: { inr: { monthly: '75,000', yearly: '60,000' }, usd: { monthly: '899', yearly: '719' } }, features: ['Advanced SEO + Content', 'All Social Platforms', 'Performance Ads (PPC)', 'Conversion Optimization', 'Marketing Automation', 'A/B Testing', 'Real-time Dashboard', 'Bi-weekly Strategy Calls'] },
+    { name: 'Enterprise', desc: 'Full-scale marketing operations for enterprises.', isEnterprise: true, price: 'Custom', features: ['Custom Strategy', 'Multi-brand Management', 'International SEO', 'Custom Attribution', 'Dedicated Team', 'Executive Reporting'] },
   ],
   webdev: [
-    { name: 'Business Website', desc: 'High-converting single-page or simple website.', price: { inr: '35,000', usd: '449' }, features: ['Single Page Responsive Layout', 'Futuristic UI/UX Styles', 'Contact/Lead Capture Form', 'Vite & Tailwind Architecture', 'Optional Maintenance Plan'] },
-    { name: 'Corporate Website', desc: 'Professional multi-page business website.', popular: true, price: { inr: '75,000', usd: '899' }, features: ['Up to 8 Custom Pages', 'Interactive Animations (GSAP)', 'CMS Content Management Integration', 'SEO-friendly Semantic Markup', 'Optional AMC Package'] },
-    { name: 'Ecommerce Website', desc: 'Full-featured online store with payments.', price: { inr: '1,50,000', usd: '1,799' }, features: ['Full Store Catalog & Cart', 'Secure Checkout Payment Hooks', 'Customer Order Dashboard', 'Custom Admin Panel'] },
-    { name: 'Enterprise', desc: 'Custom web applications and platforms.', isEnterprise: true, price: 'Custom', features: ['Custom Pricing', 'Dedicated Account Manager', 'Priority Support', 'Custom Integrations', 'Advanced Automations', 'White Label Options'] },
+    { name: 'Landing Page', desc: 'High-converting single-page website.', price: { inr: '25,000', usd: '299' }, features: ['1-Page Design', 'Mobile Responsive', 'SEO Optimized', 'Contact Form', 'SSL & Hosting Setup', '5-Day Delivery'] },
+    { name: 'Business', desc: 'Professional multi-page business website.', popular: true, price: { inr: '60,000', usd: '719' }, features: ['Up to 8 Pages', 'Custom UI/UX Design', 'CMS Integration', 'Blog Setup', 'Analytics Integration', 'Speed Optimization', '15-Day Delivery'] },
+    { name: 'Ecommerce', desc: 'Full-featured online store with payments.', price: { inr: '1,20,000', usd: '1,439' }, features: ['Shopify/WooCommerce', 'Up to 500 Products', 'Payment Gateway', 'Inventory System', 'Order Management', 'Custom Theme', '30-Day Delivery'] },
+    { name: 'Enterprise', desc: 'Custom web applications and platforms.', isEnterprise: true, price: 'Custom', features: ['React/Next.js/Vue', 'Custom Backend', 'API Development', 'Scalable Architecture', 'CI/CD Pipeline', 'Dedicated Team'] },
   ],
   appdev: [
-    { name: 'Android App', desc: 'Minimum viable product to validate your idea.', price: { inr: '1,50,000', usd: '1,799' }, features: ['Single Platform (Android)', 'Core Features Flow Builder', 'Firebase Backend Architecture', 'Standard UI Component Layout', 'Optional App Support Package'] },
-    { name: 'iOS App', desc: 'Minimum viable product to validate your idea.', price: { inr: '1,50,000', usd: '1,799' }, features: ['Single Platform (iOS)', 'Core Features Flow Builder', 'Firebase Backend Architecture', 'Standard UI Component Layout', 'Optional App Support Package'] },
-    { name: 'Cross-Platform App', desc: 'Feature-rich app for growing startups.', popular: true, price: { inr: '3,00,000', usd: '3,599' }, features: ['Dual Platform (Android & iOS)', 'Flutter Cross-platform Build', 'Third-party API Integrations', 'Custom UI/UX Micro-motions', 'Optional Maintenance Plan'] },
-    { name: 'Enterprise', desc: 'Enterprise-grade mobile solutions.', isEnterprise: true, price: 'Custom', features: ['Custom Pricing', 'Dedicated Account Manager', 'Priority Support', 'Custom Integrations', 'Advanced Automations', 'White Label Options'] },
+    { name: 'MVP', desc: 'Minimum viable product to validate your idea.', price: { inr: '80,000', usd: '959' }, features: ['Core Features Only', 'Single Platform', 'Basic UI Design', 'API Integration', 'Testing & QA', '30-Day Delivery'] },
+    { name: 'Startup', desc: 'Feature-rich app for growing startups.', popular: true, price: { inr: '2,50,000', usd: '2,999' }, features: ['Cross-Platform (iOS + Android)', 'Custom UI/UX Design', 'Push Notifications', 'User Auth & Profiles', 'Admin Dashboard', 'App Store Deployment', '60-Day Delivery'] },
+    { name: 'Business', desc: 'Comprehensive business application.', price: { inr: '5,00,000', usd: '5,999' }, features: ['Native iOS + Android', 'Advanced Features', 'Payment Integration', 'Real-time Chat', 'Analytics Dashboard', 'Third-party APIs', 'Maintenance Plan', '90-Day Delivery'] },
+    { name: 'Enterprise', desc: 'Enterprise-grade mobile solutions.', isEnterprise: true, price: 'Custom', features: ['Custom Architecture', 'Microservices Backend', 'Enterprise Security', 'Offline Mode', 'Custom Integrations', 'Dedicated Team', 'SLA & Support'] },
   ],
 };
 
@@ -44,9 +44,12 @@ export function createPricing() {
   container.innerHTML = `
     <!-- Pricing Hero -->
     <section class="section page-hero pricing-hero" style="padding-bottom: 0;">
-      <div class="container">
+      <div class="container-wide">
         <div class="section-header pricing-header-override" style="max-width: 900px; margin-bottom: 2rem;">
-          <span class="text-overline"><span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--color-primary); margin-right:8px; box-shadow: 0 0 10px var(--color-primary);"></span>FAIR & TRANSPARENT PRICING</span>
+          <div class="detail-hero-badge" style="--badge-color: var(--color-primary); margin-bottom: 1.5rem;">
+            <span class="badge-dot"></span>
+            <span class="badge-text">FAIR & TRANSPARENT PRICING</span>
+          </div>
           <h1 class="heading-hero">Choose the Perfect Plan<br>to <span class="text-gradient">Scale Your Business</span></h1>
           <p class="text-body-lg" style="max-width: 600px; margin: 0 auto 3rem; color: rgba(255, 255, 255, 0.7);">
             Powerful automation, marketing, and development solutions built to grow with your business.
@@ -87,7 +90,7 @@ export function createPricing() {
             <button class="pricing-tab-btn active" data-module="platform">Automation Platform</button>
             <button class="pricing-tab-btn" data-module="marketing">Digital Marketing</button>
             <button class="pricing-tab-btn" data-module="webdev">Web Development</button>
-            <button class="pricing-tab-btn" data-module="appdev">Mobile App Development</button>
+            <button class="pricing-tab-btn" data-module="appdev">App Development</button>
           </div>
         </div>
       </div>
@@ -95,7 +98,7 @@ export function createPricing() {
 
     <!-- Pricing Columns Container -->
     <section class="section pricing-cards-section hero-ecosystem" style="padding: 0 0 4rem; margin-top: 0;">
-      <div class="container">
+      <div class="container-wide">
         <div class="pricing-grid" id="pricing-grid">
           <!-- Loaded dynamically via JS below -->
         </div>

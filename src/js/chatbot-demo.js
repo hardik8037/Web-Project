@@ -1,4 +1,5 @@
 import { gsap } from 'gsap';
+import { sanitizeHTML } from '../utils/sanitize.js';
 
 /* ═══════════════════════════════════════════════════
    INTERACTIVE CHATBOT & CRM DEMO SYSTEM
@@ -165,7 +166,7 @@ export class ChatbotDemo {
     // Format text with newlines
     const textEl = document.createElement('span');
     textEl.className = 'wa-bubble-text';
-    textEl.innerHTML = text.replace(/\n/g, '<br>');
+    textEl.innerHTML = sanitizeHTML(text.replace(/\n/g, '<br>'));
     bubble.appendChild(textEl);
 
     // Timestamp + read receipts

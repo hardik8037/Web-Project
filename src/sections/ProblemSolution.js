@@ -8,7 +8,7 @@ export function createProblemSolution() {
   section.className = 'section transform-section';
 
   section.innerHTML = `
-    <div class="container">
+    <div class="container-wide">
       <div class="section-header">
         <span class="text-overline">Transformation</span>
         <h2 class="heading-section">From Chaos <span class="text-gradient">to Control</span></h2>

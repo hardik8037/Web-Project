@@ -181,7 +181,7 @@ function createPricingCard(plan) {
         <span class="pricing-price">${plan.price}</span>
         <span class="pricing-period">${plan.period}</span>
       </div>
-      <a href="#demo" class="btn ${plan.popular ? 'btn-primary' : 'btn-ghost'}" style="width:100%;margin-bottom:1.5rem;">${plan.cta}</a>
+      <a href="/demo" class="btn ${plan.popular ? 'btn-primary' : 'btn-ghost'}" style="width:100%;margin-bottom:1.5rem;">${plan.cta}</a>
       <ul class="pricing-features">
         ${plan.features.map(f => `
           <li>
@@ -201,7 +201,7 @@ export function createPricing() {
 
   const tabKeys = Object.keys(PRICING_DATA);
   const tabsHTML = tabKeys.map((key, i) => `
-    <button class="pricing-tab ${i === 0 ? 'active' : ''}" data-pricing-tab="${key}">
+    <button class="pricing-tab-btn ${i === 0 ? 'active' : ''}" data-pricing-tab="${key}">
       ${PRICING_DATA[key].label}
     </button>
   `).join('');
@@ -215,15 +215,47 @@ export function createPricing() {
   `).join('');
 
   section.innerHTML = `
-    <div class="container">
+    <div class="container-wide">
       <div class="section-header">
         <span class="text-overline">Pricing</span>
         <h2 class="heading-section">Simple, Transparent<br><span class="text-gradient">Pricing for Everyone</span></h2>
         <p class="text-body-lg">Choose the right plan for your business. Start free, scale as you grow.</p>
       </div>
 
-      <div class="pricing-tabs-container reveal">
-        <div class="pricing-tabs">
+      <!-- Combined Toggles Panel (Adaptive) -->
+      <div style="text-align: center;">
+        <div class="pricing-toggles-panel glass-card-strong reveal">
+          <div class="toggle-group">
+            <div class="toggle-label">Currency</div>
+            <!-- Currency Toggle -->
+            <div class="toggle-pill-container currency-toggle-container">
+              <button class="toggle-pill-btn active" data-currency="inr">INR (₹)</button>
+              <button class="toggle-pill-btn" data-currency="usd">USD ($)</button>
+              <div class="toggle-pill-indicator"></div>
+            </div>
+          </div>
+          
+          <div class="toggle-divider" id="billing-divider"></div>
+
+          <div class="toggle-group" id="billing-toggle-wrapper">
+            <div class="toggle-label">Billing Cycle</div>
+            <!-- Billing Toggle -->
+            <div class="toggle-pill-container billing-toggle-container">
+              <button class="toggle-pill-btn active" data-billing="monthly">Monthly</button>
+              <button class="toggle-pill-btn" data-billing="yearly">
+                Yearly <span class="pricing-savings-badge">
+                  <span class="badge-desktop">Save 20%</span>
+                  <span class="badge-mobile">-20%</span>
+                </span>
+              </button>
+              <div class="toggle-pill-indicator"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal" style="text-align: center;">
+        <div class="pricing-tabs-wrapper">
           ${tabsHTML}
         </div>
       </div>
@@ -244,8 +276,9 @@ export function createPricing() {
 }
 
 function initPricingTabs(section) {
-  const tabs = section.querySelectorAll('.pricing-tab');
+  const tabs = section.querySelectorAll('.pricing-tab-btn');
   const panels = section.querySelectorAll('.pricing-panel');
+  const toggleBtns = section.querySelectorAll('.toggle-pill-btn');
 
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
@@ -255,6 +288,50 @@ function initPricingTabs(section) {
       panels.forEach(panel => {
         panel.classList.toggle('active', panel.dataset.pricingPanel === targetId);
       });
+
+      // Show billing cycle only for Automation & Marketing
+      const billingDivider = section.querySelector('#billing-divider');
+      const billingToggle = section.querySelector('#billing-toggle-wrapper');
+      if (billingDivider && billingToggle) {
+        if (targetId === 'automation' || targetId === 'marketing') {
+          billingDivider.style.display = ''; // Reset to CSS default (block/inline)
+          billingToggle.style.display = 'flex'; // It's a flex container
+        } else {
+          billingDivider.style.display = 'none';
+          billingToggle.style.display = 'none';
+        }
+      }
     });
+  });
+
+  // Toggle Indicator Math function
+  function updateToggleIndicator(btn) {
+    const container = btn.parentElement;
+    const indicator = container.querySelector('.toggle-pill-indicator');
+    if (indicator && btn) {
+      indicator.style.width = `${btn.offsetWidth}px`;
+      indicator.style.left = `${btn.offsetLeft}px`;
+    }
+  }
+
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Find siblings in the same pill container
+      const siblings = btn.parentElement.querySelectorAll('.toggle-pill-btn');
+      siblings.forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      updateToggleIndicator(btn);
+    });
+  });
+
+  // Initial sync
+  setTimeout(() => {
+    const activeToggles = section.querySelectorAll('.toggle-pill-btn.active');
+    activeToggles.forEach(btn => updateToggleIndicator(btn));
+  }, 50);
+
+  window.addEventListener('resize', () => {
+    const activeToggles = section.querySelectorAll('.toggle-pill-btn.active');
+    activeToggles.forEach(btn => updateToggleIndicator(btn));
   });
 }

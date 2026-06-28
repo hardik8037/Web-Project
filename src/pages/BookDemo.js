@@ -1,6 +1,8 @@
 /* ═══════════════════════════════════════════════════
    BOTZO.IO — BOOK DEMO PAGE
    ═══════════════════════════════════════════════════ */
+import { createFinalCTA } from '../sections/FinalCTA.js';
+import { sanitizeHTML } from '../utils/sanitize.js';
 
 export function createBookDemo() {
   const container = document.createElement('div');
@@ -31,7 +33,7 @@ export function createBookDemo() {
   container.innerHTML = `
     <!-- Booking Hero -->
     <section class="section page-hero booking-hero" style="padding-bottom: 0;">
-      <div class="container">
+      <div class="container-wide">
         <div class="section-header booking-section-header">
           <div class="detail-hero-badge" style="--badge-color: var(--color-green); margin-bottom: 1.2rem;">
             <span class="badge-dot"></span>LIVE DEMO
@@ -48,7 +50,7 @@ export function createBookDemo() {
 
     <!-- Calendar Mockup Section -->
     <section class="section calendar-booking-section" style="padding: 0 0 5rem; margin-top: 2rem;">
-      <div class="container">
+      <div class="container-wide">
         <div class="booking-card premium-glass-card">
           
           <!-- Left Meeting Info -->
@@ -76,9 +78,8 @@ export function createBookDemo() {
               ${datesHTML}
             </div>
 
-            <!-- Time Slots Dropdown -->
             <div class="booking-form-group" style="margin-bottom: 2rem;">
-              <select id="booking-time-select" class="glass-input booking-input-field" style="width: 100%; cursor: pointer; appearance: none; background-image: url('data:image/svg+xml;utf8,<svg width=\\'12\\' height=\\'12\\' viewBox=\\'0 0 24 24\\' fill=\\'none\\' stroke=\\'white\\' stroke-width=\\'2\\' xmlns=\\'http://www.w3.org/2000/svg\\'><path d=\\'M6 9l6 6 6-6\\'/></svg>'); background-repeat: no-repeat; background-position: right 1rem center;">
+              <select id="booking-time-select" aria-label="Select Appointment Time" class="glass-input booking-input-field" style="width: 100%; cursor: pointer; appearance: none; background-image: url('data:image/svg+xml;utf8,<svg width=\\'12\\' height=\\'12\\' viewBox=\\'0 0 24 24\\' fill=\\'none\\' stroke=\\'white\\' stroke-width=\\'2\\' xmlns=\\'http://www.w3.org/2000/svg\\'><path d=\\'M6 9l6 6 6-6\\'/></svg>'); background-repeat: no-repeat; background-position: right 1rem center;">
                 <!-- Populated via JS -->
               </select>
               <style>
@@ -89,24 +90,33 @@ export function createBookDemo() {
 
             <!-- Phone Number Input -->
             <div class="booking-form-group">
-              <label class="booking-label">WhatsApp Number</label>
+              <label for="booking-phone" class="booking-label">WhatsApp Number</label>
               <div class="booking-phone-wrapper">
                 
                 <!-- Custom Country Select -->
                 <div class="booking-country-select" id="custom-country-select">
-                  <div id="country-selected" class="glass-input booking-input-field country-select-trigger">
-                    <input type="text" id="country-search" value="+91 (IN)" data-code="+91" class="country-search-input">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="country-select-icon"><path d="M6 9l6 6 6-6"/></svg>
+                  <div id="country-selected" class="glass-input booking-input-field country-select-trigger" aria-label="Selected Country Code" role="button" tabindex="0">
+                    <input type="text" id="country-search" value="+91 (IN)" data-code="+91" class="country-search-input" aria-label="Search Country Code">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="country-select-icon" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
                   </div>
                   <div id="country-options-list" class="country-options-dropdown">
                     <!-- Generated via JS -->
                   </div>
                 </div>
 
-                <input type="tel" id="booking-phone" class="glass-input booking-input-field phone-input-field" placeholder="00000 00000">
+                <input type="tel" id="booking-phone" required minlength="7" maxlength="15" pattern="[0-9\\s\\-]+" class="glass-input booking-input-field phone-input-field" placeholder="00000 00000">
               </div>
             </div>
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" id="booking-name" required minlength="2" maxlength="50" pattern="[a-zA-Z\\s\\-]+" class="glass-input booking-input-field" placeholder="e.g. John Doe">
+            </div>
+            <div class="form-group">
+              <label>Work Email</label>
+              <input type="email" id="booking-email" required maxlength="100" class="glass-input booking-input-field" placeholder="john@company.com">
+            </div>
 
+            <div id="booking-error-msg" style="color: #ff4d4d; font-size: 0.85rem; margin-bottom: 1rem; display: none;"></div>
             <button id="confirm-booking-btn" class="btn btn-primary btn-booking-submit">Confirm Appointment Slot</button>
           </div>
 
@@ -271,56 +281,45 @@ export function createBookDemo() {
 
     // Confirm booking and Validation
     const confirmBtn = container.querySelector('#confirm-booking-btn');
-    const phoneInput = container.querySelector('#booking-phone');
-    
-    // Basic phone validation rules
-    const phoneRules = {
-      '+91': { min: 10, max: 10 },
-      '+1': { min: 10, max: 10 },
-      '+44': { min: 10, max: 11 },
-      '+61': { min: 9, max: 9 },
-      '+971': { min: 9, max: 9 },
-      'default': { min: 7, max: 15 }
-    };
 
     if (confirmBtn) {
       confirmBtn.addEventListener('click', async () => {
-        if (phoneInput && searchInput) {
-          const num = phoneInput.value.replace(/\D/g, ''); // strip non-digits
-          const code = searchInput.dataset.code || '+91';
-          const rule = phoneRules[code] || phoneRules['default'];
+        const errorMsg = container.querySelector('#booking-error-msg');
+        errorMsg.style.display = 'none';
 
-          if (!num) {
-            alert('Please enter your WhatsApp Number.');
-            phoneInput.focus();
-            return;
-          }
-          
-          if (num.length < rule.min || num.length > rule.max) {
-            const lengthMsg = rule.min === rule.max ? `${rule.min}` : `${rule.min} to ${rule.max}`;
-            alert(`Invalid phone number length for ${code}. Expected ${lengthMsg} digits, but got ${num.length}.`);
-            phoneInput.focus();
-            return;
-          }
-        }
+        const name = sanitizeHTML(container.querySelector('#booking-name').value.trim());
+        const email = sanitizeHTML(container.querySelector('#booking-email').value.trim());
+        const phone = sanitizeHTML(container.querySelector('#booking-phone').value.trim());
+        const countryCode = container.querySelector('#country-search').dataset.code || '+91';
 
-        // Get selected date
         const activeDate = container.querySelector('.date-slot-btn.active');
         const dateDay = activeDate ? activeDate.querySelector('.date-slot-day')?.textContent : '';
         const dateNum = activeDate ? activeDate.querySelector('.date-slot-num')?.textContent : '';
-
-        // Get selected time
         const timeSelect = container.querySelector('#booking-time-select');
         let timeText = timeSelect ? timeSelect.value : '';
 
-        if (!timeText) {
-          alert('Please select a valid time slot. All slots for this day might be full or passed.');
+        // Basic JS Validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!name || name.length < 2 || name.length > 50) {
+          errorMsg.textContent = 'Please enter a valid name (2-50 characters).';
+          errorMsg.style.display = 'block';
           return;
         }
-
-        // Get phone
-        const countryCode = searchInput ? searchInput.dataset.code : '+91';
-        const phoneNum = phoneInput ? phoneInput.value : '';
+        if (!email || !emailRegex.test(email)) {
+          errorMsg.textContent = 'Please enter a valid email address.';
+          errorMsg.style.display = 'block';
+          return;
+        }
+        if (!phone || phone.length < 7 || phone.length > 15 || !/^[0-9\s\-]+$/.test(phone)) {
+          errorMsg.textContent = 'Please enter a valid phone number.';
+          errorMsg.style.display = 'block';
+          return;
+        }
+        if (!timeText) {
+          errorMsg.textContent = 'Please select a valid time slot. All slots for this day might be full or passed.';
+          errorMsg.style.display = 'block';
+          return;
+        }
 
         // --- ⚙️ WEBHOOK CONFIGURATION ---
         // Replace this URL with your Make.com, Zapier, or custom webhook URL
@@ -338,7 +337,7 @@ export function createBookDemo() {
           source: 'Book Demo Page',
           date: `${dateDay}, ${dateNum}`,
           time: timeText,
-          whatsapp_number: `${countryCode}${phoneNum}`, // Concatenated together
+          whatsapp_number: `${countryCode}${phone}`,
           submittedAt: new Date().toISOString()
         };
 
@@ -440,7 +439,8 @@ export function createBookDemo() {
 
         } catch (error) {
           console.error('Error sending booking data:', error);
-          alert('Something went wrong scheduling your demo. Please try again or reach out on WhatsApp.');
+          errorMsg.innerText = 'Something went wrong scheduling your demo. Please try again or reach out on WhatsApp.';
+          errorMsg.style.display = 'block';
         } finally {
           // Reset Button
           confirmBtn.innerHTML = originalBtnText;

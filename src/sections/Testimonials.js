@@ -71,7 +71,7 @@ export function createTestimonials() {
   `).join('');
 
   section.innerHTML = `
-    <div class="container">
+    <div class="container-standard">
       <div class="section-header">
         <span class="text-overline">Testimonials</span>
         <h2 class="heading-section">Loved by <span class="text-gradient">50,000+ Businesses</span></h2>

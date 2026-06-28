@@ -1,0 +1,6 @@
+Contact: mailto:security@botzo.io
+Expires: 2027-01-01T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://botzo.io/.well-known/security.txt
+Policy: https://botzo.io/security
+Hiring: https://botzo.io/about

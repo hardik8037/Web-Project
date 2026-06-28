@@ -2,7 +2,7 @@
    FAQ SECTION
    ═══════════════════════════════════════════════════ */
 
-const FAQS = [
+export const FAQS = [
   {
     q: 'What is the WhatsApp Business API, and how does Botzo.io help?',
     a: 'The WhatsApp Business API allows businesses to communicate with customers at scale through WhatsApp. Botzo.io provides official API access with a powerful chatbot builder, automation workflows, bulk messaging, and CRM integration — all through an easy-to-use dashboard without any coding.',
@@ -63,13 +63,13 @@ export function createFAQ() {
   `).join('');
 
   section.innerHTML = `
-    <div class="container">
+    <div class="container-standard">
       <div class="faq-layout">
         <div class="faq-header reveal-left">
           <span class="text-overline">FAQ</span>
-          <h2 class="heading-section">Everything You<br>Need to <span class="text-gradient">Know</span></h2>
+          <h2 class="heading-section">Everything You <br>Need to <span class="text-gradient">Know</span></h2>
           <p class="text-body" style="margin-top:1rem;">Can't find what you're looking for? Our team is here to help.</p>
-          <a href="#contact" class="btn btn-glass btn-sm" style="margin-top:1.5rem;">Contact Support →</a>
+          <a href="/contact" class="btn btn-glass btn-sm" style="margin-top:1.5rem;">Contact Support →</a>
         </div>
         <div class="faq-list reveal-right">
           ${faqsHTML}

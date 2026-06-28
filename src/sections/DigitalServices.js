@@ -21,7 +21,7 @@ export function createDigitalServices() {
       </div>
 
       <!-- Digital Marketing -->
-      <div class="service-block reveal">
+      <div class="service-block reveal" style="margin-top: 3rem;">
         <div class="service-block-content">
           <div class="service-badge" style="--badge-color: #FF6B35;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF6B35" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
@@ -107,7 +107,7 @@ export function createDigitalServices() {
             <span class="service-feature-tag">Ecommerce</span>
             <span class="service-feature-tag">UI/UX Design</span>
           </div>
-          <a href="/services/website-development" class="btn btn-glass btn-sm" style="margin-top:1.5rem;">Explore Web Dev →</a>
+          <a href="/services/web-development" class="btn btn-glass btn-sm" style="margin-top:1.5rem;">Explore Web Dev →</a>
         </div>
         <div class="service-block-visual">
           <div class="dashboard-frame">
@@ -161,7 +161,7 @@ export function createDigitalServices() {
             <span class="service-feature-tag">API Integration</span>
             <span class="service-feature-tag">App Store Deploy</span>
           </div>
-          <a href="/services/app-development" class="btn btn-glass btn-sm" style="margin-top:1.5rem;">Explore App Dev →</a>
+          <a href="/services/mobile-app-development" class="btn btn-glass btn-sm" style="margin-top:1.5rem;">Explore App Dev →</a>
         </div>
         <div class="service-block-visual">
           <div class="app-preview-wrapper" style="display:flex; gap: 1.5rem; align-items: center; justify-content: center;">

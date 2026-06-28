@@ -4,6 +4,7 @@
    ═══════════════════════════════════════════════════ */
 
 import gsap from 'gsap';
+import { sanitizeHTML } from '../utils/sanitize.js';
 import { createFinalCTA } from '../sections/FinalCTA.js';
 
 // Rich article database for editorial rendering
@@ -348,7 +349,7 @@ export function createBlog() {
     container.innerHTML = `
       <!-- Blog Hero -->
       <section class="section page-hero blog-hero" style="padding-bottom: 0;">
-        <div class="container">
+        <div class="container-wide">
           <div class="section-header" style="max-width: 680px; margin: 0 auto;">
             <div class="detail-hero-badge" style="--badge-color: #00B0FF; margin-bottom: 1.5rem;">
               <span class="badge-dot"></span>DEVELOPER BLOG
@@ -365,7 +366,7 @@ export function createBlog() {
 
       <!-- Search & Filters (Ecosystem Layer) -->
       <section class="section blog-controls hero-ecosystem" style="padding: 0 0 3rem 0; margin-top: 8rem;">
-        <div class="container" style="max-width: 900px;">
+        <div class="container-wide" style="max-width: 900px;">
           <div class="blog-search-container glass-card" style="display:flex; align-items:center; padding: 0.5rem 1.25rem; border-radius: 999px; margin-bottom: 1.5rem; border: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.015);">
             <span style="font-size: 1.1rem; opacity:0.5; margin-right: 0.75rem;">🔍</span>
             <input type="text" id="blog-search" class="blog-search-input" value="${searchQuery}" placeholder="Search guides by title or keyword..." style="background:none; border:none; outline:none; color:var(--color-white-text); font-family:var(--font-body); font-size:0.92rem; flex:1; padding: 0.5rem 0;" />
@@ -379,7 +380,7 @@ export function createBlog() {
 
       <!-- Main Articles Area -->
       <section class="section blog-list" style="padding: 0 0 6rem 0;">
-        <div class="container">
+        <div class="container-wide">
           ${featuredHTML}
           <div class="guides-grid" style="margin-top: 3rem;">
             ${cardsHTML}
@@ -388,26 +389,30 @@ export function createBlog() {
       </section>
 
       <!-- Glassmorphic Reader Modal Backdrop (Linear/Notion style) -->
-      <div class="blog-reader-backdrop" style="display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(5, 5, 8, 0.4); backdrop-filter: blur(16px); justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease;">
-        <div class="blog-reader-modal glass-card-strong" style="width: 90%; max-width: 780px; height: 85vh; border-radius: 24px; display: flex; flex-direction: column; overflow: hidden; transform: scale(0.96) translateY(10px); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); border-color: rgba(255,255,255,0.08); box-shadow: var(--shadow-elevated);">
-          <!-- Top Glowing Reading Progress Bar -->
-          <div class="blog-reader-progress" style="height: 3px; width: 0%; background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-light) 100%); transition: width 0.1s ease; box-shadow: 0 0 8px rgba(156, 39, 255, 0.5);"></div>
+      <div class="blog-reader-backdrop" data-lenis-prevent="true" style="display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(5, 5, 8, 0.4); backdrop-filter: blur(16px); overflow-y: auto; overscroll-behavior: none; padding: 5vh 1rem; opacity: 0; transition: opacity 0.3s ease; -webkit-overflow-scrolling: touch;">
+        <div class="blog-reader-modal glass-card-strong" data-lenis-prevent="true" style="width: 100%; max-width: 780px; height: auto; margin: 0 auto; border-radius: 24px; position: relative; overflow: visible; transform: scale(0.96) translateY(10px); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); border-color: rgba(255,255,255,0.08); box-shadow: var(--shadow-elevated);">
           
-          <!-- Modal Header -->
-          <div class="blog-reader-header" style="padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.01);">
-            <div style="display:flex; align-items:center; gap:0.6rem;">
-              <span id="modal-cat-tag" class="blog-card-tag" style="background: rgba(184, 77, 255, 0.1); color: var(--color-primary-light);">Category</span>
-              <span id="modal-read-time" style="font-size:0.75rem; color:var(--color-dim-text);">5 min read</span>
+          <!-- Sticky Header Container -->
+          <div style="position: sticky; top: 0; z-index: 10; background: rgba(10, 10, 15, 0.85); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-bottom: 1px solid rgba(255,255,255,0.06); border-top-left-radius: 24px; border-top-right-radius: 24px;">
+            <!-- Top Glowing Reading Progress Bar -->
+            <div class="blog-reader-progress" style="height: 3px; width: 0%; background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-light) 100%); transition: width 0.1s ease; box-shadow: 0 0 8px rgba(156, 39, 255, 0.5);"></div>
+            
+            <!-- Modal Header -->
+            <div class="blog-reader-header" style="padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between;">
+              <div style="display:flex; align-items:center; gap:0.6rem;">
+                <span id="modal-cat-tag" class="blog-card-tag" style="background: rgba(184, 77, 255, 0.1); color: var(--color-primary-light);">Category</span>
+                <span id="modal-read-time" style="font-size:0.75rem; color:var(--color-dim-text);">5 min read</span>
+              </div>
+              <button class="blog-reader-close" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius:50%; width:32px; height:32px; display:flex; align-items:center; justify-content:center; color:var(--color-white-text); cursor:pointer; transition: all 0.2s ease;">
+                ✕
+              </button>
             </div>
-            <button class="blog-reader-close" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius:50%; width:32px; height:32px; display:flex; align-items:center; justify-content:center; color:var(--color-white-text); cursor:pointer; transition: all 0.2s ease;">
-              ✕
-            </button>
           </div>
 
-          <!-- Scrollable Content Frame -->
-          <div class="blog-reader-body" style="flex: 1; overflow-y: auto; padding: 2.5rem 3rem; text-align: left; scroll-behavior: smooth;">
+          <!-- Content Frame (No longer constrained by height) -->
+          <div class="blog-reader-body" style="padding: 2.5rem 3rem; text-align: left;">
             <div id="modal-article-meta" style="margin-bottom: 2rem;">
-              <h1 id="modal-title" style="font-family: var(--font-heading); font-size: 2.4rem; font-weight: 800; line-height: 1.15; color: var(--color-white-text); margin-bottom: 1.25rem;">Article Title</h1>
+              <h2 id="modal-title" style="font-family: var(--font-heading); font-size: 2.4rem; font-weight: 800; line-height: 1.15; color: var(--color-white-text); margin-bottom: 1.25rem;">Article Title</h2>
               <div style="display: flex; align-items: center; gap: 0.75rem;">
                 <span id="modal-author-avatar" style="font-size: 1.8rem;">👨‍💻</span>
                 <div style="line-height: 1.25;">
@@ -492,15 +497,17 @@ export function createBlog() {
       container.querySelector('#modal-author-name').innerText = art.author;
       container.querySelector('#modal-author-title').innerText = art.authorTitle;
       container.querySelector('#modal-date').innerText = art.date;
-      container.querySelector('#modal-content').innerHTML = art.content;
+      // Ensure content is strictly sanitized before DOM injection
+      container.querySelector('#modal-content').innerHTML = sanitizeHTML(art.content);
 
-      // Reset scroll position of body
-      readerBody.scrollTop = 0;
+      // Reset scroll position of backdrop
+      backdrop.scrollTop = 0;
       progressBar.style.width = '0%';
 
       // Show overlay with transitions
-      backdrop.style.display = 'flex';
+      backdrop.style.display = 'block';
       document.body.style.overflow = 'hidden'; // prevent bg scrolling
+      if (window.lenis) window.lenis.stop(); // Stop Lenis from scrolling background
       setTimeout(() => {
         backdrop.style.opacity = '1';
         modal.style.transform = 'scale(1) translateY(0)';
@@ -538,6 +545,7 @@ export function createBlog() {
           backdrop.style.opacity = '0';
           modal.style.transform = 'scale(0.96) translateY(10px)';
           document.body.style.overflow = '';
+          if (window.lenis) window.lenis.start();
           
           setTimeout(() => {
             backdrop.style.display = 'none';
@@ -556,6 +564,7 @@ export function createBlog() {
       backdrop.style.opacity = '0';
       modal.style.transform = 'scale(0.96) translateY(10px)';
       document.body.style.overflow = '';
+      if (window.lenis) window.lenis.start();
       setTimeout(() => {
         backdrop.style.display = 'none';
       }, 300);
@@ -573,11 +582,11 @@ export function createBlog() {
       if (e.target === backdrop) closeReader();
     });
 
-    // Reading progress listener
-    readerBody.addEventListener('scroll', () => {
-      const scrollHeight = readerBody.scrollHeight - readerBody.clientHeight;
+    // Reading progress listener on the backdrop
+    backdrop.addEventListener('scroll', () => {
+      const scrollHeight = backdrop.scrollHeight - backdrop.clientHeight;
       if (scrollHeight > 0) {
-        const scrollPct = (readerBody.scrollTop / scrollHeight) * 100;
+        const scrollPct = (backdrop.scrollTop / scrollHeight) * 100;
         progressBar.style.width = `${scrollPct}%`;
       }
     });

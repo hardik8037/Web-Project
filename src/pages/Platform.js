@@ -11,7 +11,7 @@ export function createPlatform() {
   container.innerHTML = `
     <!-- Platform Hero Section -->
     <section class="section page-hero platform-hero-section" style="padding-bottom: 0;">
-      <div class="container">
+      <div class="container-wide">
         <div class="section-header" style="max-width: 680px; margin: 0 auto;">
           <div class="detail-hero-badge" style="--badge-color: var(--color-primary-light); margin-bottom: 1.5rem;">
             <span class="badge-dot"></span>CORE INFRASTRUCTURE
@@ -65,7 +65,7 @@ export function createPlatform() {
 
     <!-- Interactive Feature Deep Dive -->
     <section class="section platform-features-deep" style="padding: 6rem 0;">
-      <div class="container">
+      <div class="container-wide">
         <div class="section-header" style="margin-bottom: 4rem;">
           <span class="text-overline">Deep Dive</span>
           <h2 class="heading-section">Explore Botzo's <span class="text-gradient">Capabilities</span></h2>

@@ -12,7 +12,7 @@ export function createResources() {
   container.innerHTML = `
     <!-- Resources Hero -->
     <section class="section page-hero resources-hero" style="padding-bottom: 0;">
-      <div class="container">
+      <div class="container-standard">
         <div class="section-header" style="max-width: 680px; margin: 0 auto;">
           <div class="detail-hero-badge" style="--badge-color: var(--color-primary-light); margin-bottom: 1.5rem;">
             <span class="badge-dot"></span>KNOWLEDGE BASE
@@ -29,7 +29,7 @@ export function createResources() {
 
     <!-- Portal Entry Point (Ecosystem Layer) -->
     <section class="section resources-portal-section hero-ecosystem" style="padding: 0 0 6rem; margin-top: 8rem; position: relative;">
-      <div class="container">
+      <div class="container-standard">
         <div class="resources-portal-grid">
           
           <!-- Column 1: Blog Preview Panel -->
