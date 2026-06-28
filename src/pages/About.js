@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════
    BOTZO.IO — ABOUT OUR VISION & INFRASTRUCTURE
-   A futuristic storytelling narrative of scale.
+   A cinematic, high-performance storytelling narrative.
    ═══════════════════════════════════════════════════ */
 
 export function createAbout() {
@@ -8,91 +8,238 @@ export function createAbout() {
   container.className = 'page about-page';
 
   container.innerHTML = `
-    <!-- Cinematic Hero -->
-    <section class="section page-hero about-hero" style="position: relative; overflow: hidden;">
-      <div class="container-standard">
-        <div class="section-header" style="max-width: 680px; margin: 0 auto;">
-          <div class="detail-hero-badge" style="--badge-color: var(--color-primary-light); margin-bottom: 1.5rem;">
-            <span class="badge-dot"></span>THE COMMUNICATION GRID
-          </div>
-          <h1 class="heading-hero">
-            The Architecture of<br><span class="text-gradient">Intelligent Dialog</span>
-          </h1>
-          <p class="text-body-lg" style="margin: 0; font-weight: 400; opacity: 0.9;">
-            We build high-capacity, low-latency business communication pipelines. Botzo.io resolves conversational friction, enabling real-time client automation at a global scale.
-          </p>
-          <div class="hero-actions">
-            <a href="/contact" class="btn btn-primary">Connect With Us</a>
-            <a href="/platform" class="btn btn-ghost">View Capabilities</a>
-          </div>
+    <style>
+      /* --- Bespoke Styles for About Redesign --- */
+      .about-genesis-hero {
+        position: relative;
+        min-height: 85vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        overflow: hidden;
+      }
+      
+      .genesis-grid-bg {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background-image: 
+          linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+        background-size: 60px 60px;
+        background-position: center;
+        z-index: 0;
+        transform: perspective(500px) rotateX(60deg) translateY(-100px) scale(2);
+        opacity: 0.4;
+      }
+
+      .genesis-glow {
+        position: absolute;
+        width: 60vw;
+        height: 60vw;
+        background: radial-gradient(circle, rgba(156, 39, 255, 0.15) 0%, rgba(0, 176, 255, 0.05) 40%, transparent 70%);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      .about-bento-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-auto-rows: 240px;
+        gap: 1.5rem;
+        margin-top: 3rem;
+      }
+      
+      .bento-card {
+        border-radius: 24px;
+        padding: 2.5rem;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background: rgba(15, 12, 20, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .bento-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(156, 39, 255, 0.3);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 40px rgba(156, 39, 255, 0.1);
+      }
+
+      .bento-large { grid-column: span 8; grid-row: span 2; }
+      .bento-tall { grid-column: span 4; grid-row: span 2; }
+      .bento-wide { grid-column: span 8; grid-row: span 1; }
+      .bento-square { grid-column: span 4; grid-row: span 1; }
+
+      @media (max-width: 1024px) {
+        .about-bento-grid {
+          grid-template-columns: repeat(2, 1fr);
+          grid-auto-rows: minmax(200px, auto);
+        }
+        .bento-large, .bento-tall, .bento-wide, .bento-square { grid-column: span 2; grid-row: span 1; }
+      }
+      @media (max-width: 640px) {
+        .about-bento-grid { grid-template-columns: 1fr; }
+        .bento-large, .bento-tall, .bento-wide, .bento-square { grid-column: 1; }
+        .bento-card { padding: 1.5rem; }
+      }
+
+      .about-timeline-modern {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        position: relative;
+        padding-left: 2rem;
+        margin-top: 4rem;
+      }
+      
+      .timeline-spine {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: rgba(255,255,255,0.05);
+        border-radius: 4px;
+      }
+
+      .timeline-progress {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 4px;
+        height: 0%;
+        background: linear-gradient(180deg, var(--color-primary-light), var(--color-blue));
+        border-radius: 4px;
+        box-shadow: 0 0 15px var(--color-primary-light);
+        transition: height 0.3s ease-out;
+      }
+
+      .timeline-node {
+        position: relative;
+        padding: 2rem;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 16px;
+        width: 100%;
+        transition: all 0.4s ease;
+      }
+      
+      .timeline-node::before {
+        content: '';
+        position: absolute;
+        left: -37px;
+        top: 32px;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: var(--color-dark-bg);
+        border: 3px solid rgba(255,255,255,0.2);
+        transition: all 0.4s ease;
+        z-index: 2;
+      }
+
+      .timeline-node:hover, .timeline-node.active {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(156, 39, 255, 0.2);
+      }
+      
+      .timeline-node:hover::before, .timeline-node.active::before {
+        border-color: var(--color-primary-light);
+        box-shadow: 0 0 15px var(--color-primary-light);
+      }
+
+    </style>
+
+    <!-- 1. The Genesis Hero -->
+    <section class="about-genesis-hero">
+      <div class="genesis-glow"></div>
+      <div class="genesis-grid-bg"></div>
+      
+      <div class="container-standard" style="position: relative; z-index: 1;">
+        <div class="detail-hero-badge reveal" style="--badge-color: var(--color-primary-light); margin: 0 auto 2rem auto;">
+          <span class="badge-dot"></span>THE COMMUNICATION GRID
         </div>
-        
-        <!-- About Ecosystem layer -->
-        <div class="hero-ecosystem">
-          <div class="glass-card-strong" style="width: 800px; height: 250px; border-radius: 24px; position: relative; background: linear-gradient(180deg, rgba(184,77,255,0.05) 0%, transparent 100%); border-top: 1px solid rgba(184,77,255,0.3); display: flex; justify-content: center; align-items: flex-start; padding-top: 2rem;">
-            <div style="display: flex; gap: 2rem; align-items: center;">
-               <div style="width: 80px; height: 80px; border-radius: 50%; background: rgba(184,77,255,0.1); border: 1px solid rgba(184,77,255,0.3); display: flex; justify-content: center; align-items: center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-light)" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg></div>
-               <div style="width: 100px; height: 2px; background: linear-gradient(90deg, rgba(184,77,255,0.5), transparent);"></div>
-               <div style="width: 120px; height: 120px; border-radius: 50%; background: rgba(0,230,118,0.1); border: 1px solid rgba(0,230,118,0.3); display: flex; justify-content: center; align-items: center;"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-green)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg></div>
-               <div style="width: 100px; height: 2px; background: linear-gradient(270deg, rgba(0,176,255,0.5), transparent);"></div>
-               <div style="width: 80px; height: 80px; border-radius: 50%; background: rgba(0,176,255,0.1); border: 1px solid rgba(0,176,255,0.3); display: flex; justify-content: center; align-items: center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-blue)" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg></div>
-            </div>
-          </div>
-        </div>
+        <h1 class="heading-hero reveal" style="font-size: clamp(3rem, 6vw, 5.5rem); line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.02em;">
+          Building the Engine of<br>
+          <span class="text-gradient">Modern Communication.</span>
+        </h1>
+        <p class="text-body-lg reveal" style="max-width: 650px; margin: 0 auto 3rem auto; color: var(--color-muted-text); font-size: 1.2rem;">
+          We build high-capacity, low-latency business communication pipelines that resolve conversational friction at a global scale.
+        </p>
       </div>
-      <div class="about-hero-blur" style="position: absolute; width: 400px; height: 400px; top: -10%; left: 50%; transform: translateX(-50%); background: radial-gradient(circle, rgba(184, 77, 255, 0.15) 0%, transparent 70%); pointer-events: none; z-index: -1;"></div>
     </section>
 
     <div class="section-divider"></div>
 
-    <!-- Futuristic Narrative & Operational Philosophy -->
-    <section class="section about-narrative-section" style="padding: 6rem 0;">
+    <!-- 2. The Mission Statement -->
+    <section class="section" style="padding: 8rem 0; background: linear-gradient(180deg, transparent, rgba(156, 39, 255, 0.02) 50%, transparent);">
+      <div class="container-standard" style="max-width: 900px; text-align: center;">
+        <h2 class="reveal" style="font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 500; line-height: 1.3; color: var(--color-white-text); font-family: var(--font-heading);">
+          The world communicates in real-time. Businesses were stuck in the inbox era. <span style="color: var(--color-primary-light); font-weight: 700;">We changed that.</span>
+        </h2>
+      </div>
+    </section>
+
+    <!-- 3. Global Infrastructure Bento Box -->
+    <section class="section" style="padding: 4rem 0;">
       <div class="container-standard">
-        <div class="about-philosophy-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;">
+        <div class="section-header">
+          <span class="text-overline" style="color: var(--color-blue);">Global Infrastructure</span>
+          <h2 class="heading-section">Scale Without Limits</h2>
+        </div>
+        
+        <div class="about-bento-grid">
           
-          <div class="reveal-left" style="text-align: left;">
-            <span class="text-overline" style="color: var(--color-primary-light);">Operational Philosophy</span>
-            <h2 class="heading-section" style="font-size: 2.2rem; margin: 0.5rem 0 1.5rem 0; line-height: 1.2;">
-              Communication is<br><span class="text-gradient">Core Infrastructure</span>
-            </h2>
-            <p class="text-body" style="margin-bottom: 1.5rem; line-height: 1.75; font-size: 0.95rem;">
-              At Botzo.io, we reject lag. Modern clients do not wait. We build lightweight, carrier-grade messaging integrations that resolve thousands of concurrent queries in sub-second timelines.
-            </p>
-            <p class="text-body" style="line-height: 1.75; font-size: 0.95rem; opacity: 0.85;">
-              Our ecosystem seamlessly merges AI automation pipelines with high-performance digital marketing, custom web architectures, and client-side database synchronization. We provide a single, unified communications cockpit for the enterprise.
-            </p>
+          <!-- Bento Large: Map / Core Metric -->
+          <div class="bento-card bento-large reveal">
+            <div style="position: absolute; top: 0; right: 0; width: 70%; height: 100%; background: radial-gradient(circle at top right, rgba(156,39,255,0.1) 0%, transparent 70%); pointer-events: none;"></div>
+            <div>
+              <div style="font-size: 4rem; font-weight: 800; color: var(--color-primary-light); line-height: 1;">50M+</div>
+              <h3 style="font-size: 1.5rem; color: #fff; margin: 0.5rem 0;">Monthly Messages Processed</h3>
+              <p style="color: var(--color-muted-text); max-width: 400px; margin-top: 1rem;">Our elastic load balancers dynamically scale server threads during massive campaign notification spikes across global regions.</p>
+            </div>
+            <div style="display: flex; gap: 1rem; align-items: flex-end;">
+               <div style="height: 40px; width: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; position: relative;"><div style="position:absolute; bottom:0; width:100%; height: 60%; background: var(--color-primary-light); border-radius: 4px;"></div></div>
+               <div style="height: 60px; width: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; position: relative;"><div style="position:absolute; bottom:0; width:100%; height: 80%; background: var(--color-primary-light); border-radius: 4px;"></div></div>
+               <div style="height: 50px; width: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; position: relative;"><div style="position:absolute; bottom:0; width:100%; height: 40%; background: var(--color-primary-light); border-radius: 4px;"></div></div>
+               <div style="height: 80px; width: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; position: relative;"><div style="position:absolute; bottom:0; width:100%; height: 90%; background: var(--color-primary-light); border-radius: 4px;"></div></div>
+               <div style="height: 45px; width: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; position: relative;"><div style="position:absolute; bottom:0; width:100%; height: 70%; background: var(--color-primary-light); border-radius: 4px;"></div></div>
+            </div>
           </div>
 
-          <!-- Layered visual display card representing scale -->
-          <div class="glass-card-strong reveal-right" style="padding: 3rem; border-radius: var(--radius-xl); border-color: rgba(184, 77, 255, 0.12); position: relative; overflow: hidden; background: rgba(15, 12, 20, 0.4);">
-            <div class="about-network-glow" style="position: absolute; width: 250px; height: 250px; top: -50px; right: -50px; background: radial-gradient(circle, rgba(0, 176, 255, 0.12) 0%, transparent 70%); pointer-events: none; z-index:-1;"></div>
-            
-            <h3 class="heading-subsection" style="margin-bottom: 1.5rem; font-size: 1.15rem; font-weight: 700; color: var(--color-white-text); display: flex; align-items: center; gap: 0.5rem;">
-              <span>🛡️</span> System Capabilities
-            </h3>
-            
-            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-              <div style="display: flex; gap: 1rem; align-items: flex-start;">
-                <span style="font-size: 1.25rem; color: #00E676;">✓</span>
-                <div>
-                  <h4 style="font-size: 0.9rem; font-weight: 600; color: var(--color-white-text); margin-bottom: 0.15rem;">Elastic Load Scaler</h4>
-                  <p style="font-size: 0.8rem; color: var(--color-muted-text); line-height: 1.4; margin: 0;">Dynamically scales server threads during campaign notification spikes.</p>
-                </div>
-              </div>
-              <div style="display: flex; gap: 1rem; align-items: flex-start;">
-                <span style="font-size: 1.25rem; color: #00E676;">✓</span>
-                <div>
-                  <h4 style="font-size: 0.9rem; font-weight: 600; color: var(--color-white-text); margin-bottom: 0.15rem;">End-to-End Data Safeguards</h4>
-                  <p style="font-size: 0.8rem; color: var(--color-muted-text); line-height: 1.4; margin: 0;">Secure tokenization policies ensure customer chat histories are fully guarded.</p>
-                </div>
-              </div>
-              <div style="display: flex; gap: 1rem; align-items: flex-start;">
-                <span style="font-size: 1.25rem; color: #00E676;">✓</span>
-                <div>
-                  <h4 style="font-size: 0.9rem; font-weight: 600; color: var(--color-white-text); margin-bottom: 0.15rem;">Carrier-Grade Gateway</h4>
-                  <p style="font-size: 0.8rem; color: var(--color-muted-text); line-height: 1.4; margin: 0;">Direct nodes into Meta and carrier routing frameworks bypass latency limits.</p>
-                </div>
-              </div>
+          <!-- Bento Square: Latency -->
+          <div class="bento-card bento-square reveal">
+            <div style="font-size: 2.5rem; font-weight: 800; color: #00E676;">&lt; 800ms</div>
+            <div>
+              <h3 style="font-size: 1.1rem; color: #fff; margin-bottom: 0.5rem;">Median Latency</h3>
+              <p style="color: var(--color-muted-text); font-size: 0.85rem;">Direct nodes into carrier routing frameworks bypass standard limits.</p>
+            </div>
+          </div>
+
+          <!-- Bento Square: SLA -->
+          <div class="bento-card bento-square reveal">
+            <div style="font-size: 2.5rem; font-weight: 800; color: #00B0FF;">99.99%</div>
+            <div>
+              <h3 style="font-size: 1.1rem; color: #fff; margin-bottom: 0.5rem;">Uptime SLA</h3>
+              <p style="color: var(--color-muted-text); font-size: 0.85rem;">Multi-region failover and redundant database architectures.</p>
+            </div>
+          </div>
+
+          <!-- Bento Wide: Trust -->
+          <div class="bento-card bento-wide reveal" style="flex-direction: row; align-items: center; justify-content: space-between;">
+            <div>
+              <div style="font-size: 2.5rem; font-weight: 800; color: #FFD600;">2,500+</div>
+              <h3 style="font-size: 1.25rem; color: #fff; margin: 0.5rem 0;">Enterprise Clients</h3>
+            </div>
+            <div style="text-align: right; max-width: 300px;">
+              <p style="color: var(--color-muted-text); font-size: 0.9rem;">From innovative startups to global enterprise networks relying on our infrastructure.</p>
             </div>
           </div>
 
@@ -102,96 +249,127 @@ export function createAbout() {
 
     <div class="section-divider"></div>
 
-    <!-- Impact Scale Metrics -->
-    <section class="section about-stats-section" style="padding: 6rem 0; position: relative;">
+    <!-- 4. Engineering DNA (Core Values) -->
+    <section class="section" style="padding: 6rem 0;">
       <div class="container-standard">
-        <div class="section-header" style="margin-bottom: 4.5rem; text-align: center;">
-          <span class="text-overline" style="color: var(--color-green);">Infrastructure Scale</span>
-          <h2 class="heading-section" style="font-size: 2.5rem; margin: 0.5rem 0 0 0;">Numbers Confirming<br><span class="text-gradient" style="background: linear-gradient(135deg, #00E676 0%, #00B0FF 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Our Reliability</span></h2>
+        <div class="section-header" style="text-align: center;">
+          <span class="text-overline" style="color: #00E676;">Our DNA</span>
+          <h2 class="heading-section">Built by Engineers,<br>For Scale.</h2>
         </div>
         
-        <div class="about-stats-row" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;">
-          <div class="about-stat-card glass-card-strong reveal">
-            <div class="about-stat-value" style="font-size: 2.5rem; font-weight: 800; font-family: var(--font-heading); color: var(--color-primary-light); margin-bottom: 0.35rem;">50M+</div>
-            <div class="about-stat-label" style="font-size: 0.8rem; color: var(--color-muted-text); line-height: 1.3;">Monthly Messages Processed</div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 4rem;">
+          <div class="glass-card reveal" style="padding: 2.5rem;">
+            <div style="font-size: 2rem; margin-bottom: 1rem;">⚡</div>
+            <h4 style="font-size: 1.2rem; color: #fff; margin-bottom: 1rem;">Zero-Latency Focus</h4>
+            <p style="color: var(--color-muted-text); font-size: 0.9rem; line-height: 1.6;">We reject lag. Every microservice is optimized to reduce conversational friction between businesses and clients to absolute zero.</p>
           </div>
-          <div class="about-stat-card glass-card-strong reveal">
-            <div class="about-stat-value" style="font-size: 2.5rem; font-weight: 800; font-family: var(--font-heading); color: #00B0FF; margin-bottom: 0.35rem;">99.99%</div>
-            <div class="about-stat-label" style="font-size: 0.8rem; color: var(--color-muted-text); line-height: 1.3;">API Uptime Reliability SLA</div>
+          <div class="glass-card reveal" style="padding: 2.5rem;">
+            <div style="font-size: 2rem; margin-bottom: 1rem;">🔒</div>
+            <h4 style="font-size: 1.2rem; color: #fff; margin-bottom: 1rem;">Ironclad Tokenization</h4>
+            <p style="color: var(--color-muted-text); font-size: 0.9rem; line-height: 1.6;">Customer data is sacred. End-to-end tokenization and strict VPC perimeters ensure chat histories are mathematically guarded.</p>
           </div>
-          <div class="about-stat-card glass-card-strong reveal">
-            <div class="about-stat-value" style="font-size: 2.5rem; font-weight: 800; font-family: var(--font-heading); color: #00E676; margin-bottom: 0.35rem;">2,500+</div>
-            <div class="about-stat-label" style="font-size: 0.8rem; color: var(--color-muted-text); line-height: 1.3;">Business Client Networks</div>
-          </div>
-          <div class="about-stat-card glass-card-strong reveal">
-            <div class="about-stat-value" style="font-size: 2.5rem; font-weight: 800; font-family: var(--font-heading); color: #FFD600; margin-bottom: 0.35rem;">&lt; 800ms</div>
-            <div class="about-stat-label" style="font-size: 0.8rem; color: var(--color-muted-text); line-height: 1.3;">Median Message Latency</div>
+          <div class="glass-card reveal" style="padding: 2.5rem;">
+            <div style="font-size: 2rem; margin-bottom: 1rem;">🧠</div>
+            <h4 style="font-size: 1.2rem; color: #fff; margin-bottom: 1rem;">Algorithmic Empathy</h4>
+            <p style="color: var(--color-muted-text); font-size: 0.9rem; line-height: 1.6;">We blend natural language processing with rigid deterministic logic to create AI flows that actually solve user problems.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <div class="section-divider"></div>
-
-    <!-- Futuristic Company Narrative Timeline -->
-    <section class="section about-timeline-section" style="padding: 6rem 0;">
-      <div class="container-standard" style="max-width: 900px;">
-        <div class="section-header" style="margin-bottom: 5rem; text-align: center;">
-          <span class="text-overline">Evolution Roadmap</span>
-          <h2 class="heading-section" style="font-size: 2.5rem; margin: 0.5rem 0 0 0;">The Botzo.io <span class="text-gradient">Roadmap</span></h2>
+    <!-- 5. Dynamic Evolution Timeline -->
+    <section class="section" style="padding: 8rem 0; background: rgba(15, 12, 20, 0.4); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+      <div class="container-standard" style="max-width: 800px;">
+        <div class="section-header">
+          <span class="text-overline" style="color: var(--color-primary-light);">Evolution</span>
+          <h2 class="heading-section">The Botzo Roadmap</h2>
         </div>
         
-        <div class="about-timeline" style="position: relative;">
+        <div class="about-timeline-modern" id="roadmap-timeline">
+          <div class="timeline-spine"></div>
+          <div class="timeline-progress" id="timeline-progress-bar"></div>
           
-          <div class="timeline-item reveal" style="display: flex; justify-content: flex-start; margin-bottom: 3.5rem; position: relative;">
-            <div class="timeline-dot" style="position: absolute; left: 50%; transform: translateX(-50%); width: 14px; height: 14px; border-radius: 50%; background: var(--color-primary-light); border: 3px solid var(--color-dark-bg); box-shadow: 0 0 10px rgba(156, 39, 255, 0.4);"></div>
-            <div class="timeline-content glass-card-strong" style="width: 44%; padding: 1.5rem 2rem; border-radius: 16px; border-color: rgba(255,255,255,0.06); text-align: right; margin-right: auto;">
-              <div class="timeline-year" style="font-size: 1.25rem; font-weight: 800; color: var(--color-primary-light); font-family: var(--font-heading); margin-bottom: 0.25rem;">2021</div>
-              <h4 style="font-size: 0.95rem; font-weight: 600; color: var(--color-white-text); margin: 0 0 0.5rem 0;">Chatbot Prototype Launched</h4>
-              <p style="font-size: 0.78rem; color: var(--color-muted-text); line-height: 1.5; margin: 0;">Created the initial auto-reply engine as an experimental API handler, testing conversational logic limits.</p>
-            </div>
+          <div class="timeline-node reveal">
+            <span style="font-size: 0.85rem; color: var(--color-primary-light); font-weight: 700; letter-spacing: 1px;">2021</span>
+            <h3 style="font-size: 1.4rem; color: #fff; margin: 0.5rem 0;">Chatbot Prototype Launched</h3>
+            <p style="color: var(--color-muted-text); margin: 0; line-height: 1.6;">Created the initial auto-reply engine as an experimental API handler, testing the extreme limits of conversational logic trees.</p>
           </div>
-
-          <div class="timeline-item reveal" style="display: flex; justify-content: flex-end; margin-bottom: 3.5rem; position: relative;">
-            <div class="timeline-dot" style="position: absolute; left: 50%; transform: translateX(-50%); width: 14px; height: 14px; border-radius: 50%; background: #00B0FF; border: 3px solid var(--color-dark-bg); box-shadow: 0 0 10px rgba(0, 176, 255, 0.4);"></div>
-            <div class="timeline-content glass-card-strong" style="width: 44%; padding: 1.5rem 2rem; border-radius: 16px; border-color: rgba(255,255,255,0.06); text-align: left; margin-left: auto;">
-              <div class="timeline-year" style="font-size: 1.25rem; font-weight: 800; color: #00B0FF; font-family: var(--font-heading); margin-bottom: 0.25rem;">2022</div>
-              <h4 style="font-size: 0.95rem; font-weight: 600; color: var(--color-white-text); margin: 0 0 0.5rem 0;">Official WhatsApp API Node</h4>
-              <p style="font-size: 0.78rem; color: var(--color-muted-text); line-height: 1.5; margin: 0;">Registered as an official Meta Business Solution Provider, launching bulk campaigns and the Team Inbox cockpit.</p>
-            </div>
+          
+          <div class="timeline-node reveal">
+            <span style="font-size: 0.85rem; color: #00B0FF; font-weight: 700; letter-spacing: 1px;">2022</span>
+            <h3 style="font-size: 1.4rem; color: #fff; margin: 0.5rem 0;">Official Meta BSP Node</h3>
+            <p style="color: var(--color-muted-text); margin: 0; line-height: 1.6;">Registered as an official Meta Business Solution Provider, launching bulk campaigns and our unified Team Inbox cockpit.</p>
           </div>
-
-          <div class="timeline-item reveal" style="display: flex; justify-content: flex-start; margin-bottom: 3.5rem; position: relative;">
-            <div class="timeline-dot" style="position: absolute; left: 50%; transform: translateX(-50%); width: 14px; height: 14px; border-radius: 50%; background: #00E676; border: 3px solid var(--color-dark-bg); box-shadow: 0 0 10px rgba(0, 230, 118, 0.4);"></div>
-            <div class="timeline-content glass-card-strong" style="width: 44%; padding: 1.5rem 2rem; border-radius: 16px; border-color: rgba(255,255,255,0.06); text-align: right; margin-right: auto;">
-              <div class="timeline-year" style="font-size: 1.25rem; font-weight: 800; color: #00E676; font-family: var(--font-heading); margin-bottom: 0.25rem;">2023</div>
-              <h4 style="font-size: 0.95rem; font-weight: 600; color: var(--color-white-text); margin: 0 0 0.5rem 0;">Omnichannel Flow Orchestrator</h4>
-              <p style="font-size: 0.78rem; color: var(--color-muted-text); line-height: 1.5; margin: 0;">Connected Instagram DM, Facebook, and RCS Messaging. Deployed our no-code visual workflow automation builder.</p>
-            </div>
+          
+          <div class="timeline-node reveal">
+            <span style="font-size: 0.85rem; color: #00E676; font-weight: 700; letter-spacing: 1px;">2023</span>
+            <h3 style="font-size: 1.4rem; color: #fff; margin: 0.5rem 0;">Omnichannel Flow Orchestrator</h3>
+            <p style="color: var(--color-muted-text); margin: 0; line-height: 1.6;">Connected Instagram DM, Facebook, and RCS Messaging into a single backend. Deployed our flagship no-code visual workflow builder.</p>
           </div>
-
-          <div class="timeline-item reveal" style="display: flex; justify-content: flex-end; margin-bottom: 3.5rem; position: relative;">
-            <div class="timeline-dot" style="position: absolute; left: 50%; transform: translateX(-50%); width: 14px; height: 14px; border-radius: 50%; background: #FFD600; border: 3px solid var(--color-dark-bg); box-shadow: 0 0 10px rgba(255, 214, 0, 0.4);"></div>
-            <div class="timeline-content glass-card-strong" style="width: 44%; padding: 1.5rem 2rem; border-radius: 16px; border-color: rgba(255,255,255,0.06); text-align: left; margin-left: auto;">
-              <div class="timeline-year" style="font-size: 1.25rem; font-weight: 800; color: #FFD600; font-family: var(--font-heading); margin-bottom: 0.25rem;">2024</div>
-              <h4 style="font-size: 0.95rem; font-weight: 600; color: var(--color-white-text); margin: 0 0 0.5rem 0;">Commerce & Transaction Support</h4>
-              <p style="font-size: 0.78rem; color: var(--color-muted-text); line-height: 1.5; margin: 0;">Integrated in-chat payments, automated Stripe webhooks, and launched dynamic QR entry check-in systems.</p>
-            </div>
+          
+          <div class="timeline-node reveal">
+            <span style="font-size: 0.85rem; color: #FFD600; font-weight: 700; letter-spacing: 1px;">2024</span>
+            <h3 style="font-size: 1.4rem; color: #fff; margin: 0.5rem 0;">Commerce & Payments Layer</h3>
+            <p style="color: var(--color-muted-text); margin: 0; line-height: 1.6;">Integrated in-chat payments, automated Stripe webhooks, and launched dynamic QR entry check-in systems for events.</p>
           </div>
-
-          <div class="timeline-item reveal" style="display: flex; justify-content: flex-start; margin-bottom: 1rem; position: relative;">
-            <div class="timeline-dot" style="position: absolute; left: 50%; transform: translateX(-50%); width: 14px; height: 14px; border-radius: 50%; background: var(--color-primary-light); border: 3px solid var(--color-dark-bg); box-shadow: 0 0 10px rgba(156, 39, 255, 0.4);"></div>
-            <div class="timeline-content glass-card-strong" style="width: 44%; padding: 1.5rem 2rem; border-radius: 16px; border-color: rgba(255,255,255,0.06); text-align: right; margin-right: auto;">
-              <div class="timeline-year" style="font-size: 1.25rem; font-weight: 800; color: var(--color-primary-light); font-family: var(--font-heading); margin-bottom: 0.25rem;">2025</div>
-              <h4 style="font-size: 0.95rem; font-weight: 600; color: var(--color-white-text); margin: 0 0 0.5rem 0;">AI Intelligent Scale Layer</h4>
-              <p style="font-size: 0.78rem; color: var(--color-muted-text); line-height: 1.5; margin: 0;">Deployed NLP intent recognition and auto-routing models. Crossed 50 million monthly messages processed.</p>
-            </div>
+          
+          <div class="timeline-node reveal">
+            <span style="font-size: 0.85rem; color: var(--color-primary-light); font-weight: 700; letter-spacing: 1px;">2025 & BEYOND</span>
+            <h3 style="font-size: 1.4rem; color: #fff; margin: 0.5rem 0;">AI Intelligent Scale Layer</h3>
+            <p style="color: var(--color-muted-text); margin: 0; line-height: 1.6;">Deploying deep NLP intent recognition models and dynamic agent routing. Scaling to support over 100 million transactions monthly.</p>
           </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- 6. Final CTA -->
+    <section class="section" style="padding: 8rem 0; text-align: center; position: relative;">
+      <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80vw; height: 300px; background: radial-gradient(ellipse, rgba(156, 39, 255, 0.1) 0%, transparent 60%); pointer-events: none; z-index: -1;"></div>
+      <div class="container-standard">
+        <h2 class="heading-section reveal" style="font-size: clamp(2rem, 5vw, 4rem); margin-bottom: 1.5rem;">Join the Grid.</h2>
+        <p class="text-body-lg reveal" style="max-width: 500px; margin: 0 auto 2.5rem auto; color: var(--color-muted-text);">
+          Ready to scale your business communication? Our infrastructure is primed.
+        </p>
+        <div class="hero-actions reveal" style="justify-content: center;">
+          <a href="/contact" class="btn btn-primary">Talk to Engineering</a>
+          <a href="/book-demo" class="btn btn-ghost">Schedule Demo</a>
         </div>
       </div>
     </section>
   `;
+
+  // Bind dynamic scroll logic for the timeline pipeline
+  setTimeout(() => {
+    const timeline = container.querySelector('#roadmap-timeline');
+    const progressBar = container.querySelector('#timeline-progress-bar');
+    const nodes = container.querySelectorAll('.timeline-node');
+    
+    if (timeline && progressBar) {
+      window.addEventListener('scroll', () => {
+        const rect = timeline.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+        
+        // Calculate how much of the timeline is scrolled past the middle of the screen
+        const scrollPosition = (viewportHeight / 2) - rect.top;
+        const totalHeight = rect.height;
+        
+        let percentage = (scrollPosition / totalHeight) * 100;
+        percentage = Math.max(0, Math.min(percentage, 100)); // clamp between 0 and 100
+        
+        progressBar.style.height = `${percentage}%`;
+        
+        // Highlight nodes as the progress bar passes them
+        nodes.forEach(node => {
+          const nodeRect = node.getBoundingClientRect();
+          if (nodeRect.top < (viewportHeight / 2) + 50) {
+            node.classList.add('active');
+          } else {
+            node.classList.remove('active');
+          }
+        });
+      }, { passive: true });
+    }
+  }, 100);
 
   return container;
 }
