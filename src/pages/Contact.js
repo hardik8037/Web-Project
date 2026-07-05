@@ -102,18 +102,18 @@ export function createContact() {
     if (form) {
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
+
         const submitBtn = form.querySelector('button[type="submit"]');
         const errorMsg = container.querySelector('#contact-error-msg');
         const originalBtnText = submitBtn.innerHTML;
         const formWrapper = container.querySelector('#contact-form-wrapper');
         const successState = container.querySelector('#contact-success-state');
         const resetBtn = container.querySelector('#contact-reset-btn');
-        
+
         // --- ⚙️ WEBHOOK CONFIGURATION ---
         // Replace this URL with your Make.com, Zapier, or custom webhook URL
-        const WEBHOOK_URL = 'https://your-webhook-url.com/endpoint'; 
-        
+        const WEBHOOK_URL = 'https://webhooks.1automations.com/webhook/6a4aba916f1a8bf9dd888ba2';
+
         // 1. Gather form data
         const inputs = form.querySelectorAll('input, select, textarea');
         const formData = {
@@ -121,12 +121,12 @@ export function createContact() {
           source: 'Contact Page',
           submittedAt: new Date().toISOString()
         };
-        
+
         inputs.forEach(input => {
           const label = input.previousElementSibling ? input.previousElementSibling.innerText : input.id;
           let val = input.value.trim();
-          // Basic sanitization
-          val = val.replace(/[<>]/g, '');
+          // Centralized sanitization
+          val = sanitizeHTML(val);
           formData[label] = val;
         });
 
@@ -156,17 +156,12 @@ export function createContact() {
 
         try {
           // 3. Send Data to Webhook (Uncomment for production)
-          /* 
           const response = await fetch(WEBHOOK_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData)
           });
           if (!response.ok) throw new Error('Webhook failed');
-          */
-
-          // Simulate network delay
-          await new Promise(resolve => setTimeout(resolve, 1200));
 
           // 4. Success UI
           formWrapper.style.display = 'none';
@@ -177,7 +172,7 @@ export function createContact() {
             successState.style.display = 'none';
             formWrapper.style.display = 'block';
           };
-          
+
         } catch (error) {
           console.error('Error sending webhook:', error);
           errorMsg.innerText = 'Something went wrong. Please try again or contact us via WhatsApp.';

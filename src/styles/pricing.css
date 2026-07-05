@@ -55,23 +55,20 @@
 
 @media (max-width: 640px) {
   .pricing-category-tabs {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    justify-content: flex-start;
-    border-radius: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 24px;
     padding: 0.5rem;
-    -webkit-overflow-scrolling: touch;
     width: 100%;
     max-width: 100%;
   }
 
   .pricing-cat-tab {
     white-space: nowrap;
-  }
-
-  /* Hide scrollbar */
-  .pricing-category-tabs::-webkit-scrollbar {
-    display: none;
+    flex: 1 1 calc(50% - 0.5rem);
+    text-align: center;
+    padding: 0.6rem 0.5rem;
+    font-size: 0.8rem;
   }
 }
 
@@ -83,9 +80,7 @@
   gap: 1.5rem;
   margin-bottom: 6rem;
   padding: 2rem 3rem;
-  background: linear-gradient(180deg, rgba(25, 20, 35, 0.9) 0%, rgba(12, 10, 16, 0.95) 100%);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: linear-gradient(180deg, rgba(25, 20, 35, 0.95) 0%, rgba(12, 10, 16, 0.98) 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
   max-width: max-content;
@@ -240,9 +235,7 @@
 
 .pricing-card-ent {
   position: relative;
-  background: linear-gradient(180deg, rgba(25, 20, 35, 0.9) 0%, rgba(12, 10, 16, 0.95) 100%);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: linear-gradient(180deg, rgba(25, 20, 35, 0.95) 0%, rgba(12, 10, 16, 0.98) 100%);
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 20px;
   padding: 2rem 1.5rem;
@@ -354,6 +347,7 @@
   font-size: 2.25rem;
   font-weight: 900;
   background: linear-gradient(135deg, #fff 0%, #b8b8c2 100%);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   line-height: 1;
@@ -365,6 +359,7 @@
 
 .pricing-card-ent.popular .pricing-price-value-ent {
   background: linear-gradient(135deg, #fff 0%, #e0d4ff 100%);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -472,9 +467,7 @@
   margin-top: 2rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
-  background: rgba(15, 12, 20, 0.9);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(15, 12, 20, 0.98);
 }
 
 .comparison-table-ent {
@@ -497,9 +490,7 @@
   width: 28%;
   position: sticky;
   left: 0;
-  background: rgba(15, 12, 20, 0.9);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(15, 12, 20, 0.98);
   z-index: 2;
   border-right: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -515,8 +506,17 @@
   padding: 1.25rem 1rem !important;
   border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-  position: relative;
-  z-index: 3;
+  border-right: none !important;
+  position: sticky !important;
+  left: 0;
+  z-index: 4 !important;
+  white-space: nowrap;
+}
+
+.comparison-section-empty-ent {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 .comparison-table-ent td {
@@ -596,6 +596,60 @@
   margin-right: 0.5rem;
   font-size: 1rem;
   line-height: 1.2;
+}
+
+/* Custom Solution Box */
+.pricing-custom-solution-box-ent {
+  background: linear-gradient(180deg, rgba(25, 20, 35, 0.4) 0%, rgba(12, 10, 16, 0.6) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 4px solid var(--color-primary, #8b5cf6);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin-top: 2rem;
+}
+
+.custom-solution-title-ent {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.5rem 0;
+}
+
+.custom-solution-desc-ent {
+  font-size: 0.95rem;
+  color: #a0a0ab;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Feature Pills */
+.pricing-pill-ent {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.pill-basic-ent {
+  background: #2a2a30;
+  color: #c0c0c8;
+}
+
+.pill-premium-ent {
+  background: rgba(139, 92, 246, 0.15);
+  color: #c4b5fd;
+}
+
+.pill-advanced-ent {
+  background: rgba(59, 130, 246, 0.15);
+  color: #93c5fd;
+}
+
+.pill-optional-ent {
+  background: rgba(250, 204, 21, 0.15);
+  color: #fde047;
 }
 
 /* Animations */

@@ -24,7 +24,7 @@ export function renderPricingCards(plans, billing, currency) {
             <div class="pricing-card-divider-ent"></div>
             
             <div style="margin-top: auto;">
-              <a href="${isCustom ? '/contact' : '/book-demo'}" class="pricing-btn-ent ${plan.popular ? 'primary' : ''}">
+              <a href="${isCustom ? '/contact' : '/demo'}" class="pricing-btn-ent ${plan.popular ? 'primary' : ''}">
                 ${plan.cta}
               </a>
             </div>

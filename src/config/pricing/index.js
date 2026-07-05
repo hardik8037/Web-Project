@@ -5,7 +5,7 @@ import digitalMarketing from './digitalMarketing.js';
 
 export default {
   automation,
+  digitalMarketing,
   webDevelopment,
-  appDevelopment,
-  digitalMarketing
+  appDevelopment
 };

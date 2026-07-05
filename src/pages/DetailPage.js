@@ -6,6 +6,7 @@
    ═══════════════════════════════════════════════════ */
 
 import { createFinalCTA } from '../sections/FinalCTA.js';
+import { sanitizeHTML } from '../utils/sanitize.js';
 
 // Custom interactive flows for all 12 solution industries
 const SOLUTIONS_DEMO_FLOWS = {
@@ -723,7 +724,7 @@ function initWhatsAppSimulator(container, slug) {
     msgDiv.style.justifyContent = sender === 'user' ? 'flex-end' : 'flex-start';
     msgDiv.style.marginBottom = '0.4rem';
     
-    const formattedText = replaceTemplates(text).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+    const formattedText = sanitizeHTML(replaceTemplates(text).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>'));
     const hasButtons = buttons && buttons.length > 0;
 
     msgDiv.innerHTML = `

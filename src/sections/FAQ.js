@@ -69,7 +69,7 @@ export function createFAQ() {
           <span class="text-overline">FAQ</span>
           <h2 class="heading-section">Everything You <br>Need to <span class="text-gradient">Know</span></h2>
           <p class="text-body" style="margin-top:1rem;">Can't find what you're looking for? Our team is here to help.</p>
-          <a href="/contact" class="btn btn-glass btn-sm" style="margin-top:1.5rem;">Contact Support →</a>
+          <a href="/contact" class="btn btn-glass btn-sm" style="margin-top:1.5rem;">Contact Sales →</a>
         </div>
         <div class="faq-list reveal-right">
           ${faqsHTML}

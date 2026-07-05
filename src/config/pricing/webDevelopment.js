@@ -5,50 +5,53 @@ export default {
     {
       id: "starter",
       name: "Starter",
+      desc: "Perfect for establishing your initial web presence.",
       popular: false,
       isCustom: false,
       pricing: {
         INR: {
-          monthly: { price: "9,999", period: "/month" },
-          yearly: { price: "8,999", period: "/month", was: "was ₹9999/mo" }
+          monthly: { price: "15,000", period: "one-time" },
+          yearly: { price: "15,000", period: "one-time" }
         },
         USD: {
-          monthly: { price: "120", period: "/month" },
-          yearly: { price: "110", period: "/month", was: "was $120/mo" }
+          monthly: { price: "199", period: "one-time" },
+          yearly: { price: "199", period: "one-time" }
         }
       },
       cta: "Get started"
     },
     {
-      id: "business",
-      name: "Business",
+      id: "growth",
+      name: "Growth",
+      desc: "Ideal for growing businesses needing more features.",
       popular: true,
       isCustom: false,
       pricing: {
         INR: {
-          monthly: { price: "24,999", period: "/month" },
-          yearly: { price: "22,499", period: "/month", was: "was ₹24999/mo" }
+          monthly: { price: "25,000", period: "one-time" },
+          yearly: { price: "25,000", period: "one-time" }
         },
         USD: {
-          monthly: { price: "299", period: "/month" },
-          yearly: { price: "269", period: "/month", was: "was $299/mo" }
+          monthly: { price: "349", period: "one-time" },
+          yearly: { price: "349", period: "one-time" }
         }
       },
       cta: "Get started"
     },
     {
-      id: "professional",
-      name: "Professional",
+      id: "scale",
+      name: "Scale",
+      desc: "Advanced web solutions for scaling operations.",
       popular: false,
       isCustom: false,
       pricing: {
         INR: {
-          monthly: { price: "49,999", period: "/month" },
-          yearly: { price: "44,999", period: "/month", was: "was ₹49999/mo" }
+          monthly: { price: "40,000", period: "one-time" },
+          yearly: { price: "40,000", period: "one-time" }
         },
         USD: {
-          monthly: { price: "599", period: "/month" },
-          yearly: { price: "539", period: "/month", was: "was $599/mo" }
+          monthly: { price: "549", period: "one-time" },
+          yearly: { price: "549", period: "one-time" }
         }
       },
       cta: "Get started"
@@ -56,6 +59,7 @@ export default {
     {
       id: "enterprise",
       name: "Enterprise",
+      desc: "Custom tailored enterprise web applications.",
       popular: false,
       isCustom: true,
       pricing: {
@@ -73,30 +77,59 @@ export default {
   ],
   features: [
     {
-      section: "Design & UX",
+      section: "WEBSITE",
       items: [
-        { name: "Pages", values: ["Up to 5", "Up to 15", "Unlimited", "Custom"] },
-        { name: "Custom Design", values: ["✓", "✓", "✓", "✓"] },
-        { name: "Mobile Responsive", values: ["✓", "✓", "✓", "✓"] },
-        { name: "Animations", values: ["Basic", "Advanced", "Premium", "Custom"] }
+        { name: "Responsive Website", values: ["✓", "✓", "✓", "✓"] },
+        { name: "Custom UI Design", values: ["Basic", "Premium", "Premium", "Custom"] },
+        { name: "Pages", values: ["Up to 5", "Up to 10", "Up to 20", "Custom"] },
+        { name: "Mobile Responsive", values: ["✓", "✓", "✓", "✓"] }
       ]
     },
     {
-      section: "Development",
+      section: "E-COMMERCE",
       items: [
-        { name: "CMS Integration", values: ["—", "✓", "✓", "✓"] },
-        { name: "E-commerce Support", values: ["—", "—", "✓", "✓"] },
-        { name: "Custom API Integration", values: ["—", "—", "✓", "✓"] },
-        { name: "Speed Optimization", values: ["Basic", "Advanced", "Advanced", "Enterprise"] }
+        { name: "E-commerce Website", values: ["✕", "✓", "✓", "Custom"] },
+        { name: "Products", values: ["—", "Up to 100", "Up to 500", "Custom"] },
+        { name: "Payment Gateway", values: ["✕", "✓", "✓", "Custom"] },
+        { name: "Shopping Cart", values: ["✕", "✓", "✓", "Custom"] },
+        { name: "Order Management", values: ["✕", "✓", "✓", "Custom"] },
+        { name: "Inventory Management", values: ["✕", "Basic", "Advanced", "Custom"] }
       ]
     },
     {
-      section: "Support & Maintenance",
+      section: "INTEGRATIONS",
       items: [
-        { name: "Hosting Included", values: ["1 Year", "1 Year", "1 Year", "Custom"] },
-        { name: "Monthly Maintenance", values: ["—", "2 Hours", "5 Hours", "Custom"] },
-        { name: "Dedicated Manager", values: ["—", "—", "✓", "✓"] }
+        { name: "Contact Form", values: ["✓", "✓", "✓", "✓"] },
+        { name: "WhatsApp Integration", values: ["✓", "✓", "✓", "✓"] },
+        { name: "Google Maps Integration", values: ["✓", "✓", "✓", "✓"] },
+        { name: "API Integration", values: ["✕", "Basic", "Advanced", "Custom"] },
+        { name: "Booking System", values: ["✕", "✕", "✓", "Custom"] }
+      ]
+    },
+    {
+      section: "CMS & CONTENT",
+      items: [
+        { name: "Admin Panel / CMS", values: ["✕", "✓", "✓", "Custom"] },
+        { name: "Blog", values: ["✕", "✓", "✓", "Custom"] }
+      ]
+    },
+    {
+      section: "TECHNICAL",
+      items: [
+        { name: "Basic SEO", values: ["✓", "✓", "✓", "✓"] },
+        { name: "SSL Configuration", values: ["✓", "✓", "✓", "✓"] },
+        { name: "Speed Optimization", values: ["✓", "✓", "✓", "✓"] }
+      ]
+    },
+    {
+      section: "SUPPORT",
+      items: [
+        { name: "Post-delivery support", values: ["15 Days", "30 Days", "60 Days", "Custom"] }
       ]
     }
-  ]
+  ],
+  customSolutionBox: {
+    title: "Need a custom solution?",
+    description: "Whether it's a CRM, ERP, LMS, AI-powered platform, marketplace, booking system, or any custom web application, our Enterprise plan is tailored to your unique business requirements. Contact us for a personalized quote."
+  }
 };

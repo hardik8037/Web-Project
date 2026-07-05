@@ -431,7 +431,7 @@ export function createBlog() {
               <p style="font-size: 0.85rem; color:var(--color-dim-text); margin-bottom: 1.5rem;">Schedule a consultation callback with our integration specialist to configure your custom API workflow.</p>
               <div style="display:flex; gap:0.75rem;">
                 <a href="/demo" class="btn btn-primary btn-sm blog-reader-link">Book Integration Call</a>
-                <a href="/contact" class="btn btn-ghost btn-sm blog-reader-link" style="border-color:rgba(255,255,255,0.1);">Contact Support</a>
+                <a href="/contact" class="btn btn-ghost btn-sm blog-reader-link" style="border-color:rgba(255,255,255,0.1);">Contact Sales</a>
               </div>
             </div>
           </div>

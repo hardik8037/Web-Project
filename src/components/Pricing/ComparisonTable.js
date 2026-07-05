@@ -1,4 +1,4 @@
-export function renderComparisonTable(features, plans, includedFeatures = []) {
+export function renderComparisonTable(features, plans, includedFeatures = [], customSolutionBox = null) {
   if (!features || features.length === 0) return '';
 
   let includedHtml = '';
@@ -22,6 +22,15 @@ export function renderComparisonTable(features, plans, includedFeatures = []) {
       </div>
     `;
   }
+  let customSolutionHtml = '';
+  if (customSolutionBox) {
+    customSolutionHtml = `
+      <div class="pricing-custom-solution-box-ent pricing-anim-fade-in">
+        <h4 class="custom-solution-title-ent">${customSolutionBox.title}</h4>
+        <p class="custom-solution-desc-ent">${customSolutionBox.description}</p>
+      </div>
+    `;
+  }
 
   return `
     <div class="comparison-table-wrapper-ent pricing-anim-fade-in" id="comparison-table-container">
@@ -39,9 +48,10 @@ export function renderComparisonTable(features, plans, includedFeatures = []) {
         <tbody>
           ${features.map(section => `
             <tr>
-              <td colspan="${plans.length + 1}" class="comparison-section-header-ent">
+              <td class="comparison-section-header-ent">
                 ${section.section}
               </td>
+              <td colspan="${plans.length}" class="comparison-section-empty-ent"></td>
             </tr>
             ${section.items.map(item => `
               <tr>
@@ -50,8 +60,12 @@ export function renderComparisonTable(features, plans, includedFeatures = []) {
                   const isPopular = plans[i].popular;
                   let displayVal = val;
                   if (val === '✓') displayVal = '<span class="tick-ent">✓</span>';
-                  if (val === '—') displayVal = '<span class="dash-ent">—</span>';
-                  if (val === '✕') displayVal = '<span class="cross-ent">✕</span>';
+                  else if (val === '—') displayVal = '<span class="dash-ent">—</span>';
+                  else if (val === '✕') displayVal = '<span class="cross-ent">✕</span>';
+                  else if (val === 'Basic') displayVal = '<span class="pricing-pill-ent pill-basic-ent">Basic</span>';
+                  else if (val === 'Advanced') displayVal = '<span class="pricing-pill-ent pill-advanced-ent">Advanced</span>';
+                  else if (val === 'Premium') displayVal = '<span class="pricing-pill-ent pill-premium-ent">Premium</span>';
+                  else if (val === 'Optional') displayVal = '<span class="pricing-pill-ent pill-optional-ent">Optional</span>';
                   
                   return `
                     <td class="${isPopular ? 'col-popular-ent' : ''}">
@@ -65,6 +79,7 @@ export function renderComparisonTable(features, plans, includedFeatures = []) {
         </tbody>
       </table>
       ${includedHtml}
+      ${customSolutionHtml}
     </div>
   `;
 }

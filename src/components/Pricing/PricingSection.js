@@ -34,18 +34,18 @@ export function createPricingSection() {
 
         <div class="pricing-toggles-panel-ent reveal">
           ${renderCurrencyToggle(state.currency)}
-          ${(state.category === 'automation' || state.category === 'digitalMarketing') ? `
-            <div class="toggle-divider-ent"></div>
+          <div class="toggle-divider-ent" id="billing-divider" style="display: ${(state.category === 'automation' || state.category === 'digitalMarketing') ? 'block' : 'none'}"></div>
+          <div id="billing-container" style="display: ${(state.category === 'automation' || state.category === 'digitalMarketing') ? 'block' : 'none'}">
             ${renderBillingToggle(state.billing)}
-          ` : ''}
+          </div>
         </div>
 
         <div id="pricing-content-area">
           ${renderPricingCards(activeData.plans, state.billing, state.currency)}
-          ${renderComparisonTable(activeData.features, activeData.plans, activeData.includedFeatures)}
+          ${renderComparisonTable(activeData.features, activeData.plans, activeData.includedFeatures, activeData.customSolutionBox)}
         </div>
         
-        <div class="pricing-note reveal">
+        <div class="pricing-note reveal" id="pricing-note" style="display: ${state.category === 'automation' ? 'block' : 'none'}">
           <p class="text-caption" style="text-align:center;margin-top:2rem;">All plans include 7-day free trial. No credit card required. Cancel anytime.</p>
         </div>
       </div>
@@ -81,8 +81,20 @@ export function createPricingSection() {
         const activeData = pricingData[state.category];
         contentArea.innerHTML = `
           ${renderPricingCards(activeData.plans, state.billing, state.currency)}
-          ${renderComparisonTable(activeData.features, activeData.plans, activeData.includedFeatures)}
+          ${renderComparisonTable(activeData.features, activeData.plans, activeData.includedFeatures, activeData.customSolutionBox)}
         `;
+        
+        // Show/hide billing toggle
+        const showBilling = state.category === 'automation' || state.category === 'digitalMarketing';
+        const billingDivider = section.querySelector('#billing-divider');
+        const billingContainer = section.querySelector('#billing-container');
+        if (billingDivider) billingDivider.style.display = showBilling ? 'block' : 'none';
+        if (billingContainer) billingContainer.style.display = showBilling ? 'block' : 'none';
+        
+        // Show/hide note
+        const showNote = state.category === 'automation';
+        const pricingNote = section.querySelector('#pricing-note');
+        if (pricingNote) pricingNote.style.display = showNote ? 'block' : 'none';
         
         // Update tab active state visually
         section.querySelectorAll('.pricing-cat-tab').forEach(t => t.classList.remove('active'));

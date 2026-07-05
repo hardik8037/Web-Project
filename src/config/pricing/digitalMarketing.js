@@ -64,12 +64,12 @@ export default {
       isCustom: true,
       pricing: {
         INR: {
-          monthly: { price: "Contact us", period: "custom scope" },
-          yearly: { price: "Contact us", period: "custom scope" }
+          monthly: { price: "Custom", period: "pricing" },
+          yearly: { price: "Custom", period: "pricing" }
         },
         USD: {
-          monthly: { price: "Contact us", period: "custom scope" },
-          yearly: { price: "Contact us", period: "custom scope" }
+          monthly: { price: "Custom", period: "pricing" },
+          yearly: { price: "Custom", period: "pricing" }
         }
       },
       cta: "Contact us ↗"

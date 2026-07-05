@@ -9,7 +9,6 @@ import { initAccordions } from './accordion.js';
 import { initDropdowns } from './dropdown.js';
 
 export function initUI() {
-  console.log('Botzo UI Initialized');
   initDialogs();
   initTabs();
   initAccordions();

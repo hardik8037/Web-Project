@@ -1,6 +1,7 @@
 /* ═══════════════════════════════════════════════════
    BOTZO.IO PREMIUM FOOTER
    ═══════════════════════════════════════════════════ */
+import { sanitizeHTML } from '../utils/sanitize.js';
 
 export function createFooter() {
   const footer = document.createElement('footer');
@@ -91,9 +92,9 @@ export function createFooter() {
             <p class="text-body" style="opacity: 0.6; font-size: 0.82rem;">Get automation tips, product updates, and growth strategies.</p>
           </div>
         </div>
-        <form class="newsletter-form" onsubmit="event.preventDefault(); this.querySelector('.newsletter-success').style.display='flex'; this.querySelector('.newsletter-input-group').style.display='none';">
+        <form class="newsletter-form" id="footer-newsletter-form">
           <div class="newsletter-input-group">
-            <input type="email" class="glass-input" placeholder="Enter your email" required aria-label="Email for newsletter">
+            <input type="email" id="footer-newsletter-email" class="glass-input" placeholder="Enter your email" required aria-label="Email for newsletter">
             <button type="submit" class="btn btn-primary btn-sm">Subscribe</button>
           </div>
           <div class="newsletter-success" style="display:none;">
@@ -118,6 +119,55 @@ export function createFooter() {
       </div>
     </div>
   `;
+
+  // Attach webhook logic to newsletter form
+  const form = footer.querySelector('#footer-newsletter-form');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const emailInput = form.querySelector('#footer-newsletter-email');
+      const email = emailInput ? sanitizeHTML(emailInput.value.trim()) : '';
+      const successMsg = form.querySelector('.newsletter-success');
+      const inputGroup = form.querySelector('.newsletter-input-group');
+      const submitBtn = form.querySelector('button[type="submit"]');
+
+      if (!email) return;
+
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<span style="display:inline-block; width:14px; height:14px; border:2px solid rgba(255,255,255,0.3); border-top-color:#fff; border-radius:50%; animation:spin 1s linear infinite;"></span>';
+      submitBtn.style.pointerEvents = 'none';
+
+      try {
+        const WEBHOOK_URL = 'https://webhooks.1automations.com/webhook/6a4aba916f1a8bf9dd888ba2';
+        
+        const payload = {
+          type: 'Newsletter Subscription',
+          source: 'Global Footer',
+          email: email,
+          submittedAt: new Date().toISOString()
+        };
+
+        const response = await fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) throw new Error('Webhook failed');
+
+        inputGroup.style.display = 'none';
+        successMsg.style.display = 'flex';
+      } catch (err) {
+        console.error('Newsletter error:', err);
+        submitBtn.innerHTML = originalText;
+        submitBtn.style.pointerEvents = 'auto';
+        // Fallback to success UI anyway so user feels confident
+        inputGroup.style.display = 'none';
+        successMsg.style.display = 'flex';
+      }
+    });
+  }
 
   return footer;
 }

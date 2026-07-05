@@ -12,6 +12,12 @@ export default defineConfig(({ mode }) => ({
   server: {
     port: 3000,
     open: true,
+    fs: {
+      allow: [
+        '/Users/hardik/Documents/Web Project',
+        '/Users/hardik/.gemini'
+      ]
+    }
   },
   build: {
     outDir: 'dist',

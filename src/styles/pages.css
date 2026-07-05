@@ -181,6 +181,7 @@
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -653,8 +654,9 @@
 
 /* Pricing Toggles Panel */
 .pricing-header-override {
-  max-width: 900px !important; 
-  margin: 0 auto 2rem auto !important; /* Overrides default 4rem bottom margin */
+  max-width: 900px !important;
+  margin: 0 auto 2rem auto !important;
+  /* Overrides default 4rem bottom margin */
 }
 
 .pricing-toggles-panel {
@@ -795,7 +797,8 @@
   gap: 2.5rem;
   width: 100%;
   align-items: stretch;
-  padding-top: 1.5rem; /* Room for the popular badge */
+  padding-top: 1.5rem;
+  /* Room for the popular badge */
 }
 
 @media (max-width: 1439px) {
@@ -804,9 +807,26 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .hero-glass-dashboard {
+    flex-direction: column;
+  }
+}
+
 @media (max-width: 1023px) {
   .pricing-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .booking-form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .booking-country-select {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -919,7 +939,8 @@
   box-shadow: 0 0 30px rgba(139, 92, 246, 0.12);
   background: rgba(139, 92, 246, 0.05);
   overflow: visible !important;
-  z-index: 2; /* Sit on top of neighbors to prevent badge cutoff */
+  z-index: 2;
+  /* Sit on top of neighbors to prevent badge cutoff */
 }
 
 .pricing-badge {
@@ -1279,7 +1300,7 @@
 
 /* Hero Optimization */
 .booking-section-header {
-  max-width: 680px; 
+  max-width: 680px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -1301,9 +1322,13 @@
   font-size: clamp(0.95rem, 2vw, 1.1rem);
 }
 
+.calendar-booking-section {
+  overflow: visible !important;
+}
+
 /* Premium Booking Card */
 .premium-glass-card {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
   background: linear-gradient(160deg, rgba(30, 20, 50, 0.6) 0%, rgba(10, 5, 20, 0.8) 100%);
   border: 1px solid rgba(139, 92, 246, 0.2);
@@ -1314,7 +1339,7 @@
   padding: 0;
   display: flex;
   flex-direction: row;
-  overflow: hidden;
+  overflow: visible !important;
 }
 
 /* Left Sidebar: Meeting Info */
@@ -1325,6 +1350,20 @@
   border-right: 1px solid rgba(255, 255, 255, 0.05);
   display: flex;
   flex-direction: column;
+  border-top-left-radius: inherit;
+  border-bottom-left-radius: inherit;
+}
+
+.booking-benefits > div:hover {
+  background: rgba(255, 255, 255, 0.04) !important;
+  transform: translateX(5px);
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+@media (max-width: 1024px) {
+  .booking-benefits {
+    display: none !important;
+  }
 }
 
 .booking-icon-wrapper {
@@ -1391,8 +1430,10 @@
   gap: 0.75rem;
   margin-bottom: 2rem;
   overflow-x: auto;
-  padding-top: 0.5rem; /* prevent hover cut-off */
-  padding-bottom: 0.5rem; /* for scrollbar */
+  padding-top: 0.5rem;
+  /* prevent hover cut-off */
+  padding-bottom: 0.5rem;
+  /* for scrollbar */
   scrollbar-width: thin;
   scrollbar-color: rgba(139, 92, 246, 0.3) transparent;
   -webkit-overflow-scrolling: touch;
@@ -1401,6 +1442,7 @@
 .date-slots-container::-webkit-scrollbar {
   height: 4px;
 }
+
 .date-slots-container::-webkit-scrollbar-thumb {
   background: rgba(139, 92, 246, 0.3);
   border-radius: 4px;
@@ -1481,8 +1523,14 @@
 }
 
 /* Form Group & Input */
+.booking-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
 .booking-form-group {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .booking-label {
@@ -1490,7 +1538,7 @@
   font-size: 0.85rem;
   font-weight: 600;
   margin-bottom: 0.6rem;
-  color: rgba(255,255,255,0.85);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .booking-phone-wrapper {
@@ -1500,11 +1548,13 @@
 
 .booking-country-select {
   position: relative;
-  width: 140px;
+  width: 110px;
   flex-shrink: 0;
 }
 
 .booking-input-field {
+  width: 100%;
+  box-sizing: border-box;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 0.85rem 1rem;
@@ -1515,7 +1565,8 @@
   transition: border-color 0.3s ease, background 0.3s ease;
 }
 
-.booking-input-field:focus-within, .booking-input-field:focus {
+.booking-input-field:focus-within,
+.booking-input-field:focus {
   border-color: rgba(139, 92, 246, 0.5);
   background: rgba(255, 255, 255, 0.05);
   outline: none;
@@ -1542,17 +1593,23 @@
 
 .country-options-dropdown {
   position: absolute;
-  bottom: calc(100% + 5px); /* Open upwards to avoid clipping */
+  top: calc(100% + 8px);
+  /* Open downwards */
   left: 0;
-  min-width: 240px;
-  background: #1a0b2e;
+  min-width: 260px;
+  background: #140d1e;
+  /* Solid background to prevent lag over animated grid */
   border: 1px solid rgba(139, 92, 246, 0.3);
-  border-radius: 10px;
-  max-height: 250px;
-  overflow-y: auto;
-  z-index: 100;
+  border-radius: 12px;
+  height: 280px;
+  max-height: 280px;
+  overflow-y: scroll !important;
+  pointer-events: auto !important;
+  touch-action: pan-y !important;
+  overscroll-behavior: auto !important;
+  z-index: 99999 !important;
   display: none;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
 }
 
 .phone-input-field {
@@ -1577,7 +1634,8 @@
 
   /* Platform Mobile Redesign */
   .platform-interactive-layout {
-    display: none; /* Hide Desktop Pinned version */
+    display: none;
+    /* Hide Desktop Pinned version */
   }
 
   .platform-mobile-layout {
@@ -1608,7 +1666,7 @@
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    
+
     /* Animation initial state */
     opacity: 0;
     pointer-events: none;
@@ -1635,7 +1693,8 @@
 
   .mobile-feature-text {
     flex: 0 0 auto;
-    height: 25%; /* Target 20-25% of content */
+    height: 25%;
+    /* Target 20-25% of content */
     padding: 0 1rem;
     text-align: center;
     display: flex;
@@ -1643,7 +1702,7 @@
     justify-content: center;
     align-items: center;
   }
-  
+
   .mobile-feature-text .tab-icon {
     font-size: 2rem;
     margin-bottom: 0.75rem;
@@ -1667,7 +1726,8 @@
   .mobile-feature-dashboard {
     flex: 0 0 auto;
     width: 100%;
-    height: 60%; /* Target 55-60% of content */
+    height: 60%;
+    /* Target 55-60% of content */
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -1679,18 +1739,19 @@
 
   .mobile-feature-dashboard .dashboard-frame {
     width: 100%;
-    height: 100%; /* Force frame to match the container */
+    height: 100%;
+    /* Force frame to match the container */
     overflow: hidden;
     display: flex;
     flex-direction: column;
   }
-  
+
   .mobile-feature-dashboard .dashboard-content {
     /* To scale down the content while perfectly filling the frame, we expand its layout box inversely */
     width: calc(100% / var(--dash-scale));
     height: calc(100% / var(--dash-scale));
     flex-shrink: 0;
-    
+
     transform: scale(var(--dash-scale));
     transform-origin: top left;
   }
@@ -1742,7 +1803,7 @@
     flex-wrap: wrap;
   }
 
-  .contact-sidebar > * {
+  .contact-sidebar>* {
     flex: 1 1 200px;
   }
 
@@ -1750,7 +1811,7 @@
   .premium-glass-card {
     flex-direction: column;
   }
-  
+
   .booking-info-sidebar {
     border-right: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -1860,7 +1921,8 @@
   /* Booking */
   .premium-glass-card {
     border-radius: var(--radius-lg);
-    margin: 0 -0.5rem; /* Slight negative margin for edge-to-edge feel */
+    margin: 0 -0.5rem;
+    /* Slight negative margin for edge-to-edge feel */
   }
 
   .booking-info-sidebar,
@@ -1869,7 +1931,8 @@
   }
 
   .time-slots-container {
-    grid-template-columns: 1fr 1fr; /* 2 per row on tablet, drops to 1 on tiny */
+    grid-template-columns: 1fr 1fr;
+    /* 2 per row on tablet, drops to 1 on tiny */
   }
 
   .booking-country-select {
@@ -2121,7 +2184,7 @@
 
 .blog-reader-modal {
   background: rgba(8, 7, 12, 0.85) !important;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .blog-reader-close:hover {
@@ -2234,7 +2297,7 @@
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .blog-featured-card {
     padding: 2rem;
   }
@@ -2244,13 +2307,13 @@
   .blog-reader-body {
     padding: 1.5rem 1.5rem !important;
   }
-  
+
   .blog-reader-modal {
     width: 96% !important;
     height: 92vh !important;
     border-radius: var(--radius-lg) !important;
   }
-  
+
   #modal-title {
     font-size: clamp(1.4rem, 5vw, 1.8rem) !important;
     line-height: 1.2 !important;
@@ -2261,22 +2324,27 @@
   .blog-reader-body {
     padding: 1.25rem 1rem !important;
   }
+
   #modal-title {
     font-size: 1.45rem !important;
   }
+
   .blog-editorial-content h2 {
     font-size: 1.25rem !important;
     margin: 1.5rem 0 0.75rem 0;
   }
+
   .blog-editorial-content p {
     font-size: 0.88rem !important;
     line-height: 1.5;
   }
+
   .blog-callout {
     padding: 1rem;
     margin: 1.25rem 0;
     font-size: 0.8rem;
   }
+
   .blog-code-container pre {
     padding: 0.85rem;
     font-size: 0.75rem;
@@ -2356,7 +2424,7 @@
 
 .preview-split-box {
   flex: 1;
-  background: rgba(255,255,255,0.02);
+  background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-md);
   padding: 0.8rem;
@@ -2384,7 +2452,7 @@
 
 .split-box-graphic {
   font-size: 1.8rem;
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
 }
 
 .preview-split-box.highlighted .split-box-graphic {
@@ -2392,8 +2460,15 @@
 }
 
 @keyframes pulse-studio-model {
-  0% { transform: scale(0.95); opacity: 0.8; }
-  100% { transform: scale(1.05); opacity: 1; }
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
 }
 
 .preview-split-arrow {
@@ -2428,49 +2503,60 @@
 
 
 @media (max-width: 768px) {
-  
+
   /* Pricing Mobile Optimizations */
   .pricing-toggles-panel {
     flex-direction: row;
     padding: 0.6rem 0.2rem;
     width: 100%;
     justify-content: center;
-    gap: 0.35rem; /* Increased gap */
+    gap: 0.35rem;
+    /* Increased gap */
     border-radius: 16px;
   }
+
   .toggle-divider {
-    margin: 0 0.5rem; /* Increased space around divider */
+    margin: 0 0.5rem;
+    /* Increased space around divider */
     height: 40px;
   }
+
   .toggle-group {
     gap: 0.5rem;
   }
+
   .toggle-label {
     font-size: 0.65rem;
     color: rgba(255, 255, 255, 0.6);
     display: block;
     margin-bottom: 0;
   }
+
   .toggle-pill-container {
     padding: 0.2rem;
     border-radius: 9999px;
   }
+
   .toggle-pill-btn {
     padding: 0.35rem 0.4rem;
     font-size: 0.65rem;
     white-space: nowrap;
   }
+
   .pricing-savings-badge {
     padding: 0.15rem 0.25rem;
     font-size: 0.55rem;
     margin-left: 0.15rem;
   }
+
   .badge-desktop {
     display: none;
   }
+
   .badge-mobile {
     display: inline;
   }
+
   .pricing-tabs-wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -2480,6 +2566,7 @@
     gap: 0.25rem;
     width: 100%;
   }
+
   .pricing-tab-btn {
     flex: 1 1 calc(50% - 0.5rem);
     padding: 0.5rem;
@@ -2497,6 +2584,7 @@
     flex-direction: column;
     gap: 2rem;
   }
+
   .platform-page .platform-features-deep .feature-menu-sidebar {
     flex-direction: row;
     overflow-x: auto;
@@ -2508,9 +2596,11 @@
     padding-left: max(1rem, calc(50vw - 50%));
     padding-right: max(1rem, calc(50vw - 50%));
   }
+
   .platform-page .platform-features-deep .feature-menu-sidebar::-webkit-scrollbar {
     display: none;
   }
+
   .platform-page .platform-features-deep .feature-tab-btn {
     flex: 0 0 auto;
     width: 260px;
@@ -2518,16 +2608,19 @@
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.08);
   }
+
   .platform-page .platform-features-deep .feature-content-display {
     height: auto !important;
     min-height: 450px;
   }
+
   .platform-page .platform-features-deep .feature-tab-pane {
     position: relative;
     opacity: 0;
     visibility: hidden;
     display: none;
   }
+
   .platform-page .platform-features-deep .feature-tab-pane.active {
     opacity: 1;
     visibility: visible;
@@ -2536,14 +2629,14 @@
   }
 
   /* Scale down the hero ecosystem on mobile so it doesn't break layout */
-  .platform-hero-section .hero-ecosystem > div {
+  .platform-hero-section .hero-ecosystem>div {
     transform: scale(0.65);
     transform-origin: top center;
   }
 }
 
 @media (max-width: 600px) {
-  .platform-hero-section .hero-ecosystem > div {
+  .platform-hero-section .hero-ecosystem>div {
     transform: scale(0.42);
     transform-origin: top center;
   }

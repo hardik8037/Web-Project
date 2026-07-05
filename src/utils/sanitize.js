@@ -1,8 +1,8 @@
-// DOMPurify is loaded globally via CDN in index.html
+import DOMPurify from 'dompurify';
 
 /**
  * Enterprise-grade HTML Sanitization Utility.
- * Wraps DOMPurify with strict configurations to ensure all injected HTML is safe.
+ * Wraps local DOMPurify with strict configurations to ensure all injected HTML is safe.
  * 
  * @param {string} dirtyHtml - The untrusted HTML string
  * @returns {string} - Clean, safe HTML ready for innerHTML
@@ -22,7 +22,7 @@ export function sanitizeHTML(dirtyHtml) {
       'viewBox', 'fill', 'stroke', 'stroke-width', 'stroke-linecap', 'stroke-linejoin',
       'd', 'cx', 'cy', 'r', 'xmlns'
     ],
-    ALLOW_DATA_ATTR: false, // We do not need data attributes for rich text generally
+    ALLOW_DATA_ATTR: false,
     RETURN_DOM: false,
     RETURN_DOM_FRAGMENT: false,
     RETURN_DOM_IMPORT: false

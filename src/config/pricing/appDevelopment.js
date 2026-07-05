@@ -3,18 +3,19 @@ export default {
   id: "appDevelopment",
   plans: [
     {
-      id: "basic",
-      name: "Basic",
+      id: "starter",
+      name: "Starter",
+      desc: "Perfect for establishing your initial mobile presence.",
       popular: false,
       isCustom: false,
       pricing: {
         INR: {
-          monthly: { price: "29,999", period: "/month" },
-          yearly: { price: "26,999", period: "/month", was: "was ₹29999/mo" }
+          monthly: { price: "25,000", period: "one-time" },
+          yearly: { price: "25,000", period: "one-time" }
         },
         USD: {
-          monthly: { price: "399", period: "/month" },
-          yearly: { price: "359", period: "/month", was: "was $399/mo" }
+          monthly: { price: "349", period: "one-time" },
+          yearly: { price: "349", period: "one-time" }
         }
       },
       cta: "Get started"
@@ -22,33 +23,35 @@ export default {
     {
       id: "growth",
       name: "Growth",
+      desc: "Ideal for growing businesses needing a professional app.",
       popular: true,
       isCustom: false,
       pricing: {
         INR: {
-          monthly: { price: "59,999", period: "/month" },
-          yearly: { price: "53,999", period: "/month", was: "was ₹59999/mo" }
+          monthly: { price: "50,000", period: "one-time" },
+          yearly: { price: "50,000", period: "one-time" }
         },
         USD: {
-          monthly: { price: "799", period: "/month" },
-          yearly: { price: "719", period: "/month", was: "was $799/mo" }
+          monthly: { price: "699", period: "one-time" },
+          yearly: { price: "699", period: "one-time" }
         }
       },
       cta: "Get started"
     },
     {
-      id: "premium",
-      name: "Premium",
+      id: "scale",
+      name: "Scale",
+      desc: "Advanced mobile solutions for scaling operations.",
       popular: false,
       isCustom: false,
       pricing: {
         INR: {
-          monthly: { price: "99,999", period: "/month" },
-          yearly: { price: "89,999", period: "/month", was: "was ₹99999/mo" }
+          monthly: { price: "1,00,000", period: "one-time" },
+          yearly: { price: "1,00,000", period: "one-time" }
         },
         USD: {
-          monthly: { price: "1,299", period: "/month" },
-          yearly: { price: "1,169", period: "/month", was: "was $1299/mo" }
+          monthly: { price: "1,399", period: "one-time" },
+          yearly: { price: "1,399", period: "one-time" }
         }
       },
       cta: "Get started"
@@ -56,6 +59,7 @@ export default {
     {
       id: "enterprise",
       name: "Enterprise",
+      desc: "Custom tailored enterprise mobile applications.",
       popular: false,
       isCustom: true,
       pricing: {
@@ -73,29 +77,51 @@ export default {
   ],
   features: [
     {
-      section: "Platforms & Core",
+      section: "APP BASICS",
       items: [
-        { name: "Platforms Supported", values: ["Android", "iOS & Android", "Native iOS & Android", "Custom"] },
-        { name: "UI/UX Design", values: ["Template", "Custom", "Premium Custom", "Enterprise"] },
-        { name: "User Authentication", values: ["✓", "✓", "✓", "✓"] }
+        { name: "Platform", values: ["Android", "Android + iOS", "Android + iOS", "Custom"] },
+        { name: "App Type", values: ["Informative", "Business", "Custom", "Custom"] },
+        { name: "Screens", values: ["Up to 5", "Up to 15", "Up to 30", "Custom"] },
+        { name: "UI/UX Design", values: ["Basic", "Premium", "Premium", "Custom"] }
       ]
     },
     {
-      section: "Advanced Features",
+      section: "FEATURES",
       items: [
-        { name: "Push Notifications", values: ["—", "✓", "✓", "✓"] },
-        { name: "In-App Payments", values: ["—", "✓", "✓", "✓"] },
-        { name: "Real-time Chat", values: ["—", "—", "✓", "✓"] },
-        { name: "Offline Mode", values: ["—", "—", "✓", "✓"] }
+        { name: "User Login", values: ["✓", "✓", "✓", "✓"] },
+        { name: "Admin Panel", values: ["✕", "✓", "✓", "Custom"] },
+        { name: "Push Notifications", values: ["✕", "✓", "✓", "✓"] },
+        { name: "Booking System", values: ["✕", "Optional", "✓", "Custom"] },
+        { name: "E-commerce", values: ["✕", "Basic", "Advanced", "Custom"] }
       ]
     },
     {
-      section: "Deployment & Support",
+      section: "INTEGRATIONS",
       items: [
-        { name: "App Store Submission", values: ["✓", "✓", "✓", "✓"] },
-        { name: "App Store Optimization", values: ["—", "✓", "✓", "✓"] },
-        { name: "Maintenance & Updates", values: ["1 Month", "3 Months", "6 Months", "Custom"] }
+        { name: "WhatsApp Integration", values: ["✓", "✓", "✓", "✓"] },
+        { name: "Google Maps", values: ["✓", "✓", "✓", "✓"] },
+        { name: "Payment Gateway", values: ["✕", "✓", "✓", "Custom"] },
+        { name: "Database Integration", values: ["Basic", "✓", "✓", "Custom"] },
+        { name: "API Integration", values: ["✕", "Basic", "Advanced", "Custom"] }
+      ]
+    },
+    {
+      section: "DEPLOYMENT",
+      items: [
+        { name: "Play Store Deployment", values: ["✓", "✓", "✓", "✓"] },
+        { name: "App Store Deployment", values: ["✕", "✓", "✓", "✓"] },
+        { name: "Source Code", values: ["✓", "✓", "✓", "✓"] }
+      ]
+    },
+    {
+      section: "SUPPORT",
+      items: [
+        { name: "Post-delivery support", values: ["30 Days", "60 Days", "90 Days", "Custom"] }
       ]
     }
-  ]
+  ],
+  customSolutionBox: {
+    title: "Need a custom solution?",
+    description: "Whether it's a marketplace, on-demand app, social platform, AI-powered mobile app, or any custom application — our Enterprise plan is built around your exact requirements. Contact us for a personalized quote."
+  }
 };

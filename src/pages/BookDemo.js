@@ -55,10 +55,12 @@ export function createBookDemo() {
           
           <!-- Left Meeting Info -->
           <div class="booking-info-sidebar">
-            <div class="booking-icon-wrapper">
-              <span class="booking-icon">📅</span>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+                <div class="booking-icon-wrapper" style="margin: 0; background: rgba(139, 92, 246, 0.15); color: #c084fc;">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                </div>
+              <h3 class="booking-title" style="margin-bottom: 0;">Technical Scoping Call</h3>
             </div>
-            <h3 class="booking-title">Technical Scoping Call</h3>
             <div class="booking-meta">
               <span class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 30 Min</span>
               <span class="meta-divider">•</span>
@@ -67,6 +69,37 @@ export function createBookDemo() {
             <p class="booking-description">
               Our tech consultants will analyze your current lead capture flow, suggest custom WhatsApp templates, and walk you through workflow builders live.
             </p>
+            <div class="booking-benefits" style="flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 1.25rem; margin-top: 2.5rem;">
+              <div style="display: flex; align-items: center; gap: 1rem; background: rgba(255,255,255,0.02); padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); transition: background 0.3s ease, transform 0.3s ease;">
+                <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(139, 92, 246, 0.15); display: flex; align-items: center; justify-content: center; color: #c084fc; flex-shrink: 0; border: 1px solid rgba(139, 92, 246, 0.2);">
+                  <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                </div>
+                <div>
+                  <h5 style="color: #fff; font-size: 0.95rem; font-weight: 600; margin-bottom: 0.3rem;">Live Automation Build</h5>
+                  <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin: 0; line-height: 1.4;">Watch our experts build WhatsApp bots in real-time tailored to your business.</p>
+                </div>
+              </div>
+              
+              <div style="display: flex; align-items: center; gap: 1rem; background: rgba(255,255,255,0.02); padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); transition: background 0.3s ease, transform 0.3s ease;">
+                <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(236, 72, 153, 0.15); display: flex; align-items: center; justify-content: center; color: #ec4899; flex-shrink: 0; border: 1px solid rgba(236, 72, 153, 0.2);">
+                  <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                </div>
+                <div>
+                  <h5 style="color: #fff; font-size: 0.95rem; font-weight: 600; margin-bottom: 0.3rem;">Tailored Workflows</h5>
+                  <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin: 0; line-height: 1.4;">Custom flows mapped directly to your existing CRM and sales funnels.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: center; gap: 1rem; background: rgba(255,255,255,0.02); padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); transition: background 0.3s ease, transform 0.3s ease;">
+                <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(59, 130, 246, 0.15); display: flex; align-items: center; justify-content: center; color: #60a5fa; flex-shrink: 0; border: 1px solid rgba(59, 130, 246, 0.2);">
+                  <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm14 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" /></svg>
+                </div>
+                <div>
+                  <h5 style="color: #fff; font-size: 0.95rem; font-weight: 600; margin-bottom: 0.3rem;">Seamless Integration</h5>
+                  <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin: 0; line-height: 1.4;">Learn how we seamlessly connect with your entire existing tool stack.</p>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- Right Calendar Mock -->
@@ -88,6 +121,17 @@ export function createBookDemo() {
               </style>
             </div>
 
+            <div class="booking-form-row">
+              <div class="booking-form-group">
+                <label class="booking-label">First Name</label>
+                <input type="text" id="booking-firstname" required minlength="2" maxlength="50" pattern="[a-zA-Z\\s\\-]+" class="glass-input booking-input-field" placeholder="John">
+              </div>
+              <div class="booking-form-group">
+                <label class="booking-label">Last Name</label>
+                <input type="text" id="booking-lastname" required minlength="2" maxlength="50" pattern="[a-zA-Z\\s\\-]+" class="glass-input booking-input-field" placeholder="Doe">
+              </div>
+            </div>
+
             <!-- Phone Number Input -->
             <div class="booking-form-group">
               <label for="booking-phone" class="booking-label">WhatsApp Number</label>
@@ -95,29 +139,34 @@ export function createBookDemo() {
                 
                 <!-- Custom Country Select -->
                 <div class="booking-country-select" id="custom-country-select">
-                  <div id="country-selected" class="glass-input booking-input-field country-select-trigger" aria-label="Selected Country Code" role="button" tabindex="0">
-                    <input type="text" id="country-search" value="+91 (IN)" data-code="+91" class="country-search-input" aria-label="Search Country Code">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="country-select-icon" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                  <div id="country-selected" class="glass-input booking-input-field country-select-trigger" aria-label="Selected Country Code" role="button" tabindex="0" style="display: flex; align-items: center; gap: 0.4rem; padding: 0.85rem 0.6rem;">
+                    <span id="selected-flag" style="font-size: 1.1rem;">🇮🇳</span>
+                    <span style="font-size: 0.6rem; opacity: 0.7;">▼</span>
+                    <input type="text" id="country-search" value="+91" data-code="+91" class="country-search-input" aria-label="Search Country Code" style="background: transparent; border: none; color: #fff; width: 50px; font-size: 0.95rem; padding: 0; outline: none; flex: 1;">
                   </div>
-                  <div id="country-options-list" class="country-options-dropdown">
+                  <div id="country-options-list" class="country-options-dropdown" data-lenis-prevent="true">
                     <!-- Generated via JS -->
                   </div>
                 </div>
 
-                <input type="tel" id="booking-phone" required minlength="7" maxlength="15" pattern="[0-9\\s\\-]+" class="glass-input booking-input-field phone-input-field" placeholder="00000 00000">
+                <input type="tel" id="booking-phone" required minlength="10" maxlength="15" pattern="[0-9]+" class="glass-input booking-input-field phone-input-field" placeholder="0000000000">
               </div>
             </div>
-            <div class="form-group">
-              <label>Full Name</label>
-              <input type="text" id="booking-name" required minlength="2" maxlength="50" pattern="[a-zA-Z\\s\\-]+" class="glass-input booking-input-field" placeholder="e.g. John Doe">
-            </div>
-            <div class="form-group">
-              <label>Work Email</label>
+
+            <div class="booking-form-group">
+              <label class="booking-label">Business Email</label>
               <input type="email" id="booking-email" required maxlength="100" class="glass-input booking-input-field" placeholder="john@company.com">
             </div>
 
+            <div class="booking-form-group" style="margin-bottom: 1.5rem;">
+              <label class="booking-label">What would you like to discuss? (Optional)</label>
+              <textarea id="booking-brief" maxlength="500" class="glass-input booking-input-field" placeholder="Tell us briefly about your use case..." rows="3" style="resize: vertical;"></textarea>
+            </div>
+
             <div id="booking-error-msg" style="color: #ff4d4d; font-size: 0.85rem; margin-bottom: 1rem; display: none;"></div>
-            <button id="confirm-booking-btn" class="btn btn-primary btn-booking-submit">Confirm Appointment Slot</button>
+            <div class="booking-form-group" style="margin-top: 1rem;">
+              <button id="confirm-booking-btn" class="btn btn-primary btn-booking-submit" style="cursor: pointer; position: relative; z-index: 10;">Confirm Appointment Slot</button>
+            </div>
           </div>
 
         </div>
@@ -134,28 +183,44 @@ export function createBookDemo() {
     
     if (selectSelected && selectOptionsList && searchInput) {
       const countries = [
-        { code: '+1', name: 'US/CA' }, { code: '+7', name: 'RU/KZ' }, { code: '+20', name: 'EG' },
-        { code: '+27', name: 'ZA' }, { code: '+30', name: 'GR' }, { code: '+31', name: 'NL' },
-        { code: '+32', name: 'BE' }, { code: '+33', name: 'FR' }, { code: '+34', name: 'ES' },
-        { code: '+36', name: 'HU' }, { code: '+39', name: 'IT' }, { code: '+40', name: 'RO' },
-        { code: '+41', name: 'CH' }, { code: '+43', name: 'AT' }, { code: '+44', name: 'UK' },
-        { code: '+45', name: 'DK' }, { code: '+46', name: 'SE' }, { code: '+47', name: 'NO' },
-        { code: '+48', name: 'PL' }, { code: '+49', name: 'DE' }, { code: '+51', name: 'PE' },
-        { code: '+52', name: 'MX' }, { code: '+53', name: 'CU' }, { code: '+54', name: 'AR' },
-        { code: '+55', name: 'BR' }, { code: '+56', name: 'CL' }, { code: '+57', name: 'CO' },
-        { code: '+58', name: 'VE' }, { code: '+60', name: 'MY' }, { code: '+61', name: 'AU' },
-        { code: '+62', name: 'ID' }, { code: '+63', name: 'PH' }, { code: '+64', name: 'NZ' },
-        { code: '+65', name: 'SG' }, { code: '+66', name: 'TH' }, { code: '+81', name: 'JP' },
-        { code: '+82', name: 'KR' }, { code: '+84', name: 'VN' }, { code: '+86', name: 'CN' },
-        { code: '+90', name: 'TR' }, { code: '+91', name: 'IN' }, { code: '+92', name: 'PK' },
-        { code: '+93', name: 'AF' }, { code: '+94', name: 'LK' }, { code: '+95', name: 'MM' },
-        { code: '+971', name: 'UAE' }, { code: '+972', name: 'IL' }, { code: '+973', name: 'BH' },
-        { code: '+974', name: 'QA' }
+        { code: '+1', name: 'United States', flag: '🇺🇸' },
+        { code: '+1', name: 'Canada', flag: '🇨🇦' },
+        { code: '+44', name: 'United Kingdom', flag: '🇬🇧' },
+        { code: '+61', name: 'Australia', flag: '🇦🇺' },
+        { code: '+91', name: 'India', flag: '🇮🇳' },
+        { code: '+504', name: 'Honduras', flag: '🇭🇳' },
+        { code: '+852', name: 'Hong Kong', flag: '🇭🇰' },
+        { code: '+36', name: 'Hungary', flag: '🇭🇺' },
+        { code: '+354', name: 'Iceland', flag: '🇮🇸' },
+        { code: '+62', name: 'Indonesia', flag: '🇮🇩' },
+        { code: '+353', name: 'Ireland', flag: '🇮🇪' },
+        { code: '+972', name: 'Israel', flag: '🇮🇱' },
+        { code: '+39', name: 'Italy', flag: '🇮🇹' },
+        { code: '+81', name: 'Japan', flag: '🇯🇵' },
+        { code: '+60', name: 'Malaysia', flag: '🇲🇾' },
+        { code: '+52', name: 'Mexico', flag: '🇲🇽' },
+        { code: '+31', name: 'Netherlands', flag: '🇳🇱' },
+        { code: '+64', name: 'New Zealand', flag: '🇳🇿' },
+        { code: '+234', name: 'Nigeria', flag: '🇳🇬' },
+        { code: '+47', name: 'Norway', flag: '🇳🇴' },
+        { code: '+63', name: 'Philippines', flag: '🇵🇭' },
+        { code: '+48', name: 'Poland', flag: '🇵🇱' },
+        { code: '+351', name: 'Portugal', flag: '🇵🇹' },
+        { code: '+65', name: 'Singapore', flag: '🇸🇬' },
+        { code: '+27', name: 'South Africa', flag: '🇿🇦' },
+        { code: '+34', name: 'Spain', flag: '🇪🇸' },
+        { code: '+46', name: 'Sweden', flag: '🇸🇪' },
+        { code: '+41', name: 'Switzerland', flag: '🇨🇭' },
+        { code: '+971', name: 'UAE', flag: '🇦🇪' }
       ];
 
       let optionsHTML = '';
       countries.forEach(c => {
-        optionsHTML += `<div class="custom-select-option" data-value="${c.code}" style="padding: 0.6rem 1rem; cursor: pointer; border-bottom: 1px solid rgba(255,255,255,0.05); color: #fff; font-size: 0.85rem; transition: background 0.2s;">${c.code} (${c.name})</div>`;
+        optionsHTML += `<div class="custom-select-option" data-value="${c.code}" data-flag="${c.flag}" data-name="${c.name.toLowerCase()}" style="padding: 0.6rem 1rem; cursor: pointer; border-bottom: 1px solid rgba(255,255,255,0.05); color: #fff; font-size: 0.85rem; transition: background 0.2s; display: flex; align-items: center; gap: 0.75rem;">
+          <span style="font-size: 1.2rem;">${c.flag}</span>
+          <span style="font-weight: 500;">${c.name}</span>
+          <span style="color: rgba(255,255,255,0.4); margin-left: auto;">${c.code}</span>
+        </div>`;
       });
       selectOptionsList.innerHTML = optionsHTML;
 
@@ -163,7 +228,7 @@ export function createBookDemo() {
       searchInput.addEventListener('focus', () => {
         // Reset all options to visible when opening
         const allOpts = container.querySelectorAll('.custom-select-option');
-        allOpts.forEach(o => o.style.display = 'block');
+        allOpts.forEach(o => o.style.display = 'flex');
         selectOptionsList.style.display = 'block';
         searchInput.select();
       });
@@ -173,8 +238,10 @@ export function createBookDemo() {
       searchInput.addEventListener('input', (e) => {
         const val = e.target.value.toLowerCase();
         options.forEach(opt => {
-          if (opt.textContent.toLowerCase().includes(val)) {
-            opt.style.display = 'block';
+          const code = opt.dataset.value.toLowerCase();
+          const name = opt.dataset.name;
+          if (code.includes(val) || name.includes(val)) {
+            opt.style.display = 'flex';
           } else {
             opt.style.display = 'none';
           }
@@ -183,11 +250,12 @@ export function createBookDemo() {
 
       options.forEach(opt => {
         opt.addEventListener('click', () => {
-          searchInput.value = opt.textContent;
+          searchInput.value = opt.dataset.value;
           searchInput.dataset.code = opt.dataset.value;
+          container.querySelector('#selected-flag').textContent = opt.dataset.flag;
           selectOptionsList.style.display = 'none';
           // Reset all options to visible for next open
-          options.forEach(o => o.style.display = 'block');
+          options.forEach(o => o.style.display = 'flex');
         });
         opt.addEventListener('mouseenter', () => opt.style.background = 'rgba(156, 39, 255, 0.2)');
         opt.addEventListener('mouseleave', () => opt.style.background = 'transparent');
@@ -287,9 +355,11 @@ export function createBookDemo() {
         const errorMsg = container.querySelector('#booking-error-msg');
         errorMsg.style.display = 'none';
 
-        const name = sanitizeHTML(container.querySelector('#booking-name').value.trim());
+        const firstName = sanitizeHTML(container.querySelector('#booking-firstname').value.trim());
+        const lastName = sanitizeHTML(container.querySelector('#booking-lastname').value.trim());
         const email = sanitizeHTML(container.querySelector('#booking-email').value.trim());
         const phone = sanitizeHTML(container.querySelector('#booking-phone').value.trim());
+        const brief = sanitizeHTML(container.querySelector('#booking-brief').value.trim());
         const countryCode = container.querySelector('#country-search').dataset.code || '+91';
 
         const activeDate = container.querySelector('.date-slot-btn.active');
@@ -300,21 +370,27 @@ export function createBookDemo() {
 
         // Basic JS Validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!name || name.length < 2 || name.length > 50) {
-          errorMsg.textContent = 'Please enter a valid name (2-50 characters).';
+        if (!firstName || firstName.length < 2 || firstName.length > 50) {
+          errorMsg.textContent = 'Please enter a valid first name.';
+          errorMsg.style.display = 'block';
+          return;
+        }
+        if (!lastName || lastName.length < 2 || lastName.length > 50) {
+          errorMsg.textContent = 'Please enter a valid last name.';
+          errorMsg.style.display = 'block';
+          return;
+        }
+        if (!phone || phone.length < 10 || phone.length > 15 || !/^[0-9]+$/.test(phone)) {
+          errorMsg.textContent = 'Please enter a valid WhatsApp number (at least 10 digits, no spaces or dashes).';
           errorMsg.style.display = 'block';
           return;
         }
         if (!email || !emailRegex.test(email)) {
-          errorMsg.textContent = 'Please enter a valid email address.';
+          errorMsg.textContent = 'Please enter a valid business email address.';
           errorMsg.style.display = 'block';
           return;
         }
-        if (!phone || phone.length < 7 || phone.length > 15 || !/^[0-9\s\-]+$/.test(phone)) {
-          errorMsg.textContent = 'Please enter a valid phone number.';
-          errorMsg.style.display = 'block';
-          return;
-        }
+        // Removed brief length validation so users can type 'ok' if they want.
         if (!timeText) {
           errorMsg.textContent = 'Please select a valid time slot. All slots for this day might be full or passed.';
           errorMsg.style.display = 'block';
@@ -323,7 +399,7 @@ export function createBookDemo() {
 
         // --- ⚙️ WEBHOOK CONFIGURATION ---
         // Replace this URL with your Make.com, Zapier, or custom webhook URL
-        const WEBHOOK_URL = 'https://your-webhook-url.com/endpoint'; 
+        const WEBHOOK_URL = 'https://webhooks.1automations.com/webhook/6a4aba916f1a8bf9dd888ba2'; 
         
         // 1. Gather Booking Data & Save to LocalStorage
         const dateKey = `${dateDay}, ${dateNum}`;
@@ -335,6 +411,10 @@ export function createBookDemo() {
         const bookingData = {
           type: 'Demo Booking',
           source: 'Book Demo Page',
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+          brief: brief,
           date: `${dateDay}, ${dateNum}`,
           time: timeText,
           whatsapp_number: `${countryCode}${phone}`,
@@ -349,8 +429,6 @@ export function createBookDemo() {
 
         try {
           // 3. Send Data to Webhook
-          /* 
-          // Uncomment this block when you have added your real webhook URL above!
           const response = await fetch(WEBHOOK_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -358,10 +436,6 @@ export function createBookDemo() {
           });
           
           if (!response.ok) throw new Error('Webhook failed');
-          */
-
-          // Simulate network delay for demo
-          await new Promise(resolve => setTimeout(resolve, 1500));
 
           // 4. Success Modal
           const overlay = document.createElement('div');
@@ -401,7 +475,7 @@ export function createBookDemo() {
                   <div style="width: 32px; height: 32px; border-radius: 8px; background: rgba(156,39,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 0.9rem;">📱</div>
                   <div>
                     <div style="font-size: 0.7rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.5px;">WhatsApp</div>
-                    <div style="font-size: 0.9rem; font-weight: 600; color: #fff;">${countryCode} ${phoneNum}</div>
+                    <div style="font-size: 0.9rem; font-weight: 600; color: #fff;">${countryCode} ${phone}</div>
                   </div>
                 </div>
               </div>
