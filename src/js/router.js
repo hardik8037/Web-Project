@@ -15,7 +15,7 @@ import { createHome } from '../pages/Home.js';
 import { createPlatform } from '../pages/Platform.js';
 import { createServices } from '../pages/Services.js';
 import { createSolutions } from '../pages/Solutions.js';
-import { createPricing } from '../pages/Pricing.js';
+import { createPricingPage } from '../pages/Pricing.js';
 import { createResources } from '../pages/Resources.js';
 import { createBlog } from '../pages/Blog.js';
 import { createAbout } from '../pages/About.js';
@@ -36,7 +36,7 @@ const ROUTES = {
   '/platform': { title: 'Automation Platform | Botzo.io', builder: createPlatform, mood: 'platform' },
   '/services': { title: 'Digital Agency & Development Services | Botzo.io', builder: createServices, mood: 'services' },
   '/solutions': { title: 'Industry-Specific Solutions | Botzo.io', builder: createSolutions, mood: 'solutions' },
-  '/pricing': { title: 'Plans & Pricing | Botzo.io', builder: createPricing, mood: 'pricing' },
+  '/pricing': { title: 'Plans & Pricing | Botzo.io', builder: createPricingPage, mood: 'pricing' },
   '/resources': { title: 'Resources Hub | Botzo.io', builder: createResources, mood: 'resources' },
   '/blog': { title: 'Insights & Tutorials Blog | Botzo.io', builder: createBlog, mood: 'resources' },
   '/about': { title: 'About Our Vision | Botzo.io', builder: createAbout, mood: 'about' },

@@ -8,7 +8,6 @@ import { createAutomationPlatform } from '../sections/AutomationPlatform.js';
 import { createLiveDemo } from '../sections/LiveDemo.js';
 import { createProblemSolution } from '../sections/ProblemSolution.js';
 import { createDigitalServices } from '../sections/DigitalServices.js';
-import { createPricing } from '../sections/Pricing.js';
 import { createUseCases } from '../sections/UseCases.js';
 import { createFAQ } from '../sections/FAQ.js';
 import { createFinalCTA } from '../sections/FinalCTA.js';
@@ -34,8 +33,6 @@ export function createHome() {
   page.appendChild(createProblemSolution());
   page.appendChild(createDivider());
   page.appendChild(createDigitalServices());
-  page.appendChild(createDivider());
-  page.appendChild(createPricing());
   page.appendChild(createDivider());
   page.appendChild(createUseCases());
   page.appendChild(createDivider());

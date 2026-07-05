@@ -15,16 +15,16 @@ const CATEGORY_OG_IMAGES = {
 
 export const SEO_CONFIG = {
   '/': {
-    title: 'Botzo.io — AI Business Automation & Communication Ecosystem',
-    description: 'Botzo.io is the complete business automation platform — WhatsApp API, Instagram & Facebook automation, CRM, workflow builder, bulk campaigns, and digital marketing services.',
+    title: 'Botzo.io — WhatsApp API & Business Automation Platform',
+    description: 'Botzo.io is the leading WhatsApp API & business automation platform. Automate customer support, scale bulk campaigns, and build intelligent workflows with our enterprise ecosystem.',
     canonical: 'https://botzo.io/',
-    keywords: 'WhatsApp API, business automation, chatbot, CRM, workflow automation, bulk messaging, digital marketing',
+    keywords: 'WhatsApp API, business automation, chatbot, CRM, workflow automation, bulk messaging, RCS messaging',
     robots: 'index, follow',
-    ogTitle: 'Botzo.io — AI Business Automation & Communication Ecosystem',
-    ogDescription: 'Automate WhatsApp, Instagram, Facebook. CRM, workflows, bulk campaigns, and full digital marketing services — all in one platform.',
+    ogTitle: 'Botzo.io — WhatsApp API & Business Automation Platform',
+    ogDescription: 'Botzo.io is the leading WhatsApp API & business automation platform. Automate customer support, scale bulk campaigns, and build intelligent workflows.',
     ogImage: DEFAULT_OG_IMAGE,
-    twitterTitle: 'Botzo.io — AI Business Automation Ecosystem',
-    twitterDescription: 'Automate everything. Communicate everywhere. Grow without limits.',
+    twitterTitle: 'Botzo.io — WhatsApp API & Business Automation Platform',
+    twitterDescription: 'Automate customer support, scale bulk campaigns, and build intelligent workflows.',
     twitterImage: DEFAULT_OG_IMAGE,
     priority: 1.0,
     changefreq: 'weekly',
