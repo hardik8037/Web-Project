@@ -1173,9 +1173,9 @@
 
 .contact-layout {
   display: grid;
-  grid-template-columns: 320px 1fr;
+  grid-template-columns: 360px 1fr;
   gap: 4rem;
-  max-width: 920px;
+  max-width: 1080px;
   margin: 0 auto;
   align-items: start;
 }
@@ -1792,19 +1792,21 @@
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   }
 
-  /* Contact */
   .contact-layout {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
 
   .contact-sidebar {
-    flex-direction: row;
-    flex-wrap: wrap;
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
 
   .contact-sidebar>* {
-    flex: 1 1 200px;
+    flex: none;
+    width: 100%;
   }
 
   /* Booking Mobile overrides (Tablet/Small Desktop) */

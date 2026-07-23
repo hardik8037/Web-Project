@@ -428,6 +428,8 @@ export function initScrollAnimations() {
 
   // 3. Dimensional Dashboard & Card Perspective Tilt on Scroll
   gsap.utils.toArray('.dashboard-frame, .hero-dashboard, .glass-card-strong').forEach((card) => {
+    if (card.classList.contains('no-tilt') || card.closest('.no-tilt')) return;
+    
     gsap.fromTo(card,
       { rotationX: 4, rotationY: -2, y: 15 },
       {

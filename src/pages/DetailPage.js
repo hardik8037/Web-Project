@@ -100,7 +100,7 @@ const SOLUTIONS_DEMO_FLOWS = {
         },
         confActions: [
           { label: "📍 Get Directions", val: "https://maps.google.com" },
-          { label: "📞 Contact Clinic", val: "tel:+919727372130" }
+          { label: "📞 Contact Clinic", val: "tel:+919979100352" }
         ],
         text: "Appointment Booked! 📅 Your consultation with **{{doctor}}** is scheduled for {{date}} at {{time}}. A confirmation receipt has been sent.",
         buttons: ["Restart Demo 🔄"]
@@ -180,7 +180,7 @@ const SOLUTIONS_DEMO_FLOWS = {
         },
         confActions: [
           { label: "🛵 Live Tracker", val: "track" },
-          { label: "📞 Call Rider", val: "tel:+919727372130" }
+          { label: "📞 Call Rider", val: "tel:+919979100352" }
         ],
         text: "Order Received! 🛵 Your hot pizza is being prepared and will be delivered in 30 minutes. Tracker: botzo.io/track/it-489",
         buttons: ["Restart Demo 🔄"]
@@ -208,7 +208,7 @@ const SOLUTIONS_DEMO_FLOWS = {
         },
         confActions: [
           { label: "📍 Get Directions", val: "https://maps.google.com" },
-          { label: "📞 Call Manager", val: "tel:+919727372130" }
+          { label: "📞 Call Manager", val: "tel:+919979100352" }
         ],
         text: "Table Reserved! 🥂 Table reservation is confirmed for {{date}} at {{time}} for {{guests}}. We look forward to hosting you!",
         buttons: ["Restart Demo 🔄"]
@@ -361,7 +361,7 @@ const SOLUTIONS_DEMO_FLOWS = {
         },
         confActions: [
           { label: "📍 View Map", val: "https://maps.google.com" },
-          { label: "📞 Call Showroom", val: "tel:+919727372130" }
+          { label: "📞 Call Showroom", val: "tel:+919979100352" }
         ],
         text: "Appointment Confirmed! 🌟 A private VIP consultant has been reserved for you at our {{branch}} branch on {{date}} at {{time}}.",
         buttons: ["Restart Demo 🔄"]
@@ -450,7 +450,7 @@ const SOLUTIONS_DEMO_FLOWS = {
         },
         confActions: [
           { label: "📍 Show Route", val: "https://maps.google.com" },
-          { label: "📞 Advisor Call", val: "tel:+919727372130" }
+          { label: "📞 Advisor Call", val: "tel:+919979100352" }
         ],
         text: "Booking Confirmed! 🚗 Your test drive for **{{model}}** is scheduled for {{date}} at {{time}}. Our advisor will contact you shortly.",
         buttons: ["Restart Demo 🔄"]
@@ -513,7 +513,7 @@ const SOLUTIONS_DEMO_FLOWS = {
         },
         confActions: [
           { label: "📍 View Gym Location", val: "https://maps.google.com" },
-          { label: "📞 Support Desk", val: "tel:+919727372130" }
+          { label: "📞 Support Desk", val: "tel:+919979100352" }
         ],
         text: "Session Confirmed! 🥊 Your trial session is scheduled for {{date}} at {{time}}. Show this message at reception for entry. Get ready to sweat!",
         buttons: ["Restart Demo 🔄"]

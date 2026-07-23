@@ -4,25 +4,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
+  <!-- ═══ Verification Tags ═══ -->
+  <!-- Meta / Facebook -->
+  <meta name="facebook-domain-verification" content="ol2dxmbgu4ssb2dj6tx9278jlnq1rz" />
+  <!-- Google Search Console -->
+  <meta name="google-site-verification" content="ENTER_GOOGLE_VERIFICATION_CODE_HERE" />
+  <!-- Bing Webmaster -->
+  <meta name="msvalidate.01" content="ENTER_BING_VERIFICATION_CODE_HERE" />
+  <!-- Pinterest — Reserved -->
+
   <!-- SEO Meta Tags -->
-  <title>Botzo.io — WhatsApp API & Business Automation Platform</title>
-  <meta name="description" content="Botzo.io is the leading WhatsApp API & business automation platform. Automate customer support, scale bulk campaigns, and build intelligent workflows with our enterprise ecosystem.">
+  <title>Botzo — WhatsApp API & Business Automation Platform</title>
+  <meta name="description" content="Botzo is the leading WhatsApp API & business automation platform. Automate customer support, scale bulk campaigns, and build intelligent workflows with our enterprise ecosystem.">
   <meta name="keywords" content="WhatsApp API, business automation, chatbot, CRM, workflow automation, bulk messaging, RCS messaging">
-  <meta name="author" content="Botzo.io">
+  <meta name="author" content="Botzo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://botzo.io/">
   <meta name="theme-color" content="#050505">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Botzo.io — WhatsApp API & Business Automation Platform">
-  <meta property="og:description" content="Botzo.io is the leading WhatsApp API & business automation platform. Automate customer support, scale bulk campaigns, and build intelligent workflows.">
+  <meta property="og:title" content="Botzo — WhatsApp API & Business Automation Platform">
+  <meta property="og:description" content="Botzo is the leading WhatsApp API & business automation platform. Automate customer support, scale bulk campaigns, and build intelligent workflows.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://botzo.io/">
   <meta property="og:image" content="https://botzo.io/assets/images/og-image.png">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Botzo.io — AI Business Automation Ecosystem">
+  <meta name="twitter:title" content="Botzo — AI Business Automation Ecosystem">
   <meta name="twitter:description" content="Automate everything. Communicate everywhere. Grow without limits.">
   <meta name="twitter:image" content="https://botzo.io/assets/images/og-image.png">
 
@@ -31,12 +40,13 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicon.png">
   <link rel="apple-touch-icon" href="/assets/images/favicon.png">
 
-    <!-- Preload critical assets -->
+  <!-- Preload critical assets -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 
-  <!-- Fonts -->
+  <!-- Fonts (Preloaded for faster LCP) -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" as="style" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Styles -->
@@ -47,7 +57,7 @@
   {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Botzo.io",
+    "name": "Botzo",
     "url": "https://botzo.io",
     "description": "AI Business Automation & Communication Ecosystem",
     "logo": "https://botzo.io/assets/images/logo.png",
@@ -61,9 +71,14 @@
   <style>
     /* Prevent FOUC / white flash before globals.css loads */
     body {
-      background-color: #050505; /* Matches var(--color-dark-bg) */
+      background-color: #050505;
       color: #F5F5F7;
       margin: 0;
+    }
+    /* The app renders immediately underneath the loader for fast LCP */
+    #app {
+      width: 100%;
+      min-height: 100vh;
     }
     #loader {
       background-color: #050505;
@@ -71,28 +86,77 @@
       inset: 0;
       z-index: 99999;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+      padding: 2rem;
+      transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    #loader.loaded {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .loader-terminal {
+      font-family: 'SF Mono', 'Roboto Mono', 'Fira Code', monospace;
+      font-size: clamp(0.9rem, 4vw, 1.5rem);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .loader-prefix {
+      color: #8b5cf6;
+      margin-right: 10px;
+      font-weight: 700;
+    }
+    #loader-typewriter-text {
+      background: linear-gradient(90deg, #fff, #c4b5fd);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+    .jump-dots {
+      display: inline-block;
+      color: #a78bfa; /* Matches the end of the text gradient */
+      margin-left: 2px;
+    }
+    .jump-dot {
+      display: inline-block;
+      animation: jumpDot 1s infinite ease-in-out;
+      will-change: transform;
+    }
+    .jump-dot:nth-child(1) { animation-delay: 0s; }
+    .jump-dot:nth-child(2) { animation-delay: 0.15s; }
+    .jump-dot:nth-child(3) { animation-delay: 0.3s; }
+    
+    .loader-cursor {
+      color: #00E6FF;
+      font-weight: 700;
+      margin-left: 4px;
+      animation: blinkCursor 0.8s step-end infinite;
+      will-change: opacity;
+    }
+    @keyframes blinkCursor {
+      50% { opacity: 0; }
+    }
+    @keyframes jumpDot {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
     }
   </style>
 </head>
 <body>
   <!-- ═══ LOADING SCREEN ═══ -->
   <div id="loader" class="loader">
-    <div class="loader-inner">
-      <div class="loader-logo">
-        <img src="/assets/images/logo.png" alt="Botzo.io" style="height:48px;width:auto;" />
-      </div>
-      <div class="loader-bar"><div class="loader-bar-fill" id="loader-bar-fill"></div></div>
+    <div class="loader-terminal">
+      <span class="loader-prefix">></span>
+      <span id="loader-typewriter-text"></span><span class="jump-dots"><span class="jump-dot">.</span><span class="jump-dot">.</span><span class="jump-dot">.</span></span><span class="loader-cursor">_</span>
     </div>
   </div>
-  <script>
-    // Start progress bar animation instantly on parser execution
-    setTimeout(function() {
-      var fill = document.getElementById('loader-bar-fill');
-      if (fill) fill.style.width = '70%';
-    }, 50);
-  </script>
+
+  <!-- Cinematic Loader Script moved to main.js for CSP compliance -->
 
   <!-- ═══ APP ROOT ═══ -->
   <div id="app"></div>

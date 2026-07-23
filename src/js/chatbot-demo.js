@@ -143,14 +143,14 @@ export class ChatbotDemo {
     this.chatMessages.appendChild(typingEl);
     this.scrollChat();
 
-    // Replace with actual message
+    // Replace with actual message (faster typing delay)
     this.safeTimeout(() => {
       if (typingEl.parentNode) {
         typingEl.remove();
       }
       this.addMessage(text, type);
       if (callback) callback();
-    }, 1200);
+    }, 700);
   }
 
   addMessage(text, type = 'bot') {
@@ -205,10 +205,13 @@ export class ChatbotDemo {
         opacity: 1,
         y: 0,
         duration: 0.3,
-        delay: 0.1 + i * 0.08,
+        delay: 0.1 + i * 0.05, // Optimized delay
         ease: 'power2.out',
       });
     });
+    
+    // Fix: Scroll chat down after quick replies are appended so they don't cover the last message
+    setTimeout(() => this.scrollChat(), 50);
   }
 
   handleReply(optionId) {
@@ -223,32 +226,32 @@ export class ChatbotDemo {
       gsap.to(this.quickReplies.children, {
         opacity: 0,
         y: -8,
-        duration: 0.2,
-        stagger: 0.04,
+        duration: 0.15,
+        stagger: 0.03,
         onComplete: () => {
           if (this.quickReplies) this.quickReplies.innerHTML = '';
         },
       });
     }
 
-    // Show user message
+    // Show user message (faster)
     this.safeTimeout(() => {
       this.addMessage(response.userMsg, 'user');
 
-      // Show bot response with typing
+      // Show bot response with typing (faster)
       this.safeTimeout(() => {
         this.showTypingThenMessage(response.botReply, 'bot', () => {
           // Reset for replay
           this.safeTimeout(() => {
             this.isInteracted = false;
             this.showQuickReplies();
-          }, 3000);
+          }, 3500); // Wait longer so they can read the final message
         });
 
         // Update CRM dashboard
         this.updateCRM(response.crmUpdate);
-      }, 800);
-    }, 300);
+      }, 400); // Optimized timing
+    }, 150); // Optimized timing
   }
 
   updateCRM(data) {

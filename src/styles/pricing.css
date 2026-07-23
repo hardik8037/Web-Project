@@ -346,10 +346,7 @@
 .pricing-price-value-ent {
   font-size: 2.25rem;
   font-weight: 900;
-  background: linear-gradient(135deg, #fff 0%, #b8b8c2 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #fff;
   line-height: 1;
   font-feature-settings: "tnum";
   font-variant-numeric: tabular-nums;
@@ -357,11 +354,26 @@
   letter-spacing: -0.03em;
 }
 
+@supports (-webkit-background-clip: text) {
+  .pricing-price-value-ent {
+    background: linear-gradient(135deg, #fff 0%, #b8b8c2 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
 .pricing-card-ent.popular .pricing-price-value-ent {
-  background: linear-gradient(135deg, #fff 0%, #e0d4ff 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #fff;
+}
+
+@supports (-webkit-background-clip: text) {
+  .pricing-card-ent.popular .pricing-price-value-ent {
+    background: linear-gradient(135deg, #fff 0%, #e0d4ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
 .pricing-price-period-ent {

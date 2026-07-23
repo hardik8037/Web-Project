@@ -2,6 +2,8 @@
    BOTZO.IO PREMIUM NAVBAR — CENTERED PILL DESIGN
    ═══════════════════════════════════════════════════ */
 
+import { Analytics } from '../analytics/analytics.js';
+
 export function createNavbar() {
   const nav = document.createElement('header');
   nav.id = 'navbar';
@@ -10,8 +12,8 @@ export function createNavbar() {
   nav.innerHTML = `
     <div class="botzo-nav container-wide">
       <!-- Logo -->
-      <a href="/" class="botzo-nav-logo" aria-label="Botzo.io Home">
-        <img src="/assets/images/logo.png" alt="Botzo.io" width="120" height="28" fetchpriority="high" decoding="async" class="botzo-logo-img" />
+      <a href="/" class="botzo-nav-logo" aria-label="Botzo Home">
+        <img src="/assets/images/logo.png" alt="Botzo" width="120" height="28" fetchpriority="high" decoding="async" class="botzo-logo-img" />
       </a>
 
       <!-- Center Pill Navigation -->
@@ -491,6 +493,24 @@ function initNavbarInteractions(nav) {
 
     drawer.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
+        // Track mobile drawer link clicks
+        const linkText = link.textContent.trim();
+        if (linkText !== 'Book a Demo') {
+          Analytics.trackEvent(
+            Analytics.EVENTS.NAVIGATION_CLICK,
+            Analytics.CATEGORIES.NAVIGATION,
+            'Mobile Nav Click',
+            linkText
+          );
+        } else {
+          Analytics.trackEvent(
+            Analytics.EVENTS.BOOK_DEMO,
+            Analytics.CATEGORIES.CONVERSION,
+            'Mobile Navbar CTA Click',
+            'Book Demo'
+          );
+        }
+
         drawer.classList.remove('open');
         hamburger.classList.remove('active');
         hamburger.setAttribute('aria-expanded', 'false');

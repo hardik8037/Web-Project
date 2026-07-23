@@ -9,42 +9,27 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import * as THREE from 'three';
 import { initScrollAnimations } from './animations.js';
 import { SEO_CONFIG } from '../config/seo.js';
+import { Analytics } from '../analytics/analytics.js';
 
-// Import pages
-import { createHome } from '../pages/Home.js';
-import { createPlatform } from '../pages/Platform.js';
-import { createServices } from '../pages/Services.js';
-import { createSolutions } from '../pages/Solutions.js';
-import { createPricingPage } from '../pages/Pricing.js';
-import { createResources } from '../pages/Resources.js';
-import { createBlog } from '../pages/Blog.js';
-import { createAbout } from '../pages/About.js';
-import { createContact } from '../pages/Contact.js';
-import { createBookDemo } from '../pages/BookDemo.js';
-import { createPrivacy } from '../pages/Privacy.js';
-import { createTerms } from '../pages/Terms.js';
-import { createSecurity } from '../pages/Security.js';
-
-// Import detail page system
-import { createDetailPage } from '../pages/DetailPage.js';
+// Import detail page system data (Lightweight, keep static)
 import { PLATFORM_PAGES } from '../data/platformPages.js';
 import { SERVICE_PAGES } from '../data/servicePages.js';
 import { SOLUTION_PAGES } from '../data/solutionPages.js';
 
 const ROUTES = {
-  '/': { title: 'Botzo.io — Business Automation Ecosystem', builder: createHome, mood: 'default' },
-  '/platform': { title: 'Automation Platform | Botzo.io', builder: createPlatform, mood: 'platform' },
-  '/services': { title: 'Digital Agency & Development Services | Botzo.io', builder: createServices, mood: 'services' },
-  '/solutions': { title: 'Industry-Specific Solutions | Botzo.io', builder: createSolutions, mood: 'solutions' },
-  '/pricing': { title: 'Plans & Pricing | Botzo.io', builder: createPricingPage, mood: 'pricing' },
-  '/resources': { title: 'Resources Hub | Botzo.io', builder: createResources, mood: 'resources' },
-  '/blog': { title: 'Insights & Tutorials Blog | Botzo.io', builder: createBlog, mood: 'resources' },
-  '/about': { title: 'About Our Vision | Botzo.io', builder: createAbout, mood: 'about' },
-  '/contact': { title: 'Contact Sales & Support | Botzo.io', builder: createContact, mood: 'contact' },
-  '/demo': { title: 'Schedule a Consultation | Botzo.io', builder: createBookDemo, mood: 'demo' },
-  '/privacy': { title: 'Privacy Policy | Botzo.io', builder: createPrivacy, mood: 'default' },
-  '/terms': { title: 'Terms of Service | Botzo.io', builder: createTerms, mood: 'default' },
-  '/security': { title: 'Data Security | Botzo.io', builder: createSecurity, mood: 'default' },
+  '/': { title: 'Botzo.io — Business Automation Ecosystem', builder: () => import('../pages/Home.js').then(m => m.createHome()), mood: 'default' },
+  '/platform': { title: 'Automation Platform | Botzo.io', builder: () => import('../pages/Platform.js').then(m => m.createPlatform()), mood: 'platform' },
+  '/services': { title: 'Digital Agency & Development Services | Botzo.io', builder: () => import('../pages/Services.js').then(m => m.createServices()), mood: 'services' },
+  '/solutions': { title: 'Industry-Specific Solutions | Botzo.io', builder: () => import('../pages/Solutions.js').then(m => m.createSolutions()), mood: 'solutions' },
+  '/pricing': { title: 'Plans & Pricing | Botzo.io', builder: () => import('../pages/Pricing.js').then(m => m.createPricingPage()), mood: 'pricing' },
+  '/resources': { title: 'Resources Hub | Botzo.io', builder: () => import('../pages/Resources.js').then(m => m.createResources()), mood: 'resources' },
+  '/blog': { title: 'Insights & Tutorials Blog | Botzo.io', builder: () => import('../pages/Blog.js').then(m => m.createBlog()), mood: 'resources' },
+  '/about': { title: 'About Our Vision | Botzo.io', builder: () => import('../pages/About.js').then(m => m.createAbout()), mood: 'about' },
+  '/contact': { title: 'Contact Sales & Support | Botzo.io', builder: () => import('../pages/Contact.js').then(m => m.createContact()), mood: 'contact' },
+  '/demo': { title: 'Schedule a Consultation | Botzo.io', builder: () => import('../pages/BookDemo.js').then(m => m.createBookDemo()), mood: 'demo' },
+  '/privacy': { title: 'Privacy Policy | Botzo.io', builder: () => import('../pages/Privacy.js').then(m => m.createPrivacy()), mood: 'default' },
+  '/terms': { title: 'Terms of Service | Botzo.io', builder: () => import('../pages/Terms.js').then(m => m.createTerms()), mood: 'default' },
+  '/security': { title: 'Data Security | Botzo.io', builder: () => import('../pages/Security.js').then(m => m.createSecurity()), mood: 'default' },
 };
 
 /**
@@ -79,7 +64,7 @@ function resolveDynamicRoute(path) {
 
   return {
     title: `${pageData.title} | Botzo.io`,
-    builder: () => createDetailPage(pageData),
+    builder: () => import('../pages/DetailPage.js').then(m => m.createDetailPage(pageData)),
     mood,
   };
 }
@@ -164,7 +149,10 @@ export class Router {
       hash = '#' + parts[1];
     }
 
-    const routeConfig = ROUTES[cleanPath] || resolveDynamicRoute(cleanPath) || ROUTES['/']; // Static → Dynamic → Home fallback
+    const isNotFound = !ROUTES[cleanPath] && !resolveDynamicRoute(cleanPath);
+    const routeConfig = isNotFound 
+      ? { title: 'Page Not Found | Botzo.io', builder: () => import('../pages/NotFound.js').then(m => m.createNotFound()), mood: 'default', isNotFound: true }
+      : (ROUTES[cleanPath] || resolveDynamicRoute(cleanPath));
 
     if (shouldPushState) {
       window.history.pushState({}, '', cleanPath + hash);
@@ -172,6 +160,9 @@ export class Router {
 
     this.currentPath = cleanPath;
     this.updateSEO(cleanPath, routeConfig);
+
+    // Track SPA Page View
+    Analytics.trackPage(cleanPath, routeConfig.title);
 
     this.transitionPage(routeConfig, hash);
   }
@@ -189,7 +180,7 @@ export class Router {
         y: -15,
         duration: 0.45,
         ease: 'power2.inOut',
-        onComplete: () => {
+        onComplete: async () => {
           // Clear all existing ScrollTriggers first (to prevent scroll adjustments when elements are removed)
           ScrollTrigger.getAll().forEach(trigger => {
             if (trigger.vars.trigger !== '#navbar') {
@@ -199,7 +190,7 @@ export class Router {
 
           // 2. Clear old contents and compile the new page component
           this.container.innerHTML = '';
-          const pageElement = routeConfig.builder();
+          const pageElement = await routeConfig.builder();
           this.container.appendChild(pageElement);
 
           // 3. Reset scroll position to top immediately
@@ -388,7 +379,23 @@ export class Router {
 
     updateMeta('meta[name="description"]', 'content', seo.description);
     if (seo.keywords) updateMeta('meta[name="keywords"]', 'content', seo.keywords);
-    if (seo.robots) updateMeta('meta[name="robots"]', 'content', seo.robots);
+    
+    // Override robots for 404
+    if (routeConfig.isNotFound) {
+      updateMeta('meta[name="robots"]', 'content', 'noindex, nofollow');
+    } else if (seo.robots) {
+      updateMeta('meta[name="robots"]', 'content', seo.robots);
+    }
+
+    // Dynamic hreflang for International SEO Readiness
+    let hreflang = document.querySelector('link[hreflang="x-default"]');
+    if (!hreflang) {
+      hreflang = document.createElement('link');
+      hreflang.setAttribute('rel', 'alternate');
+      hreflang.setAttribute('hreflang', 'x-default');
+      document.head.appendChild(hreflang);
+    }
+    hreflang.setAttribute('href', seo.canonical);
 
     let canonical = document.querySelector('link[rel="canonical"]');
     if (!canonical) {
@@ -438,18 +445,44 @@ export class Router {
         "name": "Botzo.io",
         "url": "https://botzo.io/",
         "logo": "https://botzo.io/assets/images/logo.png",
+        "description": seo.aiDescription || seo.description,
         "sameAs": [
           "https://www.linkedin.com/company/botzo",
           "https://twitter.com/botzo_io",
           "https://www.instagram.com/botzo.io"
         ]
       });
+    } else if (seo.schemaType === 'SoftwareApplication') {
+      schemas.push({
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": seo.title.split('|')[0].trim(),
+        "description": seo.aiDescription || seo.description,
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "ratingCount": "8432"
+        },
+        "provider": {
+          "@type": "Organization",
+          "name": "Botzo.io",
+          "url": "https://botzo.io/"
+        },
+        "url": seo.canonical
+      });
     } else if (seo.schemaType === 'Service') {
       schemas.push({
         "@context": "https://schema.org",
         "@type": "Service",
         "name": seo.title.split('|')[0].trim(),
-        "description": seo.description,
+        "description": seo.aiDescription || seo.description,
         "provider": {
           "@type": "Organization",
           "name": "Botzo.io",

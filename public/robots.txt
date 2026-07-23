@@ -1,5 +1,26 @@
-User-agent: *
-Allow: /
+# Botzo.io Production Robots.txt
 
+User-agent: *
+# Allow all core production routes
+Allow: /
+Allow: /platform
+Allow: /services
+Allow: /solutions
+Allow: /blog
+Allow: /resources
+Allow: /pricing
+Allow: /contact
+Allow: /demo
+
+# Disallow non-indexable and internal routes
+Disallow: /api/           # Prevent indexing of backend proxy routes
+Disallow: /staging/       # Prevent indexing of staging environments
+Disallow: /test/          # Prevent indexing of A/B test environments
+Disallow: /temp/          # Prevent indexing of temporary assets
+Disallow: /admin/         # Prevent indexing of future admin panels
+Disallow: /*?preview=     # Prevent indexing of CMS preview URLs
+Disallow: /*?token=       # Prevent indexing of authenticated URLs
+
+# Sitemaps
 Sitemap: https://botzo.io/sitemap.xml
 Host: botzo.io

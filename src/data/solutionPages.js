@@ -6,6 +6,12 @@
 export const SOLUTION_PAGES = {
   'real-estate': {
     slug: 'real-estate', category: 'solutions', title: 'Real Estate',
+    seo: {
+      title: 'Real Estate WhatsApp CRM & Lead Automation | Botzo.io',
+      description: 'Automate property lead routing, site visit bookings, and virtual tour sharing. Increase real estate sales conversions with our WhatsApp CRM.',
+      keywords: 'Real Estate CRM, Property Automation, Builder CRM, Real Estate Lead Automation, WhatsApp API for Real Estate, Real Estate Marketing',
+      schemaType: 'Service'
+    },
     overline: 'Industry Solution', heroTitle: 'Real Estate', heroHighlight: 'Automation Suite',
     gradient: ['#FF6B35', '#E55100'],
     heroDesc: 'Automate property lead routing, site visit scheduling, virtual tour sharing, and agent follow-ups. Convert enquiries into site visits and closures 3x faster.',
@@ -83,6 +89,12 @@ export const SOLUTION_PAGES = {
 
   'healthcare': {
     slug: 'healthcare', category: 'solutions', title: 'Healthcare',
+    seo: {
+      title: 'Healthcare WhatsApp API & Hospital CRM | Botzo.io',
+      description: 'Automate patient appointments, prescription reminders, and lab reports via WhatsApp. Improve patient care with our healthcare CRM.',
+      keywords: 'Hospital WhatsApp API, Hospital CRM, Patient Automation, Medical AI, Healthcare Communication, Clinic Appointment Bot',
+      schemaType: 'Service'
+    },
     overline: 'Industry Solution', heroTitle: 'Healthcare', heroHighlight: 'Patient Automation',
     gradient: ['#0088FF', '#0055CC'],
     heroDesc: 'Automate appointment booking, prescription reminders, patient follow-ups, lab report delivery, and health consultations through WhatsApp.',
@@ -145,6 +157,12 @@ export const SOLUTION_PAGES = {
 
   'ecommerce': {
     slug: 'ecommerce', category: 'solutions', title: 'Ecommerce',
+    seo: {
+      title: 'Ecommerce WhatsApp Marketing & Abandoned Cart Recovery | Botzo.io',
+      description: 'Recover abandoned carts, send order updates, and drive repeat purchases with WhatsApp commerce automation for Shopify and WooCommerce.',
+      keywords: 'Ecommerce WhatsApp Automation, Abandoned Cart Recovery, Shopify WhatsApp API, Order Tracking Bot, WhatsApp Commerce',
+      schemaType: 'Service'
+    },
     overline: 'Industry Solution', heroTitle: 'Ecommerce', heroHighlight: 'Sales Automation',
     gradient: ['#9C27FF', '#7B1FA2'],
     heroDesc: 'Recover abandoned carts, automate order updates, handle returns, and drive repeat purchases through WhatsApp and conversational commerce.',
@@ -216,6 +234,12 @@ export const SOLUTION_PAGES = {
 
   'restaurants': {
     slug: 'restaurants', category: 'solutions', title: 'Restaurants',
+    seo: {
+      title: 'Restaurant WhatsApp Ordering & CRM System | Botzo.io',
+      description: 'Accept food orders and table reservations directly via WhatsApp. Launch digital menus and restaurant loyalty programs with zero commissions.',
+      keywords: 'Restaurant WhatsApp Ordering, Restaurant CRM, Food Ordering Bot, Table Reservation System, Restaurant Marketing, WhatsApp Menu',
+      schemaType: 'Service'
+    },
     overline: 'Industry Solution', heroTitle: 'Restaurant', heroHighlight: 'Order Automation',
     gradient: ['#FF6B35', '#E55100'],
     heroDesc: 'WhatsApp-based table reservations, digital menus, delivery orders, and loyalty programs. Increase direct orders and reduce platform dependency.',
@@ -268,6 +292,12 @@ export const SOLUTION_PAGES = {
 
   'education': {
     slug: 'education', category: 'solutions', title: 'Education',
+    seo: {
+      title: 'Education Automation & School WhatsApp CRM | Botzo.io',
+      description: 'Streamline school admissions, fee reminders, and parent communication with our education WhatsApp automation platform.',
+      keywords: 'Education Automation, School Automation, College Communication, University CRM, Student WhatsApp, Admission Automation, Fee Reminder System',
+      schemaType: 'Service'
+    },
     overline: 'Industry Solution', heroTitle: 'Education', heroHighlight: 'Communication Hub',
     gradient: ['#36C5F0', '#0088FF'],
     heroDesc: 'Streamline admissions, fee reminders, parent communication, and student engagement through automated WhatsApp workflows.',
@@ -316,6 +346,12 @@ export const SOLUTION_PAGES = {
 
   'textile': {
     slug: 'textile', category: 'solutions', title: 'Textile Industry',
+    seo: {
+      title: 'Textile Industry WhatsApp B2B Automation | Botzo.io',
+      description: 'Distribute wholesale digital catalogs and manage bulk orders via WhatsApp. Built for textile manufacturers and distributors.',
+      keywords: 'Textile Automation, Textile B2B, Wholesale Catalog Distribution, B2B Order Management, Manufacturer CRM',
+      schemaType: 'Service'
+    },
     overline: 'Industry Solution', heroTitle: 'Textile', heroHighlight: 'B2B Commerce',
     gradient: ['#9C27FF', '#7B1FA2'],
     heroDesc: 'Digital wholesale catalogs, bulk order management, agent distribution networks, and shipment tracking for textile manufacturers and distributors.',
@@ -364,6 +400,12 @@ export const SOLUTION_PAGES = {
 
   'jewellery': {
     slug: 'jewellery', category: 'solutions', title: 'Jewellery',
+    seo: {
+      title: 'Jewellery Store WhatsApp Automation & Clienteling | Botzo.io',
+      description: 'Engage VIP clients with new collection launches, secure WhatsApp invoicing, and personalized recommendations for jewellery brands.',
+      keywords: 'Jewellery WhatsApp Automation, Jewellery CRM, Clienteling Software, VIP Client Management, Jewellery Marketing Automation',
+      schemaType: 'Service'
+    },
     overline: 'Industry Solution', heroTitle: 'Jewellery', heroHighlight: 'Client Engagement',
     gradient: ['#FFD700', '#FFA000'],
     heroDesc: 'VIP collection previews, secure invoice checkout, personalized recommendations, and high-touch client relationship management for jewellery brands.',
@@ -412,6 +454,12 @@ export const SOLUTION_PAGES = {
 
   'events': {
     slug: 'events', category: 'solutions', title: 'Event Management',
+    seo: {
+      title: 'Event Management & WhatsApp QR Ticketing | Botzo.io',
+      description: 'Automate event registrations, dynamic QR ticketing, and schedule updates via WhatsApp. The complete CRM for event managers.',
+      keywords: 'Event Management Automation, WhatsApp QR Ticketing, Event Registration Bot, Event CRM, Conference Automation, Event Marketing',
+      schemaType: 'Service'
+    },
     overline: 'Industry Solution', heroTitle: 'Event', heroHighlight: 'Management Suite',
     gradient: ['#E040FB', '#9C27FF'],
     heroDesc: 'End-to-end event automation — registration, QR ticketing, schedule updates, attendee engagement, and post-event feedback collection.',
@@ -462,6 +510,12 @@ export const SOLUTION_PAGES = {
 
   'automotive': {
     slug: 'automotive', category: 'solutions', title: 'Automotive',
+    seo: {
+      title: 'Automotive Dealership CRM & WhatsApp Automation | Botzo.io',
+      description: 'Automate test drive bookings, service reminders, and insurance renewals. Turn dealership enquiries into showroom visits with WhatsApp.',
+      keywords: 'Automotive CRM, Dealership Automation, Car Sales CRM, Service Reminder Software, Test Drive Booking Bot, Auto Dealership Marketing',
+      schemaType: 'Service'
+    },
     overline: 'Industry Solution', heroTitle: 'Automotive', heroHighlight: 'Dealership Automation',
     gradient: ['#0088FF', '#0055CC'],
     heroDesc: 'Automate test drive bookings, service reminders, insurance renewals, and dealership follow-ups. Turn every enquiry into a showroom visit.',
@@ -514,6 +568,12 @@ export const SOLUTION_PAGES = {
 
   'travel': {
     slug: 'travel', category: 'solutions', title: 'Travel & Tourism',
+    seo: {
+      title: 'Travel Agency CRM & WhatsApp Itinerary Automation | Botzo.io',
+      description: 'Share trip itineraries, booking confirmations, and travel updates instantly via WhatsApp. The ultimate CRM for travel agencies.',
+      keywords: 'Travel CRM, Travel Agency Automation, WhatsApp Itinerary, Booking Confirmation Bot, Travel Marketing, Tour Operator Software',
+      schemaType: 'Service'
+    },
     overline: 'Industry Solution', heroTitle: 'Travel &', heroHighlight: 'Tourism Automation',
     gradient: ['#36C5F0', '#0088FF'],
     heroDesc: 'Share itineraries, send booking confirmations, automate payment reminders, and deliver real-time travel updates — all through WhatsApp.',
@@ -565,7 +625,13 @@ export const SOLUTION_PAGES = {
   },
 
   'fitness': {
-    slug: 'fitness', category: 'solutions', title: 'Fitness & Wellness',
+    slug: 'fitness', category: 'solutions', title: 'Fitness & Gyms',
+    seo: {
+      title: 'Gym CRM & Fitness WhatsApp Automation | Botzo.io',
+      description: 'Automate gym membership renewals, diet plan sharing, and class bookings via WhatsApp. The smartest CRM for fitness centers.',
+      keywords: 'Gym CRM, Fitness Automation, Gym Membership Software, Diet Plan Bot, WhatsApp for Gyms, Fitness Center Marketing',
+      schemaType: 'Service'
+    },
     overline: 'Industry Solution', heroTitle: 'Fitness &', heroHighlight: 'Wellness Automation',
     gradient: ['#00E676', '#00C853'],
     heroDesc: 'Automate class scheduling, membership renewals, trainer notifications, and client engagement for gyms, yoga studios, and wellness centers.',
@@ -617,7 +683,13 @@ export const SOLUTION_PAGES = {
   },
 
   'finance': {
-    slug: 'finance', category: 'solutions', title: 'Banking & Finance',
+    slug: 'banking', category: 'solutions', title: 'Banking & Finance',
+    seo: {
+      title: 'Banking & Finance WhatsApp Automation | Botzo.io',
+      description: 'Automate loan document collection, EMI reminders, and secure balance checks via WhatsApp API for banks and NBFCs.',
+      keywords: 'Banking WhatsApp API, Finance Automation, Loan Automation, EMI Reminder Software, NBFC CRM, Financial Services Automation',
+      schemaType: 'Service'
+    },
     overline: 'Industry Solution', heroTitle: 'Banking &', heroHighlight: 'Finance Automation',
     gradient: ['#0055CC', '#003399'],
     heroDesc: 'Secure account alerts, loan application tracking, EMI reminders, document collection, and customer support automation for financial institutions.',

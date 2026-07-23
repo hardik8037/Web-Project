@@ -6,6 +6,12 @@
 export const SERVICE_PAGES = {
   'digital-marketing': {
     slug: 'digital-marketing', category: 'services', title: 'Digital Marketing',
+    seo: {
+      title: 'Digital Marketing Agency & Growth Services | Botzo.io',
+      description: 'Full-service digital marketing company. We drive measurable growth through SEO, performance marketing, content strategy, and online marketing.',
+      keywords: 'Digital Marketing, Digital Marketing Agency, Digital Marketing Company, Growth Marketing, Online Marketing, Digital Marketing Services',
+      schemaType: 'Service'
+    },
     overline: 'Growth Engine', heroTitle: 'Comprehensive', heroHighlight: 'Digital Marketing',
     gradient: ['#00E676', '#00C853'],
     heroDesc: 'Drive measurable growth with data-driven digital marketing strategies. From SEO to paid ads, social media to content marketing — we build full-funnel campaigns that convert.',
@@ -67,6 +73,12 @@ export const SERVICE_PAGES = {
 
   'seo': {
     slug: 'seo', category: 'services', title: 'SEO Services',
+    seo: {
+      title: 'Enterprise SEO Company & Agency | Botzo.io',
+      description: 'Dominate organic search with our enterprise SEO agency. Technical SEO, content strategy, and white-hat link building for sustainable growth.',
+      keywords: 'SEO Services, SEO Company, SEO Agency, Enterprise SEO, Technical SEO, Search Engine Optimization Services',
+      schemaType: 'Service'
+    },
     overline: 'Organic Growth', heroTitle: 'Search Engine', heroHighlight: 'Optimization',
     gradient: ['#36C5F0', '#0088FF'],
     heroDesc: 'Dominate search rankings with technical SEO, content strategy, and authority building. We drive sustainable organic traffic that compounds over time.',
@@ -115,6 +127,12 @@ export const SERVICE_PAGES = {
 
   'performance-marketing': {
     slug: 'performance-marketing', category: 'services', title: 'Performance Marketing',
+    seo: {
+      title: 'Performance Marketing & PPC Agency | Botzo.io',
+      description: 'ROI-focused performance marketing agency. Google Ads, Meta Ads, and PPC management optimized for maximum conversion and lowest CPA.',
+      keywords: 'Performance Marketing, Performance Marketing Agency, Google Ads Agency, Meta Ads Agency, PPC Management, Paid Advertising Agency',
+      schemaType: 'Service'
+    },
     overline: 'Paid Advertising', heroTitle: 'Performance', heroHighlight: 'Marketing & Ads',
     gradient: ['#FF6B35', '#E55100'],
     heroDesc: 'ROI-focused advertising across Meta, Google, LinkedIn, and YouTube. Every rupee tracked, optimized, and accountable.',
@@ -163,6 +181,12 @@ export const SERVICE_PAGES = {
 
   'social-media-marketing': {
     slug: 'social-media-marketing', category: 'services', title: 'Social Media Marketing',
+    seo: {
+      title: 'Social Media Marketing Agency | Botzo.io',
+      description: 'Build your brand and community with our social media agency. Instagram marketing, Facebook marketing, and social brand strategy.',
+      keywords: 'Social Media Marketing, Social Media Agency, Instagram Marketing, Facebook Marketing, Brand Marketing, SMM Services',
+      schemaType: 'Service'
+    },
     overline: 'Brand Building', heroTitle: 'Social Media', heroHighlight: 'Brand Strategy',
     gradient: ['#E4405F', '#9C27FF'],
     heroDesc: 'Build a powerful social media presence that drives engagement, builds brand loyalty, and generates leads. Instagram, Facebook, LinkedIn, and YouTube — managed professionally.',
@@ -211,6 +235,12 @@ export const SERVICE_PAGES = {
 
   'web-development': {
     slug: 'web-development', category: 'services', title: 'Web Development',
+    seo: {
+      title: 'Custom Web Development Company | Botzo.io',
+      description: 'Enterprise web development company building lightning-fast corporate websites, business websites, and scalable custom web applications.',
+      keywords: 'Web Development, Web Development Company, Website Development, Business Website, Corporate Website, Enterprise Website, Custom Website Development, Website Design Company, Web Application Development',
+      schemaType: 'Service'
+    },
     overline: 'Web Engineering', heroTitle: 'Premium', heroHighlight: 'Web Development',
     gradient: ['#B84DFF', '#7B1FA2'],
     heroDesc: 'Build lightning-fast, SEO-optimized web applications, ERPs, CRMs, and websites that convert visitors into customers.',
@@ -272,6 +302,12 @@ export const SERVICE_PAGES = {
 
   'ecommerce-development': {
     slug: 'ecommerce-development', category: 'services', title: 'Ecommerce Development',
+    seo: {
+      title: 'Ecommerce Development Company | Botzo.io',
+      description: 'Launch high-converting online stores with our ecommerce development services. Shopify development, WooCommerce, and custom web stores.',
+      keywords: 'Ecommerce Development, Shopify Development, WooCommerce Development, Ecommerce Website, Online Store Development, Custom Ecommerce',
+      schemaType: 'Service'
+    },
     overline: 'Online Commerce', heroTitle: 'Ecommerce', heroHighlight: 'Store Development',
     gradient: ['#FF6B35', '#E55100'],
     heroDesc: 'Build high-performance online stores with cart, checkout, payment integration, inventory management, and WhatsApp commerce capabilities.',
@@ -320,6 +356,12 @@ export const SERVICE_PAGES = {
 
   'mobile-app-development': {
     slug: 'mobile-app-development', category: 'services', title: 'Mobile App Development',
+    seo: {
+      title: 'Mobile App Development Company | Botzo.io',
+      description: 'Cross-platform and native mobile app development company. We build high-performance iOS, Android, and Flutter applications for enterprise.',
+      keywords: 'Mobile App Development, Android App Development, iOS Development, Flutter Development, Cross Platform App, Custom App Development Company',
+      schemaType: 'Service'
+    },
     overline: 'Mobile Engineering', heroTitle: 'Mobile App', heroHighlight: 'Development',
     gradient: ['#36C5F0', '#0088FF'],
     heroDesc: 'Native iOS and Android apps with fluid animations, push notifications, offline support, and API integrations. Cross-platform with React Native or Flutter.',
@@ -368,6 +410,12 @@ export const SERVICE_PAGES = {
 
   'ui-ux-design': {
     slug: 'ui-ux-design', category: 'services', title: 'UI/UX Design',
+    seo: {
+      title: 'UI UX Design & Product Design Agency | Botzo.io',
+      description: 'Craft intuitive and beautiful interfaces with our UI/UX design agency. We specialize in SaaS design, product design, and wireframing.',
+      keywords: 'UI UX Design, UI Design, UX Design, Product Design, SaaS Design, UI UX Design Agency, Interface Design',
+      schemaType: 'Service'
+    },
     overline: 'Design Studio', heroTitle: 'Premium', heroHighlight: 'UI/UX Design',
     gradient: ['#9C27FF', '#E040FB'],
     heroDesc: 'Craft intuitive, beautiful interfaces that delight users and drive business results. From wireframes to polished design systems — every pixel matters.',

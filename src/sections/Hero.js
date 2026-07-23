@@ -34,7 +34,7 @@ export function createHero() {
         </h1>
 
         <p class="text-body-lg hero-subtitle">
-          The complete business automation ecosystem — WhatsApp API, omnichannel messaging, CRM, workflow automation, and full-stack digital services. All in one platform.
+          Botzo is the complete business automation ecosystem — WhatsApp API, omnichannel messaging, CRM, workflow automation, and full-stack digital services. All in one platform.
         </p>
 
         <div class="hero-cta-group">

@@ -3,6 +3,8 @@
    ═══════════════════════════════════════════════════ */
 import { createFinalCTA } from '../sections/FinalCTA.js';
 import { sanitizeHTML } from '../utils/sanitize.js';
+import { apiClient } from '../api/client.js';
+import { Analytics } from '../analytics/analytics.js';
 
 export function createBookDemo() {
   const container = document.createElement('div');
@@ -107,18 +109,28 @@ export function createBookDemo() {
             <h4 class="booking-step-title">Select Appointment Date & Time</h4>
             
             <!-- Dynamic Dates Grid -->
+            <!-- Honeypot Field (Abuse Prevention Phase 13) -->
+            <input type="text" name="botzo_demo" id="demo_bot_trap" style="display:none !important;" tabindex="-1" autocomplete="off">
+            
             <div class="date-slots-container">
               ${datesHTML}
             </div>
 
             <div class="booking-form-group" style="margin-bottom: 2rem;">
-              <select id="booking-time-select" aria-label="Select Appointment Time" class="glass-input booking-input-field" style="width: 100%; cursor: pointer; appearance: none; background-image: url('data:image/svg+xml;utf8,<svg width=\\'12\\' height=\\'12\\' viewBox=\\'0 0 24 24\\' fill=\\'none\\' stroke=\\'white\\' stroke-width=\\'2\\' xmlns=\\'http://www.w3.org/2000/svg\\'><path d=\\'M6 9l6 6 6-6\\'/></svg>'); background-repeat: no-repeat; background-position: right 1rem center;">
-                <!-- Populated via JS -->
-              </select>
-              <style>
-                #booking-time-select option { background: #1a0b2e; color: #fff; padding: 10px; font-weight: 500; }
-                #booking-time-select option:disabled { color: rgba(255,255,255,0.3); background: #0d0618; }
-              </style>
+              <div id="custom-time-select" style="position: relative; width: 100%;">
+                <div id="time-selected-trigger" class="glass-input booking-input-field" role="button" tabindex="0" aria-haspopup="listbox" aria-expanded="false" style="display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 1rem; cursor: pointer; user-select: none; width: 100%; box-sizing: border-box;">
+                  <div style="display: flex; align-items: center; gap: 0.75rem; white-space: nowrap;">
+                    <span style="opacity: 0.5;">🕒</span>
+                    <span id="selected-time-text" style="font-weight: 500;">Select Time</span>
+                  </div>
+                  <span style="font-size: 0.7rem; opacity: 0.5; transition: transform 0.3s ease;" id="time-dropdown-icon">▼</span>
+                </div>
+                <input type="hidden" id="booking-time-input" value="">
+                
+                <div id="time-options-list" data-lenis-prevent="true" role="listbox" style="display: none; position: absolute; top: 100%; left: 0; width: 100%; max-height: 250px; overflow-y: auto; background: rgba(18, 15, 25, 0.98); backdrop-filter: blur(24px); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-md); box-shadow: 0 10px 40px rgba(0,0,0,0.5); z-index: 100; margin-top: 0.5rem; padding: 0.5rem 0; box-sizing: border-box;">
+                  <!-- Populated via JS -->
+                </div>
+              </div>
             </div>
 
             <div class="booking-form-row">
@@ -233,6 +245,20 @@ export function createBookDemo() {
         searchInput.select();
       });
 
+      // Allow clicking anywhere on the container (like the flag) to toggle the dropdown
+      selectSelected.addEventListener('click', (e) => {
+        if (e.target === searchInput && selectOptionsList.style.display === 'block') {
+          return; // Let the user type if they clicked the input while already open
+        }
+        
+        if (selectOptionsList.style.display === 'block') {
+          selectOptionsList.style.display = 'none';
+          searchInput.blur();
+        } else {
+          searchInput.focus();
+        }
+      });
+
       const options = container.querySelectorAll('.custom-select-option');
       
       searchInput.addEventListener('input', (e) => {
@@ -269,9 +295,11 @@ export function createBookDemo() {
     }
 
     function updateTimeSlots() {
-      const timeSelect = container.querySelector('#booking-time-select');
+      const timeInput = container.querySelector('#booking-time-input');
+      const timeText = container.querySelector('#selected-time-text');
+      const timeOptionsList = container.querySelector('#time-options-list');
       const activeDateBtn = container.querySelector('.date-slot-btn.active');
-      if (!timeSelect || !activeDateBtn) return;
+      if (!timeInput || !activeDateBtn || !timeOptionsList) return;
 
       const selectedDateParts = activeDateBtn.dataset.date.split('-');
       const selectedYear = parseInt(selectedDateParts[0]);
@@ -299,6 +327,7 @@ export function createBookDemo() {
 
       let optionsHTML = '';
       let firstAvailableFound = false;
+      let firstAvailableTime = '';
 
       slots.forEach(slot => {
         let disabled = false;
@@ -307,30 +336,90 @@ export function createBookDemo() {
         if (isToday) {
           if (now.getHours() > slot.hour24 || (now.getHours() === slot.hour24 && now.getMinutes() >= slot.min)) {
             disabled = true;
-            label += ' (Passed)';
+            label += ' <span style="font-size:0.75rem; opacity:0.5; font-weight:400;">(Passed)</span>';
           }
         }
 
         const slotKey = `${dateKey}_${slot.time}`;
-        if (bookings[slotKey] >= 2) {
+        if (bookings[slotKey] >= 1) {
           disabled = true;
-          label += ' (Full)';
+          label += ' <span style="font-size:0.75rem; opacity:0.5; font-weight:400;">(Full)</span>';
         }
 
         if (disabled) {
-          optionsHTML += `<option value="${slot.time}" disabled>${label}</option>`;
+          optionsHTML += `<div class="custom-time-option" style="padding: 0.85rem 1.25rem; font-size: 0.95rem; color: rgba(255,255,255,0.3); cursor: not-allowed; display: flex; justify-content: space-between; align-items: center;" aria-disabled="true">${label}</div>`;
         } else {
-          const selected = !firstAvailableFound ? 'selected' : '';
-          optionsHTML += `<option value="${slot.time}" ${selected}>${label}</option>`;
-          firstAvailableFound = true;
+          optionsHTML += `<div class="custom-time-option selectable" data-value="${slot.time}" tabindex="0" role="option" style="padding: 0.85rem 1.25rem; font-size: 0.95rem; color: #fff; cursor: pointer; transition: all 0.2s ease; border-left: 2px solid transparent; display: flex; justify-content: space-between; align-items: center;" onmouseover="this.style.background='rgba(139, 92, 246, 0.15)'; this.style.borderLeftColor='var(--color-primary-light)';" onmouseout="this.style.background='transparent'; this.style.borderLeftColor='transparent';">
+            <span>${label}</span>
+          </div>`;
+          if (!firstAvailableFound) {
+            firstAvailableFound = true;
+            firstAvailableTime = slot.time;
+          }
         }
       });
 
       if (!firstAvailableFound) {
-        optionsHTML = `<option value="" disabled selected>No slots available</option>` + optionsHTML;
+        optionsHTML = `<div style="padding: 1rem; text-align: center; color: rgba(255,255,255,0.5); font-size: 0.9rem;">No slots available</div>`;
+        timeInput.value = '';
+        timeText.textContent = 'No slots available';
+      } else {
+        timeInput.value = firstAvailableTime;
+        timeText.textContent = firstAvailableTime;
       }
 
-      timeSelect.innerHTML = optionsHTML;
+      timeOptionsList.innerHTML = optionsHTML;
+
+      // Attach click events to new options
+      const selectableOptions = timeOptionsList.querySelectorAll('.custom-time-option.selectable');
+      selectableOptions.forEach(opt => {
+        opt.addEventListener('click', () => {
+          const val = opt.dataset.value;
+          timeInput.value = val;
+          timeText.textContent = val;
+          timeOptionsList.style.display = 'none';
+          container.querySelector('#time-dropdown-icon').style.transform = 'rotate(0deg)';
+          container.querySelector('#time-selected-trigger').setAttribute('aria-expanded', 'false');
+        });
+        opt.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            opt.click();
+          }
+        });
+      });
+    }
+
+    // Time Dropdown Toggle Logic
+    const timeTrigger = container.querySelector('#time-selected-trigger');
+    const timeOptionsList = container.querySelector('#time-options-list');
+    const timeDropdownIcon = container.querySelector('#time-dropdown-icon');
+
+    if (timeTrigger && timeOptionsList) {
+      timeTrigger.addEventListener('click', () => {
+        const isOpen = timeOptionsList.style.display === 'block';
+        timeOptionsList.style.display = isOpen ? 'none' : 'block';
+        timeDropdownIcon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+        timeTrigger.setAttribute('aria-expanded', !isOpen);
+      });
+
+      timeTrigger.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          timeTrigger.click();
+        }
+      });
+
+      // Close time dropdown when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('#custom-time-select')) {
+          if (timeOptionsList.style.display === 'block') {
+            timeOptionsList.style.display = 'none';
+            timeDropdownIcon.style.transform = 'rotate(0deg)';
+            timeTrigger.setAttribute('aria-expanded', 'false');
+          }
+        }
+      });
     }
 
     // Date slot selection
@@ -354,6 +443,12 @@ export function createBookDemo() {
       confirmBtn.addEventListener('click', async () => {
         const errorMsg = container.querySelector('#booking-error-msg');
         errorMsg.style.display = 'none';
+        
+        const honeypot = container.querySelector('#demo_bot_trap');
+        if (honeypot && honeypot.value !== '') {
+          console.warn('Bot detected.');
+          return;
+        }
 
         const firstName = sanitizeHTML(container.querySelector('#booking-firstname').value.trim());
         const lastName = sanitizeHTML(container.querySelector('#booking-lastname').value.trim());
@@ -363,10 +458,19 @@ export function createBookDemo() {
         const countryCode = container.querySelector('#country-search').dataset.code || '+91';
 
         const activeDate = container.querySelector('.date-slot-btn.active');
-        const dateDay = activeDate ? activeDate.querySelector('.date-slot-day')?.textContent : '';
-        const dateNum = activeDate ? activeDate.querySelector('.date-slot-num')?.textContent : '';
-        const timeSelect = container.querySelector('#booking-time-select');
-        let timeText = timeSelect ? timeSelect.value : '';
+        if (!activeDate) return;
+
+        const dateDay = activeDate.querySelector('.date-slot-day').textContent;
+        const dateNum = activeDate.querySelector('.date-slot-num').textContent;
+        
+        // Full formatted date for modal display
+        const fullDateStr = activeDate.dataset.date;
+        const [yyyy, mm, dd] = fullDateStr.split('-');
+        const dateObj = new Date(yyyy, mm - 1, dd);
+        const formattedDateModal = dateObj.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+
+        const timeInput = container.querySelector('#booking-time-input');
+        const timeText = timeInput ? timeInput.value : '';
 
         // Basic JS Validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -397,9 +501,7 @@ export function createBookDemo() {
           return;
         }
 
-        // --- ⚙️ WEBHOOK CONFIGURATION ---
-        // Replace this URL with your Make.com, Zapier, or custom webhook URL
-        const WEBHOOK_URL = 'https://webhooks.1automations.com/webhook/6a4aba916f1a8bf9dd888ba2'; 
+        // --- ⚙️ WEBHOOK / API GATEWAY CONFIGURATION ---
         
         // 1. Gather Booking Data & Save to LocalStorage
         const dateKey = `${dateDay}, ${dateNum}`;
@@ -428,16 +530,25 @@ export function createBookDemo() {
         confirmBtn.style.opacity = '0.8';
 
         try {
-          // 3. Send Data to Webhook
-          const response = await fetch(WEBHOOK_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(bookingData)
-          });
-          
-          if (!response.ok) throw new Error('Webhook failed');
+          // 3. Send Data to API Gateway
+          await apiClient.submitDemo(bookingData);
 
-          // 4. Success Modal
+          // Track Conversion Analytics
+          Analytics.trackConversion('Demo Booked', 'Book Demo Page');
+
+          // 4. Clear Form Fields
+          const fNameInput = container.querySelector('#booking-firstname');
+          if (fNameInput) fNameInput.value = '';
+          const lNameInput = container.querySelector('#booking-lastname');
+          if (lNameInput) lNameInput.value = '';
+          const phoneInput = container.querySelector('#booking-phone');
+          if (phoneInput) phoneInput.value = '';
+          const emailInput = container.querySelector('#booking-email');
+          if (emailInput) emailInput.value = '';
+          const briefInput = container.querySelector('#booking-brief');
+          if (briefInput) briefInput.value = '';
+
+          // 5. Success Modal
           const overlay = document.createElement('div');
           overlay.id = 'booking-confirm-overlay';
           overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);z-index:9999;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.3s ease;';
@@ -461,7 +572,7 @@ export function createBookDemo() {
                   <div style="width: 32px; height: 32px; border-radius: 8px; background: rgba(156,39,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 0.9rem;">📅</div>
                   <div>
                     <div style="font-size: 0.7rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.5px;">Date</div>
-                    <div style="font-size: 0.9rem; font-weight: 600; color: #fff;">${dateDay}, ${dateNum}</div>
+                    <div style="font-size: 0.9rem; font-weight: 600; color: #fff;">${formattedDateModal}</div>
                   </div>
                 </div>
                 <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.8rem;">

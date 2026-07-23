@@ -22,14 +22,16 @@ export default defineConfig(({ mode }) => ({
   build: {
     outDir: 'dist',
     target: 'esnext',
+    sourcemap: false, // Ensure source maps are disabled for production
+    chunkSizeWarningLimit: 600,
     rollupOptions: {
       output: {
         manualChunks(id) {
-          if (id.includes('node_modules/three')) {
-            return 'three';
-          }
-          if (id.includes('node_modules/gsap')) {
-            return 'gsap';
+          if (id.includes('node_modules')) {
+            if (id.includes('three')) return 'vendor-three';
+            if (id.includes('gsap')) return 'vendor-gsap';
+            if (id.includes('lenis') || id.includes('dompurify') || id.includes('marked')) return 'vendor-utils';
+            return 'vendor-core';
           }
         },
       },

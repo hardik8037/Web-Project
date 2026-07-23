@@ -218,12 +218,12 @@ export class AtmosphereEngine {
     for (let i = 0; i < nodeCount; i++) {
       const radius = 2 + Math.random() * 5;
       const theta = Math.random() * Math.PI * 2;
-      const y = (Math.random() - 0.5) * 10;
+      const y = (Math.random() - 0.5) * 16;
       const node = {
         x: radius * Math.cos(theta),
         y: y,
-        z: (Math.random() - 0.5) * 4 - 1,
-        speed: Math.random() * 0.3 + 0.1,
+        z: (Math.random() - 0.5) * 6 - 2,
+        speed: Math.random() * 0.2 + 0.05, // slightly slower for elegance
         phase: Math.random() * Math.PI * 2,
       };
       this.networkNodes.push(node);
@@ -241,7 +241,7 @@ export class AtmosphereEngine {
     const lineMaterial = new THREE.LineBasicMaterial({
       vertexColors: true,
       transparent: true,
-      opacity: 0.45,
+      opacity: 0.55, // Increased from 0.45 for better visibility
       blending: THREE.AdditiveBlending,
       depthWrite: false,
     });
@@ -363,18 +363,6 @@ export class AtmosphereEngine {
     const now = performance.now();
     const elapsed = (now - this.startTime) / 1000;
 
-    // Optional Runtime FPS sampling during first 1.5 seconds
-    if (!this.fpsData.downgraded && this.frameCount === 60) {
-      const timeFor60Frames = now - this.fpsData.start;
-      const currentFps = 60 / (timeFor60Frames / 1000);
-      if (currentFps < 45 && this.tier < 5) {
-        this.fpsData.downgraded = true;
-        // Dynamically hide expensive elements to recover FPS without re-allocating
-        if (this.networkLines) this.networkLines.visible = false;
-        if (this.orbs) this.orbs.forEach(o => o.visible = false);
-      }
-    }
-
     // Smooth mouse lerp
     this.mouse.x += (this.mouse.targetX - this.mouse.x) * 0.06;
     this.mouse.y += (this.mouse.targetY - this.mouse.y) * 0.06;
@@ -397,7 +385,7 @@ export class AtmosphereEngine {
       u.uMouse.value.set(this.mouse.x, this.mouse.y);
       // Only update scroll uniform if it changes significantly or skip for perf
       u.uScroll.value = this.scroll.y;
-      
+
       if (this.tier <= 3) {
         this.particles.rotation.y = elapsed * 0.008 + this.scroll.y * 0.00035;
         this.particles.rotation.x = this.scroll.y * 0.0001;
@@ -441,33 +429,44 @@ export class AtmosphereEngine {
 
   updateNeuralNetwork(elapsed) {
     const nodes = this.networkNodes;
-    const threshold = 4.2;
+    const threshold = 6.0; // Increased from 4.2 for a much denser, more visible web
+    const thresholdSq = threshold * threshold;
     let lineIdx = 0;
     const purple = new THREE.Color('#B84DFF');
+
+    // Reset connection counts for each node to prevent dense clumping (max 4 per node)
+    const connections = new Int32Array(nodes.length);
 
     // Update node positions
     for (let i = 0; i < nodes.length; i++) {
       const n = nodes[i];
-      const x = n.x + Math.sin(elapsed * n.speed * 0.15 + n.phase) * 0.4;
-      const y = n.y + Math.cos(elapsed * n.speed * 0.12 + n.phase * 1.2) * 0.3 - this.scroll.y * 0.0006;
-      const z = n.z + Math.sin(elapsed * n.speed * 0.08 + n.phase * 0.6) * 0.15;
+      // Expand movement bounds slightly for more dynamic floating
+      const x = n.x + Math.sin(elapsed * n.speed * 0.15 + n.phase) * 0.5;
+      const y = n.y + Math.cos(elapsed * n.speed * 0.12 + n.phase * 1.2) * 0.5 - this.scroll.y * 0.0006;
+      const z = n.z + Math.sin(elapsed * n.speed * 0.08 + n.phase * 0.6) * 0.25;
 
       this.networkPositions[i * 3] = x;
       this.networkPositions[i * 3 + 1] = y;
       this.networkPositions[i * 3 + 2] = z;
     }
 
-    // Find connections
+    // Find connections with limiters
     for (let i = 0; i < nodes.length; i++) {
+      if (connections[i] >= 4) continue; // Max 4 connections per node
+
       for (let j = i + 1; j < nodes.length; j++) {
+        if (connections[j] >= 4) continue; // Max 4 connections per node
+
         const dx = this.networkPositions[i * 3] - this.networkPositions[j * 3];
         const dy = this.networkPositions[i * 3 + 1] - this.networkPositions[j * 3 + 1];
         const dz = this.networkPositions[i * 3 + 2] - this.networkPositions[j * 3 + 2];
-        const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
+        const distSq = dx * dx + dy * dy + dz * dz;
 
-        if (dist < threshold && lineIdx < this.linePositions.length / 6) {
+        if (distSq < thresholdSq && lineIdx < this.linePositions.length / 6) {
+          const dist = Math.sqrt(distSq);
           const idx = lineIdx * 6;
-          const alpha = 1 - dist / threshold;
+          // Sharper alpha falloff for cleaner look
+          const alpha = Math.pow(1 - dist / threshold, 1.5) * 0.8;
 
           this.linePositions[idx] = this.networkPositions[i * 3];
           this.linePositions[idx + 1] = this.networkPositions[i * 3 + 1];
@@ -484,6 +483,8 @@ export class AtmosphereEngine {
           this.lineColors[idx + 4] = purple.g * alpha;
           this.lineColors[idx + 5] = purple.b * alpha;
 
+          connections[i]++;
+          connections[j]++;
           lineIdx++;
         }
       }

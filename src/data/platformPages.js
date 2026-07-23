@@ -8,6 +8,12 @@ export const PLATFORM_PAGES = {
     slug: 'whatsapp-api',
     category: 'platform',
     title: 'WhatsApp API',
+    seo: {
+      title: 'WhatsApp Business API Provider & Platform | Botzo.io',
+      description: 'Scale communication with the official Meta WhatsApp Business API. Automate replies, launch bulk campaigns, and integrate WhatsApp CRM seamlessly.',
+      keywords: 'WhatsApp API, Official WhatsApp Business API, Meta WhatsApp API, WhatsApp Business Platform, WhatsApp API Provider, WhatsApp API India, WhatsApp API Company, WhatsApp Marketing Platform, WhatsApp CRM, WhatsApp Automation, WhatsApp Broadcast Software, WhatsApp Campaign Software, WhatsApp Business Automation',
+      schemaType: 'SoftwareApplication'
+    },
     overline: 'Communication Channel',
     heroTitle: 'WhatsApp Business',
     heroHighlight: 'API Integration',
@@ -98,6 +104,12 @@ export const PLATFORM_PAGES = {
 
   'instagram-automation': {
     slug: 'instagram-automation', category: 'platform', title: 'Instagram Automation',
+    seo: {
+      title: 'Instagram Automation & DM Chatbots | Botzo.io',
+      description: 'Automate your Instagram DMs and comment replies with AI. Turn every follower interaction into a qualified lead automatically.',
+      keywords: 'Instagram Automation, Instagram DM Automation, Instagram Chatbot, Instagram Comment Automation, Instagram Lead Automation, Instagram AI, Instagram Business Automation',
+      schemaType: 'SoftwareApplication'
+    },
     overline: 'Social Commerce', heroTitle: 'Instagram', heroHighlight: 'DM & Comment Automation',
     gradient: ['#E4405F', '#F56040'],
     heroDesc: 'Automatically respond to Instagram DMs, story mentions, and post comments. Convert every interaction into a qualified lead with zero manual effort.',
@@ -137,6 +149,12 @@ export const PLATFORM_PAGES = {
 
   'facebook-automation': {
     slug: 'facebook-automation', category: 'platform', title: 'Facebook Automation',
+    seo: {
+      title: 'Facebook Messenger Automation & Lead Gen | Botzo.io',
+      description: 'Automate Facebook Messenger conversations and ad lead generation. Deploy AI chatbots to convert social traffic instantly.',
+      keywords: 'Facebook Automation, Facebook Messenger Automation, Facebook Chatbot, Facebook Lead Automation, Messenger Bot, FB Messenger Automation',
+      schemaType: 'SoftwareApplication'
+    },
     overline: 'Social Commerce', heroTitle: 'Facebook', heroHighlight: 'Messenger & Lead Gen',
     gradient: ['#1877F2', '#0A5DC2'],
     heroDesc: 'Automate Messenger conversations, Facebook comment replies, and lead generation ads. Convert social engagement into real business opportunities.',
@@ -176,6 +194,12 @@ export const PLATFORM_PAGES = {
 
   'rcs-messaging': {
     slug: 'rcs-messaging', category: 'platform', title: 'RCS Messaging',
+    seo: {
+      title: 'RCS Business Messaging Services | Botzo.io',
+      description: 'Upgrade your SMS campaigns with Google RCS messaging. Send rich media, interactive buttons, and verified brand messaging directly to Android users.',
+      keywords: 'RCS Messaging, Google RCS, Business Messaging, Rich Communication Services, RCS Business Messaging, RCS API',
+      schemaType: 'SoftwareApplication'
+    },
     overline: 'Next-Gen SMS', heroTitle: 'RCS Rich', heroHighlight: 'Communication Services',
     gradient: ['#36C5F0', '#0088FF'],
     heroDesc: 'Upgrade plain SMS to rich, branded messaging experiences. Send carousels, interactive buttons, calendar bookings, and verified sender profiles directly in Android messaging apps.',
@@ -223,6 +247,12 @@ export const PLATFORM_PAGES = {
 
   'team-inbox': {
     slug: 'team-inbox', category: 'platform', title: 'Team Inbox',
+    seo: {
+      title: 'Unified Team Inbox for Customer Support | Botzo.io',
+      description: 'Manage WhatsApp, Instagram, and Facebook messages in one centralized omnichannel inbox. Empower your support team with collaboration tools.',
+      keywords: 'Shared Inbox, Team Inbox, Omnichannel Inbox, Customer Support Inbox, Multi Agent WhatsApp, WhatsApp Shared Inbox, Unified Inbox',
+      schemaType: 'SoftwareApplication'
+    },
     overline: 'Collaboration Hub', heroTitle: 'Unified Team', heroHighlight: 'Inbox',
     gradient: ['#9C27FF', '#7B1FA2'],
     heroDesc: 'One inbox for every channel. WhatsApp, Instagram, Facebook, RCS, email — all conversations in a single unified view with agent assignment, internal notes, and real-time collaboration.',
@@ -300,6 +330,12 @@ export const PLATFORM_PAGES = {
 
   'workflow-automation': {
     slug: 'workflow-automation', category: 'platform', title: 'Workflow Automation',
+    seo: {
+      title: 'No Code Workflow Automation Builder | Botzo.io',
+      description: 'Build sophisticated business communication workflows visually. Drag-and-drop automation builder for intelligent conversational routing.',
+      keywords: 'Workflow Automation Software, No Code Automation, Business Workflow, Automation Builder, Visual Workflow Builder, Chatbot Builder',
+      schemaType: 'SoftwareApplication'
+    },
     overline: 'No-Code Builder', heroTitle: 'Visual Workflow', heroHighlight: 'Automation Engine',
     gradient: ['#B84DFF', '#7B1FA2'],
     heroDesc: 'Build sophisticated automation flows with drag-and-drop — no coding required. Connect triggers, conditions, actions, and delays to create intelligent communication workflows.',
@@ -374,6 +410,12 @@ export const PLATFORM_PAGES = {
 
   'crm': {
     slug: 'crm', category: 'platform', title: 'Centralized CRM',
+    seo: {
+      title: 'Sales CRM & Lead Management Software | Botzo.io',
+      description: 'Track and manage every lead inside a powerful visual CRM. Seamlessly integrated with WhatsApp for automated follow-ups and pipeline tracking.',
+      keywords: 'CRM Software, Sales CRM, WhatsApp CRM, Lead Management CRM, Customer Relationship Management, Pipeline Management, Business CRM',
+      schemaType: 'SoftwareApplication'
+    },
     overline: 'Customer Management', heroTitle: 'Centralized', heroHighlight: 'CRM & Pipeline',
     gradient: ['#0088FF', '#0055CC'],
     heroDesc: 'Track every lead from first contact to conversion. Manage pipelines, automate follow-ups, segment contacts, and gain actionable insights — all integrated with your messaging channels.',
@@ -442,6 +484,12 @@ export const PLATFORM_PAGES = {
 
   'bulk-campaigns': {
     slug: 'bulk-campaigns', category: 'platform', title: 'Bulk Campaigns',
+    seo: {
+      title: 'Bulk WhatsApp Messaging & Campaigns | Botzo.io',
+      description: 'Send targeted bulk WhatsApp messages and broadcast campaigns to thousands of customers instantly with complete analytics.',
+      keywords: 'Bulk WhatsApp Messaging, Bulk Messaging Platform, Campaign Software, Broadcast Software, WhatsApp Broadcast API, WhatsApp Marketing Sender',
+      schemaType: 'SoftwareApplication'
+    },
     overline: 'Broadcasting Engine', heroTitle: 'Bulk Campaign', heroHighlight: 'Broadcasting',
     gradient: ['#FF6B35', '#E55100'],
     heroDesc: 'Launch WhatsApp & RCS broadcast campaigns to thousands of contacts with approved templates, smart scheduling, audience segmentation, and real-time delivery analytics.',
@@ -502,6 +550,12 @@ export const PLATFORM_PAGES = {
 
   'appointment-booking': {
     slug: 'appointment-booking', category: 'platform', title: 'Appointment Booking',
+    seo: {
+      title: 'Automated Appointment Scheduling Software | Botzo.io',
+      description: 'Let customers book appointments and schedule meetings directly through WhatsApp or web chatbots instantly without human intervention.',
+      keywords: 'Appointment Scheduling, Booking Software, Calendar Booking, Online Appointment System, WhatsApp Booking Bot, Automated Scheduling',
+      schemaType: 'SoftwareApplication'
+    },
     overline: 'Commerce Tools', heroTitle: 'Automated', heroHighlight: 'Appointment Booking',
     gradient: ['#25D366', '#00897B'],
     heroDesc: 'Let customers book appointments directly through WhatsApp and RCS. Automated scheduling, reminders, rescheduling, and no-show follow-ups.',
@@ -550,6 +604,12 @@ export const PLATFORM_PAGES = {
 
   'payment-integration': {
     slug: 'payment-integration', category: 'platform', title: 'Payment Integration',
+    seo: {
+      title: 'WhatsApp Payment Collection & UPI Integration | Botzo.io',
+      description: 'Collect payments seamlessly over WhatsApp. Send payment links, enable native UPI flows, and track transaction success in real-time.',
+      keywords: 'Payment Integration, Payment Collection, Payment Gateway Integration, UPI Payment, WhatsApp Payment, Chat Commerce, Native WhatsApp Payments',
+      schemaType: 'SoftwareApplication'
+    },
     overline: 'Commerce Tools', heroTitle: 'In-Chat', heroHighlight: 'Payment Collection',
     gradient: ['#00E676', '#00C853'],
     heroDesc: 'Collect payments directly inside WhatsApp and RCS conversations. Integrate Razorpay, Stripe, or WhatsApp Pay for seamless in-chat checkout experiences.',
@@ -598,6 +658,12 @@ export const PLATFORM_PAGES = {
 
   'qr-ticketing': {
     slug: 'qr-ticketing', category: 'platform', title: 'Dynamic QR Ticketing',
+    seo: {
+      title: 'Dynamic QR Code Generation & Event Ticketing | Botzo.io',
+      description: 'Generate dynamic QR codes for physical events, product packaging, and offline-to-online customer acquisition directly into your WhatsApp CRM.',
+      keywords: 'Dynamic QR, Dynamic QR Code, QR Ticketing, QR Event Entry, QR Management, Offline to Online Marketing, WhatsApp QR Generator',
+      schemaType: 'SoftwareApplication'
+    },
     overline: 'Commerce Tools', heroTitle: 'Dynamic QR', heroHighlight: 'Ticketing System',
     gradient: ['#FF6B35', '#E55100'],
     heroDesc: 'Generate unique QR-coded tickets for events, flights, movies, and store pick-ups. Deliver directly to WhatsApp with real-time validation and entry management.',
@@ -648,6 +714,12 @@ export const PLATFORM_PAGES = {
     slug: 'voice-ai',
     category: 'platform',
     title: 'Voice AI',
+    seo: {
+      title: 'AI Voice Agents & Inbound Calling Automation | Botzo.io',
+      description: 'Deploy conversational AI voice agents capable of handling inbound support calls, booking appointments, and conducting intelligent outbound surveys.',
+      keywords: 'Voice AI, AI Voice Agent, Voice Assistant, AI Calling, Voice Automation, Conversational IVR, Phone Bot',
+      schemaType: 'SoftwareApplication'
+    },
     overline: 'AI Telephony',
     heroTitle: 'Autonomous Voice',
     heroHighlight: 'AI Agents',
@@ -759,6 +831,12 @@ export const PLATFORM_PAGES = {
     slug: 'ai-studio',
     category: 'platform',
     title: 'AI Studio',
+    seo: {
+      title: 'AI Automation Studio & Custom Knowledge Base | Botzo.io',
+      description: 'Train your custom AI agents. Upload documents, URLs, and CRM data to create highly contextual business assistants for sales and support.',
+      keywords: 'AI Studio, AI Builder, AI Workspace, AI Platform, AI Automation Studio, Custom LLM Training, Enterprise AI Assistant',
+      schemaType: 'SoftwareApplication'
+    },
     overline: 'Creative Engine',
     heroTitle: 'On-Model AI',
     heroHighlight: 'Product Studio',
@@ -874,7 +952,13 @@ export const PLATFORM_PAGES = {
   'ai-bot': {
     slug: 'ai-bot',
     category: 'platform',
-    title: 'AI Bot',
+    title: 'Autonomous AI Bot',
+    seo: {
+      title: 'Autonomous AI Chatbot for Business | Botzo.io',
+      description: 'Deploy intelligent AI chatbots that understand intent, resolve customer issues, qualify leads, and perform tasks autonomously.',
+      keywords: 'AI Bot, AI Chatbot, Customer Support Bot, Autonomous AI, Business AI Assistant, Intelligent Virtual Agent',
+      schemaType: 'SoftwareApplication'
+    },
     overline: 'Autonomous Chat',
     heroTitle: 'Autonomous Customer',
     heroHighlight: 'AI Chatbot',
