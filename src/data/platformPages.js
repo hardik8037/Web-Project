@@ -248,9 +248,9 @@ export const PLATFORM_PAGES = {
   'team-inbox': {
     slug: 'team-inbox', category: 'platform', title: 'Team Inbox',
     seo: {
-      title: 'Unified Team Inbox for Customer Support | Botzo.io',
-      description: 'Manage WhatsApp, Instagram, and Facebook messages in one centralized omnichannel inbox. Empower your support team with collaboration tools.',
-      keywords: 'Shared Inbox, Team Inbox, Omnichannel Inbox, Customer Support Inbox, Multi Agent WhatsApp, WhatsApp Shared Inbox, Unified Inbox',
+      title: 'Omnichannel Team Inbox & Shared CRM | Botzo.io',
+      description: 'Manage WhatsApp, Instagram, and Messenger in one unified team inbox. Collaborate in real-time, route tickets automatically, and close sales faster.',
+      keywords: 'Omnichannel Inbox, Shared WhatsApp Inbox, Team Inbox Software, Multi-Agent WhatsApp, Instagram DM Automation, Facebook Messenger CRM, Unified Messaging Platform',
       schemaType: 'SoftwareApplication'
     },
     overline: 'Collaboration Hub', heroTitle: 'Unified Team', heroHighlight: 'Inbox',

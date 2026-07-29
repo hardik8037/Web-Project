@@ -78,3 +78,15 @@ We run a production-grade Content Security Policy (CSP). **You must strictly obe
    }
    ```
 5. If the page requires specific CSS hover states (to obey CSP), add them to `src/styles/pages.css`.
+
+---
+
+## 7. Answer Engine Optimization (AEO/GEO) Layer
+
+To maximize visibility on LLMs (ChatGPT, Claude, Google AI Overviews), the platform uses a centralized AEO dictionary mapping system:
+- **`src/data/aeoData.js`**: Contains structured definitions (`aeoEntity`, `aeoDefinition`, `relatedEntities`) for all dynamic pages.
+- **Router Interception**: In `src/js/router.js`, inside `resolveDynamicRoute()`, the router intercepts the page load, fetches the corresponding AEO payload from `aeoData.js`, and merges it into the `pageData` object.
+- **Semantic Rendering**: 
+  - `src/pages/DetailPage.js` checks for `config.aeoEntity` and automatically renders an `<article itemscope itemtype="https://schema.org/DefinedTerm">` block directly under the Hero.
+  - `src/config/seo.js` extracts `aeoDefinition` to natively populate the JSON-LD `SoftwareApplication`, `Service`, and `DefinedTerm` schemas.
+**Rule:** When adding a new dynamic page, you *must* add its encyclopedic definition to `aeoData.js` so the AI search crawlers can index it.

@@ -1045,6 +1045,31 @@ export function createDetailPage(config) {
     </section>
   `;
 
+  // ─── ANSWER ENGINE OPTIMIZATION (GEO/AEO) ───
+  let aeoHTML = '';
+  if (config.aeoEntity && config.aeoDefinition) {
+    aeoHTML = `
+      <section class="section page-aeo" style="padding-top: 2rem; padding-bottom: 2rem;">
+        <div class="container-wide">
+          <article class="aeo-block glass-card" itemscope itemtype="https://schema.org/DefinedTerm" style="padding: 2.5rem; max-width: 800px; margin: 0 auto; border-radius: var(--radius-lg); text-align: left; position: relative; z-index: 2;">
+            <h2 itemprop="name" style="font-size: 1.6rem; font-weight: 600; margin-bottom: 1rem; color: var(--text-primary);">What is ${sanitizeHTML(config.aeoEntity)}?</h2>
+            <div itemprop="description" style="font-size: 1.1rem; line-height: 1.7; color: var(--text-secondary);">
+              <p>${sanitizeHTML(config.aeoDefinition)}</p>
+            </div>
+            ${config.relatedEntities && config.relatedEntities.length > 0 ? `
+              <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                <h3 style="font-size: 1rem; margin-bottom: 0.8rem; color: var(--text-primary);">Related Capabilities:</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                  ${config.relatedEntities.map(entity => `<span class="badge" style="background: rgba(255,255,255,0.05); padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.9rem;">${sanitizeHTML(entity)}</span>`).join('')}
+                </div>
+              </div>
+            ` : ''}
+          </article>
+        </div>
+      </section>
+    `;
+  }
+
   // ─── FEATURE CARDS ───
   let featuresHTML = '';
   if (config.features && config.features.length) {
@@ -1298,8 +1323,8 @@ export function createDetailPage(config) {
     `;
   }
 
-  // ─── ASSEMBLE ───
-  container.innerHTML = heroHTML + featuresHTML + demoHTML + stepsHTML + benefitsHTML + faqHTML + integrationsHTML + crossLinkHTML;
+  // ─── FINAL ASSEMBLY ───
+  container.innerHTML = heroHTML + aeoHTML + featuresHTML + demoHTML + stepsHTML + benefitsHTML + faqHTML + integrationsHTML + crossLinkHTML;
 
   // Append Final CTA
   container.appendChild(createFinalCTA());

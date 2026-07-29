@@ -273,6 +273,8 @@ const injectDynamicSEO = (dataObject, category, defaultSchema, defaultPriority, 
       breadcrumb: customSEO.breadcrumb || pageTitle,
       entity: customSEO.entity || null,
       aiDescription: customSEO.aiDescription || customSEO.description || pageDesc,
+      aeoEntity: page.aeoEntity || null,
+      aeoDefinition: page.aeoDefinition || null,
     };
 
     // Inject AI FAQs strictly to improve Perplexity/Google AI Overviews relevance

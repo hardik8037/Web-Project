@@ -43,6 +43,12 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+
+  # 1. Force 410 Gone for all legacy WordPress URLs so Google drops them instantly
+  RewriteRule ^wp-(content|admin|includes) - [G,L]
+  RewriteRule \.php$ - [G,L]
+  RewriteRule ^comments/feed - [G,L]
+
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d

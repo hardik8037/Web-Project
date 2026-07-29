@@ -30,7 +30,7 @@ export function createFooter() {
 
         <div class="footer-columns">
           <div class="footer-col">
-            <h4 class="footer-col-title">Platform</h4>
+            <h3 class="footer-col-title">Platform</h3>
             <ul class="footer-links">
               <li><a href="/platform/whatsapp-api">WhatsApp API</a></li>
               <li><a href="/platform/instagram-automation">Instagram Automation</a></li>
@@ -44,7 +44,7 @@ export function createFooter() {
           </div>
 
           <div class="footer-col">
-            <h4 class="footer-col-title">Services</h4>
+            <h3 class="footer-col-title">Services</h3>
             <ul class="footer-links">
               <li><a href="/services/digital-marketing">Digital Marketing</a></li>
               <li><a href="/services/seo">SEO Services</a></li>
@@ -58,7 +58,7 @@ export function createFooter() {
           </div>
 
           <div class="footer-col">
-            <h4 class="footer-col-title">Solutions</h4>
+            <h3 class="footer-col-title">Solutions</h3>
             <ul class="footer-links">
               <li><a href="/solutions/real-estate">Real Estate</a></li>
               <li><a href="/solutions/healthcare">Healthcare</a></li>
@@ -76,7 +76,7 @@ export function createFooter() {
           </div>
 
           <div class="footer-col">
-            <h4 class="footer-col-title">Company</h4>
+            <h3 class="footer-col-title">Company</h3>
             <ul class="footer-links">
               <li><a href="/about">About Us</a></li>
               <li><a href="/contact">Contact</a></li>
@@ -98,7 +98,7 @@ export function createFooter() {
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-light)" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="M22 7l-10 6L2 7"/></svg>
           </div>
           <div>
-            <h4 class="heading-card" style="margin-bottom: 0.25rem;">Stay ahead with Botzo.io</h4>
+            <h3 class="heading-card" style="margin-bottom: 0.25rem;">Stay ahead with Botzo.io</h3>
             <p class="text-body" style="opacity: 0.6; font-size: 0.82rem;">Get automation tips, product updates, and growth strategies.</p>
           </div>
         </div>

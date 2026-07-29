@@ -14,6 +14,7 @@ import { Analytics } from '../analytics/analytics.js';
 import { PLATFORM_PAGES } from '../data/platformPages.js';
 import { SERVICE_PAGES } from '../data/servicePages.js';
 import { SOLUTION_PAGES } from '../data/solutionPages.js';
+import { AEO_DEFINITIONS } from '../data/aeoData.js';
 
 const ROUTES = {
   '/': { title: 'Botzo.io — Business Automation Ecosystem', builder: () => import('../pages/Home.js').then(m => m.createHome()), mood: 'default' },
@@ -60,6 +61,11 @@ function resolveDynamicRoute(path) {
   }
 
   if (!pageData) return null;
+
+  // Augment page data with centralized AEO/GEO semantic payloads
+  if (AEO_DEFINITIONS[slug]) {
+    pageData = { ...pageData, ...AEO_DEFINITIONS[slug] };
+  }
 
   return {
     title: `${pageData.title} | Botzo.io`,
@@ -201,7 +207,7 @@ export class Router {
           this.evolveAtmosphereMood(routeConfig.mood);
 
           // 5. Scan new elements for Mouse Parallax and refresh ScrollTrigger
-          setTimeout(() => {
+          requestAnimationFrame(() => {
             if (window.mouseParallax && typeof window.mouseParallax.scan === 'function') {
               window.mouseParallax.scan();
             }
@@ -211,24 +217,26 @@ export class Router {
               initScrollAnimations();
             }
 
-            ScrollTrigger.refresh();
+            // Defer ScrollTrigger refresh and hash scrolling to avoid main-thread locking
+            setTimeout(() => {
+              ScrollTrigger.refresh();
 
-            // Scroll to top again or to hash to make sure ScrollTrigger's refresh/recreation didn't cause a scroll jump
-            if (!hash) {
-              window.scrollTo(0, 0);
-            } else if (hash && hash !== '#') {
-              try {
-                const targetEl = document.querySelector(hash);
-                if (targetEl) {
-                  const navbarHeight = document.getElementById('navbar')?.offsetHeight || 0;
-                  const top = targetEl.getBoundingClientRect().top + window.scrollY - navbarHeight - 20;
-                  window.scrollTo({ top, behavior: 'smooth' });
+              if (!hash) {
+                window.scrollTo(0, 0);
+              } else if (hash && hash !== '#') {
+                try {
+                  const targetEl = document.querySelector(hash);
+                  if (targetEl) {
+                    const navbarHeight = document.getElementById('navbar')?.offsetHeight || 0;
+                    const top = targetEl.getBoundingClientRect().top + window.scrollY - navbarHeight - 20;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                  }
+                } catch (err) {
+                  console.warn(`Failed to scroll to selector: ${hash}`, err);
                 }
-              } catch (err) {
-                console.warn(`Failed to scroll to selector: ${hash}`, err);
               }
-            }
-          }, 100);
+            }, 50);
+          });
 
           // 6. Cinematic Fade In of the page contents
           gsap.fromTo(this.container,
@@ -463,7 +471,7 @@ export class Router {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": seo.title.split('|')[0].trim(),
-        "description": seo.aiDescription || seo.description,
+        "description": seo.aeoDefinition || seo.aiDescription || seo.description,
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web",
         "offers": {
@@ -488,13 +496,24 @@ export class Router {
         "@context": "https://schema.org",
         "@type": "Service",
         "name": seo.title.split('|')[0].trim(),
-        "description": seo.aiDescription || seo.description,
+        "description": seo.aeoDefinition || seo.aiDescription || seo.description,
         "provider": {
           "@type": "Organization",
           "name": "Botzo.io",
           "url": "https://botzo.io/"
         },
         "url": seo.canonical
+      });
+    }
+
+    // Phase 7: Automatically inject AEO Definition as a DefinedTerm schema for LLMs
+    if (seo.aeoEntity && seo.aeoDefinition) {
+      schemas.push({
+        "@context": "https://schema.org",
+        "@type": "DefinedTerm",
+        "name": seo.aeoEntity,
+        "description": seo.aeoDefinition,
+        "inDefinedTermSet": "https://botzo.io"
       });
     }
 

@@ -121,7 +121,7 @@ export function createUseCases() {
   const cardsHTML = USE_CASES.map(uc => `
     <a href="/solutions/${uc.slug}" class="usecase-card glass-card" style="--uc-color: ${uc.color}; text-decoration: none; cursor: pointer; display: block;">
       <div class="usecase-icon">${uc.icon}</div>
-      <h4 class="heading-card">${uc.title}</h4>
+      <h3 class="heading-card">${uc.title}</h3>
       <div class="usecase-pain">
         <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="var(--color-red)" stroke-width="1.2" opacity="0.6"/><path d="M6 6l4 4M10 6l-4 4" stroke="var(--color-red)" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/></svg>
         <span>${uc.pain}</span>

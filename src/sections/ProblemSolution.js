@@ -26,7 +26,7 @@ export function createProblemSolution() {
           <div class="transform-card transform-card-problem">
             <div class="transform-card-icon">📵</div>
             <div class="transform-card-content">
-              <h4>Missed Leads & Slow Replies</h4>
+              <h3>Missed Leads & Slow Replies</h3>
               <p>Customers wait hours or days for responses. 67% of leads go cold within the first 5 minutes.</p>
             </div>
             <div class="transform-metric-bad">67% leads lost</div>
@@ -35,7 +35,7 @@ export function createProblemSolution() {
           <div class="transform-card transform-card-problem">
             <div class="transform-card-icon">🔀</div>
             <div class="transform-card-content">
-              <h4>Scattered Communication</h4>
+              <h3>Scattered Communication</h3>
               <p>Messages spread across WhatsApp, Instagram, Facebook, email — nothing centralized.</p>
             </div>
             <div class="transform-metric-bad">5+ platforms</div>
@@ -44,7 +44,7 @@ export function createProblemSolution() {
           <div class="transform-card transform-card-problem">
             <div class="transform-card-icon">⏱️</div>
             <div class="transform-card-content">
-              <h4>Manual Repetitive Workflows</h4>
+              <h3>Manual Repetitive Workflows</h3>
               <p>Team spends 70% of time on repetitive tasks — copy-paste responses, manual data entry.</p>
             </div>
             <div class="transform-metric-bad">70% time wasted</div>
@@ -53,7 +53,7 @@ export function createProblemSolution() {
           <div class="transform-card transform-card-problem">
             <div class="transform-card-icon">📉</div>
             <div class="transform-card-content">
-              <h4>No Visibility or Analytics</h4>
+              <h3>No Visibility or Analytics</h3>
               <p>Zero insight into conversion rates, response times, or campaign performance.</p>
             </div>
             <div class="transform-metric-bad">0% visibility</div>
@@ -81,7 +81,7 @@ export function createProblemSolution() {
           <div class="transform-card transform-card-solution">
             <div class="transform-card-icon">⚡</div>
             <div class="transform-card-content">
-              <h4>Instant AI-Powered Responses</h4>
+              <h3>Instant AI-Powered Responses</h3>
               <p>Automated chatbot responds in under 2 seconds, 24/7. Never miss a lead again.</p>
             </div>
             <div class="transform-metric-good">87% faster response</div>
@@ -90,7 +90,7 @@ export function createProblemSolution() {
           <div class="transform-card transform-card-solution">
             <div class="transform-card-icon">🎯</div>
             <div class="transform-card-content">
-              <h4>Centralized Communication Hub</h4>
+              <h3>Centralized Communication Hub</h3>
               <p>All channels in one unified inbox. One platform, one team, one conversation thread.</p>
             </div>
             <div class="transform-metric-good">1 unified platform</div>
@@ -99,7 +99,7 @@ export function createProblemSolution() {
           <div class="transform-card transform-card-solution">
             <div class="transform-card-icon">🤖</div>
             <div class="transform-card-content">
-              <h4>Automated Workflow Engine</h4>
+              <h3>Automated Workflow Engine</h3>
               <p>Build visual workflows that handle repetitive tasks automatically. Free your team to focus on growth.</p>
             </div>
             <div class="transform-metric-good">3x productivity</div>
