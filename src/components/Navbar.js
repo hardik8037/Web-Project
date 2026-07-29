@@ -334,7 +334,7 @@ export function createNavbar() {
   // Append mobile drawer to body (portal style) to avoid stacking context issues
   document.body.insertAdjacentHTML('beforeend', `
     <!-- Mobile Menu Drawer -->
-    <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+    <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true" inert>
       <div class="mobile-drawer-content">
         <a href="/" class="mobile-nav-link">Home</a>
         
@@ -471,13 +471,16 @@ function initNavbarInteractions(nav) {
       const isOpen = drawer.classList.toggle('open');
       hamburger.classList.toggle('active');
       hamburger.setAttribute('aria-expanded', isOpen.toString());
-      drawer.setAttribute('aria-hidden', (!isOpen).toString());
       
       if (isOpen) {
+        drawer.removeAttribute('aria-hidden');
+        drawer.removeAttribute('inert');
         savedScrollY = window.scrollY;
         document.body.style.top = `-${savedScrollY}px`;
         document.body.classList.add('nav-open');
       } else {
+        drawer.setAttribute('aria-hidden', 'true');
+        drawer.setAttribute('inert', '');
         document.body.classList.remove('nav-open');
         document.body.style.top = '';
         window.scrollTo(0, savedScrollY);
@@ -515,6 +518,7 @@ function initNavbarInteractions(nav) {
         hamburger.classList.remove('active');
         hamburger.setAttribute('aria-expanded', 'false');
         drawer.setAttribute('aria-hidden', 'true');
+        drawer.setAttribute('inert', '');
         document.body.classList.remove('nav-open');
         document.body.style.top = '';
         window.scrollTo(0, savedScrollY);
