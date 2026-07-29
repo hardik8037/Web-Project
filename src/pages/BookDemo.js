@@ -349,7 +349,7 @@ export function createBookDemo() {
         if (disabled) {
           optionsHTML += `<div class="custom-time-option" style="padding: 0.85rem 1.25rem; font-size: 0.95rem; color: rgba(255,255,255,0.3); cursor: not-allowed; display: flex; justify-content: space-between; align-items: center;" aria-disabled="true">${label}</div>`;
         } else {
-          optionsHTML += `<div class="custom-time-option selectable" data-value="${slot.time}" tabindex="0" role="option" style="padding: 0.85rem 1.25rem; font-size: 0.95rem; color: #fff; cursor: pointer; transition: all 0.2s ease; border-left: 2px solid transparent; display: flex; justify-content: space-between; align-items: center;" onmouseover="this.style.background='rgba(139, 92, 246, 0.15)'; this.style.borderLeftColor='var(--color-primary-light)';" onmouseout="this.style.background='transparent'; this.style.borderLeftColor='transparent';">
+          optionsHTML += `<div class="custom-time-option selectable" data-value="${slot.time}" tabindex="0" role="option" style="padding: 0.85rem 1.25rem; font-size: 0.95rem; color: #fff; cursor: pointer; transition: all 0.2s ease; border-left: 2px solid transparent; display: flex; justify-content: space-between; align-items: center;">
             <span>${label}</span>
           </div>`;
           if (!firstAvailableFound) {

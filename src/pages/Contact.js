@@ -57,7 +57,7 @@ export function createContact() {
                 <div style="width: 44px; height: 44px; border-radius: 14px; background: rgba(156, 39, 255, 0.15); border: 1px solid rgba(156, 39, 255, 0.25); display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">📞</div>
                 <div>
                   <div style="font-size: 0.75rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 4px; font-weight: 600;">Call Us</div>
-                  <strong style="font-family: 'Outfit', sans-serif; font-size: 1.05rem; color: #fff; font-weight: 600; letter-spacing: 0.5px;">+91 97273 72130</strong>
+                  <strong style="font-family: 'Outfit', sans-serif; font-size: 1.05rem; color: #fff; font-weight: 600; letter-spacing: 0.5px;">+91 99791 00352</strong>
                 </div>
               </div>
               <div style="display: flex; align-items: center; gap: 1rem;">

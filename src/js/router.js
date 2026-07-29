@@ -6,7 +6,6 @@
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import * as THREE from 'three';
 import { initScrollAnimations } from './animations.js';
 import { SEO_CONFIG } from '../config/seo.js';
 import { Analytics } from '../analytics/analytics.js';
@@ -314,8 +313,15 @@ export class Router {
     // Apply mood variables smoothly via GSAP
     if (engine.particles && engine.particles.material) {
       const uniforms = engine.particles.material.uniforms;
-      // We can animate color or size variables
-      const targetColor = new THREE.Color(config.particleColor);
+      
+      // Parse hex to RGB (0-1 range) to avoid importing THREE
+      const hex = config.particleColor;
+      const targetColor = {
+        r: parseInt(hex.slice(1, 3), 16) / 255,
+        g: parseInt(hex.slice(3, 5), 16) / 255,
+        b: parseInt(hex.slice(5, 7), 16) / 255
+      };
+
       gsap.to(engine.particles.material.color || targetColor, {
         r: targetColor.r,
         g: targetColor.g,

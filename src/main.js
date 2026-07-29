@@ -10,11 +10,15 @@ import { createNavbar } from './components/Navbar.js';
 import { createFooter } from './components/Footer.js';
 import { initUI } from './components/ui/index.js';
 
+// Scroll Synchronization
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
+
 // JS Systems
 import { initNavbarScroll } from './js/animations.js';
 // AtmosphereEngine is dynamically imported to defer Three.js parsing
 import { MouseParallax } from './js/mouse-parallax.js';
-import { ChatbotDemo } from './js/chatbot-demo.js';
 import { Router } from './js/router.js';
 import { Analytics } from './analytics/analytics.js';
 import Lenis from 'lenis';
@@ -31,18 +35,26 @@ const initLoader = () => {
   if (el) {
     let start = null;
     const duration = 1200; // Exact milliseconds to finish
+    const textArr = textToType.split('');
+    const charsLen = chars.length;
     
     const animate = (timestamp) => {
       if (!start) start = timestamp;
       const progress = (timestamp - start) / duration;
-      const currentLen = Math.floor(progress * textToType.length);
+      const currentLen = Math.floor(progress * textArr.length);
       
       if (progress < 1) {
-        el.innerText = textToType.split('').map((letter, index) => {
-          if(index < currentLen) return letter;
-          if(letter === ' ') return ' ';
-          return chars[Math.floor(Math.random() * chars.length)];
-        }).join('');
+        let newText = '';
+        for (let i = 0; i < textArr.length; i++) {
+          if (i < currentLen) {
+            newText += textArr[i];
+          } else if (textArr[i] === ' ') {
+            newText += ' ';
+          } else {
+            newText += chars[Math.floor(Math.random() * charsLen)];
+          }
+        }
+        el.innerText = newText;
         requestAnimationFrame(animate);
       } else {
         el.innerText = textToType;
@@ -102,11 +114,13 @@ function initApp() {
         infinite: false,
       });
 
-      function raf(time) {
-        window.lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
-      requestAnimationFrame(raf);
+      window.lenis.on('scroll', ScrollTrigger.update);
+
+      gsap.ticker.add((time) => {
+        window.lenis.raf(time * 1000);
+      });
+
+      gsap.ticker.lagSmoothing(0);
     }
 
     // Initialize Analytics Engine after critical rendering
@@ -171,14 +185,23 @@ function initApp() {
     grid.className = 'floating-grid';
     app.appendChild(grid);
 
-    // Initialize interactive chatbot demo handler globally
-    new ChatbotDemo();
+    // Initialize interactive chatbot demo handler dynamically to save initial bundle size
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(() => {
+        import('./js/chatbot-demo.js').then(({ ChatbotDemo }) => new ChatbotDemo());
+      }, { timeout: 2000 });
+    } else {
+      setTimeout(() => {
+        import('./js/chatbot-demo.js').then(({ ChatbotDemo }) => new ChatbotDemo());
+      }, 1500);
+    }
 
-    // Initialize Custom Router to handle client-side navigation
-    window.router = new Router('#page-container');
-
-    // Initialize Shadcn-style Vanilla UI Components
-    initUI();
+    // Defer heavy routing & UI setup until AFTER the 1200ms loader typing animation completes
+    // This prevents main-thread DOM thrashing from freezing the loader.
+    setTimeout(() => {
+      window.router = new Router('#page-container');
+      initUI();
+    }, 1300);
   });
 }
 
